@@ -118,6 +118,19 @@
           <label class="form-label small mb-1">الإعلان</label>
           <select class="form-select" id="announcementFilter"><option value="">الكل</option></select>
         </div>
+        <div class="col-md">
+          <label class="form-label small mb-1">القيمة التقديرية (د.أ)</label>
+          <select class="form-select" id="estValueFilter">
+            <option value="">الكل</option>
+            <option value="0-5000">أقل من 5,000</option>
+            <option value="5000-10000">5,000 – 10,000</option>
+            <option value="10000-30000">10,000 – 30,000</option>
+            <option value="30000-50000">30,000 – 50,000</option>
+            <option value="50000-100000">50,000 – 100,000</option>
+            <option value="100000-250000">100,000 – 250,000</option>
+            <option value="250000-">أكثر من 250,000</option>
+          </select>
+        </div>
       </div>
     </div>
   </div>
@@ -358,6 +371,13 @@
     const vil = document.getElementById('villageFilter').value;
     const bsn = document.getElementById('basinFilter').value;
     const ann = document.getElementById('announcementFilter').value;
+    const estRange = document.getElementById('estValueFilter').value;
+    let estLo = null, estHi = null;
+    if (estRange) {
+      const parts = estRange.split('-');
+      estLo = parts[0] === '' ? null : +parts[0];
+      estHi = parts[1] === '' ? null : +parts[1];
+    }
 
     let rows = auctions.filter(a =>
       (!cat || a.category === cat) &&
@@ -368,6 +388,11 @@
       (!vil || a.village === vil) &&
       (!bsn || a.basin === bsn) &&
       (!ann || a.announcement === ann) &&
+      (estLo === null && estHi === null ? true : (
+        a.estimatedValueNum != null &&
+        (estLo === null || a.estimatedValueNum >= estLo) &&
+        (estHi === null || a.estimatedValueNum <  estHi)
+      )) &&
       matches(a, q)
     );
 
@@ -579,7 +604,7 @@
   });
 
   // Filter inputs
-  const filterIds = ['searchInput','categoryFilter','courtFilter','statusFilter','govFilter','dirFilter','villageFilter','basinFilter','announcementFilter'];
+  const filterIds = ['searchInput','categoryFilter','courtFilter','statusFilter','govFilter','dirFilter','villageFilter','basinFilter','announcementFilter','estValueFilter'];
   filterIds.forEach(id => {
     document.getElementById(id).addEventListener('input', apply);
     document.getElementById(id).addEventListener('change', apply);
