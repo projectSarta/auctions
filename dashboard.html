@@ -696,9 +696,7 @@
         _leafletMap.fitBounds(b.pad(0.5));
         const c = b.getCenter();
         note.innerHTML = `🎯 الحدود الفعلية للقطعة (المساحة ${(props.area||0).toLocaleString('en-US',{maximumFractionDigits:0})} م²) · ` +
-          `<a href="https://www.openstreetmap.org/?mlat=${c.lat}&mlon=${c.lng}#map=18/${c.lat}/${c.lng}" target="_blank" rel="noopener">OSM</a> · ` +
-          `<a href="https://www.google.com/maps/@${c.lat},${c.lng},18z/data=!3m1!1e3" target="_blank" rel="noopener">Google Maps (satellite)</a> · ` +
-          `<a href="https://aradi.io/" target="_blank" rel="noopener">aradi.io</a>`;
+          `<a href="https://www.google.com/maps/@${c.lat},${c.lng},18z/data=!3m1!1e3" target="_blank" rel="noopener">Google Maps (satellite)</a>`;
         setTimeout(() => { try { _leafletMap.invalidateSize(); } catch {} }, 300);
         return;
       }
@@ -719,7 +717,7 @@
     _leafletLayer = L.marker([hit.lat, hit.lon]).addTo(_leafletMap)
       .bindPopup(`<div dir="rtl" style="text-align:right">${escapeHtml(used)}</div>`).openPopup();
     note.innerHTML = `📍 موقع تقريبي (مستوى القرية): ${escapeHtml(hit.name)} · ` +
-      `<a href="https://www.openstreetmap.org/?mlat=${hit.lat}&mlon=${hit.lon}#map=15/${hit.lat}/${hit.lon}" target="_blank" rel="noopener">OSM</a>`;
+      `<a href="https://www.google.com/maps/@${hit.lat},${hit.lon},15z" target="_blank" rel="noopener">Google Maps</a>`;
     setTimeout(() => { try { _leafletMap.invalidateSize(); } catch {} }, 300);
   }
 
