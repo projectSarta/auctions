@@ -94,10 +94,6 @@
           <label class="form-label small mb-1">المحكمة / الدائرة</label>
           <select class="form-select" id="courtFilter"><option value="">الكل</option></select>
         </div>
-        <div class="col-md-2">
-          <label class="form-label small mb-1">حالة المزاد</label>
-          <select class="form-select" id="statusFilter"><option value="">الكل</option></select>
-        </div>
         <div class="col-md-2 d-flex gap-2 flex-wrap">
           <button class="btn btn-outline-warning flex-grow-1" id="favOnlyBtn" title="إظهار المفضلة فقط">⭐ <span id="favCount">0</span></button>
           <button class="btn btn-outline-secondary flex-grow-1" id="clearFilters">مسح</button>
@@ -378,7 +374,6 @@
 
   fillSelect('categoryFilter', auctions.map(a => a.category));
   fillSelect('courtFilter',    auctions.map(a => a.court));
-  fillSelect('statusFilter',   auctions.map(a => a.status));
   fillSelect('govFilter',          auctions.map(a => a.governorate));
   fillSelect('dirFilter',          auctions.map(a => a.directorate));
   fillSelect('villageFilter',      auctions.map(a => a.village));
@@ -401,7 +396,6 @@
     const q = document.getElementById('searchInput').value.trim().toLowerCase();
     const cat = document.getElementById('categoryFilter').value;
     const crt = document.getElementById('courtFilter').value;
-    const stt = document.getElementById('statusFilter').value;
     const gov = document.getElementById('govFilter').value;
     const dir = document.getElementById('dirFilter').value;
     const vil = document.getElementById('villageFilter').value;
@@ -420,7 +414,6 @@
       (!favOnly || isFav(a.id)) &&
       (!cat || a.category === cat) &&
       (!crt || a.court === crt) &&
-      (!stt || a.status === stt) &&
       (!gov || a.governorate === gov) &&
       (!dir || a.directorate === dir) &&
       (!vil || a.village === vil) &&
@@ -877,7 +870,7 @@
   });
 
   // Filter inputs
-  const filterIds = ['searchInput','categoryFilter','courtFilter','statusFilter','govFilter','dirFilter','villageFilter','basinFilter','announcementFilter','estValueFilter'];
+  const filterIds = ['searchInput','categoryFilter','courtFilter','govFilter','dirFilter','villageFilter','basinFilter','announcementFilter','estValueFilter'];
   filterIds.forEach(id => {
     document.getElementById(id).addEventListener('input', apply);
     document.getElementById(id).addEventListener('change', apply);
