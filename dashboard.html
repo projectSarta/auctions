@@ -166,8 +166,8 @@
         <div id="detailReports" class="reports-list mb-2"></div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" id="loadDetailsBtn">⤓ تحميل التفاصيل (صور + تقرير الخبرة)</button>
-        <a class="btn btn-outline-primary" id="detailSourceLink" target="_blank" rel="noopener">فتح في الموقع الأصلي ↗</a>
+        <a class="btn btn-primary" id="detailSourceLink" target="_blank" rel="noopener">↗ فتح الصفحة الأصلية (الصور + تقرير الخبرة + المزاودة)</a>
+        <button class="btn btn-outline-secondary" id="loadDetailsBtn">⤓ تحميل داخل اللوحة</button>
         <button class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
       </div>
     </div>
@@ -477,14 +477,18 @@
     const btn = document.getElementById('loadDetailsBtn');
     btn.disabled = true; btn.textContent = '⏳ جاري التحميل...';
     document.getElementById('detailGallery').innerHTML = '<div class="skeleton"></div>';
+    const sourceHref = `https://auctions.moj.gov.jo/AuctionInfo.aspx?token=${encodeURIComponent(token)}&auction=${a.id}`;
+    const sourceFallback = `
+      <div class="alert alert-info small mb-0">
+        <div class="mb-2">يتم تحميل الصور وتقرير الخبرة من الموقع الأصلي. <strong>افتح الصفحة الأصلية مباشرةً للحصول على المحتوى الكامل بما فيه المرفقات.</strong></div>
+        <a class="btn btn-primary btn-sm" href="${escapeHtml(sourceHref)}" target="_blank" rel="noopener">↗ فتح الصفحة الأصلية</a>
+      </div>`;
     try {
       const r = await fetch(`${apiBase}/api/auction?id=${a.id}&token=${encodeURIComponent(token)}`);
       const j = await r.json();
-      if (j.captcha) {
-        document.getElementById('detailGallery').innerHTML = '<div class="alert alert-warning small mb-0">الموقع يطلب التحقق (captcha). انتظر دقائق وحاول مرة أخرى.</div>';
+      if (j.captcha || j.error) {
+        document.getElementById('detailGallery').innerHTML = sourceFallback;
         document.getElementById('detailReports').innerHTML = '';
-      } else if (j.error) {
-        document.getElementById('detailGallery').innerHTML = `<div class="alert alert-danger small mb-0">خطأ: ${escapeHtml(j.error)}</div>`;
       } else {
         const imgs = j.images || [];
         document.getElementById('detailGallery').innerHTML = imgs.length === 0
@@ -496,7 +500,7 @@
           : reps.map(r => `<a href="${escapeHtml(r.url)}" target="_blank">${escapeHtml(r.text || r.url)}</a>`).join('');
       }
     } catch (err) {
-      document.getElementById('detailGallery').innerHTML = `<div class="alert alert-danger small mb-0">فشل الاتصال بالخادم المحلي: ${escapeHtml(String(err))}</div>`;
+      document.getElementById('detailGallery').innerHTML = sourceFallback;
     } finally {
       btn.disabled = false; btn.textContent = '⤓ تحميل التفاصيل (صور + تقرير الخبرة)';
     }
