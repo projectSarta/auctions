@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>لوحة المزادات - وزارة العدل الأردنية</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <style>
   body { font-family: 'Segoe UI', Tahoma, 'Arabic UI Text', sans-serif; background: #f4f6f9; }
   .navbar-brand { font-weight: 700; }
@@ -184,6 +185,11 @@
       </div>
       <div class="modal-body" id="detailBody">
         <div id="detailFields"></div>
+        <div id="detailMapWrap" class="my-3" style="display:none">
+          <h6 class="mb-2">🗺️ الموقع التقريبي</h6>
+          <div id="detailMap" style="height:280px;border-radius:8px;overflow:hidden"></div>
+          <div class="small text-muted mt-1" id="detailMapNote"></div>
+        </div>
         <hr>
         <h6 class="mb-2">📷 الصور</h6>
         <div id="detailGallery" class="mb-3"><div class="text-muted small">انقر "تحميل التفاصيل" لجلب الصور وتقرير الخبرة من الموقع الأصلي.</div></div>
@@ -202,6 +208,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script src="auctions.js"></script>
 <script>
 (function () {
@@ -554,8 +561,77 @@
     const gmapsParts = [a.governorate, a.directorate, a.village, a.basin ? 'حوض ' + a.basin : '', 'الأردن'].filter(Boolean);
     document.getElementById('gmapsBtn').href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(gmapsParts.join(' '));
 
+    // Map: try to geocode the village/area via Nominatim and show on Leaflet
+    showMapForAuction(a);
+
     new bootstrap.Modal(document.getElementById('detailModal')).show();
   });
+
+  // ==== Map (Leaflet + Nominatim) ====
+  let _leafletMap = null;
+  let _leafletMarker = null;
+  const GEO_CACHE_KEY = 'mojAuctions.geoCache';
+  let geoCache;
+  try { geoCache = JSON.parse(localStorage.getItem(GEO_CACHE_KEY) || '{}'); } catch { geoCache = {}; }
+  const saveGeoCache = () => { try { localStorage.setItem(GEO_CACHE_KEY, JSON.stringify(geoCache)); } catch {} };
+
+  async function geocode(query) {
+    if (geoCache[query]) return geoCache[query];
+    try {
+      const url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&accept-language=ar&q=' + encodeURIComponent(query);
+      const r = await fetch(url, { headers: { 'Accept': 'application/json' } });
+      const arr = await r.json();
+      if (Array.isArray(arr) && arr.length) {
+        const hit = { lat: parseFloat(arr[0].lat), lon: parseFloat(arr[0].lon), name: arr[0].display_name };
+        geoCache[query] = hit;
+        saveGeoCache();
+        return hit;
+      }
+    } catch {}
+    geoCache[query] = null;
+    saveGeoCache();
+    return null;
+  }
+
+  async function showMapForAuction(a) {
+    const wrap = document.getElementById('detailMapWrap');
+    const note = document.getElementById('detailMapNote');
+    const candidates = [];
+    if (a.village)     candidates.push([a.village, a.governorate, 'الأردن'].filter(Boolean).join(', '));
+    if (a.directorate) candidates.push([a.directorate, a.governorate, 'الأردن'].filter(Boolean).join(', '));
+    if (a.governorate) candidates.push([a.governorate, 'الأردن'].filter(Boolean).join(', '));
+    if (candidates.length === 0) { wrap.style.display = 'none'; return; }
+    wrap.style.display = '';
+    note.textContent = 'يتم تحديد الموقع...';
+
+    let hit = null, used = '';
+    for (const q of candidates) {
+      hit = await geocode(q);
+      if (hit) { used = q; break; }
+    }
+    if (!hit) {
+      note.textContent = 'تعذر تحديد الموقع تلقائياً.';
+      wrap.style.display = 'none';
+      return;
+    }
+
+    if (!_leafletMap) {
+      _leafletMap = L.map('detailMap', { zoomControl: true, attributionControl: true });
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(_leafletMap);
+    }
+    _leafletMap.setView([hit.lat, hit.lon], 14);
+    if (_leafletMarker) _leafletMarker.remove();
+    _leafletMarker = L.marker([hit.lat, hit.lon]).addTo(_leafletMap)
+      .bindPopup(`<div dir="rtl" style="text-align:right">${escapeHtml(used)}</div>`)
+      .openPopup();
+    note.innerHTML = `📍 ${escapeHtml(hit.name)} &nbsp; · &nbsp; <a href="https://www.openstreetmap.org/?mlat=${hit.lat}&mlon=${hit.lon}#map=15/${hit.lat}/${hit.lon}" target="_blank" rel="noopener">فتح في OSM</a>`;
+
+    // Leaflet sometimes mis-sizes inside a modal that wasn't visible — invalidate after the modal opens
+    setTimeout(() => { try { _leafletMap.invalidateSize(); } catch {} }, 300);
+  }
 
   // DLS parcel: copy fields to clipboard + open DLS portal.
   // Order matters: window.open MUST run synchronously inside the user gesture,
