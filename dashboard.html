@@ -190,10 +190,12 @@
         <h6 class="mb-2">📄 تقرير الخبرة والمرفقات</h6>
         <div id="detailReports" class="reports-list mb-2"></div>
       </div>
-      <div class="modal-footer">
-        <a class="btn btn-primary" id="detailSourceLink" target="_blank" rel="noopener">↗ فتح الصفحة الأصلية (الصور + تقرير الخبرة + المزاودة)</a>
-        <button class="btn btn-outline-secondary" id="loadDetailsBtn">⤓ تحميل داخل اللوحة</button>
-        <button class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+      <div class="modal-footer flex-wrap gap-1">
+        <a class="btn btn-primary btn-sm" id="detailSourceLink" target="_blank" rel="noopener">↗ الصفحة الأصلية</a>
+        <button class="btn btn-outline-primary btn-sm" id="loadDetailsBtn">⤓ صور + تقرير الخبرة</button>
+        <button class="btn btn-outline-success btn-sm" id="dlsMapBtn" title="ينسخ بيانات القطعة ويفتح خرائط دائرة الأراضي">📍 دائرة الأراضي</button>
+        <a class="btn btn-outline-secondary btn-sm" id="gmapsBtn" target="_blank" rel="noopener">🌍 Google Maps</a>
+        <button class="btn btn-secondary btn-sm ms-auto" data-bs-dismiss="modal">إغلاق</button>
       </div>
     </div>
   </div>
@@ -536,9 +538,34 @@
       : '<div class="text-muted small">شغّل <code>serve.ps1</code> لتفعيل تحميل الصور وتقرير الخبرة من الموقع.</div>';
     document.getElementById('detailReports').innerHTML = '';
     document.getElementById('loadDetailsBtn').disabled = false;
-    document.getElementById('loadDetailsBtn').textContent = '⤓ تحميل التفاصيل (صور + تقرير الخبرة)';
+    document.getElementById('loadDetailsBtn').textContent = '⤓ صور + تقرير الخبرة';
+
+    // Map buttons: hide DLS button if we don't have parcel-locating fields; set Google Maps URL
+    const det = a.details || {};
+    const parcelNo = det['رقم القطعة'];
+    const dlsBits = [a.governorate, a.directorate, a.village, a.basin, parcelNo].filter(Boolean);
+    const dlsBtn = document.getElementById('dlsMapBtn');
+    if (dlsBits.length >= 3) {
+      dlsBtn.style.display = '';
+      dlsBtn.dataset.copyText = dlsBits.join(' | ');
+    } else {
+      dlsBtn.style.display = 'none';
+    }
+    const gmapsParts = [a.governorate, a.directorate, a.village, a.basin ? 'حوض ' + a.basin : '', 'الأردن'].filter(Boolean);
+    document.getElementById('gmapsBtn').href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(gmapsParts.join(' '));
 
     new bootstrap.Modal(document.getElementById('detailModal')).show();
+  });
+
+  // DLS parcel: copy fields to clipboard + open DLS portal
+  document.getElementById('dlsMapBtn').addEventListener('click', async (e) => {
+    const txt = e.currentTarget.dataset.copyText || '';
+    try { await navigator.clipboard.writeText(txt); } catch {}
+    const btn = e.currentTarget;
+    const orig = btn.textContent;
+    btn.textContent = '✓ تم النسخ — افتح وألصق في DLS';
+    setTimeout(() => { btn.textContent = orig; }, 2500);
+    window.open('https://maps.dls.gov.jo/dlsweb/', '_blank', 'noopener');
   });
 
   // Lazy-load images + report from /api/auction.
