@@ -27,10 +27,12 @@ param(
   [int]$DelayMs = 2500,
   [int]$CaptchaCooldownSec = 45,
   [int]$MaxCaptchaWaits = 4,
-  [int]$MaxResetsPerCategory = 8
+  [int]$MaxResetsPerCategory = 50,   # max session resets per category
+  [int]$MaxMinutes = 0               # global time budget (0 = unlimited)
 )
 
 if ($Full) { $MaxPagesPerCategory = 0 }
+$ScriptStart = Get-Date
 
 $ErrorActionPreference = 'Stop'
 
@@ -360,6 +362,10 @@ foreach ($cat in $categories) {
     }
 
     if ($cat.totalCount -gt 0 -and $seen.Count -ge $cat.totalCount) { break }
+    if ($MaxMinutes -gt 0 -and ((Get-Date) - $ScriptStart).TotalMinutes -ge $MaxMinutes) {
+      Write-Host ("  Time budget reached ({0} min). Stopping." -f $MaxMinutes) -ForegroundColor Yellow
+      break
+    }
     $resets++
     if ($resets -gt $MaxResetsPerCategory) {
       Write-Host ("  Reset cap reached ({0}). Stopping at {1}/{2}." -f $MaxResetsPerCategory, $seen.Count, $cat.totalCount) -ForegroundColor Yellow
