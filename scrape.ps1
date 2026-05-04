@@ -24,11 +24,13 @@
 param(
   [int]$MaxPagesPerCategory = 3,
   [switch]$Full,
-  [int]$DelayMs = 2500,
-  [int]$CaptchaCooldownSec = 45,
-  [int]$MaxCaptchaWaits = 4,
-  [int]$MaxResetsPerCategory = 50,   # max session resets per category
-  [int]$MaxMinutes = 0               # global time budget (0 = unlimited)
+  [int]$DelayMs = 3000,
+  [int]$CaptchaCooldownSec = 90,
+  [int]$MaxCaptchaWaits = 6,
+  [int]$MaxResetsPerCategory = 30,   # max session resets per category
+  [int]$MaxKnownPages = 15,          # cap pages walked through already-seen territory before resetting
+  [int]$MaxMinutes = 0,              # global time budget (0 = unlimited)
+  [switch]$Fresh                     # ignore existing auctions.json (don't merge)
 )
 
 if ($Full) { $MaxPagesPerCategory = 0 }
@@ -236,6 +238,24 @@ $all = New-Object System.Collections.ArrayList
 $jsonPath = Join-Path $PSScriptRoot 'auctions.json'
 $jsPath   = Join-Path $PSScriptRoot 'auctions.js'
 
+# Pre-seed from existing data so reruns only ADD new auctions and never lose what we already have.
+$existingByCat = @{}
+if (-not $Fresh -and (Test-Path $jsonPath)) {
+  try {
+    $prev = Get-Content $jsonPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    foreach ($a in $prev.auctions) {
+      [void]$all.Add($a)
+      if (-not $existingByCat.ContainsKey($a.category)) {
+        $existingByCat[$a.category] = New-Object 'System.Collections.Generic.HashSet[int]'
+      }
+      [void]$existingByCat[$a.category].Add([int]$a.id)
+    }
+    Write-Host ("Pre-seeded with {0} existing auctions from auctions.json" -f $all.Count) -ForegroundColor DarkGray
+  } catch {
+    Write-Host ("Could not load existing auctions.json: {0}" -f $_.Exception.Message) -ForegroundColor Yellow
+  }
+}
+
 function Save-All([bool]$inProgress = $true) {
   $payload = [pscustomobject]@{
     scrapedAt    = (Get-Date).ToString('yyyy-MM-dd HH:mm:ss')
@@ -255,6 +275,10 @@ foreach ($cat in $categories) {
   $catUrl = "$Base/AuctionsList.aspx?token=$($cat.token)"
   $script:CurrentToken = $cat.token
   $seen = New-Object 'System.Collections.Generic.HashSet[int]'
+  if ($existingByCat.ContainsKey($cat.name)) {
+    foreach ($id in $existingByCat[$cat.name]) { [void]$seen.Add($id) }
+    Write-Host ("  pre-seeded {0} existing IDs for this category" -f $seen.Count) -ForegroundColor DarkGray
+  }
   $resets = 0
   $zeroProgressWalks = 0
 
@@ -308,6 +332,12 @@ foreach ($cat in $categories) {
       }
       if ($page -ge $maxPagesPerWalk) {
         Write-Host "  (max pages per walk reached)" -ForegroundColor Yellow
+        break
+      }
+      # Cap how many pages we'll walk through already-known territory before giving up
+      # this walk. Without this we burn requests + risk hard IP-ban from rate limiter.
+      if (-not $seenNewThisWalk -and $page -ge $MaxKnownPages) {
+        Write-Host ("  (walked {0} pages of known territory without new items — reset)" -f $MaxKnownPages) -ForegroundColor DarkYellow
         break
       }
       # Stall detection only applies AFTER the walk has yielded at least one new item.
