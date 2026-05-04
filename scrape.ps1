@@ -256,6 +256,7 @@ foreach ($cat in $categories) {
   $script:CurrentToken = $cat.token
   $seen = New-Object 'System.Collections.Generic.HashSet[int]'
   $resets = 0
+  $zeroProgressWalks = 0
 
   :catLoop while ($true) {
     $html = Curl-Get $catUrl
@@ -309,18 +310,23 @@ foreach ($cat in $categories) {
         Write-Host "  (max pages per walk reached)" -ForegroundColor Yellow
         break
       }
-      if ($lastPageIds -and $thisPageIds.Count -gt 0 -and $thisPageIds.SetEquals($lastPageIds)) {
-        Write-Host "  (same IDs as previous page — pagination stalled)" -ForegroundColor Yellow
-        break
-      }
-      if ($newCount -eq 0 -and $seenNewThisWalk) {
-        $stalePageStreak++
-        if ($stalePageStreak -ge 2) {
-          Write-Host "  (stale pagination — needs reset)" -ForegroundColor Yellow
+      # Stall detection only applies AFTER the walk has yielded at least one new item.
+      # Until then we may be walking through already-known pages from a previous walk —
+      # we must push through them to reach the new territory deeper in the listing.
+      if ($seenNewThisWalk) {
+        if ($lastPageIds -and $thisPageIds.Count -gt 0 -and $thisPageIds.SetEquals($lastPageIds)) {
+          Write-Host "  (same IDs as previous page — pagination stalled)" -ForegroundColor Yellow
           break
         }
-      } elseif ($newCount -gt 0) {
-        $stalePageStreak = 0
+        if ($newCount -eq 0) {
+          $stalePageStreak++
+          if ($stalePageStreak -ge 3) {
+            Write-Host "  (stale pagination — needs reset)" -ForegroundColor Yellow
+            break
+          }
+        } else {
+          $stalePageStreak = 0
+        }
       }
       $lastPageIds = $thisPageIds
 
@@ -373,8 +379,13 @@ foreach ($cat in $categories) {
     }
     $progressedThisWalk = ($seen.Count - $countBeforeWalk)
     if ($progressedThisWalk -eq 0) {
-      Write-Host ("  Walk added 0 new items. Aborting category at {0}/{1}." -f $seen.Count, $cat.totalCount) -ForegroundColor Yellow
-      break
+      $zeroProgressWalks++
+      if ($zeroProgressWalks -ge 3) {
+        Write-Host ("  3 consecutive walks added 0 new items. Aborting category at {0}/{1}." -f $seen.Count, $cat.totalCount) -ForegroundColor Yellow
+        break
+      }
+    } else {
+      $zeroProgressWalks = 0
     }
     Write-Host ("  Resetting session (reset {0}/{1}, +{2} this walk)..." -f $resets, $MaxResetsPerCategory, $progressedThisWalk) -ForegroundColor Cyan
     Reset-Session
