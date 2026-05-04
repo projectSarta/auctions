@@ -94,7 +94,8 @@
           <label class="form-label small mb-1">المحكمة / الدائرة</label>
           <select class="form-select" id="courtFilter"><option value="">الكل</option></select>
         </div>
-        <div class="col-md-2 d-flex gap-2 flex-wrap">
+        <div class="col-md-2 d-flex gap-1 flex-wrap">
+          <button class="btn btn-outline-success flex-grow-1 active" id="hideExpiredBtn" title="إخفاء المزادات المنتهية">⏱ نشط</button>
           <button class="btn btn-outline-warning flex-grow-1" id="favOnlyBtn" title="إظهار المفضلة فقط">⭐ <span id="favCount">0</span></button>
           <button class="btn btn-outline-secondary flex-grow-1" id="clearFilters">مسح</button>
           <button class="btn btn-success flex-grow-1" id="exportCsv">CSV</button>
@@ -403,6 +404,8 @@
     const ann = document.getElementById('announcementFilter').value;
     const estRange = document.getElementById('estValueFilter').value;
     const favOnly = document.getElementById('favOnlyBtn').classList.contains('active');
+    const hideExpired = document.getElementById('hideExpiredBtn').classList.contains('active');
+    const nowMs = Date.now();
     let estLo = null, estHi = null;
     if (estRange) {
       const parts = estRange.split('-');
@@ -411,6 +414,7 @@
     }
 
     let rows = auctions.filter(a =>
+      (!hideExpired || a._endDateMs == null || a._endDateMs > nowMs) &&
       (!favOnly || isFav(a.id)) &&
       (!cat || a.category === cat) &&
       (!crt || a.court === crt) &&
@@ -889,6 +893,23 @@
     apply();
   });
   saveFavorites(); // initial badge count
+
+  // Hide-expired toggle (default ON: only show live auctions)
+  const HIDE_EXPIRED_KEY = 'mojAuctions.hideExpired';
+  const hideExpiredBtn = document.getElementById('hideExpiredBtn');
+  const hideExpiredStored = localStorage.getItem(HIDE_EXPIRED_KEY);
+  // Default to ON when nothing stored
+  if (hideExpiredStored === '0') hideExpiredBtn.classList.remove('active');
+  else hideExpiredBtn.classList.add('active');
+  hideExpiredBtn.addEventListener('click', () => {
+    hideExpiredBtn.classList.toggle('active');
+    const on = hideExpiredBtn.classList.contains('active');
+    try { localStorage.setItem(HIDE_EXPIRED_KEY, on ? '1' : '0'); } catch {}
+    hideExpiredBtn.textContent = on ? '⏱ نشط' : '⏱ الكل';
+    apply();
+  });
+  // Initial label reflects state
+  hideExpiredBtn.textContent = hideExpiredBtn.classList.contains('active') ? '⏱ نشط' : '⏱ الكل';
 
   // CSV export
   document.getElementById('exportCsv').addEventListener('click', () => {

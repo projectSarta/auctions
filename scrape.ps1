@@ -30,7 +30,8 @@ param(
   [int]$MaxResetsPerCategory = 30,   # max session resets per category
   [int]$MaxKnownPages = 15,          # cap pages walked through already-seen territory before resetting
   [int]$MaxMinutes = 0,              # global time budget (0 = unlimited)
-  [switch]$Fresh                     # ignore existing auctions.json (don't merge)
+  [switch]$Fresh,                    # ignore existing auctions.json (don't merge)
+  [string]$OnlyCategory = ''         # if set, only scrape categories matching this regex (e.g. 'مركبة')
 )
 
 if ($Full) { $MaxPagesPerCategory = 0 }
@@ -270,6 +271,10 @@ function Save-All([bool]$inProgress = $true) {
 }
 
 foreach ($cat in $categories) {
+  if ($OnlyCategory -and ($cat.name -notmatch $OnlyCategory)) {
+    Write-Host ("Skipping category (filter): {0}" -f $cat.name) -ForegroundColor DarkGray
+    continue
+  }
   Write-Host ""
   Write-Host ("Scraping category: {0}  (target: {1})" -f $cat.name, $cat.totalCount) -ForegroundColor Cyan
   $catUrl = "$Base/AuctionsList.aspx?token=$($cat.token)"
