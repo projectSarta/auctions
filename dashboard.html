@@ -557,15 +557,40 @@
     new bootstrap.Modal(document.getElementById('detailModal')).show();
   });
 
-  // DLS parcel: copy fields to clipboard + open DLS portal
-  document.getElementById('dlsMapBtn').addEventListener('click', async (e) => {
-    const txt = e.currentTarget.dataset.copyText || '';
-    try { await navigator.clipboard.writeText(txt); } catch {}
+  // DLS parcel: copy fields to clipboard + open DLS portal.
+  // Order matters: window.open MUST run synchronously inside the user gesture,
+  // before any await — otherwise browsers' popup blockers cancel the new tab.
+  document.getElementById('dlsMapBtn').addEventListener('click', (e) => {
     const btn = e.currentTarget;
-    const orig = btn.textContent;
-    btn.textContent = '✓ تم النسخ — افتح وألصق في DLS';
-    setTimeout(() => { btn.textContent = orig; }, 2500);
+    const txt = btn.dataset.copyText || '';
+
+    // 1) Open the DLS portal first (user-gesture intact)
     window.open('https://maps.dls.gov.jo/dlsweb/', '_blank', 'noopener');
+
+    // 2) Copy to clipboard — try modern API, fall back to a hidden textarea+execCommand
+    let copied = false;
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(txt).then(() => {}).catch(() => {});
+      copied = true;
+    } else {
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = txt;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'absolute'; ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        copied = document.execCommand('copy');
+        document.body.removeChild(ta);
+      } catch {}
+    }
+
+    // 3) UI feedback (always show, even if clipboard failed — at least the tab opened)
+    const orig = btn.textContent;
+    btn.textContent = copied
+      ? '✓ تم النسخ — افتح وألصق في DLS'
+      : '↗ افتح DLS وابحث يدوياً';
+    setTimeout(() => { btn.textContent = orig; }, 3000);
   });
 
   // Lazy-load images + report from /api/auction.
