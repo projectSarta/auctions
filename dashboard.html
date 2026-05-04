@@ -40,6 +40,11 @@
   #refreshBtn .spinner { display: none; width: 1rem; height: 1rem; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; vertical-align: middle; }
   #refreshBtn.is-running .spinner { display: inline-block; }
   @keyframes spin { to { transform: rotate(360deg); } }
+  .fav-cell { width: 2rem; text-align: center; cursor: pointer; user-select: none; }
+  .fav-star { font-size: 1.25rem; color: #cbd5e0; transition: transform .1s, color .15s; }
+  .fav-star.is-fav { color: #f1c40f; }
+  .fav-cell:hover .fav-star { transform: scale(1.2); }
+  #favOnlyBtn.active { background: #f1c40f !important; border-color: #d4ac0d !important; color: #24485f !important; font-weight: 700; }
 </style>
 </head>
 <body>
@@ -92,9 +97,10 @@
           <label class="form-label small mb-1">حالة المزاد</label>
           <select class="form-select" id="statusFilter"><option value="">الكل</option></select>
         </div>
-        <div class="col-md-2 d-flex gap-2">
-          <button class="btn btn-outline-secondary flex-grow-1" id="clearFilters">مسح الفلاتر</button>
-          <button class="btn btn-success flex-grow-1" id="exportCsv">تصدير CSV</button>
+        <div class="col-md-2 d-flex gap-2 flex-wrap">
+          <button class="btn btn-outline-warning flex-grow-1" id="favOnlyBtn" title="إظهار المفضلة فقط">⭐ <span id="favCount">0</span></button>
+          <button class="btn btn-outline-secondary flex-grow-1" id="clearFilters">مسح</button>
+          <button class="btn btn-success flex-grow-1" id="exportCsv">CSV</button>
         </div>
       </div>
       <div class="row g-2 align-items-end mt-1">
@@ -146,6 +152,7 @@
     <table class="table table-hover dash mb-0" id="auctionTable">
       <thead>
         <tr>
+          <th data-sort="isFav" title="المفضلة">⭐<span class="sort-ind"></span></th>
           <th data-sort="id">#<span class="sort-ind"></span></th>
           <th data-sort="category">الفئة<span class="sort-ind"></span></th>
           <th data-sort="header">عنوان المزاد<span class="sort-ind"></span></th>
@@ -201,6 +208,23 @@
     document.body.innerHTML = '<div class="container py-5 text-center text-danger"><h3>لا توجد بيانات</h3><p>الرجاء تشغيل <code>scrape.ps1</code> أولاً لإنتاج <code>auctions.js</code>.</p></div>';
     return;
   }
+
+  // ===== Favorites (localStorage) =====
+  const FAV_KEY = 'mojAuctions.favorites';
+  const FAV_ONLY_KEY = 'mojAuctions.favOnly';
+  let favorites;
+  try { favorites = new Set(JSON.parse(localStorage.getItem(FAV_KEY) || '[]')); }
+  catch { favorites = new Set(); }
+  const saveFavorites = () => {
+    try { localStorage.setItem(FAV_KEY, JSON.stringify([...favorites])); } catch {}
+    document.getElementById('favCount').textContent = favorites.size;
+  };
+  const isFav = (id) => favorites.has(+id);
+  const toggleFav = (id) => {
+    id = +id;
+    if (favorites.has(id)) favorites.delete(id); else favorites.add(id);
+    saveFavorites();
+  };
 
   // ---- Helpers ----
   const num = (v) => {
@@ -372,6 +396,7 @@
     const bsn = document.getElementById('basinFilter').value;
     const ann = document.getElementById('announcementFilter').value;
     const estRange = document.getElementById('estValueFilter').value;
+    const favOnly = document.getElementById('favOnlyBtn').classList.contains('active');
     let estLo = null, estHi = null;
     if (estRange) {
       const parts = estRange.split('-');
@@ -380,6 +405,7 @@
     }
 
     let rows = auctions.filter(a =>
+      (!favOnly || isFav(a.id)) &&
       (!cat || a.category === cat) &&
       (!crt || a.court === crt) &&
       (!stt || a.status === stt) &&
@@ -406,6 +432,7 @@
       else if (k === 'currentAmount') { va = a.currentAmountNum; vb = b.currentAmountNum; }
       else if (k === 'numBids') { va = a.numBidsNum; vb = b.numBidsNum; }
       else if (k === 'endDate' || k === 'daysLeft') { va = a._endDateMs; vb = b._endDateMs; }
+      else if (k === 'isFav') { va = isFav(a.id) ? 1 : 0; vb = isFav(b.id) ? 1 : 0; }
       else { va = a[k]; vb = b[k]; }
       if (va == null && vb == null) return 0;
       if (va == null) return 1;
@@ -431,6 +458,7 @@
     document.getElementById('emptyState').style.display = 'none';
     const html = rows.map(a => `
       <tr class="row-clickable" data-id="${a.id}">
+        <td class="fav-cell" data-fav-id="${a.id}"><span class="fav-star${isFav(a.id) ? ' is-fav' : ''}">${isFav(a.id) ? '★' : '☆'}</span></td>
         <td class="num">${a.id}</td>
         <td><span class="badge bg-secondary badge-cat">${escapeHtml(a.category)}</span></td>
         <td class="header-cell"><div class="header-text">${escapeHtml(a.header)}</div></td>
@@ -458,9 +486,21 @@
     });
   });
 
-  // Row click → modal
+  // Row click → modal (but the star cell toggles favorite instead of opening the modal)
   let modalCurrentAuction = null;
   document.getElementById('auctionBody').addEventListener('click', (e) => {
+    const favCell = e.target.closest('.fav-cell');
+    if (favCell) {
+      e.stopPropagation();
+      const id = +favCell.getAttribute('data-fav-id');
+      toggleFav(id);
+      const star = favCell.querySelector('.fav-star');
+      star.classList.toggle('is-fav', isFav(id));
+      star.textContent = isFav(id) ? '★' : '☆';
+      // If we're showing favorites-only, re-apply filter so the row appears/disappears
+      if (document.getElementById('favOnlyBtn').classList.contains('active')) apply();
+      return;
+    }
     const tr = e.target.closest('tr.row-clickable');
     if (!tr) return;
     const id = +tr.getAttribute('data-id');
@@ -614,11 +654,21 @@
     apply();
   });
 
+  // Favorites-only toggle
+  const favOnlyBtn = document.getElementById('favOnlyBtn');
+  if (localStorage.getItem(FAV_ONLY_KEY) === '1') favOnlyBtn.classList.add('active');
+  favOnlyBtn.addEventListener('click', () => {
+    favOnlyBtn.classList.toggle('active');
+    try { localStorage.setItem(FAV_ONLY_KEY, favOnlyBtn.classList.contains('active') ? '1' : '0'); } catch {}
+    apply();
+  });
+  saveFavorites(); // initial badge count
+
   // CSV export
   document.getElementById('exportCsv').addEventListener('click', () => {
     const rows = window._currentRows || auctions;
-    const headers = ['id','category','header','court','caseNumber','status','endDate','startingAmount','estimatedValue','currentAmount','numBids','newspaper','newspaperIssue','publishedAt','announcementStart','announcementEnd','minIncrement','notes'];
-    const arabicHeaders = ['الرقم','الفئة','عنوان المزاد','المحكمة','رقم الدعوى','الحالة','تاريخ الانتهاء','السعر الابتدائي','القيمة التقديرية','العرض الحالي','عدد المزاودات','الصحيفة','العدد','تاريخ النشر','بداية الإعلان','نهاية الإعلان','الحد الأدنى للزيادة','المشروحات'];
+    const headers = ['id','category','header','court','caseNumber','status','endDate','startingAmount','estimatedValue','currentAmount','numBids','newspaper','newspaperIssue','publishedAt','announcementStart','announcementEnd','minIncrement','notes','isFavorite'];
+    const arabicHeaders = ['الرقم','الفئة','عنوان المزاد','المحكمة','رقم الدعوى','الحالة','تاريخ الانتهاء','السعر الابتدائي','القيمة التقديرية','العرض الحالي','عدد المزاودات','الصحيفة','العدد','تاريخ النشر','بداية الإعلان','نهاية الإعلان','الحد الأدنى للزيادة','المشروحات','مفضلة'];
     const esc = (v) => {
       if (v === null || v === undefined) return '';
       const s = String(v);
@@ -626,7 +676,7 @@
       return s;
     };
     const csv = [arabicHeaders.join(',')].concat(
-      rows.map(r => headers.map(h => esc(r[h])).join(','))
+      rows.map(r => headers.map(h => esc(h === 'isFavorite' ? (isFav(r.id) ? 'نعم' : '') : r[h])).join(','))
     ).join('\r\n');
     const bom = '﻿'; // for Excel UTF-8
     const blob = new Blob([bom + csv], { type: 'text/csv;charset=utf-8' });
