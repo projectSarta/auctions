@@ -159,7 +159,7 @@
           <th data-sort="header">عنوان المزاد<span class="sort-ind"></span></th>
           <th data-sort="court">المحكمة<span class="sort-ind"></span></th>
           <th data-sort="announcement">الإعلان<span class="sort-ind"></span></th>
-          <th data-sort="status">الحالة<span class="sort-ind"></span></th>
+          <th data-sort="village">القرية<span class="sort-ind"></span></th>
           <th data-sort="endDate">تاريخ الانتهاء<span class="sort-ind"></span></th>
           <th data-sort="daysLeft">باقي<span class="sort-ind"></span></th>
           <th data-sort="startingAmount">السعر الابتدائي<span class="sort-ind"></span></th>
@@ -476,7 +476,7 @@
         <td class="header-cell"><div class="header-text">${escapeHtml(a.header)}</div></td>
         <td>${escapeHtml(a.court || '-')}</td>
         <td>${escapeHtml(a.announcement || '-')}</td>
-        <td>${escapeHtml(a.status || '-')}</td>
+        <td>${escapeHtml(a.village || '-')}</td>
         <td class="num">${escapeHtml(a.endDate || '-')}</td>
         <td>${fmtDays(a._endDateMs ? new Date(a._endDateMs) : null)}</td>
         <td class="num">${fmtNum(a.startingAmount)}</td>
