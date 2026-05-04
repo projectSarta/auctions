@@ -695,8 +695,11 @@
         const b = _leafletLayer.getBounds();
         _leafletMap.fitBounds(b.pad(0.5));
         const c = b.getCenter();
+        const gmapExact = `https://www.google.com/maps/place/${c.lat},${c.lng}/@${c.lat},${c.lng},19z/data=!3m1!1e3`;
         note.innerHTML = `🎯 الحدود الفعلية للقطعة (المساحة ${(props.area||0).toLocaleString('en-US',{maximumFractionDigits:0})} م²) · ` +
-          `<a href="https://www.google.com/maps/@${c.lat},${c.lng},18z/data=!3m1!1e3" target="_blank" rel="noopener">Google Maps (satellite)</a>`;
+          `<a href="${gmapExact}" target="_blank" rel="noopener">Google Maps (satellite)</a>`;
+        // Update the footer Google Maps button too so it lands on the exact parcel
+        try { document.getElementById('gmapsBtn').href = gmapExact; } catch {}
         setTimeout(() => { try { _leafletMap.invalidateSize(); } catch {} }, 300);
         return;
       }
@@ -716,8 +719,10 @@
     _leafletMap.setView([hit.lat, hit.lon], 14);
     _leafletLayer = L.marker([hit.lat, hit.lon]).addTo(_leafletMap)
       .bindPopup(`<div dir="rtl" style="text-align:right">${escapeHtml(used)}</div>`).openPopup();
+    const gmapVillage = `https://www.google.com/maps/place/${hit.lat},${hit.lon}/@${hit.lat},${hit.lon},15z`;
     note.innerHTML = `📍 موقع تقريبي (مستوى القرية): ${escapeHtml(hit.name)} · ` +
-      `<a href="https://www.google.com/maps/@${hit.lat},${hit.lon},15z" target="_blank" rel="noopener">Google Maps</a>`;
+      `<a href="${gmapVillage}" target="_blank" rel="noopener">Google Maps</a>`;
+    try { document.getElementById('gmapsBtn').href = gmapVillage; } catch {}
     setTimeout(() => { try { _leafletMap.invalidateSize(); } catch {} }, 300);
   }
 
