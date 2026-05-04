@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>لوحة المزادات - وزارة العدل الأردنية</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+<style>
+  body { font-family: 'Segoe UI', Tahoma, 'Arabic UI Text', sans-serif; background: #f4f6f9; }
+  .navbar-brand { font-weight: 700; }
+  .stat-card { border: none; box-shadow: 0 2px 6px rgba(0,0,0,.06); border-radius: 12px; }
+  .stat-card .stat-label { font-size: .85rem; color: #6c757d; }
+  .stat-card .stat-value { font-size: 1.6rem; font-weight: 700; color: #24485f; }
+  .filters-card { background: #fff; border: none; box-shadow: 0 2px 6px rgba(0,0,0,.04); border-radius: 12px; }
+  table.dash th { background: #24485f; color: #fff; font-weight: 600; white-space: nowrap; vertical-align: middle; cursor: pointer; user-select: none; }
+  table.dash th .sort-ind { opacity: .5; font-size: .75rem; }
+  table.dash td { vertical-align: middle; }
+  table.dash tr.row-clickable { cursor: pointer; }
+  table.dash tr.row-clickable:hover { background: #eef3f7; }
+  .badge-cat { font-size: .75rem; }
+  .ending-soon { color: #c0392b; font-weight: 700; }
+  .ending-week { color: #d68910; font-weight: 600; }
+  .header-cell { max-width: 360px; }
+  .header-cell .header-text { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .modal-detail-table th { width: 40%; background: #f2f5f8; font-weight: 600; }
+  .modal-detail-table td, .modal-detail-table th { padding: .5rem .75rem; }
+  .num { font-variant-numeric: tabular-nums; font-family: Consolas, 'Courier New', monospace; }
+  .source-link { font-size: .85rem; }
+  #emptyState { display: none; padding: 4rem 1rem; text-align: center; color: #6c757d; }
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: .5rem; }
+  .gallery a { display: block; aspect-ratio: 4/3; overflow: hidden; border-radius: 6px; background: #eee; }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .15s; }
+  .gallery img:hover { transform: scale(1.04); }
+  .reports-list { display: flex; flex-direction: column; gap: .35rem; }
+  .reports-list a { padding: .5rem .75rem; border: 1px solid #d8e1ea; border-radius: 6px; text-decoration: none; background: #f8fafd; }
+  .reports-list a:hover { background: #eef3f7; }
+  .skeleton { height: 80px; background: linear-gradient(90deg, #eee 0%, #f6f6f6 50%, #eee 100%); background-size: 200% 100%; animation: shimmer 1.2s infinite; border-radius: 6px; }
+  @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+  .refresh-toast { position: fixed; bottom: 1rem; left: 1rem; right: 1rem; max-width: 540px; margin: 0 auto; z-index: 2000; }
+  #refreshBtn .spinner { display: none; width: 1rem; height: 1rem; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; vertical-align: middle; }
+  #refreshBtn.is-running .spinner { display: inline-block; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-dark" style="background:#24485f">
+  <div class="container-fluid">
+    <span class="navbar-brand">⚖️ لوحة المزادات الإلكترونية - وزارة العدل الأردنية</span>
+    <div class="d-flex align-items-center gap-3">
+      <span class="text-light small" id="metaInfo"></span>
+      <button class="btn btn-sm btn-light" id="refreshBtn" title="إعادة جلب البيانات من الموقع">
+        <span class="spinner ms-1"></span>
+        <span class="btn-label">🔄 تحديث البيانات</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div id="refreshToast" class="refresh-toast alert alert-info shadow-sm d-none" role="alert">
+  <div class="d-flex justify-content-between align-items-start">
+    <div>
+      <strong>جاري تحديث البيانات...</strong>
+      <pre id="refreshLog" class="mb-0 small text-muted" style="max-height: 160px; overflow-y: auto; white-space: pre-wrap; direction: ltr; text-align: left;"></pre>
+    </div>
+    <button type="button" class="btn-close" id="refreshToastClose"></button>
+  </div>
+</div>
+
+<div class="container-fluid py-3">
+
+  <!-- Stats row -->
+  <div class="row g-3 mb-3" id="statsRow"></div>
+
+  <!-- Filters -->
+  <div class="card filters-card mb-3">
+    <div class="card-body">
+      <div class="row g-2 align-items-end">
+        <div class="col-md-4">
+          <label class="form-label small mb-1">بحث</label>
+          <input type="text" class="form-control" id="searchInput" placeholder="بحث في كل الحقول... (رقم، اسم، مدينة، وغيرها)">
+        </div>
+        <div class="col-md-2">
+          <label class="form-label small mb-1">الفئة</label>
+          <select class="form-select" id="categoryFilter"><option value="">الكل</option></select>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label small mb-1">المحكمة / الدائرة</label>
+          <select class="form-select" id="courtFilter"><option value="">الكل</option></select>
+        </div>
+        <div class="col-md-2">
+          <label class="form-label small mb-1">حالة المزاد</label>
+          <select class="form-select" id="statusFilter"><option value="">الكل</option></select>
+        </div>
+        <div class="col-md-2 d-flex gap-2">
+          <button class="btn btn-outline-secondary flex-grow-1" id="clearFilters">مسح الفلاتر</button>
+          <button class="btn btn-success flex-grow-1" id="exportCsv">تصدير CSV</button>
+        </div>
+      </div>
+      <div class="row g-2 align-items-end mt-1">
+        <div class="col-md-3">
+          <label class="form-label small mb-1">المحافظة</label>
+          <select class="form-select" id="govFilter"><option value="">الكل</option></select>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label small mb-1">المديرية</label>
+          <select class="form-select" id="dirFilter"><option value="">الكل</option></select>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label small mb-1">القرية</label>
+          <select class="form-select" id="villageFilter"><option value="">الكل</option></select>
+        </div>
+        <div class="col-md-3">
+          <label class="form-label small mb-1">الحوض</label>
+          <select class="form-select" id="basinFilter"><option value="">الكل</option></select>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results count -->
+  <div class="d-flex justify-content-between align-items-center mb-2 px-1">
+    <span class="text-muted small" id="resultCount"></span>
+    <a class="source-link text-decoration-none" id="sourceLink" target="_blank" rel="noopener">↗ المصدر الأصلي</a>
+  </div>
+
+  <!-- Table -->
+  <div class="table-responsive bg-white rounded shadow-sm">
+    <table class="table table-hover dash mb-0" id="auctionTable">
+      <thead>
+        <tr>
+          <th data-sort="id">#<span class="sort-ind"></span></th>
+          <th data-sort="category">الفئة<span class="sort-ind"></span></th>
+          <th data-sort="header">عنوان المزاد<span class="sort-ind"></span></th>
+          <th data-sort="court">المحكمة<span class="sort-ind"></span></th>
+          <th data-sort="status">الحالة<span class="sort-ind"></span></th>
+          <th data-sort="endDate">تاريخ الانتهاء<span class="sort-ind"></span></th>
+          <th data-sort="daysLeft">باقي<span class="sort-ind"></span></th>
+          <th data-sort="startingAmount">السعر الابتدائي<span class="sort-ind"></span></th>
+          <th data-sort="estimatedValue">القيمة التقديرية<span class="sort-ind"></span></th>
+          <th data-sort="currentAmount">العرض الحالي<span class="sort-ind"></span></th>
+          <th data-sort="numBids">المزاودات<span class="sort-ind"></span></th>
+        </tr>
+      </thead>
+      <tbody id="auctionBody"></tbody>
+    </table>
+    <div id="emptyState">لا توجد نتائج تطابق الفلاتر.</div>
+  </div>
+
+</div>
+
+<!-- Detail modal -->
+<div class="modal fade" id="detailModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="detailTitle"></h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="detailBody">
+        <div id="detailFields"></div>
+        <hr>
+        <h6 class="mb-2">📷 الصور</h6>
+        <div id="detailGallery" class="mb-3"><div class="text-muted small">انقر "تحميل التفاصيل" لجلب الصور وتقرير الخبرة من الموقع الأصلي.</div></div>
+        <h6 class="mb-2">📄 تقرير الخبرة والمرفقات</h6>
+        <div id="detailReports" class="reports-list mb-2"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="loadDetailsBtn">⤓ تحميل التفاصيل (صور + تقرير الخبرة)</button>
+        <a class="btn btn-outline-primary" id="detailSourceLink" target="_blank" rel="noopener">فتح في الموقع الأصلي ↗</a>
+        <button class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="auctions.js"></script>
+<script>
+(function () {
+  'use strict';
+  const data = window.AUCTION_DATA;
+  if (!data || !data.auctions) {
+    document.body.innerHTML = '<div class="container py-5 text-center text-danger"><h3>لا توجد بيانات</h3><p>الرجاء تشغيل <code>scrape.ps1</code> أولاً لإنتاج <code>auctions.js</code>.</p></div>';
+    return;
+  }
+
+  // ---- Helpers ----
+  const num = (v) => {
+    if (v === null || v === undefined || v === '') return null;
+    const n = parseFloat(String(v).replace(/[^\d.\-]/g, ''));
+    return isNaN(n) ? null : n;
+  };
+
+  // Source dates are dd/MM/yyyy HH:mm:ss in details, and yyyy-MM-dd HH:mm:ss in endDate
+  const parseEndDate = (s) => {
+    if (!s) return null;
+    // Try yyyy-MM-dd first
+    const m = String(s).match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2}):(\d{2})$/);
+    if (m) return new Date(+m[1], +m[2]-1, +m[3], +m[4], +m[5], +m[6]);
+    // Fallback dd/MM/yyyy HH:mm[:ss]
+    const m2 = String(s).match(/^(\d{2})\/(\d{2})\/(\d{4})(?:\s+(\d{2}):(\d{2})(?::(\d{2}))?)?$/);
+    if (m2) return new Date(+m2[3], +m2[2]-1, +m2[1], +(m2[4]||0), +(m2[5]||0), +(m2[6]||0));
+    const d = new Date(s);
+    return isNaN(d) ? null : d;
+  };
+
+  const fmtNum = (v) => {
+    const n = num(v);
+    if (n === null) return '-';
+    return n.toLocaleString('en-US', { maximumFractionDigits: 2 });
+  };
+
+  const fmtDays = (d) => {
+    if (!d) return '-';
+    const ms = d - Date.now();
+    if (ms < 0) return '<span class="text-muted">منتهي</span>';
+    const days = Math.floor(ms / 86400000);
+    const hours = Math.floor((ms % 86400000) / 3600000);
+    const cls = days < 1 ? 'ending-soon' : (days < 7 ? 'ending-week' : '');
+    if (days >= 1) return `<span class="${cls}">${days} يوم</span>`;
+    return `<span class="${cls}">${hours} ساعة</span>`;
+  };
+
+  const escapeHtml = (s) => String(s == null ? '' : s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+
+  // Enrich
+  const auctions = data.auctions.map(a => {
+    const d = parseEndDate(a.endDate || a.announcementEnd);
+    const det = a.details || {};
+    return Object.assign({}, a, {
+      _endDateMs: d ? d.getTime() : null,
+      _daysLeftMs: d ? (d.getTime() - Date.now()) : null,
+      startingAmountNum: num(a.startingAmount),
+      estimatedValueNum: num(a.estimatedValue),
+      currentAmountNum: num(a.currentAmount),
+      numBidsNum: num(a.numBids) || 0,
+      governorate: det['المحافظة'] || '',
+      directorate: det['المديرية'] || '',
+      village:     det['القرية']   || '',
+      basin:       det['الحوض']    || '',
+    });
+  });
+
+  // ---- Meta ----
+  document.getElementById('metaInfo').textContent =
+    `آخر تحديث: ${data.scrapedAt}  •  ${data.totalScraped} مزاد ${data.pageLimit > 0 ? '(عينة محدودة)' : '(كامل)'}`;
+  document.getElementById('sourceLink').href = data.source;
+
+  // category-name → token map (used to call /api/auction)
+  const tokenByCategory = {};
+  (data.categories || []).forEach(c => { tokenByCategory[c.name] = c.token; });
+
+  // ====== Endpoint config ======
+  // Paste your Cloudflare Worker URL here once deployed. Without trailing slash.
+  // e.g. 'https://moj-auctions-proxy.YOUR-ACCOUNT.workers.dev'
+  const WORKER_URL = '';   // <-- EDIT THIS AFTER DEPLOYING worker.js
+
+  const isLocalhost = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  const isFileProto = location.protocol === 'file:';
+
+  // Resolve where /api/auction lives:
+  //   - localhost → use serve.ps1 (same origin)
+  //   - file://   → no live details (button hidden)
+  //   - online    → Cloudflare Worker if configured, otherwise hidden
+  const apiBase = isLocalhost ? '' : (WORKER_URL || '');
+  const liveDetailsAvailable = !!apiBase || isLocalhost;
+  const refreshAvailable = isLocalhost; // refresh only works locally via serve.ps1
+
+  if (!liveDetailsAvailable) {
+    document.getElementById('loadDetailsBtn').style.display = 'none';
+  }
+  if (!refreshAvailable) {
+    // Online visitors don't have a way to trigger a re-scrape; hide the button entirely.
+    document.getElementById('refreshBtn').style.display = 'none';
+  }
+  // Backwards-compat alias used elsewhere in this file
+  const servedByApi = liveDetailsAvailable;
+
+  // ---- Stats ----
+  const renderStats = (rows) => {
+    const total = rows.length;
+    const byCat = {};
+    let sumStart = 0, sumEst = 0, sumCurrent = 0, withCurrent = 0;
+    let endingSoon = 0, endingWeek = 0;
+    rows.forEach(r => {
+      byCat[r.category] = (byCat[r.category] || 0) + 1;
+      if (r.startingAmountNum) sumStart += r.startingAmountNum;
+      if (r.estimatedValueNum) sumEst += r.estimatedValueNum;
+      if (r.currentAmountNum) { sumCurrent += r.currentAmountNum; withCurrent++; }
+      if (r._daysLeftMs !== null && r._daysLeftMs > 0) {
+        if (r._daysLeftMs < 86400000) endingSoon++;
+        else if (r._daysLeftMs < 7*86400000) endingWeek++;
+      }
+    });
+    const cards = [
+      { label: 'إجمالي المعروض', value: total.toLocaleString('en-US') },
+      { label: 'مجموع السعر الابتدائي', value: fmtNum(sumStart) + ' د.أ' },
+      { label: 'مجموع القيمة التقديرية', value: fmtNum(sumEst) + ' د.أ' },
+      { label: 'تنتهي خلال 24 ساعة', value: endingSoon.toLocaleString('en-US'), color: '#c0392b' },
+      { label: 'تنتهي خلال أسبوع', value: endingWeek.toLocaleString('en-US'), color: '#d68910' },
+    ];
+    document.getElementById('statsRow').innerHTML = cards.map(c =>
+      `<div class="col-md col-6"><div class="card stat-card p-3 h-100">
+        <div class="stat-label">${escapeHtml(c.label)}</div>
+        <div class="stat-value" style="${c.color ? 'color:' + c.color : ''}">${c.value}</div>
+      </div></div>`
+    ).join('');
+  };
+
+  // ---- Filters init ----
+  const fillSelect = (id, values) => {
+    const sel = document.getElementById(id);
+    const cur = sel.value;
+    [...sel.querySelectorAll('option:not([value=""])')].forEach(o => o.remove());
+    [...new Set(values.filter(Boolean))].sort().forEach(v => {
+      const o = document.createElement('option');
+      o.value = v; o.textContent = v;
+      sel.appendChild(o);
+    });
+    if (cur) sel.value = cur;
+  };
+
+  fillSelect('categoryFilter', auctions.map(a => a.category));
+  fillSelect('courtFilter',    auctions.map(a => a.court));
+  fillSelect('statusFilter',   auctions.map(a => a.status));
+  fillSelect('govFilter',      auctions.map(a => a.governorate));
+  fillSelect('dirFilter',      auctions.map(a => a.directorate));
+  fillSelect('villageFilter',  auctions.map(a => a.village));
+  fillSelect('basinFilter',    auctions.map(a => a.basin));
+
+  // ---- Filtering ----
+  let sortKey = '_endDateMs'; let sortDir = 1; // ascending = soonest first
+
+  const matches = (a, q) => {
+    if (!q) return true;
+    const haystack = [
+      a.id, a.category, a.header, a.court, a.caseNumber, a.status,
+      a.newspaper, a.notes, a.announcement
+    ].concat(Object.values(a.details || {})).join(' ').toLowerCase();
+    return q.split(/\s+/).every(t => haystack.includes(t));
+  };
+
+  const apply = () => {
+    const q = document.getElementById('searchInput').value.trim().toLowerCase();
+    const cat = document.getElementById('categoryFilter').value;
+    const crt = document.getElementById('courtFilter').value;
+    const stt = document.getElementById('statusFilter').value;
+    const gov = document.getElementById('govFilter').value;
+    const dir = document.getElementById('dirFilter').value;
+    const vil = document.getElementById('villageFilter').value;
+    const bsn = document.getElementById('basinFilter').value;
+
+    let rows = auctions.filter(a =>
+      (!cat || a.category === cat) &&
+      (!crt || a.court === crt) &&
+      (!stt || a.status === stt) &&
+      (!gov || a.governorate === gov) &&
+      (!dir || a.directorate === dir) &&
+      (!vil || a.village === vil) &&
+      (!bsn || a.basin === bsn) &&
+      matches(a, q)
+    );
+
+    // Sort
+    const k = sortKey;
+    const numeric = ['id','startingAmount','estimatedValue','currentAmount','numBids','_endDateMs','daysLeft'].includes(k);
+    rows.sort((a, b) => {
+      let va, vb;
+      if (k === 'startingAmount') { va = a.startingAmountNum; vb = b.startingAmountNum; }
+      else if (k === 'estimatedValue') { va = a.estimatedValueNum; vb = b.estimatedValueNum; }
+      else if (k === 'currentAmount') { va = a.currentAmountNum; vb = b.currentAmountNum; }
+      else if (k === 'numBids') { va = a.numBidsNum; vb = b.numBidsNum; }
+      else if (k === 'endDate' || k === 'daysLeft') { va = a._endDateMs; vb = b._endDateMs; }
+      else { va = a[k]; vb = b[k]; }
+      if (va == null && vb == null) return 0;
+      if (va == null) return 1;
+      if (vb == null) return -1;
+      if (typeof va === 'number') return (va - vb) * sortDir;
+      return String(va).localeCompare(String(vb), 'ar') * sortDir;
+    });
+
+    renderStats(rows);
+    renderTable(rows);
+    document.getElementById('resultCount').textContent = `عرض ${rows.length} من أصل ${auctions.length} مزاد`;
+    window._currentRows = rows;
+  };
+
+  // ---- Render ----
+  const renderTable = (rows) => {
+    const body = document.getElementById('auctionBody');
+    if (rows.length === 0) {
+      body.innerHTML = '';
+      document.getElementById('emptyState').style.display = 'block';
+      return;
+    }
+    document.getElementById('emptyState').style.display = 'none';
+    const html = rows.map(a => `
+      <tr class="row-clickable" data-id="${a.id}">
+        <td class="num">${a.id}</td>
+        <td><span class="badge bg-secondary badge-cat">${escapeHtml(a.category)}</span></td>
+        <td class="header-cell"><div class="header-text">${escapeHtml(a.header)}</div></td>
+        <td>${escapeHtml(a.court || '-')}</td>
+        <td>${escapeHtml(a.status || '-')}</td>
+        <td class="num">${escapeHtml(a.endDate || '-')}</td>
+        <td>${fmtDays(a._endDateMs ? new Date(a._endDateMs) : null)}</td>
+        <td class="num">${fmtNum(a.startingAmount)}</td>
+        <td class="num">${fmtNum(a.estimatedValue)}</td>
+        <td class="num">${fmtNum(a.currentAmount)}</td>
+        <td class="num">${fmtNum(a.numBids)}</td>
+      </tr>
+    `).join('');
+    body.innerHTML = html;
+  };
+
+  // Sort header click
+  document.querySelectorAll('th[data-sort]').forEach(th => {
+    th.addEventListener('click', () => {
+      const k = th.getAttribute('data-sort');
+      if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = 1; }
+      document.querySelectorAll('th .sort-ind').forEach(s => s.textContent = '');
+      th.querySelector('.sort-ind').textContent = sortDir > 0 ? ' ▲' : ' ▼';
+      apply();
+    });
+  });
+
+  // Row click → modal
+  let modalCurrentAuction = null;
+  document.getElementById('auctionBody').addEventListener('click', (e) => {
+    const tr = e.target.closest('tr.row-clickable');
+    if (!tr) return;
+    const id = +tr.getAttribute('data-id');
+    const a = auctions.find(x => x.id === id);
+    if (!a) return;
+    modalCurrentAuction = a;
+    document.getElementById('detailTitle').textContent = a.header || `مزاد رقم ${a.id}`;
+    document.getElementById('detailSourceLink').href = a.sourceUrl || data.source;
+
+    // Fields table
+    const rowsHtml = [];
+    rowsHtml.push(`<table class="table modal-detail-table mb-0">`);
+    rowsHtml.push(`<tr><th>الفئة</th><td>${escapeHtml(a.category)}</td></tr>`);
+    rowsHtml.push(`<tr><th>رقم المزاد</th><td class="num">${escapeHtml(String(a.id))}</td></tr>`);
+    Object.entries(a.details || {}).forEach(([k, v]) => {
+      rowsHtml.push(`<tr><th>${escapeHtml(k)}</th><td>${escapeHtml(v)}</td></tr>`);
+    });
+    rowsHtml.push(`<tr><th>السعر الابتدائي</th><td class="num">${fmtNum(a.startingAmount)} د.أ</td></tr>`);
+    rowsHtml.push(`<tr><th>القيمة التقديرية</th><td class="num">${fmtNum(a.estimatedValue)} د.أ</td></tr>`);
+    rowsHtml.push(`<tr><th>العرض الحالي</th><td class="num">${fmtNum(a.currentAmount)} د.أ</td></tr>`);
+    rowsHtml.push(`<tr><th>عدد المزاودات</th><td class="num">${fmtNum(a.numBids)}</td></tr>`);
+    if (a.notes) rowsHtml.push(`<tr><th>المشروحات</th><td>${escapeHtml(a.notes)}</td></tr>`);
+    rowsHtml.push(`</table>`);
+    document.getElementById('detailFields').innerHTML = rowsHtml.join('');
+
+    // Reset gallery / reports
+    document.getElementById('detailGallery').innerHTML = servedByApi
+      ? '<div class="text-muted small">انقر "تحميل التفاصيل" لجلب الصور وتقرير الخبرة.</div>'
+      : '<div class="text-muted small">شغّل <code>serve.ps1</code> لتفعيل تحميل الصور وتقرير الخبرة من الموقع.</div>';
+    document.getElementById('detailReports').innerHTML = '';
+    document.getElementById('loadDetailsBtn').disabled = false;
+    document.getElementById('loadDetailsBtn').textContent = '⤓ تحميل التفاصيل (صور + تقرير الخبرة)';
+
+    new bootstrap.Modal(document.getElementById('detailModal')).show();
+  });
+
+  // Lazy-load images + report from /api/auction
+  document.getElementById('loadDetailsBtn').addEventListener('click', async () => {
+    if (!modalCurrentAuction) return;
+    const a = modalCurrentAuction;
+    const token = tokenByCategory[a.category];
+    if (!token) {
+      document.getElementById('detailGallery').innerHTML = `<div class="alert alert-warning small mb-0">لا يوجد token معروف للفئة ${escapeHtml(a.category)}.</div>`;
+      return;
+    }
+    const btn = document.getElementById('loadDetailsBtn');
+    btn.disabled = true; btn.textContent = '⏳ جاري التحميل...';
+    document.getElementById('detailGallery').innerHTML = '<div class="skeleton"></div>';
+    try {
+      const r = await fetch(`${apiBase}/api/auction?id=${a.id}&token=${encodeURIComponent(token)}`);
+      const j = await r.json();
+      if (j.captcha) {
+        document.getElementById('detailGallery').innerHTML = '<div class="alert alert-warning small mb-0">الموقع يطلب التحقق (captcha). انتظر دقائق وحاول مرة أخرى.</div>';
+        document.getElementById('detailReports').innerHTML = '';
+      } else if (j.error) {
+        document.getElementById('detailGallery').innerHTML = `<div class="alert alert-danger small mb-0">خطأ: ${escapeHtml(j.error)}</div>`;
+      } else {
+        const imgs = j.images || [];
+        document.getElementById('detailGallery').innerHTML = imgs.length === 0
+          ? '<div class="text-muted small">لا توجد صور.</div>'
+          : `<div class="gallery">${imgs.map(u => `<a href="${escapeHtml(u)}" target="_blank"><img src="${escapeHtml(u)}" loading="lazy" alt=""></a>`).join('')}</div>`;
+        const reps = j.reports || [];
+        document.getElementById('detailReports').innerHTML = reps.length === 0
+          ? '<div class="text-muted small">لا توجد مرفقات.</div>'
+          : reps.map(r => `<a href="${escapeHtml(r.url)}" target="_blank">${escapeHtml(r.text || r.url)}</a>`).join('');
+      }
+    } catch (err) {
+      document.getElementById('detailGallery').innerHTML = `<div class="alert alert-danger small mb-0">فشل الاتصال بالخادم المحلي: ${escapeHtml(String(err))}</div>`;
+    } finally {
+      btn.disabled = false; btn.textContent = '⤓ تحميل التفاصيل (صور + تقرير الخبرة)';
+    }
+  });
+
+  // Refresh button: trigger /api/refresh and poll status
+  let refreshPolling = null;
+  const refreshBtn   = document.getElementById('refreshBtn');
+  const refreshToast = document.getElementById('refreshToast');
+  const refreshLog   = document.getElementById('refreshLog');
+  document.getElementById('refreshToastClose').addEventListener('click', () => refreshToast.classList.add('d-none'));
+
+  const showInstructions = () => {
+    refreshToast.classList.remove('d-none', 'alert-info', 'alert-success', 'alert-danger');
+    refreshToast.classList.add('alert-info');
+    refreshToast.querySelector('strong').textContent = 'لتفعيل التحديث المباشر:';
+    refreshLog.textContent =
+      '1) شغّل start.cmd (أو: powershell -ExecutionPolicy Bypass -File serve.ps1)\n' +
+      '2) سيفتح المتصفح على http://localhost:8123 تلقائياً\n' +
+      '3) ثم انقر زر "تحديث البيانات"\n\n' +
+      'بدون تشغيل الخادم: شغّل scrape.ps1 يدوياً ثم أعد تحميل هذه الصفحة.';
+  };
+
+  const pollStatus = async () => {
+    try {
+      const r = await fetch('/api/refresh/status');
+      const j = await r.json();
+      refreshLog.textContent = j.tail || '(...)';
+      if (j.status === 'running') return;
+      clearInterval(refreshPolling); refreshPolling = null;
+      refreshBtn.classList.remove('is-running');
+      if (j.status === 'done') {
+        refreshToast.querySelector('strong').textContent = '✓ تم التحديث بنجاح. جارِ إعادة تحميل البيانات...';
+        refreshToast.classList.remove('alert-info'); refreshToast.classList.add('alert-success');
+        setTimeout(() => location.reload(), 1500);
+      } else {
+        refreshToast.querySelector('strong').textContent = `✗ فشل التحديث (exit ${j.exitCode}).`;
+        refreshToast.classList.remove('alert-info'); refreshToast.classList.add('alert-danger');
+      }
+    } catch (err) {
+      // server gone
+      clearInterval(refreshPolling); refreshPolling = null;
+      refreshBtn.classList.remove('is-running');
+    }
+  };
+
+  refreshBtn.addEventListener('click', async () => {
+    if (!servedByApi) { showInstructions(); return; }
+    if (refreshPolling) return;
+    refreshBtn.classList.add('is-running');
+    refreshToast.classList.remove('d-none', 'alert-success', 'alert-danger');
+    refreshToast.classList.add('alert-info');
+    refreshToast.querySelector('strong').textContent = 'جاري تحديث البيانات...';
+    refreshLog.textContent = '(starting...)';
+    try {
+      const r = await fetch('/api/refresh', { method: 'POST' });
+      if (!r.ok && r.status !== 409) {
+        refreshBtn.classList.remove('is-running');
+        refreshLog.textContent = `HTTP ${r.status}`;
+        return;
+      }
+    } catch (err) {
+      refreshBtn.classList.remove('is-running');
+      refreshLog.textContent = 'تعذر الاتصال بالخادم: ' + err;
+      return;
+    }
+    refreshPolling = setInterval(pollStatus, 2500);
+    pollStatus();
+  });
+
+  // Filter inputs
+  const filterIds = ['searchInput','categoryFilter','courtFilter','statusFilter','govFilter','dirFilter','villageFilter','basinFilter'];
+  filterIds.forEach(id => {
+    document.getElementById(id).addEventListener('input', apply);
+    document.getElementById(id).addEventListener('change', apply);
+  });
+  document.getElementById('clearFilters').addEventListener('click', () => {
+    filterIds.forEach(id => { document.getElementById(id).value = ''; });
+    apply();
+  });
+
+  // CSV export
+  document.getElementById('exportCsv').addEventListener('click', () => {
+    const rows = window._currentRows || auctions;
+    const headers = ['id','category','header','court','caseNumber','status','endDate','startingAmount','estimatedValue','currentAmount','numBids','newspaper','newspaperIssue','publishedAt','announcementStart','announcementEnd','minIncrement','notes'];
+    const arabicHeaders = ['الرقم','الفئة','عنوان المزاد','المحكمة','رقم الدعوى','الحالة','تاريخ الانتهاء','السعر الابتدائي','القيمة التقديرية','العرض الحالي','عدد المزاودات','الصحيفة','العدد','تاريخ النشر','بداية الإعلان','نهاية الإعلان','الحد الأدنى للزيادة','المشروحات'];
+    const esc = (v) => {
+      if (v === null || v === undefined) return '';
+      const s = String(v);
+      if (/[",\n\r]/.test(s)) return '"' + s.replace(/"/g, '""') + '"';
+      return s;
+    };
+    const csv = [arabicHeaders.join(',')].concat(
+      rows.map(r => headers.map(h => esc(r[h])).join(','))
+    ).join('\r\n');
+    const bom = '﻿'; // for Excel UTF-8
+    const blob = new Blob([bom + csv], { type: 'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = 'auctions_' + new Date().toISOString().slice(0,10) + '.csv';
+    document.body.appendChild(a); a.click(); a.remove();
+    URL.revokeObjectURL(url);
+  });
+
+  // Initial render
+  document.querySelector('th[data-sort="endDate"] .sort-ind').textContent = ' ▲';
+  sortKey = 'endDate';
+  apply();
+})();
+</script>
+</body>
+</html>

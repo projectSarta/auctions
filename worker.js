@@ -1,0 +1,131 @@
+// Cloudflare Worker — CORS-friendly proxy for auctions.moj.gov.jo
+//
+// Routes:
+//   GET  /api/auction?id=<n>&token=<categoryToken>
+//        Fetches AuctionInfo.aspx for that auction, parses image URLs and
+//        attachment links (looking for تقرير الخبرة and similar), returns JSON.
+//
+//   GET  /img?u=<encoded URL>
+//        Streams an image from auctions.moj.gov.jo through this worker
+//        (so the browser can render <img> without CORS issues).
+//
+// Deploy:
+//   1) https://dash.cloudflare.com/  →  Workers & Pages  →  Create  →  Worker
+//   2) Replace the default code with this file's contents.  Save and deploy.
+//   3) Copy the worker URL (e.g. https://moj-auctions-proxy.<account>.workers.dev)
+//   4) Paste it into dashboard.html (search for WORKER_URL).
+//
+// Free tier: 100,000 requests/day. Plenty for personal use.
+
+const BASE = 'https://auctions.moj.gov.jo';
+const UA   = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36';
+
+const CORS = {
+  'Access-Control-Allow-Origin':  '*',
+  'Access-Control-Allow-Methods': 'GET,OPTIONS',
+  'Access-Control-Allow-Headers': 'Content-Type',
+  'Cache-Control': 'public, max-age=300',
+};
+
+export default {
+  async fetch(request) {
+    const url = new URL(request.url);
+
+    if (request.method === 'OPTIONS') {
+      return new Response(null, { status: 204, headers: CORS });
+    }
+
+    try {
+      if (url.pathname === '/api/auction') {
+        return await handleAuction(url);
+      }
+      if (url.pathname === '/img') {
+        return await handleImageProxy(url);
+      }
+      if (url.pathname === '/' || url.pathname === '/health') {
+        return jsonResponse({ ok: true, hint: 'GET /api/auction?id=&token= or /img?u=' });
+      }
+      return jsonResponse({ error: 'Not found' }, 404);
+    } catch (err) {
+      return jsonResponse({ error: String(err && err.message || err) }, 500);
+    }
+  }
+};
+
+function jsonResponse(obj, status = 200) {
+  return new Response(JSON.stringify(obj), {
+    status,
+    headers: { 'Content-Type': 'application/json; charset=utf-8', ...CORS }
+  });
+}
+
+async function handleAuction(url) {
+  const id    = url.searchParams.get('id');
+  const token = url.searchParams.get('token');
+  if (!id || !token) return jsonResponse({ error: 'id and token required' }, 400);
+
+  const target = `${BASE}/AuctionInfo.aspx?token=${encodeURIComponent(token)}&auction=${encodeURIComponent(id)}`;
+  const res = await fetch(target, {
+    headers: {
+      'User-Agent': UA,
+      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+      'Accept-Language': 'ar,en;q=0.8',
+    }
+  });
+  const html = await res.text();
+
+  if (html.length < 5000 || html.includes('Validation request') || html.includes('captcha_resp')) {
+    return jsonResponse({ id: +id, captcha: true, images: [], reports: [], target });
+  }
+
+  // Image candidates
+  const imgs = new Set();
+  const imgRe = /<img[^>]+src="([^"]+\.(?:jpg|jpeg|png|gif|JPG|JPEG|PNG|GIF))"/g;
+  let m;
+  while ((m = imgRe.exec(html))) {
+    let u = m[1];
+    if (/\/(noimage|logo|favicon|splash|ipad|iphone|menu|gavel|fa[-_])/.test(u)) continue;
+    if (u.startsWith('data:')) continue;
+    if (u.startsWith('/')) u = BASE + u;
+    imgs.add(u);
+  }
+
+  // Anchor candidates → reports / attachments
+  const reports = [];
+  const aRe = /<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g;
+  while ((m = aRe.exec(html))) {
+    const href = m[1];
+    const text = m[2].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    const isDoc = /\.(pdf|doc|docx|xls|xlsx|jpg|png)(\?|$)/i.test(href);
+    const mentions = /(تقرير|خبرة|مرفق|التقرير|attach|report)/.test(text);
+    if (isDoc || mentions) {
+      let u = href;
+      if (u.startsWith('/')) u = BASE + u;
+      reports.push({ url: u, text: text || u });
+    }
+  }
+
+  return jsonResponse({
+    id: +id,
+    captcha: false,
+    images: [...imgs],
+    reports,
+    target
+  });
+}
+
+async function handleImageProxy(url) {
+  const u = url.searchParams.get('u');
+  if (!u) return jsonResponse({ error: 'u required' }, 400);
+  // Only proxy URLs on the auctions host
+  let target;
+  try { target = new URL(u); } catch { return jsonResponse({ error: 'bad URL' }, 400); }
+  if (target.hostname !== 'auctions.moj.gov.jo') {
+    return jsonResponse({ error: 'host not allowed' }, 400);
+  }
+  const res = await fetch(target.toString(), { headers: { 'User-Agent': UA } });
+  const headers = new Headers(CORS);
+  const ct = res.headers.get('Content-Type') || 'application/octet-stream';
+  headers.set('Content-Type', ct);
+  return new Response(res.body, { status: res.status, headers });
+}
