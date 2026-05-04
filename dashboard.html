@@ -567,13 +567,72 @@
     new bootstrap.Modal(document.getElementById('detailModal')).show();
   });
 
-  // ==== Map (Leaflet + Nominatim) ====
+  // ==== Map (Leaflet + aradi.io exact-parcel lookup, with Nominatim fallback) ====
   let _leafletMap = null;
-  let _leafletMarker = null;
+  let _leafletLayer = null;
   const GEO_CACHE_KEY = 'mojAuctions.geoCache';
   let geoCache;
   try { geoCache = JSON.parse(localStorage.getItem(GEO_CACHE_KEY) || '{}'); } catch { geoCache = {}; }
   const saveGeoCache = () => { try { localStorage.setItem(GEO_CACHE_KEY, JSON.stringify(geoCache)); } catch {} };
+
+  // --- aradi.io: free public DLS code/name index + plot polygon API (no auth) ---
+  const ARADI_BASE = 'https://cdn.aradi.io/json/2019-12-25/indices';
+  let _aradiIdxPromise = null;
+  function loadAradiIndex() {
+    if (_aradiIdxPromise) return _aradiIdxPromise;
+    _aradiIdxPromise = (async () => {
+      const [d, dept, vill, hod] = await Promise.all([
+        fetch(`${ARADI_BASE}/district.json`).then(r => r.json()),
+        fetch(`${ARADI_BASE}/department.json`).then(r => r.json()),
+        fetch(`${ARADI_BASE}/village.json`).then(r => r.json()),
+        fetch(`${ARADI_BASE}/hod.json`).then(r => r.json()),
+      ]);
+      return { d, dept, vill, hod };
+    })().catch(() => null);
+    return _aradiIdxPromise;
+  }
+  function lookupAradiCodes(a, idx) {
+    if (!idx || !a) return null;
+    const norm = (s) => (s == null ? '' : String(s)).replace(/^محافظة\s+/, '').trim();
+    const govName = norm(a.governorate);
+    const district = idx.d.find(x => (x.DISTRECT_ANAME || '').trim() === govName);
+    if (!district) return null;
+    const dirName = (a.directorate || '').trim();
+    const dept = idx.dept.find(x => (x.DEPT_ANAME || '').trim() === dirName && x.DISTRECT_CODE === district.DISTRECT_CODE);
+    if (!dept) return null;
+    const villName = (a.village || '').trim();
+    const village = idx.vill.find(x => (x.VILL_ANAME || '').trim() === villName && x.DEPT_CODE === dept.DEPT_CODE);
+    if (!village) return null;
+    // basin "008/البلد" — try the leading numeric code, fall back to the name
+    const basinRaw = (a.basin || '').trim();
+    let blockCodeStr = basinRaw, blockName = '';
+    if (basinRaw.includes('/')) {
+      const parts = basinRaw.split('/');
+      blockCodeStr = parts[0].trim();
+      blockName = parts.slice(1).join('/').trim();
+    }
+    const blockCode = parseInt(blockCodeStr, 10);
+    let block = !isNaN(blockCode) ? idx.hod.find(x => x.VILL_CODE === village.VILL_CODE && x.HOD_CODE === blockCode) : null;
+    if (!block && blockName) {
+      block = idx.hod.find(x => x.VILL_CODE === village.VILL_CODE && (x.HOD_ANAME || '').trim() === blockName);
+    }
+    if (!block) return null;
+    const plotNoRaw = (a.details || {})['رقم القطعة'];
+    const plotNo = parseInt(plotNoRaw, 10);
+    if (!plotNo) return null;
+    return { village: village.VILL_CODE, block: block.HOD_CODE, plot: plotNo,
+             villageName: village.VILL_ANAME, blockName: block.HOD_ANAME };
+  }
+  async function fetchAradiPlot(codes) {
+    if (!codes) return null;
+    try {
+      const r = await fetch(`https://aradi.io/api/plot/${codes.village}/${codes.block}/${codes.plot}`);
+      if (!r.ok) return null;
+      const j = await r.json();
+      if (j && j.result === 'success' && j.plot && j.plot.geometry) return j.plot;
+    } catch {}
+    return null;
+  }
 
   async function geocode(query) {
     if (geoCache[query]) return geoCache[query];
@@ -593,43 +652,74 @@
     return null;
   }
 
+  function ensureMap() {
+    if (_leafletMap) return;
+    _leafletMap = L.map('detailMap', { zoomControl: true, attributionControl: true });
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> · parcel via <a href="https://aradi.io">aradi.io</a>'
+    }).addTo(_leafletMap);
+  }
+  function clearMapLayer() { if (_leafletLayer) { try { _leafletLayer.remove(); } catch {} _leafletLayer = null; } }
+
   async function showMapForAuction(a) {
     const wrap = document.getElementById('detailMapWrap');
     const note = document.getElementById('detailMapNote');
+    if (!a.governorate && !a.village) { wrap.style.display = 'none'; return; }
+    wrap.style.display = '';
+    note.textContent = 'يتم تحديد الموقع...';
+    ensureMap();
+    clearMapLayer();
+
+    // 1) Try aradi.io exact-parcel polygon
+    try {
+      const idx = await loadAradiIndex();
+      const codes = lookupAradiCodes(a, idx);
+      const plot = codes ? await fetchAradiPlot(codes) : null;
+      if (plot) {
+        _leafletLayer = L.geoJSON(plot, {
+          style: { color: '#c0392b', weight: 3, fillColor: '#e74c3c', fillOpacity: 0.25 }
+        }).addTo(_leafletMap);
+        const props = plot.properties || {};
+        _leafletLayer.bindPopup(
+          `<div dir="rtl" style="text-align:right">
+             <strong>قطعة ${props.plot_id}</strong><br>
+             حوض: ${escapeHtml(props.block_name || codes.blockName || '')}<br>
+             قرية: ${escapeHtml(props.village_name || codes.villageName || '')}<br>
+             مديرية: ${escapeHtml(props.department_name || '')}<br>
+             محافظة: ${escapeHtml(props.district_name || '')}<br>
+             المساحة: ${(props.area || 0).toLocaleString('en-US', {maximumFractionDigits:0})} م²<br>
+             DLS Key: <code>${escapeHtml(props.dls_key || '')}</code>
+           </div>`
+        ).openPopup();
+        const b = _leafletLayer.getBounds();
+        _leafletMap.fitBounds(b.pad(0.5));
+        const c = b.getCenter();
+        note.innerHTML = `🎯 الحدود الفعلية للقطعة (المساحة ${(props.area||0).toLocaleString('en-US',{maximumFractionDigits:0})} م²) · ` +
+          `<a href="https://www.openstreetmap.org/?mlat=${c.lat}&mlon=${c.lng}#map=18/${c.lat}/${c.lng}" target="_blank" rel="noopener">OSM</a> · ` +
+          `<a href="https://www.google.com/maps/@${c.lat},${c.lng},18z/data=!3m1!1e3" target="_blank" rel="noopener">Google Maps (satellite)</a> · ` +
+          `<a href="https://aradi.io/" target="_blank" rel="noopener">aradi.io</a>`;
+        setTimeout(() => { try { _leafletMap.invalidateSize(); } catch {} }, 300);
+        return;
+      }
+    } catch (err) { /* fall through to geocode */ }
+
+    // 2) Fallback: Nominatim village/area geocoding
     const candidates = [];
     if (a.village)     candidates.push([a.village, a.governorate, 'الأردن'].filter(Boolean).join(', '));
     if (a.directorate) candidates.push([a.directorate, a.governorate, 'الأردن'].filter(Boolean).join(', '));
     if (a.governorate) candidates.push([a.governorate, 'الأردن'].filter(Boolean).join(', '));
-    if (candidates.length === 0) { wrap.style.display = 'none'; return; }
-    wrap.style.display = '';
-    note.textContent = 'يتم تحديد الموقع...';
-
     let hit = null, used = '';
     for (const q of candidates) {
       hit = await geocode(q);
       if (hit) { used = q; break; }
     }
-    if (!hit) {
-      note.textContent = 'تعذر تحديد الموقع تلقائياً.';
-      wrap.style.display = 'none';
-      return;
-    }
-
-    if (!_leafletMap) {
-      _leafletMap = L.map('detailMap', { zoomControl: true, attributionControl: true });
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a>'
-      }).addTo(_leafletMap);
-    }
+    if (!hit) { note.textContent = 'تعذر تحديد الموقع تلقائياً.'; wrap.style.display = 'none'; return; }
     _leafletMap.setView([hit.lat, hit.lon], 14);
-    if (_leafletMarker) _leafletMarker.remove();
-    _leafletMarker = L.marker([hit.lat, hit.lon]).addTo(_leafletMap)
-      .bindPopup(`<div dir="rtl" style="text-align:right">${escapeHtml(used)}</div>`)
-      .openPopup();
-    note.innerHTML = `📍 ${escapeHtml(hit.name)} &nbsp; · &nbsp; <a href="https://www.openstreetmap.org/?mlat=${hit.lat}&mlon=${hit.lon}#map=15/${hit.lat}/${hit.lon}" target="_blank" rel="noopener">فتح في OSM</a>`;
-
-    // Leaflet sometimes mis-sizes inside a modal that wasn't visible — invalidate after the modal opens
+    _leafletLayer = L.marker([hit.lat, hit.lon]).addTo(_leafletMap)
+      .bindPopup(`<div dir="rtl" style="text-align:right">${escapeHtml(used)}</div>`).openPopup();
+    note.innerHTML = `📍 موقع تقريبي (مستوى القرية): ${escapeHtml(hit.name)} · ` +
+      `<a href="https://www.openstreetmap.org/?mlat=${hit.lat}&mlon=${hit.lon}#map=15/${hit.lat}/${hit.lon}" target="_blank" rel="noopener">OSM</a>`;
     setTimeout(() => { try { _leafletMap.invalidateSize(); } catch {} }, 300);
   }
 
