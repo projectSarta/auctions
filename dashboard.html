@@ -537,31 +537,39 @@
     new bootstrap.Modal(document.getElementById('detailModal')).show();
   });
 
-  // Lazy-load images + report from /api/auction
+  // Lazy-load images + report from /api/auction.
+  // On any API failure / captcha, AUTO-OPEN the original page in a new tab so
+  // the click is never silent. (The site itself blocks our proxy + worker, but
+  // browsers reach the original page just fine.)
   document.getElementById('loadDetailsBtn').addEventListener('click', async () => {
     if (!modalCurrentAuction) return;
     const a = modalCurrentAuction;
     const token = tokenByCategory[a.category];
+    const sourceHref = `https://auctions.moj.gov.jo/AuctionInfo.aspx?token=${encodeURIComponent(token || '')}&auction=${a.id}`;
+
     if (!token) {
-      document.getElementById('detailGallery').innerHTML = `<div class="alert alert-warning small mb-0">لا يوجد token معروف للفئة ${escapeHtml(a.category)}.</div>`;
+      window.open(sourceHref, '_blank', 'noopener');
       return;
     }
+
     const btn = document.getElementById('loadDetailsBtn');
     btn.disabled = true; btn.textContent = '⏳ جاري التحميل...';
     document.getElementById('detailGallery').innerHTML = '<div class="skeleton"></div>';
-    const sourceHref = `https://auctions.moj.gov.jo/AuctionInfo.aspx?token=${encodeURIComponent(token)}&auction=${a.id}`;
     const sourceFallback = `
       <div class="alert alert-info small mb-0">
-        <div class="mb-2">يتم تحميل الصور وتقرير الخبرة من الموقع الأصلي. <strong>افتح الصفحة الأصلية مباشرةً للحصول على المحتوى الكامل بما فيه المرفقات.</strong></div>
-        <a class="btn btn-primary btn-sm" href="${escapeHtml(sourceHref)}" target="_blank" rel="noopener">↗ فتح الصفحة الأصلية</a>
+        <div class="mb-2">⚠ المصدر يحجب طلبات الـ proxy. تم فتح الصفحة الأصلية في تبويب جديد للحصول على الصور وتقرير الخبرة.</div>
+        <a class="btn btn-primary btn-sm" href="${escapeHtml(sourceHref)}" target="_blank" rel="noopener">↗ فتح الصفحة الأصلية مرة أخرى</a>
       </div>`;
+    const fallback = () => {
+      document.getElementById('detailGallery').innerHTML = sourceFallback;
+      document.getElementById('detailReports').innerHTML = '';
+      window.open(sourceHref, '_blank', 'noopener');
+    };
     try {
       const r = await fetch(`${apiBase}/api/auction?id=${a.id}&token=${encodeURIComponent(token)}`);
       const j = await r.json();
-      if (j.captcha || j.error) {
-        document.getElementById('detailGallery').innerHTML = sourceFallback;
-        document.getElementById('detailReports').innerHTML = '';
-      } else {
+      if (j.captcha || j.error) { fallback(); }
+      else {
         const imgs = j.images || [];
         document.getElementById('detailGallery').innerHTML = imgs.length === 0
           ? '<div class="text-muted small">لا توجد صور.</div>'
@@ -572,9 +580,9 @@
           : reps.map(r => `<a href="${escapeHtml(r.url)}" target="_blank">${escapeHtml(r.text || r.url)}</a>`).join('');
       }
     } catch (err) {
-      document.getElementById('detailGallery').innerHTML = sourceFallback;
+      fallback();
     } finally {
-      btn.disabled = false; btn.textContent = '⤓ تحميل التفاصيل (صور + تقرير الخبرة)';
+      btn.disabled = false; btn.textContent = '⤓ تحميل التفاصيل';
     }
   });
 
