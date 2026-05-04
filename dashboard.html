@@ -321,16 +321,15 @@
   const servedByApi = liveDetailsAvailable;
 
   // ---- Stats ----
+  // Pre-compute the canonical category list (in the order the source provides them)
+  const allCategoryNames = (data.categories || []).map(c => c.name);
+
   const renderStats = (rows) => {
     const total = rows.length;
     const byCat = {};
-    let sumStart = 0, sumEst = 0, sumCurrent = 0, withCurrent = 0;
     let endingSoon = 0, endingWeek = 0;
     rows.forEach(r => {
       byCat[r.category] = (byCat[r.category] || 0) + 1;
-      if (r.startingAmountNum) sumStart += r.startingAmountNum;
-      if (r.estimatedValueNum) sumEst += r.estimatedValueNum;
-      if (r.currentAmountNum) { sumCurrent += r.currentAmountNum; withCurrent++; }
       if (r._daysLeftMs !== null && r._daysLeftMs > 0) {
         if (r._daysLeftMs < 86400000) endingSoon++;
         else if (r._daysLeftMs < 7*86400000) endingWeek++;
@@ -338,10 +337,13 @@
     });
     const cards = [
       { label: 'إجمالي المعروض', value: total.toLocaleString('en-US') },
-      { label: 'مجموع السعر الابتدائي', value: fmtNum(sumStart) + ' د.أ' },
-      { label: 'مجموع القيمة التقديرية', value: fmtNum(sumEst) + ' د.أ' },
+      ...allCategoryNames.map(name => ({
+        label: name,
+        value: (byCat[name] || 0).toLocaleString('en-US'),
+        color: '#24485f'
+      })),
       { label: 'تنتهي خلال 24 ساعة', value: endingSoon.toLocaleString('en-US'), color: '#c0392b' },
-      { label: 'تنتهي خلال أسبوع', value: endingWeek.toLocaleString('en-US'), color: '#d68910' },
+      { label: 'تنتهي خلال أسبوع',   value: endingWeek.toLocaleString('en-US'), color: '#d68910' },
     ];
     document.getElementById('statsRow').innerHTML = cards.map(c =>
       `<div class="col-md col-6"><div class="card stat-card p-3 h-100">
