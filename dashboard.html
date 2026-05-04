@@ -157,6 +157,7 @@
           <th data-sort="category">الفئة<span class="sort-ind"></span></th>
           <th data-sort="header">عنوان المزاد<span class="sort-ind"></span></th>
           <th data-sort="court">المحكمة<span class="sort-ind"></span></th>
+          <th data-sort="announcement">الإعلان<span class="sort-ind"></span></th>
           <th data-sort="status">الحالة<span class="sort-ind"></span></th>
           <th data-sort="endDate">تاريخ الانتهاء<span class="sort-ind"></span></th>
           <th data-sort="daysLeft">باقي<span class="sort-ind"></span></th>
@@ -465,6 +466,7 @@
         <td><span class="badge bg-secondary badge-cat">${escapeHtml(a.category)}</span></td>
         <td class="header-cell"><div class="header-text">${escapeHtml(a.header)}</div></td>
         <td>${escapeHtml(a.court || '-')}</td>
+        <td>${escapeHtml(a.announcement || '-')}</td>
         <td>${escapeHtml(a.status || '-')}</td>
         <td class="num">${escapeHtml(a.endDate || '-')}</td>
         <td>${fmtDays(a._endDateMs ? new Date(a._endDateMs) : null)}</td>
