@@ -1,5 +1,5 @@
 window.AUCTION_DATA = {
-    "scrapedAt":  "2026-05-04 17:20:44",
+    "scrapedAt":  "2026-05-05 01:54:42",
     "source":  "https://auctions.moj.gov.jo/index.aspx",
     "totalScraped":  366,
     "pageLimit":  0,
@@ -8,17 +8,17 @@ window.AUCTION_DATA = {
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vgTIHx4qwtzJBsfviXhuz8j6Ht9U78JeLm9XVD2AcY4D1ojcWsBjK8kD_Sndyoqb_UXPceoK3yJilkjyc0tzRz0",
                            "name":  "شركة / علامة تجارية",
-                           "totalCount":  12
+                           "totalCount":  11
                        },
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE",
                            "name":  "أرض/ مجمع",
-                           "totalCount":  1294
+                           "totalCount":  1288
                        },
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc",
                            "name":  "شقة/ مكتب",
-                           "totalCount":  605
+                           "totalCount":  602
                        },
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY",
@@ -28,7 +28,7 @@ window.AUCTION_DATA = {
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY",
                            "name":  "مركبة",
-                           "totalCount":  362
+                           "totalCount":  355
                        }
                    ],
     "auctions":  [
