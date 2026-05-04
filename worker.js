@@ -64,13 +64,41 @@ async function handleAuction(url) {
   const token = url.searchParams.get('token');
   if (!id || !token) return jsonResponse({ error: 'id and token required' }, 400);
 
+  const baseHeaders = {
+    'User-Agent': UA,
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'ar,en;q=0.8',
+  };
+
+  // 1) Warm the session: visit index.aspx to receive ASP.NET / BNI session cookies.
+  let cookieHeader = '';
+  try {
+    const warm = await fetch(`${BASE}/index.aspx`, { headers: baseHeaders, redirect: 'follow' });
+    const setCookies = warm.headers.getSetCookie ? warm.headers.getSetCookie() : [warm.headers.get('Set-Cookie') || ''];
+    cookieHeader = setCookies
+      .filter(Boolean)
+      .map(c => c.split(';')[0])
+      .filter(Boolean)
+      .join('; ');
+  } catch (e) { /* if warm fails, still try cold */ }
+
+  // 2) Visit the category list page so the server expects subsequent details requests in this session.
+  try {
+    await fetch(`${BASE}/AuctionsList.aspx?token=${encodeURIComponent(token)}`, {
+      headers: { ...baseHeaders, Cookie: cookieHeader, Referer: `${BASE}/index.aspx` },
+      redirect: 'follow',
+    });
+  } catch (e) { /* ignore */ }
+
+  // 3) Now fetch the auction detail page with the warmed cookies + Referer.
   const target = `${BASE}/AuctionInfo.aspx?token=${encodeURIComponent(token)}&auction=${encodeURIComponent(id)}`;
   const res = await fetch(target, {
     headers: {
-      'User-Agent': UA,
-      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-      'Accept-Language': 'ar,en;q=0.8',
-    }
+      ...baseHeaders,
+      Cookie: cookieHeader,
+      Referer: `${BASE}/AuctionsList.aspx?token=${encodeURIComponent(token)}`,
+    },
+    redirect: 'follow',
   });
   const html = await res.text();
 
