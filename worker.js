@@ -43,7 +43,34 @@ export default {
         return await handleImageProxy(url);
       }
       if (url.pathname === '/' || url.pathname === '/health') {
-        return jsonResponse({ ok: true, hint: 'GET /api/auction?id=&token= or /img?u=' });
+        return jsonResponse({ ok: true, hint: 'GET /api/auction?id=&token= or /img?u= or /debug?url=' });
+      }
+      if (url.pathname === '/debug') {
+        // Debug helper: return status, length, first chars + Set-Cookie headers from any URL on the auctions host.
+        const u = url.searchParams.get('url') || (BASE + '/index.aspx');
+        try {
+          const r = await fetch(u, {
+            headers: {
+              'User-Agent': UA,
+              'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+              'Accept-Language': 'ar,en;q=0.8',
+            },
+            redirect: 'follow',
+          });
+          const txt = await r.text();
+          const cookies = r.headers.getSetCookie ? r.headers.getSetCookie() : [r.headers.get('Set-Cookie') || ''];
+          return jsonResponse({
+            requested: u,
+            finalUrl: r.url,
+            status: r.status,
+            length: txt.length,
+            firstChars: txt.slice(0, 400),
+            setCookies: cookies.filter(Boolean),
+            captcha: txt.length < 5000 || txt.includes('Validation request') || txt.includes('captcha_resp'),
+          });
+        } catch (err) {
+          return jsonResponse({ error: String(err && err.message || err) }, 500);
+        }
       }
       return jsonResponse({ error: 'Not found' }, 404);
     } catch (err) {
