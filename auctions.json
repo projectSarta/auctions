@@ -1,9 +1,9 @@
 {
-    "scrapedAt":  "2026-05-04 14:25:45",
+    "scrapedAt":  "2026-05-04 14:35:25",
     "source":  "https://auctions.moj.gov.jo/index.aspx",
-    "totalScraped":  309,
+    "totalScraped":  310,
     "pageLimit":  0,
-    "inProgress":  true,
+    "inProgress":  false,
     "categories":  [
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vgTIHx4qwtzJBsfviXhuz8j6Ht9U78JeLm9XVD2AcY4D1ojcWsBjK8kD_Sndyoqb_UXPceoK3yJilkjyc0tzRz0",
@@ -13764,6 +13764,54 @@
                                          "الصحيفة":  "جريدة الرأي",
                                          "العدد":  "20146",
                                          "تاريخ النشر":  "03/05/2026"
+                                     }
+                     },
+                     {
+                         "id":  50773,
+                         "category":  "مركبة",
+                         "header":  "رقم المزاد :5-11-32618-2021-سجل عام مركبة - 2026/03/27 تنفيذ عمان",
+                         "court":  "تنفيذ عمان",
+                         "caseNumber":  "ا 5-11-32618-2021-سجل عام",
+                         "status":  "قيد التنفيذ",
+                         "announcement":  "اعلان بيع",
+                         "announcementStart":  "27/03/2026 00:00:00",
+                         "announcementEnd":  "05/05/2026 10:00:00",
+                         "startingAmount":  "1000",
+                         "estimatedValue":  "2000",
+                         "currentAmount":  "0",
+                         "minIncrement":  "20 دينار اردني",
+                         "numBids":  "0",
+                         "newspaper":  "جريدة الدستور",
+                         "newspaperIssue":  "21053",
+                         "publishedAt":  "26/03/2026",
+                         "endDate":  "2026-05-05 10:00:00",
+                         "image":  "",
+                         "notes":  "",
+                         "sourceUrl":  "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY\u0026auction=50773",
+                         "details":  {
+                                         "نوع المركبة":  "جمس",
+                                         "سنة الصنع":  "2010",
+                                         "اللون":  "ابيض",
+                                         "رقم الشاصي":  "ZFZ1GKLVKED8AJ153862",
+                                         "رقم اللوحة":  "21 - 72278",
+                                         "صفة المركبة":  "خصوصي",
+                                         "رقم المحرك":  "S9S547486",
+                                         "نوع الوقود":  "بنزين",
+                                         "ناقل الحركة":  "اوتوماتيك",
+                                         "مكان الحجز":  "كراج نور الاردن ((شارع الاتوستراد منطقه ابوصياح))",
+                                         "سعة المحرك":  "0",
+                                         "المحكمة / الدائرة":  "تنفيذ عمان",
+                                         "رقم الدعوى":  "ا 5-11-32618-2021-سجل عام",
+                                         "الإعلان":  "اعلان بيع",
+                                         "تاريخ بداية الاعلان":  "27/03/2026 00:00:00",
+                                         "تاريخ انتهاء الاعلان":  "05/05/2026 10:00:00",
+                                         "القيمة الابتدائية للمزاد":  "1000 دينار اردني",
+                                         "القيمة التقديرية":  "2000 دينار اردني",
+                                         "الحد الأدنى لقيمة الزيادة":  "20 دينار اردني",
+                                         "حالة المزاد":  "قيد التنفيذ",
+                                         "الصحيفة":  "جريدة الدستور",
+                                         "العدد":  "21053",
+                                         "تاريخ النشر":  "26/03/2026"
                                      }
                      }
                  ]
