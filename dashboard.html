@@ -98,21 +98,25 @@
         </div>
       </div>
       <div class="row g-2 align-items-end mt-1">
-        <div class="col-md-3">
+        <div class="col-md">
           <label class="form-label small mb-1">المحافظة</label>
           <select class="form-select" id="govFilter"><option value="">الكل</option></select>
         </div>
-        <div class="col-md-3">
+        <div class="col-md">
           <label class="form-label small mb-1">المديرية</label>
           <select class="form-select" id="dirFilter"><option value="">الكل</option></select>
         </div>
-        <div class="col-md-3">
+        <div class="col-md">
           <label class="form-label small mb-1">القرية</label>
           <select class="form-select" id="villageFilter"><option value="">الكل</option></select>
         </div>
-        <div class="col-md-3">
+        <div class="col-md">
           <label class="form-label small mb-1">الحوض</label>
           <select class="form-select" id="basinFilter"><option value="">الكل</option></select>
+        </div>
+        <div class="col-md">
+          <label class="form-label small mb-1">الإعلان</label>
+          <select class="form-select" id="announcementFilter"><option value="">الكل</option></select>
         </div>
       </div>
     </div>
@@ -326,10 +330,11 @@
   fillSelect('categoryFilter', auctions.map(a => a.category));
   fillSelect('courtFilter',    auctions.map(a => a.court));
   fillSelect('statusFilter',   auctions.map(a => a.status));
-  fillSelect('govFilter',      auctions.map(a => a.governorate));
-  fillSelect('dirFilter',      auctions.map(a => a.directorate));
-  fillSelect('villageFilter',  auctions.map(a => a.village));
-  fillSelect('basinFilter',    auctions.map(a => a.basin));
+  fillSelect('govFilter',          auctions.map(a => a.governorate));
+  fillSelect('dirFilter',          auctions.map(a => a.directorate));
+  fillSelect('villageFilter',      auctions.map(a => a.village));
+  fillSelect('basinFilter',        auctions.map(a => a.basin));
+  fillSelect('announcementFilter', auctions.map(a => a.announcement));
 
   // ---- Filtering ----
   let sortKey = '_endDateMs'; let sortDir = 1; // ascending = soonest first
@@ -352,6 +357,7 @@
     const dir = document.getElementById('dirFilter').value;
     const vil = document.getElementById('villageFilter').value;
     const bsn = document.getElementById('basinFilter').value;
+    const ann = document.getElementById('announcementFilter').value;
 
     let rows = auctions.filter(a =>
       (!cat || a.category === cat) &&
@@ -361,6 +367,7 @@
       (!dir || a.directorate === dir) &&
       (!vil || a.village === vil) &&
       (!bsn || a.basin === bsn) &&
+      (!ann || a.announcement === ann) &&
       matches(a, q)
     );
 
@@ -572,7 +579,7 @@
   });
 
   // Filter inputs
-  const filterIds = ['searchInput','categoryFilter','courtFilter','statusFilter','govFilter','dirFilter','villageFilter','basinFilter'];
+  const filterIds = ['searchInput','categoryFilter','courtFilter','statusFilter','govFilter','dirFilter','villageFilter','basinFilter','announcementFilter'];
   filterIds.forEach(id => {
     document.getElementById(id).addEventListener('input', apply);
     document.getElementById(id).addEventListener('change', apply);
