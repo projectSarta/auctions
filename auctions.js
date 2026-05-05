@@ -1,5 +1,5 @@
 window.AUCTION_DATA = {
-    "scrapedAt":  "2026-05-05 12:30:17",
+    "scrapedAt":  "2026-05-05 12:38:15",
     "source":  "https://auctions.moj.gov.jo/index.aspx",
     "totalScraped":  366,
     "pageLimit":  0,
