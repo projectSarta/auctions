@@ -234,6 +234,23 @@ foreach ($m in $catMatches) {
 Write-Host ("Found {0} categories:" -f $categories.Count)
 $categories | ForEach-Object { Write-Host ("  - {0} ({1})" -f $_.name, $_.totalCount) }
 
+# Captcha-failed index parse → preserve previously known categories so we don't
+# corrupt the saved file (the dashboard depends on this metadata for tokens, stats,
+# and the aradi.io map lookup).
+if ($categories.Count -eq 0 -and -not $Fresh -and (Test-Path $jsonPath)) {
+  try {
+    $prev = Get-Content $jsonPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    if ($prev.categories -and $prev.categories.Count -gt 0) {
+      $categories = $prev.categories
+      Write-Host ("Index returned captcha; reusing {0} categories from existing auctions.json" -f $categories.Count) -ForegroundColor Yellow
+    }
+  } catch { }
+}
+if ($categories.Count -eq 0) {
+  Write-Host "ERROR: no categories available (captcha + no cached metadata). Aborting before save." -ForegroundColor Red
+  exit 2
+}
+
 # --- 2. Scrape each category ---
 $all = New-Object System.Collections.ArrayList
 $jsonPath = Join-Path $PSScriptRoot 'auctions.json'
