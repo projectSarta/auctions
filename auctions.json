@@ -1,7 +1,7 @@
 {
-    "scrapedAt":  "2026-05-06 10:28:38",
+    "scrapedAt":  "2026-05-06 10:43:24",
     "source":  "https://auctions.moj.gov.jo/index.aspx",
-    "totalScraped":  965,
+    "totalScraped":  967,
     "pageLimit":  0,
     "inProgress":  false,
     "categories":  [
@@ -13,7 +13,7 @@
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE",
                            "name":  "أرض/ مجمع",
-                           "totalCount":  1295
+                           "totalCount":  1294
                        },
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc",
@@ -28,7 +28,7 @@
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY",
                            "name":  "مركبة",
-                           "totalCount":  348
+                           "totalCount":  349
                        }
                    ],
     "auctions":  [
@@ -45222,6 +45222,96 @@
                                          "الصحيفة":  "جريدة الرأي",
                                          "العدد":  "0",
                                          "تاريخ النشر":  "28/04/2026"
+                                     }
+                     },
+                     {
+                         "id":  46812,
+                         "category":  "أرض/ مجمع",
+                         "header":  "رقم المزاد :57-11-637-2024-سجل عام أرض/ مجمع - 2026/04/27 تنفيذ البادية الشمالية",
+                         "court":  "تنفيذ البادية الشمالية",
+                         "caseNumber":  "ا 57-11-637-2024-سجل عام",
+                         "status":  "قيد التنفيذ",
+                         "announcement":  "اعلان احالة قطعية",
+                         "announcementStart":  "27/04/2026 00:00:00",
+                         "announcementEnd":  "06/05/2026 15:00:00",
+                         "startingAmount":  "43611.70",
+                         "estimatedValue":  "79293",
+                         "currentAmount":  "39647",
+                         "minIncrement":  "200 دينار اردني",
+                         "numBids":  "1",
+                         "newspaper":  "جريدة الغد",
+                         "newspaperIssue":  "7771",
+                         "publishedAt":  "26/04/2026",
+                         "endDate":  "2026-05-06 15:00:00",
+                         "image":  "",
+                         "notes":  "",
+                         "sourceUrl":  "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE\u0026auction=46812",
+                         "details":  {
+                                         "المحافظة":  "محافظة المفرق",
+                                         "المديرية":  "اراضي البادية الشمالية",
+                                         "القرية":  "صبحا",
+                                         "الحوض":  "001/صبحا",
+                                         "الحي":  "(28) نظام لوحات",
+                                         "رقم القطعة":  "701",
+                                         "نوع القطعة":  "ملك",
+                                         "مساحة القطعة":  "5006.17",
+                                         "المحكمة / الدائرة":  "تنفيذ البادية الشمالية",
+                                         "رقم الدعوى":  "ا 57-11-637-2024-سجل عام",
+                                         "الإعلان":  "اعلان احالة قطعية",
+                                         "تاريخ بداية الاعلان":  "27/04/2026 00:00:00",
+                                         "تاريخ انتهاء الاعلان":  "06/05/2026 15:00:00",
+                                         "القيمة الابتدائية للمزاد":  "43611.70 دينار اردني",
+                                         "القيمة التقديرية":  "79293 دينار اردني",
+                                         "الحد الأدنى لقيمة الزيادة":  "200 دينار اردني",
+                                         "حالة المزاد":  "قيد التنفيذ",
+                                         "الصحيفة":  "جريدة الغد",
+                                         "العدد":  "7771",
+                                         "تاريخ النشر":  "26/04/2026"
+                                     }
+                     },
+                     {
+                         "id":  46814,
+                         "category":  "أرض/ مجمع",
+                         "header":  "رقم المزاد :57-11-637-2024-سجل عام أرض/ مجمع - 2026/04/27 تنفيذ البادية الشمالية",
+                         "court":  "تنفيذ البادية الشمالية",
+                         "caseNumber":  "ا 57-11-637-2024-سجل عام",
+                         "status":  "قيد التنفيذ",
+                         "announcement":  "اعلان احالة قطعية",
+                         "announcementStart":  "27/04/2026 00:00:00",
+                         "announcementEnd":  "06/05/2026 15:00:00",
+                         "startingAmount":  "52324.80",
+                         "estimatedValue":  "95134",
+                         "currentAmount":  "47568",
+                         "minIncrement":  "200 دينار اردني",
+                         "numBids":  "1",
+                         "newspaper":  "جريدة الغد",
+                         "newspaperIssue":  "7771",
+                         "publishedAt":  "26/04/2026",
+                         "endDate":  "2026-05-06 15:00:00",
+                         "image":  "",
+                         "notes":  "",
+                         "sourceUrl":  "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE\u0026auction=46814",
+                         "details":  {
+                                         "المحافظة":  "محافظة المفرق",
+                                         "المديرية":  "اراضي البادية الشمالية",
+                                         "القرية":  "صبحا",
+                                         "الحوض":  "001/صبحا",
+                                         "الحي":  "(28) نظام لوحات",
+                                         "رقم القطعة":  "703",
+                                         "نوع القطعة":  "ملك",
+                                         "مساحة القطعة":  "4190.58",
+                                         "المحكمة / الدائرة":  "تنفيذ البادية الشمالية",
+                                         "رقم الدعوى":  "ا 57-11-637-2024-سجل عام",
+                                         "الإعلان":  "اعلان احالة قطعية",
+                                         "تاريخ بداية الاعلان":  "27/04/2026 00:00:00",
+                                         "تاريخ انتهاء الاعلان":  "06/05/2026 15:00:00",
+                                         "القيمة الابتدائية للمزاد":  "52324.80 دينار اردني",
+                                         "القيمة التقديرية":  "95134 دينار اردني",
+                                         "الحد الأدنى لقيمة الزيادة":  "200 دينار اردني",
+                                         "حالة المزاد":  "قيد التنفيذ",
+                                         "الصحيفة":  "جريدة الغد",
+                                         "العدد":  "7771",
+                                         "تاريخ النشر":  "26/04/2026"
                                      }
                      }
                  ]
