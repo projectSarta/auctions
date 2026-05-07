@@ -331,24 +331,39 @@
   // Pre-compute the canonical category list (in the order the source provides them)
   const allCategoryNames = (data.categories || []).map(c => c.name);
 
+  // Pre-compute dataset-wide totals (independent of any filter): active vs total per category.
+  // "active" = endDate in the future (or unknown). These numbers don't change as filters move.
+  const _datasetNow = Date.now();
+  const datasetTotalByCat = {};
+  const datasetActiveByCat = {};
+  auctions.forEach(r => {
+    datasetTotalByCat[r.category] = (datasetTotalByCat[r.category] || 0) + 1;
+    if (r._endDateMs == null || r._endDateMs > _datasetNow) {
+      datasetActiveByCat[r.category] = (datasetActiveByCat[r.category] || 0) + 1;
+    }
+  });
+
   const renderStats = (rows) => {
     const total = rows.length;
-    const byCat = {};
     let endingSoon = 0, endingWeek = 0;
     rows.forEach(r => {
-      byCat[r.category] = (byCat[r.category] || 0) + 1;
       if (r._daysLeftMs !== null && r._daysLeftMs > 0) {
         if (r._daysLeftMs < 86400000) endingSoon++;
         else if (r._daysLeftMs < 7*86400000) endingWeek++;
       }
     });
     const cards = [
-      { label: 'إجمالي المعروض', value: total.toLocaleString('en-US') },
-      ...allCategoryNames.map(name => ({
-        label: name,
-        value: (byCat[name] || 0).toLocaleString('en-US'),
-        color: '#24485f'
-      })),
+      { label: 'إجمالي المعروض (مفلتر)', value: total.toLocaleString('en-US') },
+      ...allCategoryNames.map(name => {
+        const active = datasetActiveByCat[name] || 0;
+        const totalInSet = datasetTotalByCat[name] || 0;
+        return {
+          label: name,
+          value: `${active.toLocaleString('en-US')} / ${totalInSet.toLocaleString('en-US')}`,
+          sub: 'نشط / المجموع',
+          color: '#24485f',
+        };
+      }),
       { label: 'تنتهي خلال 24 ساعة', value: endingSoon.toLocaleString('en-US'), color: '#c0392b' },
       { label: 'تنتهي خلال أسبوع',   value: endingWeek.toLocaleString('en-US'), color: '#d68910' },
     ];
@@ -356,6 +371,7 @@
       `<div class="col-md col-6"><div class="card stat-card p-3 h-100">
         <div class="stat-label">${escapeHtml(c.label)}</div>
         <div class="stat-value" style="${c.color ? 'color:' + c.color : ''}">${c.value}</div>
+        ${c.sub ? `<div class="stat-sub small text-muted">${escapeHtml(c.sub)}</div>` : ''}
       </div></div>`
     ).join('');
   };
