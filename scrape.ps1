@@ -258,11 +258,13 @@ $jsPath   = Join-Path $PSScriptRoot 'auctions.js'
 
 # Pre-seed from existing data so reruns only ADD new auctions and never lose what we already have.
 $existingByCat = @{}
+$allById = @{}            # id -> record (for fast in-place updates of currentAmount, numBids, etc.)
 if (-not $Fresh -and (Test-Path $jsonPath)) {
   try {
     $prev = Get-Content $jsonPath -Raw -Encoding UTF8 | ConvertFrom-Json
     foreach ($a in $prev.auctions) {
       [void]$all.Add($a)
+      $allById[[int]$a.id] = $a
       if (-not $existingByCat.ContainsKey($a.category)) {
         $existingByCat[$a.category] = New-Object 'System.Collections.Generic.HashSet[int]'
       }
@@ -327,18 +329,40 @@ foreach ($cat in $categories) {
       foreach ($it in $items) { [void]$thisPageIds.Add([int]$it.id) }
 
       $newCount = 0
+      $updatedCount = 0
       foreach ($it in $items) {
-        if (-not $seen.Contains([int]$it.id)) {
-          [void]$seen.Add([int]$it.id)
+        $itId = [int]$it.id
+        if (-not $seen.Contains($itId)) {
+          [void]$seen.Add($itId)
           [void]$all.Add($it)
+          $allById[$itId] = $it
           $newCount++
+        } else {
+          # Refresh mutable fields on already-known records (live bid + countdown + status).
+          $existing = $allById[$itId]
+          if ($null -ne $existing) {
+            $changed = $false
+            foreach ($prop in 'currentAmount','numBids','endDate','status','header','image') {
+              $newVal = $it.$prop
+              if ($null -ne $newVal -and $newVal -ne '' -and $existing.$prop -ne $newVal) {
+                $existing.$prop = $newVal
+                $changed = $true
+              }
+            }
+            # Also refresh announcementEnd from the parsed details (some categories vary)
+            if ($it.announcementEnd -and $existing.announcementEnd -ne $it.announcementEnd) {
+              $existing.announcementEnd = $it.announcementEnd
+              $changed = $true
+            }
+            if ($changed) { $updatedCount++ }
+          }
         }
       }
       if ($newCount -gt 0) { $seenNewThisWalk = $true }
-      Write-Host ("  Page {0}: {1} items ({2} new, total this category: {3}/{4}, all={5})" -f $page, $items.Count, $newCount, $seen.Count, $cat.totalCount, $all.Count)
+      Write-Host ("  Page {0}: {1} items ({2} new, {3} refreshed, total this category: {4}/{5}, all={6})" -f $page, $items.Count, $newCount, $updatedCount, $seen.Count, $cat.totalCount, $all.Count)
 
-      # Save after every page that yielded new auctions, so the dashboard sees progress live.
-      if ($newCount -gt 0) { Save-All $true }
+      # Save after every page that yielded any change (new OR refreshed bid)
+      if ($newCount -gt 0 -or $updatedCount -gt 0) { Save-All $true }
 
       if ($cat.totalCount -gt 0 -and $seen.Count -ge $cat.totalCount) {
         Write-Host "  (collected all)" -ForegroundColor Green
