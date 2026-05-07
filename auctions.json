@@ -1,7 +1,7 @@
 {
-    "scrapedAt":  "2026-05-06 19:03:24",
+    "scrapedAt":  "2026-05-07 05:22:47",
     "source":  "https://auctions.moj.gov.jo/index.aspx",
-    "totalScraped":  1003,
+    "totalScraped":  1004,
     "pageLimit":  0,
     "inProgress":  false,
     "categories":  [
@@ -13,22 +13,22 @@
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE",
                            "name":  "أرض/ مجمع",
-                           "totalCount":  1304
+                           "totalCount":  1297
                        },
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc",
                            "name":  "شقة/ مكتب",
-                           "totalCount":  611
+                           "totalCount":  604
                        },
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY",
                            "name":  "أُخرى",
-                           "totalCount":  112
+                           "totalCount":  109
                        },
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY",
                            "name":  "مركبة",
-                           "totalCount":  358
+                           "totalCount":  335
                        }
                    ],
     "auctions":  [
@@ -46947,6 +46947,54 @@
                                          "الصحيفة":  "جريدة الرأي",
                                          "العدد":  "20152",
                                          "تاريخ النشر":  "21/04/2026"
+                                     }
+                     },
+                     {
+                         "id":  39317,
+                         "category":  "مركبة",
+                         "header":  "رقم المزاد :13-11-63-2023-سجل عام مركبة - 2026/05/04 تنفيذ الرصيفة",
+                         "court":  "تنفيذ الرصيفة",
+                         "caseNumber":  "ا 13-11-63-2023-سجل عام",
+                         "status":  "قيد التنفيذ",
+                         "announcement":  "اعلان بيع",
+                         "announcementStart":  "04/05/2026 00:00:00",
+                         "announcementEnd":  "18/05/2026 14:40:00",
+                         "startingAmount":  "1",
+                         "estimatedValue":  "1000",
+                         "currentAmount":  "0",
+                         "minIncrement":  "20 دينار اردني",
+                         "numBids":  "0",
+                         "newspaper":  "الجريدة الرسمية",
+                         "newspaperIssue":  "***********",
+                         "publishedAt":  "03/05/2026",
+                         "endDate":  "2026-05-18 14:40:00",
+                         "image":  "",
+                         "notes":  "",
+                         "sourceUrl":  "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY\u0026auction=39317",
+                         "details":  {
+                                         "نوع المركبة":  "كيا",
+                                         "سنة الصنع":  "1996",
+                                         "اللون":  "فيروزي",
+                                         "رقم الشاصي":  "KNCTB2812TS533510",
+                                         "رقم اللوحة":  "38 - 28570",
+                                         "صفة المركبة":  "خصوصي",
+                                         "رقم المحرك":  "J2/148476",
+                                         "نوع الوقود":  "ديزل",
+                                         "ناقل الحركة":  "عادي",
+                                         "مكان الحجز":  "ساحة حجز الموقر (عمان- الموقر- بجانب مستودعات الأمن العام)",
+                                         "سعة المحرك":  "2700",
+                                         "المحكمة / الدائرة":  "تنفيذ الرصيفة",
+                                         "رقم الدعوى":  "ا 13-11-63-2023-سجل عام",
+                                         "الإعلان":  "اعلان بيع",
+                                         "تاريخ بداية الاعلان":  "04/05/2026 00:00:00",
+                                         "تاريخ انتهاء الاعلان":  "18/05/2026 14:40:00",
+                                         "القيمة الابتدائية للمزاد":  "1 دينار اردني",
+                                         "القيمة التقديرية":  "1000 دينار اردني",
+                                         "الحد الأدنى لقيمة الزيادة":  "20 دينار اردني",
+                                         "حالة المزاد":  "قيد التنفيذ",
+                                         "الصحيفة":  "الجريدة الرسمية",
+                                         "العدد":  "***********",
+                                         "تاريخ النشر":  "03/05/2026"
                                      }
                      }
                  ]
