@@ -31,7 +31,8 @@ param(
   [int]$MaxKnownPages = 15,          # cap pages walked through already-seen territory before resetting
   [int]$MaxMinutes = 0,              # global time budget (0 = unlimited)
   [switch]$Fresh,                    # ignore existing auctions.json (don't merge)
-  [string]$OnlyCategory = ''         # if set, only scrape categories matching this regex (e.g. 'مركبة')
+  [string]$OnlyCategory = '',        # if set, only scrape categories matching this regex (e.g. 'مركبة')
+  [switch]$Refresh                   # don't early-exit when already-complete; keep walking to refresh bids/numBids/endDate
 )
 
 if ($Full) { $MaxPagesPerCategory = 0 }
@@ -364,7 +365,7 @@ foreach ($cat in $categories) {
       # Save after every page that yielded any change (new OR refreshed bid)
       if ($newCount -gt 0 -or $updatedCount -gt 0) { Save-All $true }
 
-      if ($cat.totalCount -gt 0 -and $seen.Count -ge $cat.totalCount) {
+      if (-not $Refresh -and $cat.totalCount -gt 0 -and $seen.Count -ge $cat.totalCount) {
         Write-Host "  (collected all)" -ForegroundColor Green
         break catLoop
       }
@@ -456,8 +457,10 @@ foreach ($cat in $categories) {
     $progressedThisWalk = ($seen.Count - $countBeforeWalk)
     if ($progressedThisWalk -eq 0) {
       $zeroProgressWalks++
-      if ($zeroProgressWalks -ge 3) {
-        Write-Host ("  3 consecutive walks added 0 new items. Aborting category at {0}/{1}." -f $seen.Count, $cat.totalCount) -ForegroundColor Yellow
+      # In -Refresh mode we expect 0-new walks (refreshing existing items, not discovering new)
+      $abortAfter = if ($Refresh) { 6 } else { 3 }
+      if ($zeroProgressWalks -ge $abortAfter) {
+        Write-Host ("  {0} consecutive walks added 0 new items. Aborting category at {1}/{2}." -f $abortAfter, $seen.Count, $cat.totalCount) -ForegroundColor Yellow
         break
       }
     } else {
