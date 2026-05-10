@@ -321,8 +321,9 @@
     document.getElementById('loadDetailsBtn').style.display = 'none';
   }
   if (!refreshAvailable) {
-    // Online visitors don't have a way to trigger a re-scrape; hide the button entirely.
-    document.getElementById('refreshBtn').style.display = 'none';
+    // Online: button does a cache-busting reload to fetch the latest published auctions.js.
+    document.getElementById('refreshBtn').setAttribute('title', 'إعادة تحميل البيانات من GitHub Pages');
+    document.getElementById('refreshBtn').querySelector('.btn-label').textContent = '🔄 إعادة تحميل';
   }
   // Backwards-compat alias used elsewhere in this file
   const servedByApi = liveDetailsAvailable;
@@ -866,7 +867,15 @@
   };
 
   refreshBtn.addEventListener('click', async () => {
-    if (!servedByApi) { showInstructions(); return; }
+    // Online: just bust the cache and reload — public visitors can't trigger a server-side re-scrape.
+    if (!refreshAvailable) {
+      refreshBtn.classList.add('is-running');
+      // Hash-bust prevents disk cache; the auctions.js file is what carries the data.
+      const u = new URL(location.href);
+      u.searchParams.set('v', Date.now());
+      location.replace(u.toString());
+      return;
+    }
     if (refreshPolling) return;
     refreshBtn.classList.add('is-running');
     refreshToast.classList.remove('d-none', 'alert-success', 'alert-danger');
