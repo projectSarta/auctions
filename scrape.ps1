@@ -171,6 +171,11 @@ function Parse-Auctions([string]$html, [string]$category) {
     $nm = [regex]::Match($blk, 'المشروحات\s*:\s*</span>\s*<span[^>]*>\s*<strong>([\s\S]*?)</strong>')
     if ($nm.Success) { $notes = Clean-Text $nm.Groups[1].Value }
 
+    # Capture internal case ID used by AuctionInfo.aspx postback (e.g. SetAuctionData(13731587,);)
+    $caseId = 0
+    $cm = [regex]::Match($blk, 'SetCurrentAuctionID\(' + $id + '\)\s*;\s*SetAuctionData\((\d+)')
+    if ($cm.Success) { $caseId = [int]$cm.Groups[1].Value }
+
     $details = [ordered]@{}
     $rows = [regex]::Split($blk, '<div class="row div-seperator">')
     for ($r = 1; $r -lt $rows.Count; $r++) {
@@ -186,6 +191,7 @@ function Parse-Auctions([string]$html, [string]$category) {
 
     [void]$out.Add([pscustomobject]@{
       id              = [int]$id
+      caseId          = $caseId
       category        = $category
       header          = $header
       court           = $details['المحكمة / الدائرة']
@@ -349,6 +355,13 @@ foreach ($cat in $categories) {
                 $existing.$prop = $newVal
                 $changed = $true
               }
+            }
+            # Backfill caseId (one-time-set field added later in the project)
+            $newCid = $it.caseId
+            if ($null -ne $newCid -and $newCid -gt 0 -and (-not $existing.PSObject.Properties.Match('caseId').Count -or $existing.caseId -in 0,$null)) {
+              if ($existing.PSObject.Properties.Match('caseId').Count) { $existing.caseId = $newCid }
+              else { $existing | Add-Member -MemberType NoteProperty -Name 'caseId' -Value $newCid -Force }
+              $changed = $true
             }
             # Also refresh announcementEnd from the parsed details (some categories vary)
             if ($it.announcementEnd -and $existing.announcementEnd -ne $it.announcementEnd) {
