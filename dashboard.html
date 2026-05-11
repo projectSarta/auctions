@@ -19,6 +19,7 @@
   table.dash tr.row-clickable { cursor: pointer; }
   table.dash tr.row-clickable:hover { background: #eef3f7; }
   .badge-cat { font-size: .75rem; }
+  .thumb { width: 56px; height: 42px; object-fit: cover; border-radius: 4px; display: inline-block; vertical-align: middle; margin-left: .35rem; background: #eef3f7; }
   .ending-soon { color: #c0392b; font-weight: 700; }
   .ending-week { color: #d68910; font-weight: 600; }
   .header-cell { max-width: 360px; }
@@ -486,7 +487,10 @@
       <tr class="row-clickable" data-id="${a.id}">
         <td class="fav-cell" data-fav-id="${a.id}"><span class="fav-star${isFav(a.id) ? ' is-fav' : ''}">${isFav(a.id) ? '★' : '☆'}</span></td>
         <td class="num">${a.id}</td>
-        <td><span class="badge bg-secondary badge-cat">${escapeHtml(a.category)}</span></td>
+        <td>
+          <span class="badge bg-secondary badge-cat">${escapeHtml(a.category)}</span>
+          ${a.image ? `<img src="${escapeHtml(a.image)}" class="thumb" loading="lazy" alt="">` : ''}
+        </td>
         <td class="header-cell"><div class="header-text">${escapeHtml(a.header)}</div></td>
         <td>${escapeHtml(a.court || '-')}</td>
         <td>${escapeHtml(a.announcement || '-')}</td>

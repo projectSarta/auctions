@@ -70,7 +70,9 @@ info1.html
 }
 
 # ---- 4. Stage + commit + push ----
-git add auctions.js auctions.json dashboard.html worker.js index.html .gitignore 2>$null
+git add auctions.js auctions.json dashboard.html worker.js index.html .gitignore enrich_images.ps1 2>$null
+# Add downloaded thumbnail files (if folder exists)
+if (Test-Path (Join-Path $PSScriptRoot 'images')) { git add images 2>$null }
 $status = git status --porcelain
 if (-not $status) {
   Write-Host "Nothing to commit." -ForegroundColor Yellow
