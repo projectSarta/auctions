@@ -185,23 +185,45 @@
 
 </div>
 
-<!-- Team login modal: shared-favorites password gate (Option C) -->
+<!-- Team login modal: shared-favorites password gate (Option C, multi-user) -->
 <div class="modal fade" id="teamLoginModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-sm modal-dialog-centered">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header bg-dark text-white">
-        <h6 class="modal-title mb-0">🔐 دخول الفريق</h6>
+        <h6 class="modal-title mb-0" id="teamModalTitle">🔐 دخول الفريق</h6>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
         <div id="teamLoginPanel">
-          <p class="text-muted small mb-2">أدخل كلمة سر الفريق للوصول إلى قائمة المفضلات المشتركة. بعد الدخول، أي نجمة تختارها ستُرسل إلى القائمة المشتركة فورًا.</p>
+          <p class="text-muted small mb-2">أدخل كلمة السر الخاصة بك للوصول إلى قائمة المفضلات المشتركة. بعد الدخول، أي نجمة تختارها ستُرسل إلى القائمة فورًا.</p>
           <input type="password" class="form-control form-control-sm" id="teamPwdInput" placeholder="كلمة السر">
           <div class="form-text text-danger small d-none" id="teamLoginErr">كلمة سر غير صحيحة.</div>
         </div>
         <div id="teamLoggedInPanel" class="d-none">
-          <p class="text-success small mb-0">✓ مسجَّل دخول الفريق. النجوم تُحفظ في القائمة المشتركة.</p>
+          <p class="text-success small mb-0"></p>
         </div>
+        <div id="teamNoUsersPanel" class="d-none">
+          <div class="alert alert-warning small mb-2 py-2">
+            لم تتم تهيئة أي مستخدم بعد. استخدم الأداة أدناه لإضافة مستخدم، ثم انسخ السطر إلى ملف <code>dashboard.html</code> داخل <code>TEAM_USERS = [ ... ]</code> وارفع التحديث.
+          </div>
+        </div>
+
+        <!-- Inline hash generator -->
+        <details class="mt-3" id="teamSetupHelper">
+          <summary class="small text-primary" style="cursor:pointer">🔧 إنشاء تهيئة لمستخدم جديد</summary>
+          <div class="border rounded p-2 mt-2 small">
+            <div class="row g-2">
+              <div class="col-5"><input class="form-control form-control-sm" id="teamGenName" placeholder="الاسم (مثال: أحمد)"></div>
+              <div class="col-5"><input class="form-control form-control-sm" id="teamGenPwd" type="text" placeholder="كلمة السر للمستخدم"></div>
+              <div class="col-2"><button class="btn btn-sm btn-outline-primary w-100" type="button" id="teamGenBtn">أنشئ</button></div>
+            </div>
+            <div class="mt-2 d-none" id="teamGenOutWrap">
+              <label class="form-label small mb-1 mt-1">انسخ هذا السطر وأضفه إلى <code>TEAM_USERS</code> في <code>dashboard.html</code>:</label>
+              <textarea class="form-control form-control-sm font-monospace" id="teamGenOut" rows="2" readonly style="direction:ltr"></textarea>
+              <button class="btn btn-sm btn-link p-0 mt-1" id="teamGenCopy">نسخ</button>
+            </div>
+          </div>
+        </details>
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary btn-sm" id="teamLogoutBtn" data-bs-dismiss="modal" style="display:none">خروج</button>
@@ -290,13 +312,12 @@
   // ─────────────────────────────────────────────────────────────────────────────
   const TEAM_USERS = [
     // Up to 5 entries. Display name + SHA-256 hex of password.
-    // { name: 'أحمد',  passwordSha256: '' },
-    // { name: 'فاطمة', passwordSha256: '' },
-    // { name: 'حسن',   passwordSha256: '' },
-    // { name: 'سارة',  passwordSha256: '' },
-    // { name: 'محمد',  passwordSha256: '' },
+    // To generate a hash without DevTools: open the login modal in this page and
+    // expand "🔧 إنشاء تهيئة جديدة" — type a name + password and copy the line.
+    // Example:
+    // { name: 'أحمد',  passwordSha256: 'a3c1b2...' },
   ];
-  const TEAM_BLOB_URL = '';   // e.g. 'https://jsonblob.com/api/jsonBlob/12345...'
+  const TEAM_BLOB_URL = 'https://jsonblob.com/api/jsonBlob/019e1c8e-f473-7ab7-9e64-d496dfcdadd5';
 
   const FAV_KEY = 'mojAuctions.favorites';
   const FAV_ONLY_KEY = 'mojAuctions.favOnly';
@@ -306,7 +327,10 @@
 
   // Strip out empty/incomplete user entries so a half-filled config still works.
   const _activeUsers = () => TEAM_USERS.filter(u => u && u.name && u.passwordSha256);
-  const isTeamConfigured = () => _activeUsers().length > 0 && Boolean(TEAM_BLOB_URL);
+  // "Available" = blob URL is set (login button should show).
+  // "Configured" = at least one user is set (login can actually succeed).
+  const isTeamAvailable  = () => Boolean(TEAM_BLOB_URL);
+  const isTeamConfigured = () => _activeUsers().length > 0 && isTeamAvailable();
   const currentTeamUser  = () => {
     if (!isTeamConfigured()) return null;
     const h = sessionStorage.getItem(TEAM_SESSION_KEY);
@@ -1291,29 +1315,48 @@
   const teamLoginSubmit = document.getElementById('teamLoginSubmit');
   const teamLogoutBtn  = document.getElementById('teamLogoutBtn');
 
+  const teamNoUsersPanel = document.getElementById('teamNoUsersPanel');
+  const teamModalTitle   = document.getElementById('teamModalTitle');
   const renderTeamUi = () => {
-    if (!isTeamConfigured()) {
-      teamLoginBtn.style.display = 'none';   // feature disabled
+    if (!isTeamAvailable()) {
+      teamLoginBtn.style.display = 'none';   // feature fully disabled (no blob URL)
       return;
     }
     teamLoginBtn.style.display = '';
     const user = currentTeamUser();
+    const hasUsers = _activeUsers().length > 0;
+
+    // Reset panels
+    teamLoginPanel.classList.add('d-none');
+    teamLoggedInPanel.classList.add('d-none');
+    teamNoUsersPanel.classList.add('d-none');
+
     if (user) {
       teamLoginLabel.textContent = '✓ ' + user.name;
       teamLoginBtn.classList.remove('btn-outline-light');
       teamLoginBtn.classList.add('btn-success');
-      teamLoginPanel.classList.add('d-none');
+      teamModalTitle.textContent = '✓ ' + user.name;
       teamLoggedInPanel.classList.remove('d-none');
       teamLoggedInPanel.querySelector('p').innerHTML =
         '✓ مسجَّل دخول كـ <strong>' + user.name + '</strong>. النجوم تُحفظ في القائمة المشتركة.';
       teamLoginSubmit.style.display = 'none';
       teamLogoutBtn.style.display   = '';
+    } else if (!hasUsers) {
+      // Blob configured but no users yet — show setup hint.
+      teamLoginLabel.textContent = '🔧 إعداد الفريق';
+      teamLoginBtn.classList.remove('btn-success');
+      teamLoginBtn.classList.add('btn-outline-light');
+      teamModalTitle.textContent = '🔧 إعداد الفريق';
+      teamNoUsersPanel.classList.remove('d-none');
+      teamLoginSubmit.style.display = 'none';   // can't log in without users
+      teamLogoutBtn.style.display   = 'none';
     } else {
+      // Normal login state
       teamLoginLabel.textContent = '🔐 دخول الفريق';
       teamLoginBtn.classList.remove('btn-success');
       teamLoginBtn.classList.add('btn-outline-light');
+      teamModalTitle.textContent = '🔐 دخول الفريق';
       teamLoginPanel.classList.remove('d-none');
-      teamLoggedInPanel.classList.add('d-none');
       teamLoginSubmit.style.display = '';
       teamLogoutBtn.style.display   = 'none';
     }
@@ -1362,6 +1405,37 @@
     renderTeamUi();
     apply();
   });
+
+  // Inline "generate a TEAM_USERS line" helper (so the admin doesn't need DevTools)
+  const teamGenName = document.getElementById('teamGenName');
+  const teamGenPwd  = document.getElementById('teamGenPwd');
+  const teamGenBtn  = document.getElementById('teamGenBtn');
+  const teamGenOut  = document.getElementById('teamGenOut');
+  const teamGenOutWrap = document.getElementById('teamGenOutWrap');
+  const teamGenCopy = document.getElementById('teamGenCopy');
+  if (teamGenBtn) {
+    teamGenBtn.addEventListener('click', async () => {
+      const n = (teamGenName.value || '').trim();
+      const p = teamGenPwd.value || '';
+      if (!n || !p) { teamGenName.focus(); return; }
+      const hash = await sha256Hex(p);
+      // Single-quote the name only if it doesn't contain a single quote
+      const safeName = n.includes("'") ? `"${n.replace(/"/g, '\\"')}"` : `'${n}'`;
+      teamGenOut.value = `  { name: ${safeName}, passwordSha256: '${hash}' },`;
+      teamGenOutWrap.classList.remove('d-none');
+      teamGenPwd.value = '';
+    });
+    teamGenCopy.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(teamGenOut.value);
+        teamGenCopy.textContent = '✓ تم النسخ';
+        setTimeout(() => { teamGenCopy.textContent = 'نسخ'; }, 1500);
+      } catch {
+        teamGenOut.select();
+        document.execCommand('copy');
+      }
+    });
+  }
 
   renderTeamUi();
   // If a session is already active (page reload), pull fresh data quietly.
