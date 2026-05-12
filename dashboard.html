@@ -255,44 +255,65 @@
     return;
   }
 
-  // ===== Team-shared favorites (Option C: one password gates a shared list) =====
+  // ===== Team-shared favorites (Option C with named logins) =====
   //
-  // ────────────────────── SETUP (one-time, ~3 minutes) ─────────────────────────
-  // 1) Create a shared JSON blob (no signup needed, jsonblob.com is free):
+  // 4–5 named users, each with their own password. All logged-in users
+  // share the same favorites list — it lives in one jsonblob.com blob.
+  // The navbar shows who's currently signed in.
   //
-  //      curl -X POST -H "Content-Type: application/json" \
-  //           -d "{\"favorites\":[]}" \
+  // ────────────────────── SETUP (one-time, ~5 minutes) ─────────────────────────
+  // 1) Create the shared JSON blob (no signup; jsonblob.com is free):
+  //
+  //      curl.exe -X POST -H "Content-Type: application/json" `
+  //           -d '{"favorites":[]}' `
   //           https://jsonblob.com/api/jsonBlob -i
   //
-  //    Look at the response's `Location` header — it'll be a URL like
+  //    Look at the response's `Location` header — it'll be like
   //    https://jsonblob.com/api/jsonBlob/1234567890123456789
-  //    Paste that into TEAM_AUTH.blobUrl below.
+  //    Paste into TEAM_BLOB_URL below.
   //
-  // 2) Pick a team password and generate its SHA-256 hash. Easiest way:
-  //    open this page in a browser, hit F12, paste this into the Console:
+  // 2) For each user, generate a SHA-256 hash of their password. Easiest way:
+  //    open this page in a browser, hit F12 → Console, paste:
   //
   //      (async p => [...new Uint8Array(await crypto.subtle.digest('SHA-256',
   //        new TextEncoder().encode(p)))].map(b=>b.toString(16).padStart(2,'0'))
-  //        .join(''))('YOUR_PASSWORD_HERE')
+  //        .join(''))('the_password_for_this_user')
   //
-  //    Copy the 64-char hex string into TEAM_AUTH.passwordSha256.
+  //    Copy the 64-char hex string into the user's `passwordSha256` field.
+  //    Passwords must be unique across users (we identify a user by their hash).
   //
-  // 3) Reload. The "🔐 دخول الفريق" button in the navbar will become active.
+  // 3) Reload. The "🔐 دخول الفريق" button appears. Each user types their own
+  //    password — the dashboard figures out which name to display.
   //
-  // Leave either field empty to disable the feature (favorites stay local-only).
+  // Leave TEAM_USERS empty (or TEAM_BLOB_URL empty) to disable the feature
+  // entirely (favorites stay local-only — today's default behavior).
   // ─────────────────────────────────────────────────────────────────────────────
-  const TEAM_AUTH = {
-    passwordSha256: '',   // e.g. 'a3c1...' (64 hex chars)
-    blobUrl:        '',   // e.g. 'https://jsonblob.com/api/jsonBlob/12345...'
-  };
+  const TEAM_USERS = [
+    // Up to 5 entries. Display name + SHA-256 hex of password.
+    // { name: 'أحمد',  passwordSha256: '' },
+    // { name: 'فاطمة', passwordSha256: '' },
+    // { name: 'حسن',   passwordSha256: '' },
+    // { name: 'سارة',  passwordSha256: '' },
+    // { name: 'محمد',  passwordSha256: '' },
+  ];
+  const TEAM_BLOB_URL = '';   // e.g. 'https://jsonblob.com/api/jsonBlob/12345...'
 
   const FAV_KEY = 'mojAuctions.favorites';
   const FAV_ONLY_KEY = 'mojAuctions.favOnly';
   const TEAM_SESSION_KEY = 'mojAuctions.teamSession';
+  const TEAM_USER_KEY    = 'mojAuctions.teamUser';
   const TEAM_LOCAL_SNAPSHOT_KEY = 'mojAuctions.favoritesLocalSnapshot';
-  const isTeamConfigured = () => Boolean(TEAM_AUTH.passwordSha256 && TEAM_AUTH.blobUrl);
-  const isTeamLoggedIn   = () => isTeamConfigured() &&
-    sessionStorage.getItem(TEAM_SESSION_KEY) === TEAM_AUTH.passwordSha256;
+
+  // Strip out empty/incomplete user entries so a half-filled config still works.
+  const _activeUsers = () => TEAM_USERS.filter(u => u && u.name && u.passwordSha256);
+  const isTeamConfigured = () => _activeUsers().length > 0 && Boolean(TEAM_BLOB_URL);
+  const currentTeamUser  = () => {
+    if (!isTeamConfigured()) return null;
+    const h = sessionStorage.getItem(TEAM_SESSION_KEY);
+    if (!h) return null;
+    return _activeUsers().find(u => u.passwordSha256 === h) || null;
+  };
+  const isTeamLoggedIn = () => currentTeamUser() !== null;
 
   let favorites;
   try { favorites = new Set(JSON.parse(localStorage.getItem(FAV_KEY) || '[]')); }
@@ -308,16 +329,18 @@
   // Only runs when the user is logged in to the team.
   let _favPushTimer = null;
   const schedulePushFavorites = () => {
-    if (!isTeamLoggedIn()) return;
+    const user = currentTeamUser();
+    if (!user) return;
     clearTimeout(_favPushTimer);
     _favPushTimer = setTimeout(async () => {
       try {
-        await fetch(TEAM_AUTH.blobUrl, {
+        await fetch(TEAM_BLOB_URL, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             favorites: [...favorites],
             updatedAt: new Date().toISOString(),
+            updatedBy: user.name,
           }),
         });
       } catch (e) { console.warn('team favorites push failed:', e); }
@@ -328,7 +351,7 @@
   const pullSharedFavorites = async () => {
     if (!isTeamConfigured()) return;
     try {
-      const r = await fetch(TEAM_AUTH.blobUrl, { cache: 'no-store' });
+      const r = await fetch(TEAM_BLOB_URL, { cache: 'no-store' });
       if (!r.ok) throw new Error('HTTP ' + r.status);
       const data = await r.json();
       const ids = (Array.isArray(data.favorites) ? data.favorites : [])
@@ -1274,12 +1297,15 @@
       return;
     }
     teamLoginBtn.style.display = '';
-    if (isTeamLoggedIn()) {
-      teamLoginLabel.textContent = '✓ متصل بالفريق';
+    const user = currentTeamUser();
+    if (user) {
+      teamLoginLabel.textContent = '✓ ' + user.name;
       teamLoginBtn.classList.remove('btn-outline-light');
       teamLoginBtn.classList.add('btn-success');
       teamLoginPanel.classList.add('d-none');
       teamLoggedInPanel.classList.remove('d-none');
+      teamLoggedInPanel.querySelector('p').innerHTML =
+        '✓ مسجَّل دخول كـ <strong>' + user.name + '</strong>. النجوم تُحفظ في القائمة المشتركة.';
       teamLoginSubmit.style.display = 'none';
       teamLogoutBtn.style.display   = '';
     } else {
@@ -1304,7 +1330,8 @@
     const pwd = teamPwdInput.value;
     if (!pwd) return;
     const hash = await sha256Hex(pwd);
-    if (hash !== TEAM_AUTH.passwordSha256) {
+    const user = _activeUsers().find(u => u.passwordSha256 === hash);
+    if (!user) {
       teamLoginErr.classList.remove('d-none');
       teamPwdInput.select();
       return;
@@ -1313,6 +1340,7 @@
     // can be restored on logout), then replace with the team's shared list.
     try { localStorage.setItem(TEAM_LOCAL_SNAPSHOT_KEY, JSON.stringify([...favorites])); } catch {}
     sessionStorage.setItem(TEAM_SESSION_KEY, hash);
+    sessionStorage.setItem(TEAM_USER_KEY, user.name);
     await pullSharedFavorites();
     renderTeamUi();
     teamModal.hide();
@@ -1323,6 +1351,7 @@
 
   teamLogoutBtn.addEventListener('click', () => {
     sessionStorage.removeItem(TEAM_SESSION_KEY);
+    sessionStorage.removeItem(TEAM_USER_KEY);
     // Restore the pre-login local favorites snapshot, if we have one
     try {
       const snap = JSON.parse(localStorage.getItem(TEAM_LOCAL_SNAPSHOT_KEY) || '[]');
