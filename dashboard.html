@@ -557,10 +557,18 @@
     rowsHtml.push(`</table>`);
     document.getElementById('detailFields').innerHTML = rowsHtml.join('');
 
-    // Reset gallery / reports
-    document.getElementById('detailGallery').innerHTML = servedByApi
-      ? '<div class="text-muted small">انقر "تحميل التفاصيل" لجلب الصور وتقرير الخبرة.</div>'
-      : '<div class="text-muted small">شغّل <code>serve.ps1</code> لتفعيل تحميل الصور وتقرير الخبرة من الموقع.</div>';
+    // Reset gallery / reports.
+    // Show the local thumbnail (from `images/<id>.<ext>`) immediately if we have one,
+    // then a hint inviting the user to fetch the full set + report from the live site.
+    const localImgHtml = a.image
+      ? `<div class="gallery mb-2"><a href="${escapeHtml(a.image)}" target="_blank"><img src="${escapeHtml(a.image)}" loading="lazy" alt=""></a></div>`
+      : '';
+    const promptHtml = servedByApi
+      ? '<div class="text-muted small">انقر "تحميل التفاصيل" لجلب باقي الصور وتقرير الخبرة من الموقع الأصلي.</div>'
+      : (a.image
+          ? '<div class="text-muted small">الصورة المحلية المصغّرة. شغّل <code>serve.ps1</code> لجلب باقي الصور وتقرير الخبرة من الموقع.</div>'
+          : '<div class="text-muted small">شغّل <code>serve.ps1</code> لتفعيل تحميل الصور وتقرير الخبرة من الموقع.</div>');
+    document.getElementById('detailGallery').innerHTML = localImgHtml + promptHtml;
     document.getElementById('detailReports').innerHTML = '';
     document.getElementById('loadDetailsBtn').disabled = false;
     document.getElementById('loadDetailsBtn').textContent = '⤓ صور + تقرير الخبرة';
@@ -814,8 +822,14 @@
       if (j.captcha || j.error) { fallback(); }
       else {
         const imgs = j.images || [];
+        // If the live site returned nothing, keep showing the local thumbnail (if any)
+        // rather than blanking the gallery.
+        const localFallbackHtml = a.image
+          ? `<div class="gallery"><a href="${escapeHtml(a.image)}" target="_blank"><img src="${escapeHtml(a.image)}" loading="lazy" alt=""></a></div>
+             <div class="text-muted small mt-1">الصورة المحلية المصغّرة فقط (لم يُرجع الموقع المباشر صورًا).</div>`
+          : '<div class="text-muted small">لا توجد صور.</div>';
         document.getElementById('detailGallery').innerHTML = imgs.length === 0
-          ? '<div class="text-muted small">لا توجد صور.</div>'
+          ? localFallbackHtml
           : `<div class="gallery">${imgs.map(u => `<a href="${escapeHtml(u)}" target="_blank"><img src="${escapeHtml(u)}" loading="lazy" alt=""></a>`).join('')}</div>`;
         const reps = j.reports || [];
         document.getElementById('detailReports').innerHTML = reps.length === 0
