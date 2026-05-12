@@ -47,6 +47,15 @@
   .fav-star.is-fav { color: #f1c40f; }
   .fav-cell:hover .fav-star { transform: scale(1.2); }
   #favOnlyBtn.active { background: #f1c40f !important; border-color: #d4ac0d !important; color: #24485f !important; font-weight: 700; }
+  /* Multi-select widget (hides the underlying <select>, shows a button-dropdown w/ checkboxes) */
+  .ms-wrap { position: relative; }
+  .ms-button { display: flex; align-items: center; }
+  .ms-button .ms-button-text { display: inline-block; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 100%; }
+  .ms-menu { width: 280px; max-width: 95vw; }
+  .ms-list { max-height: 240px; overflow-y: auto; }
+  .ms-list .form-check { margin-bottom: 0; padding-block: .15rem; }
+  .ms-list .form-check-label { cursor: pointer; }
+  .ms-empty { color: #94a3b8; font-size: .85rem; padding: .5rem; text-align: center; }
 </style>
 </head>
 <body>
@@ -56,6 +65,9 @@
     <span class="navbar-brand">⚖️ لوحة المزادات الإلكترونية - وزارة العدل الأردنية</span>
     <div class="d-flex align-items-center gap-3">
       <span class="text-light small" id="metaInfo"></span>
+      <button class="btn btn-sm btn-outline-light" id="teamLoginBtn" type="button" title="دخول الفريق (لمشاركة قائمة المفضلات)" style="display:none">
+        <span id="teamLoginLabel">🔐 دخول الفريق</span>
+      </button>
       <button class="btn btn-sm btn-light" id="refreshBtn" title="إعادة جلب البيانات من الموقع">
         <span class="spinner ms-1"></span>
         <span class="btn-label">🔄 تحديث البيانات</span>
@@ -173,6 +185,32 @@
 
 </div>
 
+<!-- Team login modal: shared-favorites password gate (Option C) -->
+<div class="modal fade" id="teamLoginModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h6 class="modal-title mb-0">🔐 دخول الفريق</h6>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div id="teamLoginPanel">
+          <p class="text-muted small mb-2">أدخل كلمة سر الفريق للوصول إلى قائمة المفضلات المشتركة. بعد الدخول، أي نجمة تختارها ستُرسل إلى القائمة المشتركة فورًا.</p>
+          <input type="password" class="form-control form-control-sm" id="teamPwdInput" placeholder="كلمة السر">
+          <div class="form-text text-danger small d-none" id="teamLoginErr">كلمة سر غير صحيحة.</div>
+        </div>
+        <div id="teamLoggedInPanel" class="d-none">
+          <p class="text-success small mb-0">✓ مسجَّل دخول الفريق. النجوم تُحفظ في القائمة المشتركة.</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-sm" id="teamLogoutBtn" data-bs-dismiss="modal" style="display:none">خروج</button>
+        <button class="btn btn-primary btn-sm" id="teamLoginSubmit">دخول</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Detail modal -->
 <div class="modal fade" id="detailModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-scrollable">
@@ -217,15 +255,94 @@
     return;
   }
 
-  // ===== Favorites (localStorage) =====
+  // ===== Team-shared favorites (Option C: one password gates a shared list) =====
+  //
+  // ────────────────────── SETUP (one-time, ~3 minutes) ─────────────────────────
+  // 1) Create a shared JSON blob (no signup needed, jsonblob.com is free):
+  //
+  //      curl -X POST -H "Content-Type: application/json" \
+  //           -d "{\"favorites\":[]}" \
+  //           https://jsonblob.com/api/jsonBlob -i
+  //
+  //    Look at the response's `Location` header — it'll be a URL like
+  //    https://jsonblob.com/api/jsonBlob/1234567890123456789
+  //    Paste that into TEAM_AUTH.blobUrl below.
+  //
+  // 2) Pick a team password and generate its SHA-256 hash. Easiest way:
+  //    open this page in a browser, hit F12, paste this into the Console:
+  //
+  //      (async p => [...new Uint8Array(await crypto.subtle.digest('SHA-256',
+  //        new TextEncoder().encode(p)))].map(b=>b.toString(16).padStart(2,'0'))
+  //        .join(''))('YOUR_PASSWORD_HERE')
+  //
+  //    Copy the 64-char hex string into TEAM_AUTH.passwordSha256.
+  //
+  // 3) Reload. The "🔐 دخول الفريق" button in the navbar will become active.
+  //
+  // Leave either field empty to disable the feature (favorites stay local-only).
+  // ─────────────────────────────────────────────────────────────────────────────
+  const TEAM_AUTH = {
+    passwordSha256: '',   // e.g. 'a3c1...' (64 hex chars)
+    blobUrl:        '',   // e.g. 'https://jsonblob.com/api/jsonBlob/12345...'
+  };
+
   const FAV_KEY = 'mojAuctions.favorites';
   const FAV_ONLY_KEY = 'mojAuctions.favOnly';
+  const TEAM_SESSION_KEY = 'mojAuctions.teamSession';
+  const TEAM_LOCAL_SNAPSHOT_KEY = 'mojAuctions.favoritesLocalSnapshot';
+  const isTeamConfigured = () => Boolean(TEAM_AUTH.passwordSha256 && TEAM_AUTH.blobUrl);
+  const isTeamLoggedIn   = () => isTeamConfigured() &&
+    sessionStorage.getItem(TEAM_SESSION_KEY) === TEAM_AUTH.passwordSha256;
+
   let favorites;
   try { favorites = new Set(JSON.parse(localStorage.getItem(FAV_KEY) || '[]')); }
   catch { favorites = new Set(); }
+
+  // SHA-256 hex helper
+  const sha256Hex = async (str) => {
+    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+    return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2,'0')).join('');
+  };
+
+  // Push the current `favorites` Set to the shared blob (debounced).
+  // Only runs when the user is logged in to the team.
+  let _favPushTimer = null;
+  const schedulePushFavorites = () => {
+    if (!isTeamLoggedIn()) return;
+    clearTimeout(_favPushTimer);
+    _favPushTimer = setTimeout(async () => {
+      try {
+        await fetch(TEAM_AUTH.blobUrl, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            favorites: [...favorites],
+            updatedAt: new Date().toISOString(),
+          }),
+        });
+      } catch (e) { console.warn('team favorites push failed:', e); }
+    }, 700);
+  };
+
+  // Pull the shared list from the blob and replace local state.
+  const pullSharedFavorites = async () => {
+    if (!isTeamConfigured()) return;
+    try {
+      const r = await fetch(TEAM_AUTH.blobUrl, { cache: 'no-store' });
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      const data = await r.json();
+      const ids = (Array.isArray(data.favorites) ? data.favorites : [])
+        .map(Number).filter(Number.isFinite);
+      favorites = new Set(ids);
+      try { localStorage.setItem(FAV_KEY, JSON.stringify([...favorites])); } catch {}
+      document.getElementById('favCount').textContent = favorites.size;
+    } catch (e) { console.warn('team favorites pull failed:', e); }
+  };
+
   const saveFavorites = () => {
     try { localStorage.setItem(FAV_KEY, JSON.stringify([...favorites])); } catch {}
     document.getElementById('favCount').textContent = favorites.size;
+    schedulePushFavorites();
   };
   const isFav = (id) => favorites.has(+id);
   const toggleFav = (id) => {
@@ -379,16 +496,19 @@
   };
 
   // ---- Filters init ----
+  // fillSelect rebuilds the option list of a (now multi-) <select>, preserving any
+  // currently-selected values that still exist in the new option set. The widget's
+  // refresh() call afterwards re-syncs the checkbox UI to match.
   const fillSelect = (id, values) => {
     const sel = document.getElementById(id);
-    const cur = sel.value;
+    const prev = new Set([...sel.selectedOptions].map(o => o.value).filter(v => v !== ''));
     [...sel.querySelectorAll('option:not([value=""])')].forEach(o => o.remove());
     [...new Set(values.filter(Boolean))].sort().forEach(v => {
       const o = document.createElement('option');
       o.value = v; o.textContent = v;
+      if (prev.has(v)) o.selected = true;
       sel.appendChild(o);
     });
-    if (cur) sel.value = cur;
   };
 
   fillSelect('categoryFilter', auctions.map(a => a.category));
@@ -398,6 +518,47 @@
   fillSelect('villageFilter',      auctions.map(a => a.village));
   fillSelect('basinFilter',        auctions.map(a => a.basin));
   fillSelect('announcementFilter', auctions.map(a => a.announcement));
+
+  // ---- Cascading location filters ----
+  // When the user picks a governorate, the directorate dropdown should only show
+  // directorates that exist in that governorate, and similarly down the chain:
+  //   gov -> dir -> village -> basin.
+  // If a previously-selected downstream value becomes invalid after the upstream
+  // changes, we clear it (so the filter doesn't silently return zero rows).
+  const populateFilterFrom = (id, getValue, basisAuctions) => {
+    const sel = document.getElementById(id);
+    const prev = new Set([...sel.selectedOptions].map(o => o.value).filter(v => v !== ''));
+    [...sel.querySelectorAll('option:not([value=""])')].forEach(o => o.remove());
+    const opts = [...new Set(basisAuctions.map(getValue).filter(Boolean))].sort();
+    opts.forEach(v => {
+      const o = document.createElement('option');
+      o.value = v; o.textContent = v;
+      if (prev.has(v)) o.selected = true;   // keep selection if still valid
+      sel.appendChild(o);
+    });
+  };
+  const getVals = (id) => [...document.getElementById(id).selectedOptions].map(o => o.value).filter(v => v !== '');
+  const refreshLocationCascade = () => {
+    // Use the union of all selected governorates as the basis for directorates,
+    // and so on down the chain. Empty selection = no constraint (= all).
+    const govs = getVals('govFilter');
+    const dirBasis = auctions.filter(a => !govs.length || govs.includes(a.governorate));
+    populateFilterFrom('dirFilter', a => a.directorate, dirBasis);
+
+    const dirs = getVals('dirFilter');
+    const vilBasis = dirBasis.filter(a => !dirs.length || dirs.includes(a.directorate));
+    populateFilterFrom('villageFilter', a => a.village, vilBasis);
+
+    const vils = getVals('villageFilter');
+    const bsnBasis = vilBasis.filter(a => !vils.length || vils.includes(a.village));
+    populateFilterFrom('basinFilter', a => a.basin, bsnBasis);
+
+    // After option lists changed, re-render any open widget UI for these
+    ['dirFilter','villageFilter','basinFilter'].forEach(id => {
+      const w = window._msWidgets && window._msWidgets[id];
+      if (w) w.refresh();
+    });
+  };
 
   // ---- Filtering ----
   let sortKey = '_endDateMs'; let sortDir = 1; // ascending = soonest first
@@ -412,40 +573,48 @@
   };
 
   const apply = () => {
+    // Before reading filter values, rebuild dir/village/basin option lists to match
+    // the currently-selected upstream values. This also clears any downstream
+    // selections that no longer exist within the new scope.
+    refreshLocationCascade();
+
     const q = document.getElementById('searchInput').value.trim().toLowerCase();
-    const cat = document.getElementById('categoryFilter').value;
-    const crt = document.getElementById('courtFilter').value;
-    const gov = document.getElementById('govFilter').value;
-    const dir = document.getElementById('dirFilter').value;
-    const vil = document.getElementById('villageFilter').value;
-    const bsn = document.getElementById('basinFilter').value;
-    const ann = document.getElementById('announcementFilter').value;
-    const estRange = document.getElementById('estValueFilter').value;
+    const cats    = getVals('categoryFilter');
+    const courts  = getVals('courtFilter');
+    const govs    = getVals('govFilter');
+    const dirs    = getVals('dirFilter');
+    const vils    = getVals('villageFilter');
+    const bsns    = getVals('basinFilter');
+    const anns    = getVals('announcementFilter');
+    const estRanges = getVals('estValueFilter');     // multi-range OR
     const favOnly = document.getElementById('favOnlyBtn').classList.contains('active');
     const hideExpired = document.getElementById('hideExpiredBtn').classList.contains('active');
     const nowMs = Date.now();
-    let estLo = null, estHi = null;
-    if (estRange) {
-      const parts = estRange.split('-');
-      estLo = parts[0] === '' ? null : +parts[0];
-      estHi = parts[1] === '' ? null : +parts[1];
-    }
+
+    // Each range is "lo-hi"; auction passes if any range matches.
+    const inAnyRange = (v) => {
+      if (v == null) return false;
+      return estRanges.some(r => {
+        const [loS, hiS] = r.split('-');
+        const lo = loS === '' ? null : +loS;
+        const hi = hiS === '' ? null : +hiS;
+        if (lo !== null && v < lo) return false;
+        if (hi !== null && v >= hi) return false;
+        return true;
+      });
+    };
 
     let rows = auctions.filter(a =>
       (!hideExpired || a._endDateMs == null || a._endDateMs > nowMs) &&
       (!favOnly || isFav(a.id)) &&
-      (!cat || a.category === cat) &&
-      (!crt || a.court === crt) &&
-      (!gov || a.governorate === gov) &&
-      (!dir || a.directorate === dir) &&
-      (!vil || a.village === vil) &&
-      (!bsn || a.basin === bsn) &&
-      (!ann || a.announcement === ann) &&
-      (estLo === null && estHi === null ? true : (
-        a.estimatedValueNum != null &&
-        (estLo === null || a.estimatedValueNum >= estLo) &&
-        (estHi === null || a.estimatedValueNum <  estHi)
-      )) &&
+      (!cats.length    || cats.includes(a.category)) &&
+      (!courts.length  || courts.includes(a.court)) &&
+      (!govs.length    || govs.includes(a.governorate)) &&
+      (!dirs.length    || dirs.includes(a.directorate)) &&
+      (!vils.length    || vils.includes(a.village)) &&
+      (!bsns.length    || bsns.includes(a.basin)) &&
+      (!anns.length    || anns.includes(a.announcement)) &&
+      (!estRanges.length || inAnyRange(a.estimatedValueNum)) &&
       matches(a, q)
     );
 
@@ -916,14 +1085,124 @@
     pollStatus();
   });
 
-  // Filter inputs
-  const filterIds = ['searchInput','categoryFilter','courtFilter','govFilter','dirFilter','villageFilter','basinFilter','announcementFilter','estValueFilter'];
-  filterIds.forEach(id => {
-    document.getElementById(id).addEventListener('input', apply);
+  // ---- Multi-select widget ----
+  // Hides the underlying <select multiple>, renders a Bootstrap-dropdown button
+  // showing the selection count, with a search + checkbox list inside. Each toggle
+  // mutates the underlying option.selected and dispatches a `change` event so the
+  // existing apply() handler picks it up automatically.
+  window._msWidgets = {};
+  function setupMultiSelect(selectId, placeholder) {
+    const sel = document.getElementById(selectId);
+    sel.multiple = true;
+    sel.style.display = 'none';
+
+    const wrap = document.createElement('div');
+    wrap.className = 'dropdown ms-wrap';
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'form-select ms-button text-start';
+    btn.setAttribute('data-bs-toggle', 'dropdown');
+    btn.setAttribute('data-bs-auto-close', 'outside');
+    btn.innerHTML = `<span class="ms-button-text"></span>`;
+    const menu = document.createElement('div');
+    menu.className = 'dropdown-menu ms-menu p-2';
+    menu.innerHTML = `
+      <input type="text" class="form-control form-control-sm mb-2 ms-search" placeholder="بحث...">
+      <div class="ms-list"></div>
+      <div class="d-flex justify-content-between align-items-center mt-2">
+        <button type="button" class="btn btn-sm btn-link p-0 ms-clear">مسح</button>
+        <span class="ms-count text-muted small"></span>
+      </div>`;
+    wrap.appendChild(btn);
+    wrap.appendChild(menu);
+    sel.parentNode.insertBefore(wrap, sel);
+
+    const labelEl = btn.querySelector('.ms-button-text');
+    const listEl  = menu.querySelector('.ms-list');
+    const searchEl = menu.querySelector('.ms-search');
+    const countEl = menu.querySelector('.ms-count');
+
+    const slug = (s) => 'opt_' + String(s).replace(/[^a-z0-9_-]/gi, '_');
+    const renderList = () => {
+      const ft = searchEl.value.trim().toLowerCase();
+      const opts = [...sel.options].filter(o => o.value !== '');
+      listEl.innerHTML = '';
+      const matchingOpts = opts.filter(o => !ft || o.textContent.toLowerCase().includes(ft));
+      if (matchingOpts.length === 0) {
+        listEl.innerHTML = `<div class="ms-empty">${opts.length === 0 ? 'لا توجد خيارات' : 'لا نتائج'}</div>`;
+        return;
+      }
+      const frag = document.createDocumentFragment();
+      matchingOpts.forEach(o => {
+        const id = selectId + '_' + slug(o.value);
+        const row = document.createElement('div');
+        row.className = 'form-check';
+        const cb = document.createElement('input');
+        cb.type = 'checkbox'; cb.className = 'form-check-input';
+        cb.id = id; cb.value = o.value; cb.checked = o.selected;
+        const lbl = document.createElement('label');
+        lbl.className = 'form-check-label small';
+        lbl.htmlFor = id; lbl.textContent = o.textContent;
+        row.appendChild(cb); row.appendChild(lbl);
+        frag.appendChild(row);
+      });
+      listEl.appendChild(frag);
+    };
+    const refreshLabel = () => {
+      const sels = [...sel.selectedOptions].filter(o => o.value !== '');
+      if (sels.length === 0) {
+        labelEl.textContent = placeholder || 'الكل';
+        countEl.textContent = '';
+      } else if (sels.length === 1) {
+        labelEl.textContent = sels[0].textContent;
+        countEl.textContent = '١ مختار';
+      } else {
+        labelEl.textContent = sels[0].textContent + ' +' + (sels.length - 1);
+        countEl.textContent = sels.length + ' مختارة';
+      }
+    };
+
+    listEl.addEventListener('change', (e) => {
+      const cb = e.target.closest('input[type="checkbox"]');
+      if (!cb) return;
+      const opt = [...sel.options].find(o => o.value === cb.value);
+      if (opt) opt.selected = cb.checked;
+      refreshLabel();
+      sel.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+    searchEl.addEventListener('input', renderList);
+    menu.querySelector('.ms-clear').addEventListener('click', () => {
+      [...sel.options].forEach(o => { o.selected = false; });
+      searchEl.value = '';
+      renderList(); refreshLabel();
+      sel.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+    // Stop the dropdown from closing when interacting with the search box
+    menu.addEventListener('click', (e) => e.stopPropagation());
+
+    const widget = {
+      refresh: () => { renderList(); refreshLabel(); },
+      clear:   () => {
+        [...sel.options].forEach(o => { o.selected = false; });
+        searchEl.value = ''; renderList(); refreshLabel();
+      },
+    };
+    renderList(); refreshLabel();
+    window._msWidgets[selectId] = widget;
+    return widget;
+  }
+
+  const multiIds = ['categoryFilter','courtFilter','govFilter','dirFilter','villageFilter','basinFilter','announcementFilter','estValueFilter'];
+  multiIds.forEach(id => setupMultiSelect(id, 'الكل'));
+
+  // Filter inputs (search is plain text; the rest fire `change` from the widget)
+  document.getElementById('searchInput').addEventListener('input', apply);
+  multiIds.forEach(id => {
     document.getElementById(id).addEventListener('change', apply);
   });
   document.getElementById('clearFilters').addEventListener('click', () => {
-    filterIds.forEach(id => { document.getElementById(id).value = ''; });
+    document.getElementById('searchInput').value = '';
+    multiIds.forEach(id => { window._msWidgets[id].clear(); });
     apply();
   });
 
@@ -976,6 +1255,88 @@
     document.body.appendChild(a); a.click(); a.remove();
     URL.revokeObjectURL(url);
   });
+
+  // ===== Team-login UI wiring =====
+  const teamLoginBtn   = document.getElementById('teamLoginBtn');
+  const teamLoginLabel = document.getElementById('teamLoginLabel');
+  const teamModalEl    = document.getElementById('teamLoginModal');
+  const teamModal      = new bootstrap.Modal(teamModalEl);
+  const teamPwdInput   = document.getElementById('teamPwdInput');
+  const teamLoginErr   = document.getElementById('teamLoginErr');
+  const teamLoginPanel = document.getElementById('teamLoginPanel');
+  const teamLoggedInPanel = document.getElementById('teamLoggedInPanel');
+  const teamLoginSubmit = document.getElementById('teamLoginSubmit');
+  const teamLogoutBtn  = document.getElementById('teamLogoutBtn');
+
+  const renderTeamUi = () => {
+    if (!isTeamConfigured()) {
+      teamLoginBtn.style.display = 'none';   // feature disabled
+      return;
+    }
+    teamLoginBtn.style.display = '';
+    if (isTeamLoggedIn()) {
+      teamLoginLabel.textContent = '✓ متصل بالفريق';
+      teamLoginBtn.classList.remove('btn-outline-light');
+      teamLoginBtn.classList.add('btn-success');
+      teamLoginPanel.classList.add('d-none');
+      teamLoggedInPanel.classList.remove('d-none');
+      teamLoginSubmit.style.display = 'none';
+      teamLogoutBtn.style.display   = '';
+    } else {
+      teamLoginLabel.textContent = '🔐 دخول الفريق';
+      teamLoginBtn.classList.remove('btn-success');
+      teamLoginBtn.classList.add('btn-outline-light');
+      teamLoginPanel.classList.remove('d-none');
+      teamLoggedInPanel.classList.add('d-none');
+      teamLoginSubmit.style.display = '';
+      teamLogoutBtn.style.display   = 'none';
+    }
+  };
+
+  teamLoginBtn.addEventListener('click', () => {
+    teamPwdInput.value = '';
+    teamLoginErr.classList.add('d-none');
+    teamModal.show();
+    if (!isTeamLoggedIn()) setTimeout(() => teamPwdInput.focus(), 200);
+  });
+
+  const submitTeamLogin = async () => {
+    const pwd = teamPwdInput.value;
+    if (!pwd) return;
+    const hash = await sha256Hex(pwd);
+    if (hash !== TEAM_AUTH.passwordSha256) {
+      teamLoginErr.classList.remove('d-none');
+      teamPwdInput.select();
+      return;
+    }
+    // Successful login: snapshot the user's pre-login local favorites (so they
+    // can be restored on logout), then replace with the team's shared list.
+    try { localStorage.setItem(TEAM_LOCAL_SNAPSHOT_KEY, JSON.stringify([...favorites])); } catch {}
+    sessionStorage.setItem(TEAM_SESSION_KEY, hash);
+    await pullSharedFavorites();
+    renderTeamUi();
+    teamModal.hide();
+    apply();
+  };
+  teamLoginSubmit.addEventListener('click', submitTeamLogin);
+  teamPwdInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') submitTeamLogin(); });
+
+  teamLogoutBtn.addEventListener('click', () => {
+    sessionStorage.removeItem(TEAM_SESSION_KEY);
+    // Restore the pre-login local favorites snapshot, if we have one
+    try {
+      const snap = JSON.parse(localStorage.getItem(TEAM_LOCAL_SNAPSHOT_KEY) || '[]');
+      favorites = new Set(snap.map(Number).filter(Number.isFinite));
+      localStorage.setItem(FAV_KEY, JSON.stringify([...favorites]));
+      document.getElementById('favCount').textContent = favorites.size;
+    } catch {}
+    renderTeamUi();
+    apply();
+  });
+
+  renderTeamUi();
+  // If a session is already active (page reload), pull fresh data quietly.
+  if (isTeamLoggedIn()) pullSharedFavorites().then(() => apply());
 
   // Initial render
   document.querySelector('th[data-sort="endDate"] .sort-ind').textContent = ' ▲';
