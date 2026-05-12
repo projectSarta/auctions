@@ -167,7 +167,7 @@ foreach ($a in $candidates) {
     continue
   }
 
-  $m = [regex]::Match($dataUri, '^data:image/([a-z]+);base64,(.+)$')
+  $m = [regex]::Match($dataUri, '(?i)^data:image/([a-z]+);base64,(.+)$')
   if (-not $m.Success) {
     # The site uses '/Images/noimage.jpg' (a plain URL, not a data URI) when there is no image.
     if ($dataUri -match 'noimage') {
