@@ -63,6 +63,25 @@ Step 'Phase 6: resize images' {
   & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'resize_images.ps1')
 }
 
+# Phase 7: commit + push. Wrap git calls in try/catch so the harmless
+# LF/CRLF warnings (which PowerShell promotes to fatal errors under
+# ErrorActionPreference=Stop) don't kill the publish.
+Step 'Phase 7: commit + push' {
+  Set-Location $Root
+  $ErrorActionPreference = 'Continue'
+  try {
+    & git add auctions.js auctions.json images dashboard.html enrich_images.ps1 enrich_reports.ps1 resize_images.ps1 overnight_run.ps1 probe_report.ps1 2>&1 | Out-String | Write-Host
+  } catch { Write-Host "git add note: $($_.Exception.Message)" }
+  $status = (& git status --porcelain 2>$null) -join "`n"
+  if (-not $status) { Write-Host "nothing to commit"; return }
+  $ts  = (Get-Date).ToString('yyyy-MM-dd HH:mm')
+  $msg = "Overnight: enrich active images + reports + fresh scrape ($ts)`n`nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+  try {
+    & git commit -m $msg 2>&1 | Out-String | Write-Host
+    & git push origin main 2>&1 | Out-String | Write-Host
+  } catch { Write-Host "git commit/push note: $($_.Exception.Message)" }
+}
+
 $end = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
 $done = "`n===== Overnight run finished $end ====="
 Add-Content -Path $Log -Value $done -Encoding UTF8
