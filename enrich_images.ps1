@@ -33,7 +33,9 @@ param(
   [int]$MaxItems = 200,
   [string]$OnlyCategory = '',
   [int]$DelayMs = 500,
-  [int]$MaxConsecutiveErrors = 5
+  [int]$MaxConsecutiveErrors = 5,
+  # When set, only process auctions whose endDate is in the future (live listings).
+  [switch]$ActiveOnly
 )
 
 $ErrorActionPreference = 'Stop'
@@ -110,10 +112,20 @@ foreach ($c in $data.categories) { $tokenByCat[$c.name] = $c.token }
 if ($tokenByCat.Count -eq 0) { throw 'No categories in auctions.json' }
 
 # Candidates: no image yet AND category we have a token for (caseId no longer required)
+$nowMs = [DateTimeOffset]::Now.ToUnixTimeMilliseconds()
+$isActive = {
+  param($auction)
+  if (-not $auction.endDate) { return $true }   # unknown end = treat as active
+  try {
+    $dt = [DateTime]::Parse([string]$auction.endDate)
+    return ([DateTimeOffset]::new($dt).ToUnixTimeMilliseconds() -gt $nowMs)
+  } catch { return $true }
+}
 $candidates = $data.auctions | Where-Object {
   (-not $_.image -or $_.image -eq '') -and
   (-not $OnlyCategory -or ($_.category -match $OnlyCategory)) -and
-  $tokenByCat.ContainsKey($_.category)
+  $tokenByCat.ContainsKey($_.category) -and
+  (-not $ActiveOnly -or (& $isActive $_))
 }
 
 "Candidates without image: $($candidates.Count)"
