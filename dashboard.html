@@ -56,6 +56,14 @@
   .ms-list .form-check { margin-bottom: 0; padding-block: .15rem; }
   .ms-list .form-check-label { cursor: pointer; }
   .ms-empty { color: #94a3b8; font-size: .85rem; padding: .5rem; text-align: center; }
+  /* Live bid flash — cells that changed in the last poll briefly glow green/red */
+  @keyframes bidFlashUp   { 0% { background:#c8f5d0; } 100% { background:transparent; } }
+  @keyframes bidFlashDown { 0% { background:#f9d6d6; } 100% { background:transparent; } }
+  .bid-flash-up   { animation: bidFlashUp 1.6s ease-out; }
+  .bid-flash-down { animation: bidFlashDown 1.6s ease-out; }
+  #liveBtn.live-on { background:#28a745 !important; border-color:#28a745 !important; color:#fff !important; }
+  #liveBtn.live-on .live-dot { display:inline-block; width:.55rem; height:.55rem; background:#fff; border-radius:50%; margin-inline-end:.4rem; animation: livePulse 1.2s infinite; vertical-align:middle; }
+  @keyframes livePulse { 0%,100% { opacity:1; } 50% { opacity:.3; } }
 </style>
 </head>
 <body>
@@ -65,6 +73,9 @@
     <span class="navbar-brand">⚖️ لوحة المزادات الإلكترونية - وزارة العدل الأردنية</span>
     <div class="d-flex align-items-center gap-3">
       <span class="text-light small" id="metaInfo"></span>
+      <button class="btn btn-sm btn-outline-light" id="liveBtn" type="button" title="تحديث المزاودات تلقائياً كل 25 ثانية">
+        <span id="liveBtnLabel">🔴 مباشر: متوقف</span>
+      </button>
       <button class="btn btn-sm btn-outline-light" id="teamLoginBtn" type="button" title="دخول الفريق (لمشاركة قائمة المفضلات)" style="display:none">
         <span id="teamLoginLabel">🔐 دخول الفريق</span>
       </button>
@@ -741,8 +752,8 @@
         <td>${fmtDays(a._endDateMs ? new Date(a._endDateMs) : null)}</td>
         <td class="num">${fmtNum(a.startingAmount)}</td>
         <td class="num">${fmtNum(a.estimatedValue)}</td>
-        <td class="num">${fmtNum(a.currentAmount)}</td>
-        <td class="num">${fmtNum(a.numBids)}</td>
+        <td class="num cell-current" data-bid-id="${a.id}">${fmtNum(a.currentAmount)}</td>
+        <td class="num cell-numbids" data-num-id="${a.id}">${fmtNum(a.numBids)}</td>
       </tr>
     `).join('');
     body.innerHTML = html;
@@ -1475,6 +1486,109 @@
   renderTeamUi();
   // If a session is already active (page reload), pull fresh data quietly.
   if (isTeamLoggedIn()) pullSharedFavorites().then(() => apply());
+
+  // ===== Live bid polling (Option B1) =====
+  // Polls WORKER_URL/api/bids?token=<cat> every ~25s for each category that
+  // has currently-visible rows. Updates cellCurrent + cellNumBids in place,
+  // flashes the cell green/red on change, also patches the auction object so
+  // sorts/filters reflect the new value.
+  const LIVE_KEY = 'mojAuctions.liveOn';
+  const LIVE_INTERVAL_MS = 25000;
+  let liveTimer = null;
+
+  const flashCell = (el, kind) => {
+    if (!el) return;
+    el.classList.remove('bid-flash-up','bid-flash-down');
+    // Force reflow so re-adding triggers the animation
+    void el.offsetWidth;
+    el.classList.add(kind === 'down' ? 'bid-flash-down' : 'bid-flash-up');
+  };
+
+  const applyBidUpdate = (id, currentAmount, numBids) => {
+    const a = auctions.find(x => x.id === id);
+    if (!a) return false;
+    let changed = false;
+    if (currentAmount !== a.currentAmountNum && Number.isFinite(currentAmount)) {
+      const direction = currentAmount > (a.currentAmountNum || 0) ? 'up' : 'down';
+      a.currentAmount    = currentAmount;
+      a.currentAmountNum = currentAmount;
+      document.querySelectorAll(`td.cell-current[data-bid-id="${id}"]`).forEach(td => {
+        td.textContent = fmtNum(currentAmount);
+        flashCell(td, direction);
+      });
+      changed = true;
+    }
+    if (Number.isFinite(numBids) && numBids !== (+a.numBids || 0)) {
+      a.numBids = numBids;
+      a.numBidsNum = numBids;
+      document.querySelectorAll(`td.cell-numbids[data-num-id="${id}"]`).forEach(td => {
+        td.textContent = fmtNum(numBids);
+        flashCell(td, 'up');
+      });
+      changed = true;
+    }
+    return changed;
+  };
+
+  const visibleCategoriesWithToken = () => {
+    const rows = window._currentRows || auctions;
+    const cats = new Set(rows.map(r => r.category));
+    const out = [];
+    for (const c of cats) {
+      const tok = tokenByCategory[c];
+      if (tok) out.push({ category: c, token: tok });
+    }
+    return out;
+  };
+
+  const pollLiveBids = async () => {
+    if (document.hidden) return;          // skip when tab hidden
+    if (!apiBase) return;
+    const cats = visibleCategoriesWithToken();
+    if (cats.length === 0) return;
+    let totalChanged = 0;
+    for (const { token } of cats) {
+      try {
+        const r = await fetch(`${apiBase}/api/bids?token=${encodeURIComponent(token)}`);
+        if (!r.ok) continue;
+        const j = await r.json();
+        if (j.captcha || !Array.isArray(j.updates)) continue;
+        for (const u of j.updates) {
+          if (applyBidUpdate(+u.id, +u.currentAmount, +u.numBids)) totalChanged++;
+        }
+      } catch (e) {
+        // Network/CORS hiccup — quietly skip this round, retry next tick.
+      }
+    }
+    // If something changed, also update the navbar countdown label timestamp
+    if (totalChanged > 0) {
+      const ts = new Date().toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
+      const lbl = document.getElementById('liveBtnLabel');
+      if (lbl) lbl.innerHTML = `<span class="live-dot"></span>مباشر · آخر تحديث ${ts}`;
+    }
+  };
+
+  const liveBtn = document.getElementById('liveBtn');
+  const setLiveOn = (on, persist = true) => {
+    if (on) {
+      liveBtn.classList.add('live-on');
+      document.getElementById('liveBtnLabel').innerHTML = '<span class="live-dot"></span>مباشر · نشط';
+      pollLiveBids();   // immediate first poll
+      clearInterval(liveTimer);
+      liveTimer = setInterval(pollLiveBids, LIVE_INTERVAL_MS);
+    } else {
+      liveBtn.classList.remove('live-on');
+      document.getElementById('liveBtnLabel').textContent = '🔴 مباشر: متوقف';
+      clearInterval(liveTimer);
+      liveTimer = null;
+    }
+    if (persist) {
+      try { localStorage.setItem(LIVE_KEY, on ? '1' : '0'); } catch {}
+    }
+  };
+  liveBtn.addEventListener('click', () => setLiveOn(!liveBtn.classList.contains('live-on')));
+  // Restore prior state
+  if (localStorage.getItem(LIVE_KEY) === '1') setLiveOn(true, false);
 
   // Initial render
   document.querySelector('th[data-sort="endDate"] .sort-ind').textContent = ' ▲';

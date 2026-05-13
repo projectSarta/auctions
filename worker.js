@@ -39,6 +39,9 @@ export default {
       if (url.pathname === '/api/auction') {
         return await handleAuction(url);
       }
+      if (url.pathname === '/api/bids') {
+        return await handleBids(url);
+      }
       if (url.pathname === '/img') {
         return await handleImageProxy(url);
       }
@@ -166,6 +169,71 @@ async function handleAuction(url) {
     images: [...imgs],
     reports,
     target
+  });
+}
+
+// GET /api/bids?token=<categoryToken>
+// Fetches page 1 of the listing for that category and parses every
+// auction's current highest bid + bid count from the inline HTML.
+// Each call ≈ 1 upstream request, returns JSON with up to ~30 rows.
+//
+// The dashboard polls this (one call per visible category) every 25 s
+// and updates row cells in place.
+async function handleBids(url) {
+  const token = url.searchParams.get('token');
+  if (!token) return jsonResponse({ error: 'token required' }, 400);
+
+  const baseHeaders = {
+    'User-Agent': UA,
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+    'Accept-Language': 'ar,en;q=0.8',
+  };
+
+  // Warm session so the listing page doesn't anti-bot us.
+  let cookieHeader = '';
+  try {
+    const warm = await fetch(`${BASE}/index.aspx`, { headers: baseHeaders, redirect: 'follow' });
+    const setCookies = warm.headers.getSetCookie ? warm.headers.getSetCookie() : [warm.headers.get('Set-Cookie') || ''];
+    cookieHeader = setCookies.filter(Boolean).map(c => c.split(';')[0]).filter(Boolean).join('; ');
+  } catch (e) {}
+
+  const listUrl = `${BASE}/AuctionsList.aspx?token=${encodeURIComponent(token)}`;
+  const r = await fetch(listUrl, {
+    headers: { ...baseHeaders, Cookie: cookieHeader, Referer: `${BASE}/index.aspx` },
+    redirect: 'follow',
+  });
+  const html = await r.text();
+  if (html.length < 5000 || html.includes('Validation request') || html.includes('captcha_resp')) {
+    return jsonResponse({ token, captcha: true, updates: [] });
+  }
+
+  // Parse every (auctionId, currentAmount, numBids) on this page.
+  // These spans look like:
+  //   <span ... id="HighestAuctionAmount_50880">7111.11 </span>
+  //   <span ... id="NumberOfBiddings_50880">5 </span>
+  const updates = new Map();
+  const highRe = /HighestAuctionAmount_(\d+)"[^>]*>\s*([^<\s]+)/g;
+  let m;
+  while ((m = highRe.exec(html))) {
+    const id = +m[1];
+    const v  = parseFloat(m[2].replace(/[^\d.\-]/g, ''));
+    if (!updates.has(id)) updates.set(id, { id, currentAmount: isNaN(v) ? 0 : v, numBids: 0 });
+    else updates.get(id).currentAmount = isNaN(v) ? 0 : v;
+  }
+  const numRe = /NumberOfBiddings_(\d+)"[^>]*>\s*(\d+)/g;
+  while ((m = numRe.exec(html))) {
+    const id = +m[1];
+    const n  = parseInt(m[2], 10) || 0;
+    if (!updates.has(id)) updates.set(id, { id, currentAmount: 0, numBids: n });
+    else updates.get(id).numBids = n;
+  }
+
+  return jsonResponse({
+    token,
+    captcha: false,
+    count: updates.size,
+    updates: [...updates.values()],
+    ts: Date.now(),
   });
 }
 
