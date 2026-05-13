@@ -167,6 +167,48 @@ function Handle-Request($ctx) {
     return
   }
 
+  # GET /api/bids?token=..
+  # Fetches the listing page for the given category, parses every auction's
+  # current highest-bid and bid-count, returns them as a JSON array.
+  if ($method -eq 'GET' -and $path -eq '/api/bids') {
+    $token = $req.QueryString['token']
+    if (-not $token) {
+      Send-Json $ctx @{ error = 'token required' } 400
+      return
+    }
+    try {
+      $listUrl = "$Base/AuctionsList.aspx?token=$token"
+      $html = Curl-Get $listUrl
+      if (-not $html -or $html.Length -lt 5000 -or $html.Contains('captcha_resp')) {
+        Send-Json $ctx ([pscustomobject]@{ token = $token; captcha = $true; updates = @() })
+        return
+      }
+      $byId = @{}
+      $highRe = [regex]'HighestAuctionAmount_(\d+)"[^>]*>\s*([^<\s]+)'
+      foreach ($m in $highRe.Matches($html)) {
+        $id = [int]$m.Groups[1].Value
+        $v  = $m.Groups[2].Value -replace '[^\d.\-]', ''
+        $cur = if ($v) { [double]$v } else { 0 }
+        if (-not $byId.ContainsKey($id)) { $byId[$id] = @{ id = $id; currentAmount = $cur; numBids = 0 } }
+        else { $byId[$id].currentAmount = $cur }
+      }
+      $numRe = [regex]'NumberOfBiddings_(\d+)"[^>]*>\s*(\d+)'
+      foreach ($m in $numRe.Matches($html)) {
+        $id = [int]$m.Groups[1].Value
+        $n  = [int]$m.Groups[2].Value
+        if (-not $byId.ContainsKey($id)) { $byId[$id] = @{ id = $id; currentAmount = 0; numBids = $n } }
+        else { $byId[$id].numBids = $n }
+      }
+      Send-Json $ctx ([pscustomobject]@{
+        token = $token; captcha = $false; count = $byId.Count;
+        updates = @($byId.Values); ts = [DateTimeOffset]::Now.ToUnixTimeMilliseconds()
+      })
+    } catch {
+      Send-Json $ctx @{ error = $_.Exception.Message } 500
+    }
+    return
+  }
+
   # POST /api/refresh
   if ($method -eq 'POST' -and $path -eq '/api/refresh') {
     if ($script:RefreshJob -and $script:RefreshJob.proc -and -not $script:RefreshJob.proc.HasExited) {

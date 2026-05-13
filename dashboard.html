@@ -1541,18 +1541,23 @@
     return out;
   };
 
+  let liveCaptchaStreak = 0;
   const pollLiveBids = async () => {
     if (document.hidden) return;          // skip when tab hidden
     if (!apiBase) return;
     const cats = visibleCategoriesWithToken();
     if (cats.length === 0) return;
     let totalChanged = 0;
+    let captchaThisRound = 0;
+    let okThisRound = 0;
     for (const { token } of cats) {
       try {
-        const r = await fetch(`${apiBase}/api/bids?token=${encodeURIComponent(token)}`);
+        const r = await fetch(`${apiBase}/api/bids?token=${encodeURIComponent(token)}&_=${Date.now()}`);
         if (!r.ok) continue;
         const j = await r.json();
-        if (j.captcha || !Array.isArray(j.updates)) continue;
+        if (j.captcha) { captchaThisRound++; continue; }
+        if (!Array.isArray(j.updates)) continue;
+        okThisRound++;
         for (const u of j.updates) {
           if (applyBidUpdate(+u.id, +u.currentAmount, +u.numBids)) totalChanged++;
         }
@@ -1560,7 +1565,18 @@
         // Network/CORS hiccup — quietly skip this round, retry next tick.
       }
     }
-    // If something changed, also update the navbar countdown label timestamp
+    // If every category came back captcha (and none succeeded), the upstream
+    // is blocking us — auto-disable to avoid burning quota.
+    if (captchaThisRound > 0 && okThisRound === 0) {
+      liveCaptchaStreak++;
+      if (liveCaptchaStreak >= 3) {
+        setLiveOn(false);
+        const lbl = document.getElementById('liveBtnLabel');
+        if (lbl) lbl.textContent = '⚠ مباشر معطّل (شغّل serve.ps1)';
+      }
+      return;
+    }
+    liveCaptchaStreak = 0;
     if (totalChanged > 0) {
       const ts = new Date().toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
       const lbl = document.getElementById('liveBtnLabel');
