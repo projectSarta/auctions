@@ -203,9 +203,33 @@ foreach ($a in $candidates) {
   $reportUrl   = "$Base/Forms/Auctions/frmDownloadReports.aspx?token=$reportToken"
 
   $a | Add-Member -MemberType NoteProperty -Name 'reportUrl' -Value $reportUrl -Force
+
+  # Also pull the PDF bytes locally so GitHub Pages can serve them inline
+  # (the MoJ origin sends Content-Disposition: attachment which forces a
+  # download; static files on GitHub Pages don't, so we get in-tab viewing).
+  $reportsDir = Join-Path $Root 'reports'
+  if (-not (Test-Path $reportsDir)) { New-Item -ItemType Directory -Path $reportsDir | Out-Null }
+  $pdfFile = Join-Path $reportsDir ("$($a.id).pdf")
+  $tmpPdf  = [System.IO.Path]::GetTempFileName()
+  try {
+    & $CurlExe --silent --insecure --location --compressed --user-agent $UserAgent `
+      --cookie-jar $CookieJar --cookie $CookieJar `
+      --output $tmpPdf $reportUrl | Out-Null
+    if ((Test-Path $tmpPdf) -and ((Get-Item $tmpPdf).Length -gt 200)) {
+      $bytes = [System.IO.File]::ReadAllBytes($tmpPdf)
+      # quick sanity: PDFs start with "%PDF-"
+      if ($bytes.Length -gt 4 -and [System.Text.Encoding]::ASCII.GetString($bytes, 0, 4) -eq '%PDF') {
+        [System.IO.File]::WriteAllBytes($pdfFile, $bytes)
+        $a | Add-Member -MemberType NoteProperty -Name 'pdfPath' -Value ("reports/$($a.id).pdf") -Force
+      }
+    }
+  } catch {} finally {
+    if (Test-Path $tmpPdf) { Remove-Item $tmpPdf -Force }
+  }
+
   Save-Data $data
   $withUrl++
-  Write-Host ("OK token=" + $reportToken.Substring(0, [Math]::Min(12, $reportToken.Length)) + "...") -ForegroundColor Green
+  Write-Host ("OK token=" + $reportToken.Substring(0, [Math]::Min(12, $reportToken.Length)) + "..." + $(if (Test-Path $pdfFile) { " +pdf" } else { "" })) -ForegroundColor Green
 
   Start-Sleep -Milliseconds $DelayMs
 }

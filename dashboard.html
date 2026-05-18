@@ -800,20 +800,25 @@
     document.getElementById('detailTitle').textContent = a.header || `مزاد رقم ${a.id}`;
     document.getElementById('detailSourceLink').href = a.sourceUrl || data.source;
 
-    // Direct PDF link to the expert report (if we've enriched it). The MoJ
-    // server sends Content-Disposition: attachment which forces download. To
-    // open the PDF in-tab instead:
-    //   * Running locally (serve.ps1)  → /api/report proxies + sets disposition:inline
-    //   * Deployed (no local proxy)    → wrap the URL in Google Docs Viewer
+    // Expert-report PDF link. Three modes, picked in this order:
+    //   1) a.pdfPath is set  → we've downloaded the PDF and committed it to
+    //      the repo (reports/<id>.pdf). GitHub Pages serves it inline so it
+    //      opens in a new tab instead of forcing a download.
+    //   2) Running locally (serve.ps1) → /api/report proxies the MoJ URL and
+    //      rewrites Content-Disposition to inline.
+    //   3) Fallback: link directly to the MoJ URL (will download because the
+    //      origin server forces it).
     const reportBtn = document.getElementById('detailReportBtn');
-    if (a.reportUrl) {
+    if (a.pdfPath) {
+      reportBtn.href = a.pdfPath;
+      reportBtn.style.display = '';
+    } else if (a.reportUrl) {
       const m = a.reportUrl.match(/token=([^&]+)/);
       const tokenPart = m ? m[1] : '';
       if (isLocalhost && tokenPart) {
         reportBtn.href = `/api/report?token=${tokenPart}`;
       } else {
-        // Google viewer renders the PDF in their UI inside a new tab.
-        reportBtn.href = `https://docs.google.com/viewer?url=${encodeURIComponent(a.reportUrl)}&embedded=false`;
+        reportBtn.href = a.reportUrl;
       }
       reportBtn.style.display = '';
     } else {
