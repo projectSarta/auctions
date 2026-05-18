@@ -56,6 +56,11 @@
   .ms-list .form-check { margin-bottom: 0; padding-block: .15rem; }
   .ms-list .form-check-label { cursor: pointer; }
   .ms-empty { color: #94a3b8; font-size: .85rem; padding: .5rem; text-align: center; }
+  /* Vehicle-type column visibility: toggled by adding/removing .hide-vehicle-col
+     on the <table> (and on the filters container) so the rule applies to cells
+     re-rendered later by apply() too. */
+  table.hide-vehicle-col .col-vehicle-type,
+  .filters-card.hide-vehicle-col .col-vehicle-type { display: none !important; }
   /* Live bid flash — cells that changed in the last poll briefly glow green/red */
   @keyframes bidFlashUp   { 0% { background:#c8f5d0; } 100% { background:transparent; } }
   @keyframes bidFlashDown { 0% { background:#f9d6d6; } 100% { background:transparent; } }
@@ -666,9 +671,12 @@
       Array.from(c.name).some(ch => ch.charCodeAt(0) === 1576)
     )?.name;
     const showVehCol = (cats.length === 0) || (vehCategoryName && cats.includes(vehCategoryName));
-    document.querySelectorAll('.col-vehicle-type').forEach(el => {
-      el.style.display = showVehCol ? '' : 'none';
-    });
+    // Toggle a class on the table + filter card. CSS handles the actual hiding,
+    // so the rule still works after apply() re-renders the table body.
+    const tbl = document.getElementById('auctionTable');
+    const filtCard = document.querySelector('.filters-card');
+    if (tbl)      tbl.classList.toggle('hide-vehicle-col', !showVehCol);
+    if (filtCard) filtCard.classList.toggle('hide-vehicle-col', !showVehCol);
     const favOnly = document.getElementById('favOnlyBtn').classList.contains('active');
     const hideExpired = document.getElementById('hideExpiredBtn').classList.contains('active');
     const nowMs = Date.now();
