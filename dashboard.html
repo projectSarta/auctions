@@ -276,7 +276,7 @@
       </div>
       <div class="modal-footer flex-wrap gap-1">
         <a class="btn btn-primary btn-sm" id="detailSourceLink" target="_blank" rel="noopener">↗ الصفحة الأصلية</a>
-        <a class="btn btn-danger btn-sm" id="detailReportBtn" target="_blank" rel="noopener" style="display:none">📄 تحميل تقرير الخبرة</a>
+        <a class="btn btn-danger btn-sm" id="detailReportBtn" target="_blank" rel="noopener" style="display:none">📄 تقرير الخبرة</a>
         <button class="btn btn-outline-primary btn-sm" id="loadDetailsBtn">⤓ صور + تقرير الخبرة</button>
         <button class="btn btn-outline-success btn-sm" id="dlsMapBtn" title="ينسخ بيانات القطعة ويفتح خرائط دائرة الأراضي">📍 دائرة الأراضي</button>
         <a class="btn btn-outline-secondary btn-sm" id="gmapsBtn" target="_blank" rel="noopener">🌍 Google Maps</a>
@@ -800,10 +800,21 @@
     document.getElementById('detailTitle').textContent = a.header || `مزاد رقم ${a.id}`;
     document.getElementById('detailSourceLink').href = a.sourceUrl || data.source;
 
-    // Direct PDF link to the expert report (if we've enriched it)
+    // Direct PDF link to the expert report (if we've enriched it). The MoJ
+    // server sends Content-Disposition: attachment which forces download. To
+    // open the PDF in-tab instead:
+    //   * Running locally (serve.ps1)  → /api/report proxies + sets disposition:inline
+    //   * Deployed (no local proxy)    → wrap the URL in Google Docs Viewer
     const reportBtn = document.getElementById('detailReportBtn');
     if (a.reportUrl) {
-      reportBtn.href = a.reportUrl;
+      const m = a.reportUrl.match(/token=([^&]+)/);
+      const tokenPart = m ? m[1] : '';
+      if (isLocalhost && tokenPart) {
+        reportBtn.href = `/api/report?token=${tokenPart}`;
+      } else {
+        // Google viewer renders the PDF in their UI inside a new tab.
+        reportBtn.href = `https://docs.google.com/viewer?url=${encodeURIComponent(a.reportUrl)}&embedded=false`;
+      }
       reportBtn.style.display = '';
     } else {
       reportBtn.style.display = 'none';

@@ -167,6 +167,41 @@ function Handle-Request($ctx) {
     return
   }
 
+  # GET /api/report?token=..
+  # Streams the expert-report PDF inline (Content-Disposition: inline) so the
+  # browser displays it in a new tab instead of forcing a download. The MoJ
+  # server sends 'attachment' which Chrome obeys; this proxy rewrites the
+  # disposition header.
+  if ($method -eq 'GET' -and $path -eq '/api/report') {
+    $token = $req.QueryString['token']
+    if (-not $token) {
+      Send-Json $ctx @{ error = 'token required' } 400
+      return
+    }
+    try {
+      $upstream = "$Base/Forms/Auctions/frmDownloadReports.aspx?token=$token"
+      $tmp = [System.IO.Path]::GetTempFileName()
+      & $CurlExe --silent --insecure --location --compressed `
+        --user-agent $UserAgent --output $tmp $upstream | Out-Null
+      if (-not (Test-Path $tmp) -or (Get-Item $tmp).Length -lt 100) {
+        if (Test-Path $tmp) { Remove-Item $tmp -Force }
+        Send-Json $ctx @{ error = 'upstream returned empty' } 502
+        return
+      }
+      $bytes = [System.IO.File]::ReadAllBytes($tmp)
+      Remove-Item $tmp -Force
+      $ctx.Response.ContentType = 'application/pdf'
+      $ctx.Response.Headers.Add('Content-Disposition', 'inline; filename="report.pdf"')
+      $ctx.Response.Headers.Add('Cache-Control', 'private, max-age=300')
+      $ctx.Response.ContentLength64 = $bytes.Length
+      $ctx.Response.OutputStream.Write($bytes, 0, $bytes.Length)
+      $ctx.Response.Close()
+    } catch {
+      Send-Json $ctx @{ error = $_.Exception.Message } 500
+    }
+    return
+  }
+
   # GET /api/bids?token=..
   # Fetches the listing page for the given category, parses every auction's
   # current highest-bid and bid-count, returns them as a JSON array.
