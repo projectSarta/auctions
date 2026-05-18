@@ -184,7 +184,6 @@
       <thead>
         <tr>
           <th data-sort="isFav" title="المفضلة">⭐<span class="sort-ind"></span></th>
-          <th data-sort="id">#<span class="sort-ind"></span></th>
           <th data-sort="category">الفئة<span class="sort-ind"></span></th>
           <th data-sort="vehicleType" class="col-vehicle-type">نوع المركبة<span class="sort-ind"></span></th>
           <th data-sort="header">عنوان المزاد<span class="sort-ind"></span></th>
@@ -746,7 +745,6 @@
     const html = rows.map(a => `
       <tr class="row-clickable" data-id="${a.id}">
         <td class="fav-cell" data-fav-id="${a.id}"><span class="fav-star${isFav(a.id) ? ' is-fav' : ''}">${isFav(a.id) ? '★' : '☆'}</span></td>
-        <td class="num">${a.id}</td>
         <td>
           <span class="badge bg-secondary badge-cat">${escapeHtml(a.category)}</span>
           ${a.image ? `<img src="${escapeHtml(a.image)}" class="thumb" loading="lazy" alt="">` : ''}
