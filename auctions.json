@@ -1,9 +1,9 @@
 {
-    "scrapedAt":  "2026-05-21 17:23:56",
+    "scrapedAt":  "2026-05-21 17:42:03",
     "source":  "https://auctions.moj.gov.jo/index.aspx",
     "totalScraped":  1882,
     "pageLimit":  0,
-    "inProgress":  true,
+    "inProgress":  false,
     "categories":  [
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vgTIHx4qwtzJBsfviXhuz8j6Ht9U78JeLm9XVD2AcY4D1ojcWsBjK8kD_Sndyoqb_UXPceoK3yJilkjyc0tzRz0",
