@@ -340,6 +340,12 @@ foreach ($cat in $categories) {
       foreach ($it in $items) {
         $itId = [int]$it.id
         if (-not $seen.Contains($itId)) {
+          # Stamp the moment WE first saw this auction (ISO-8601 UTC). Drives
+          # the "🆕 جديد" badge in the dashboard. Set on creation only; never
+          # overwritten by later refreshes.
+          if (-not $it.PSObject.Properties.Match('firstSeenAt').Count -or -not $it.firstSeenAt) {
+            $it | Add-Member -MemberType NoteProperty -Name 'firstSeenAt' -Value ((Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')) -Force
+          }
           [void]$seen.Add($itId)
           [void]$all.Add($it)
           $allById[$itId] = $it

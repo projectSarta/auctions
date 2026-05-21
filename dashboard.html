@@ -56,6 +56,12 @@
   .ms-list .form-check { margin-bottom: 0; padding-block: .15rem; }
   .ms-list .form-check-label { cursor: pointer; }
   .ms-empty { color: #94a3b8; font-size: .85rem; padding: .5rem; text-align: center; }
+  /* "New" indicator — red dot + subtle row tint for listings added in the last few days */
+  .new-dot { display: inline-block; width: .55rem; height: .55rem; background: #dc3545; border-radius: 50%; margin-inline-end: .35rem; vertical-align: middle; box-shadow: 0 0 0 0 rgba(220,53,69,.6); animation: newPulse 1.8s infinite; }
+  @keyframes newPulse { 0% { box-shadow: 0 0 0 0 rgba(220,53,69,.55); } 70% { box-shadow: 0 0 0 .35rem rgba(220,53,69,0); } 100% { box-shadow: 0 0 0 0 rgba(220,53,69,0); } }
+  tr.row-new { background: #fff8f8; }
+  tr.row-new:hover { background: #fef0f0 !important; }
+  #newOnlyBtn.active { background:#dc3545 !important; border-color:#c82333 !important; color:#fff !important; font-weight:700; }
   /* Vehicle-type column visibility: toggled by adding/removing .hide-vehicle-col
      on the <table> (and on the filters container) so the rule applies to cells
      re-rendered later by apply() too. */
@@ -125,6 +131,7 @@
         </div>
         <div class="col-md-2 d-flex gap-1 flex-wrap">
           <button class="btn btn-outline-success flex-grow-1 active" id="hideExpiredBtn" title="إخفاء المزادات المنتهية">⏱ نشط</button>
+          <button class="btn btn-outline-danger flex-grow-1" id="newOnlyBtn" title="إظهار المزادات الجديدة فقط (آخر 3 أيام)">🆕 <span id="newCount">0</span></button>
           <button class="btn btn-outline-warning flex-grow-1" id="favOnlyBtn" title="إظهار المفضلة فقط">⭐ <span id="favCount">0</span></button>
           <button class="btn btn-outline-secondary flex-grow-1" id="clearFilters">مسح</button>
           <button class="btn btn-success flex-grow-1" id="exportCsv">CSV</button>
@@ -462,12 +469,21 @@
     .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 
   // Enrich
+  const NEW_THRESHOLD_DAYS = 3;
+  const NEW_THRESHOLD_MS = NEW_THRESHOLD_DAYS * 24 * 60 * 60 * 1000;
+  const nowEnrichMs = Date.now();
   const auctions = data.auctions.map(a => {
     const d = parseEndDate(a.endDate || a.announcementEnd);
     const det = a.details || {};
+    // "New" = first seen by our scraper OR published date is within the last
+    // NEW_THRESHOLD_DAYS. firstSeenAt is the authoritative source when set;
+    // publishedAt is a fallback for rows scraped before that field existed.
+    const newAnchor = parseEndDate(a.firstSeenAt) || parseEndDate(a.publishedAt);
+    const ageMs = newAnchor ? (nowEnrichMs - newAnchor.getTime()) : null;
     return Object.assign({}, a, {
       _endDateMs: d ? d.getTime() : null,
       _daysLeftMs: d ? (d.getTime() - Date.now()) : null,
+      _isNew: ageMs !== null && ageMs >= 0 && ageMs <= NEW_THRESHOLD_MS,
       startingAmountNum: num(a.startingAmount),
       estimatedValueNum: num(a.estimatedValue),
       currentAmountNum: num(a.currentAmount),
@@ -677,6 +693,7 @@
     if (tbl)      tbl.classList.toggle('hide-vehicle-col', !showVehCol);
     if (filtCard) filtCard.classList.toggle('hide-vehicle-col', !showVehCol);
     const favOnly = document.getElementById('favOnlyBtn').classList.contains('active');
+    const newOnly = document.getElementById('newOnlyBtn').classList.contains('active');
     const hideExpired = document.getElementById('hideExpiredBtn').classList.contains('active');
     const nowMs = Date.now();
 
@@ -696,6 +713,7 @@
     let rows = auctions.filter(a =>
       (!hideExpired || a._endDateMs == null || a._endDateMs > nowMs) &&
       (!favOnly || isFav(a.id)) &&
+      (!newOnly || a._isNew) &&
       (!cats.length    || cats.includes(a.category)) &&
       (!courts.length  || courts.includes(a.court)) &&
       (!govs.length    || govs.includes(a.governorate)) &&
@@ -743,8 +761,8 @@
     }
     document.getElementById('emptyState').style.display = 'none';
     const html = rows.map(a => `
-      <tr class="row-clickable" data-id="${a.id}">
-        <td class="fav-cell" data-fav-id="${a.id}"><span class="fav-star${isFav(a.id) ? ' is-fav' : ''}">${isFav(a.id) ? '★' : '☆'}</span></td>
+      <tr class="row-clickable${a._isNew ? ' row-new' : ''}" data-id="${a.id}">
+        <td class="fav-cell" data-fav-id="${a.id}">${a._isNew ? '<span class="new-dot" title="مزاد جديد"></span>' : ''}<span class="fav-star${isFav(a.id) ? ' is-fav' : ''}">${isFav(a.id) ? '★' : '☆'}</span></td>
         <td>
           <span class="badge bg-secondary badge-cat">${escapeHtml(a.category)}</span>
           ${a.image ? `<img src="${escapeHtml(a.image)}" class="thumb" loading="lazy" alt="">` : ''}
@@ -1330,6 +1348,19 @@
     apply();
   });
   saveFavorites(); // initial badge count
+
+  // New-only toggle + count badge
+  const NEW_ONLY_KEY = 'mojAuctions.newOnly';
+  const newOnlyBtn = document.getElementById('newOnlyBtn');
+  if (localStorage.getItem(NEW_ONLY_KEY) === '1') newOnlyBtn.classList.add('active');
+  newOnlyBtn.addEventListener('click', () => {
+    newOnlyBtn.classList.toggle('active');
+    try { localStorage.setItem(NEW_ONLY_KEY, newOnlyBtn.classList.contains('active') ? '1' : '0'); } catch {}
+    apply();
+  });
+  // Count of active+new auctions for the badge — refreshed once at load.
+  document.getElementById('newCount').textContent =
+    auctions.filter(a => a._isNew && (a._endDateMs == null || a._endDateMs > Date.now())).length;
 
   // Hide-expired toggle (default ON: only show live auctions)
   const HIDE_EXPIRED_KEY = 'mojAuctions.hideExpired';
