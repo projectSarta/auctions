@@ -1,5 +1,5 @@
 window.AUCTION_DATA = {
-    "scrapedAt":  "2026-05-22 17:08:43",
+    "scrapedAt":  "2026-05-23 05:38:53",
     "source":  "https://auctions.moj.gov.jo/index.aspx",
     "totalScraped":  1891,
     "pageLimit":  0,
@@ -13,12 +13,12 @@ window.AUCTION_DATA = {
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE",
                            "name":  "أرض/ مجمع",
-                           "totalCount":  1315
+                           "totalCount":  1306
                        },
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc",
                            "name":  "شقة/ مكتب",
-                           "totalCount":  607
+                           "totalCount":  604
                        },
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY",
@@ -28,7 +28,7 @@ window.AUCTION_DATA = {
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY",
                            "name":  "مركبة",
-                           "totalCount":  334
+                           "totalCount":  315
                        }
                    ],
     "auctions":  [
