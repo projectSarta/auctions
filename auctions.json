@@ -1,5 +1,5 @@
 {
-    "scrapedAt":  "2026-05-23 17:10:23",
+    "scrapedAt":  "2026-05-24 05:07:29",
     "source":  "https://auctions.moj.gov.jo/index.aspx",
     "totalScraped":  1899,
     "pageLimit":  0,
@@ -13,7 +13,7 @@
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE",
                            "name":  "أرض/ مجمع",
-                           "totalCount":  1304
+                           "totalCount":  1293
                        },
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc",
@@ -23,12 +23,12 @@
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY",
                            "name":  "أُخرى",
-                           "totalCount":  118
+                           "totalCount":  117
                        },
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY",
                            "name":  "مركبة",
-                           "totalCount":  339
+                           "totalCount":  335
                        }
                    ],
     "auctions":  [
