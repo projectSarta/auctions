@@ -1,5 +1,5 @@
 {
-    "scrapedAt":  "2026-05-27 17:06:27",
+    "scrapedAt":  "2026-05-28 05:06:25",
     "source":  "https://auctions.moj.gov.jo/index.aspx",
     "totalScraped":  1952,
     "pageLimit":  0,
@@ -23,12 +23,12 @@
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY",
                            "name":  "أُخرى",
-                           "totalCount":  116
+                           "totalCount":  115
                        },
                        {
                            "token":  "4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY",
                            "name":  "مركبة",
-                           "totalCount":  323
+                           "totalCount":  322
                        }
                    ],
     "auctions":  [
