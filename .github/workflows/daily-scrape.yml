@@ -1,0 +1,72 @@
+name: Daily MoJ Auctions Scrape
+
+# Runs every day at 04:00 Amman time (Asia/Amman, UTC+3 year-round → 01:00 UTC).
+# Also runnable on demand via the "Run workflow" button in the Actions tab.
+on:
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch: {}
+
+# Need write access to push the updated auctions.json + images + reports back to the repo.
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: windows-latest        # Reuse the existing PowerShell + curl.exe stack as-is.
+    timeout-minutes: 90            # overnight_run typically finishes in ~30-60 min.
+    concurrency:                   # If a previous run is still going, skip the new one.
+      group: daily-scrape
+      cancel-in-progress: false
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          # actions/checkout configures the local git remote with a token that
+          # has write access for the lifetime of this job — overnight_run.ps1's
+          # Phase 7 (`git push origin main`) will Just Work.
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure git identity
+        shell: pwsh
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+      - name: Show starting state
+        shell: pwsh
+        run: |
+          Write-Host "Runner: $env:RUNNER_NAME"
+          Write-Host "OS:     $env:OS"
+          curl.exe --version | Select-Object -First 1
+          Get-Item .\auctions.json | Select-Object Name, Length, LastWriteTime
+
+      - name: Run overnight orchestration
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Continue'
+          .\overnight_run.ps1
+        # Don't fail the whole workflow if one phase hits a captcha — the
+        # script itself decides when to bail, and partial progress is still
+        # committed by Phase 7.
+        continue-on-error: true
+
+      - name: Show ending state + last 3 commits
+        shell: pwsh
+        run: |
+          git log --oneline -3
+          Get-Item .\auctions.json | Select-Object Name, Length, LastWriteTime
+          Write-Host "--- overnight.log tail ---"
+          if (Test-Path .\overnight.log) { Get-Content .\overnight.log -Tail 20 }
+
+      - name: Upload run log as artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: overnight-log-${{ github.run_id }}
+          path: |
+            overnight.log
+            overnight_slow.log
+          if-no-files-found: ignore
+          retention-days: 7
