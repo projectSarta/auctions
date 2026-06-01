@@ -98208,7 +98208,6 @@ window.AUCTION_DATA = {
                          "newspaperIssue":  "7800",
                          "publishedAt":  "01/06/2026",
                          "endDate":  "2026-06-25 15:00:00",
-                         "image":  "",
                          "notes":  "",
                          "sourceUrl":  "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vgTIHx4qwtzJBsfviXhuz8j6Ht9U78JeLm9XVD2AcY4D1ojcWsBjK8kD_Sndyoqb_UXPceoK3yJilkjyc0tzRz0\u0026auction=51327",
                          "details":  {
@@ -98230,7 +98229,8 @@ window.AUCTION_DATA = {
                                          "العدد":  "7800",
                                          "تاريخ النشر":  "01/06/2026"
                                      },
-                         "firstSeenAt":  "2026-06-01T14:00:08Z"
+                         "firstSeenAt":  "2026-06-01T14:00:08Z",
+                         "image":  "images/51327.png"
                      },
                      {
                          "id":  51211,
@@ -98252,7 +98252,6 @@ window.AUCTION_DATA = {
                          "newspaperIssue":  "20181",
                          "publishedAt":  "20/05/2026",
                          "endDate":  "2026-06-21 15:00:00",
-                         "image":  "",
                          "notes":  "",
                          "sourceUrl":  "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc\u0026auction=51211",
                          "details":  {
@@ -98280,7 +98279,8 @@ window.AUCTION_DATA = {
                                          "العدد":  "20181",
                                          "تاريخ النشر":  "20/05/2026"
                                      },
-                         "firstSeenAt":  "2026-06-01T14:09:35Z"
+                         "firstSeenAt":  "2026-06-01T14:09:35Z",
+                         "image":  "images/51211.jpg"
                      }
                  ]
 };
