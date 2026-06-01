@@ -1,10 +1,11 @@
 name: Daily MoJ Auctions Scrape
 
-# Runs every day at 04:00 Amman time (Asia/Amman, UTC+3 year-round → 01:00 UTC).
+# Runs twice every day at 04:00 + 22:00 Amman time
+# (Asia/Amman is UTC+3 year-round → 01:00 + 19:00 UTC).
 # Also runnable on demand via the "Run workflow" button in the Actions tab.
 on:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '0 1,19 * * *'
   workflow_dispatch: {}
 
 # Need write access to push the updated auctions.json + images + reports back to the repo.
