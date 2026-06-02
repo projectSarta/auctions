@@ -279,6 +279,7 @@
         <h6 class="mb-2">📷 الصور</h6>
         <div id="detailGallery" class="mb-3"><div class="text-muted small">انقر "تحميل التفاصيل" لجلب الصور وتقرير الخبرة من الموقع الأصلي.</div></div>
         <h6 class="mb-2">📄 تقرير الخبرة والمرفقات</h6>
+        <div id="detailSharedCase" class="alert alert-warning small d-none mb-2 py-2"></div>
         <div id="detailReports" class="reports-list mb-2"></div>
       </div>
       <div class="modal-footer flex-wrap gap-1">
@@ -504,6 +505,18 @@
   // category-name → token map (used to call /api/auction)
   const tokenByCategory = {};
   (data.categories || []).forEach(c => { tokenByCategory[c.name] = c.token; });
+
+  // caseId → [auctions in that case]. The MoJ groups multiple lots under one
+  // court case, and the expert-report PDF is keyed on the case (not the lot).
+  // We use this map to warn when an auction shares a case with siblings.
+  const caseIdSiblings = new Map();
+  auctions.forEach(a => {
+    if (!a.caseId || a.caseId <= 0) return;
+    if (!caseIdSiblings.has(a.caseId)) caseIdSiblings.set(a.caseId, []);
+    caseIdSiblings.get(a.caseId).push(a);
+  });
+  // Drop single-lot entries so the warning only fires for actual groupings
+  for (const [k, v] of caseIdSiblings) { if (v.length < 2) caseIdSiblings.delete(k); }
 
   // ====== Endpoint config ======
   // Paste your Cloudflare Worker URL here once deployed. Without trailing slash.
@@ -814,6 +827,21 @@
     const id = +tr.getAttribute('data-id');
     const a = auctions.find(x => x.id === id);
     if (!a) return;
+    openAuctionModal(a);
+  });
+
+  // Clicking a sibling-auction ID inside the shared-case warning re-opens the
+  // modal on that sibling.
+  document.getElementById('detailSharedCase').addEventListener('click', (e) => {
+    const link = e.target.closest('a.open-sibling');
+    if (!link) return;
+    e.preventDefault();
+    const sid = +link.getAttribute('data-id');
+    const sa = auctions.find(x => x.id === sid);
+    if (sa) openAuctionModal(sa);
+  });
+
+  function openAuctionModal(a) {
     modalCurrentAuction = a;
     document.getElementById('detailTitle').textContent = a.header || `مزاد رقم ${a.id}`;
     document.getElementById('detailSourceLink').href = a.sourceUrl || data.source;
@@ -841,6 +869,29 @@
       reportBtn.style.display = '';
     } else {
       reportBtn.style.display = 'none';
+    }
+
+    // Shared-case warning. The MoJ keys the expert-report PDF on caseId, not
+    // on individual auction lot — so two lots in the same court case will
+    // share one PDF that describes whichever lot the expert wrote up. We tell
+    // the user when they're looking at one of these and link the siblings.
+    const sharedBox = document.getElementById('detailSharedCase');
+    if (a.caseId && a.caseId > 0 && caseIdSiblings.has(a.caseId)) {
+      const siblings = caseIdSiblings.get(a.caseId).filter(x => x.id !== a.id);
+      if (siblings.length > 0) {
+        const siblingHtml = siblings.map(s =>
+          `<a href="#" class="open-sibling" data-id="${s.id}">${s.id}</a>`
+        ).join('، ');
+        sharedBox.innerHTML =
+          '⚠ هذه القضية تحوي <strong>' + (siblings.length + 1) + '</strong> مزادات تتشارك نفس <em>تقرير الخبرة</em> ' +
+          '(المزاد يصف قضية واحدة وقد تختلف الأوصاف عن هذا اللوط). ' +
+          'المزادات الأخرى في نفس القضية: ' + siblingHtml;
+        sharedBox.classList.remove('d-none');
+      } else {
+        sharedBox.classList.add('d-none');
+      }
+    } else {
+      sharedBox.classList.add('d-none');
     }
 
     // Fields table
@@ -893,7 +944,7 @@
     showMapForAuction(a);
 
     new bootstrap.Modal(document.getElementById('detailModal')).show();
-  });
+  }
 
   // ==== Map (Leaflet + aradi.io exact-parcel lookup, with Nominatim fallback) ====
   let _leafletMap = null;
