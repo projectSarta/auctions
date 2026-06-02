@@ -871,21 +871,34 @@
       reportBtn.style.display = 'none';
     }
 
-    // Shared-case warning. The MoJ keys the expert-report PDF on caseId, not
-    // on individual auction lot — so two lots in the same court case will
-    // share one PDF that describes whichever lot the expert wrote up. We tell
-    // the user when they're looking at one of these and link the siblings.
+    // Shared-case warning. The MoJ keys the expert-report PDF on caseId,
+    // not on individual auction lot — so two lots in the same court case
+    // share one PDF. The expert was originally hired by the originating
+    // court (the PDF may carry a different case number, e.g. "2235-2019")
+    // and the PDF usually only describes ONE of the plots. We list every
+    // sibling here with its identifying details (parcel #, basin, area)
+    // so you can spot which lot the PDF is actually describing.
     const sharedBox = document.getElementById('detailSharedCase');
     if (a.caseId && a.caseId > 0 && caseIdSiblings.has(a.caseId)) {
-      const siblings = caseIdSiblings.get(a.caseId).filter(x => x.id !== a.id);
-      if (siblings.length > 0) {
-        const siblingHtml = siblings.map(s =>
-          `<a href="#" class="open-sibling" data-id="${s.id}">${s.id}</a>`
-        ).join('، ');
+      const sibs = caseIdSiblings.get(a.caseId);   // includes current `a`
+      if (sibs.length > 1) {
+        const rows = sibs.map(s => {
+          const det = s.details || {};
+          const plot = det['رقم القطعة'] || det['نوع المركبة'] || '—';
+          const basin = det['الحوض'] || det['القرية'] || det['المحافظة'] || '—';
+          const area = det['مساحة القطعة'] ? (det['مساحة القطعة'] + ' م²') : (det['سنة الصنع'] || '—');
+          const label = s.id === a.id
+            ? `<strong>${s.id} (هذا اللوط)</strong>`
+            : `<a href="#" class="open-sibling" data-id="${s.id}">${s.id}</a>`;
+          return `<tr><td>${label}</td><td>${escapeHtml(String(plot))}</td><td>${escapeHtml(String(basin))}</td><td>${escapeHtml(String(area))}</td></tr>`;
+        }).join('');
         sharedBox.innerHTML =
-          '⚠ هذه القضية تحوي <strong>' + (siblings.length + 1) + '</strong> مزادات تتشارك نفس <em>تقرير الخبرة</em> ' +
-          '(المزاد يصف قضية واحدة وقد تختلف الأوصاف عن هذا اللوط). ' +
-          'المزادات الأخرى في نفس القضية: ' + siblingHtml;
+          '⚠ <strong>' + sibs.length + ' مزادات</strong> في نفس القضية ' +
+          '(' + escapeHtml(a.caseNumber || '') + ') تتشارك نفس <em>تقرير الخبرة</em>. ' +
+          'التقرير غالباً يصف لوطاً واحداً فقط — قارن الأوصاف أدناه مع ما تراه في الـPDF لتعرف أيها يطابق التقرير.' +
+          '<table class="table table-sm mt-2 mb-0" style="background:#fffaf0">' +
+          '<thead><tr><th>رقم المزاد</th><th>قطعة/نوع</th><th>الحوض/الموقع</th><th>المساحة/سنة</th></tr></thead>' +
+          '<tbody>' + rows + '</tbody></table>';
         sharedBox.classList.remove('d-none');
       } else {
         sharedBox.classList.add('d-none');

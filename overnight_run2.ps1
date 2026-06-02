@@ -54,7 +54,7 @@ Step 'Phase E: commit + push' {
   Set-Location $Root
   $ErrorActionPreference = 'Continue'
   try {
-    & git add auctions.js auctions.json images dashboard.html enrich_images.ps1 enrich_reports.ps1 resize_images.ps1 overnight_run.ps1 overnight_run2.ps1 probe_report.ps1 2>&1 | Out-String | Write-Host
+    & git add auctions.js auctions.json images reports dashboard.html enrich_images.ps1 enrich_reports.ps1 resize_images.ps1 overnight_run.ps1 overnight_run2.ps1 probe_report.ps1 2>&1 | Out-String | Write-Host
   } catch { Write-Host "git add note: $($_.Exception.Message)" }
   $status = (& git status --porcelain 2>$null) -join "`n"
   if (-not $status) { Write-Host "nothing to commit"; return }
