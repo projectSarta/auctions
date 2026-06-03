@@ -285,6 +285,14 @@
       <div class="modal-footer flex-wrap gap-1">
         <a class="btn btn-primary btn-sm" id="detailSourceLink" target="_blank" rel="noopener">↗ الصفحة الأصلية</a>
         <a class="btn btn-danger btn-sm" id="detailReportBtn" target="_blank" rel="noopener" style="display:none">📄 تقرير الخبرة</a>
+        <div class="btn-group" id="detailCalGroup" style="display:none">
+          <button type="button" class="btn btn-outline-warning btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">📅 إضافة إلى التقويم</button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#" id="calIcsBtn">⤓ ملف ICS (Outlook / Apple)</a></li>
+            <li><a class="dropdown-item" href="#" id="calGoogleBtn" target="_blank" rel="noopener">🗓 Google Calendar</a></li>
+            <li><a class="dropdown-item" href="#" id="calOutlookBtn" target="_blank" rel="noopener">📧 Outlook.com</a></li>
+          </ul>
+        </div>
         <button class="btn btn-outline-primary btn-sm" id="loadDetailsBtn">⤓ صور + تقرير الخبرة</button>
         <button class="btn btn-outline-success btn-sm" id="dlsMapBtn" title="ينسخ بيانات القطعة ويفتح خرائط دائرة الأراضي">📍 دائرة الأراضي</button>
         <a class="btn btn-outline-secondary btn-sm" id="gmapsBtn" target="_blank" rel="noopener">🌍 Google Maps</a>
@@ -869,6 +877,106 @@
       reportBtn.style.display = '';
     } else {
       reportBtn.style.display = 'none';
+    }
+
+    // Calendar export buttons. Wire them per-auction every time the modal
+    // opens. The auction's endDate is the bid deadline (when the sale closes).
+    const calGroup = document.getElementById('detailCalGroup');
+    if (a.endDate) {
+      calGroup.style.display = '';
+      const startMs = a._endDateMs;     // Already parsed at load
+      const endMs   = startMs + 30 * 60 * 1000;  // 30-min visual block
+
+      const pad = (n) => String(n).padStart(2, '0');
+      const toIcsUtc = (ms) => {
+        const d = new Date(ms);
+        return d.getUTCFullYear() + pad(d.getUTCMonth() + 1) + pad(d.getUTCDate()) +
+               'T' + pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + pad(d.getUTCSeconds()) + 'Z';
+      };
+      // Google's date format is YYYYMMDDTHHmmssZ / YYYYMMDDTHHmmssZ
+      const toGoogleDate = toIcsUtc;
+      // Outlook.com wants ISO 8601 with timezone
+      const toIso = (ms) => new Date(ms).toISOString();
+
+      const det = a.details || {};
+      const locParts = [a.governorate, a.directorate, a.village, a.basin].filter(Boolean);
+      const location = locParts.length ? locParts.join('، ') : (det['مكان الحجز'] || '');
+
+      const startVal = fmtNum(a.startingAmount);
+      const estVal   = fmtNum(a.estimatedValue);
+      const lines = [
+        `موعد انتهاء المزاد رقم ${a.id}`,
+        `الفئة: ${a.category}`,
+        a.court ? `المحكمة: ${a.court}` : '',
+        a.caseNumber ? `رقم الدعوى: ${a.caseNumber}` : '',
+        `السعر الابتدائي: ${startVal} د.أ`,
+        `القيمة التقديرية: ${estVal} د.أ`,
+        a.notes ? `ملاحظات: ${a.notes}` : '',
+        ``,
+        `الرابط: ${a.sourceUrl || ''}`,
+      ].filter(Boolean);
+      const description = lines.join('\\n');
+      const title = `مزاد #${a.id} - ${a.category}`;
+
+      // -------- ICS file download --------
+      const icsLines = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//moj-auctions-dashboard//EN',
+        'CALSCALE:GREGORIAN',
+        'METHOD:PUBLISH',
+        'BEGIN:VEVENT',
+        `UID:auction-${a.id}@projectsarta.github.io`,
+        `DTSTAMP:${toIcsUtc(Date.now())}`,
+        `DTSTART:${toIcsUtc(startMs)}`,
+        `DTEND:${toIcsUtc(endMs)}`,
+        `SUMMARY:${title}`,
+        `DESCRIPTION:${description}`,
+        location ? `LOCATION:${location}` : '',
+        a.sourceUrl ? `URL:${a.sourceUrl}` : '',
+        'BEGIN:VALARM',
+        'ACTION:DISPLAY',
+        'TRIGGER:-P1D',
+        `DESCRIPTION:انتهاء مزاد ${a.id} غداً`,
+        'END:VALARM',
+        'BEGIN:VALARM',
+        'ACTION:DISPLAY',
+        'TRIGGER:-PT1H',
+        `DESCRIPTION:انتهاء مزاد ${a.id} بعد ساعة`,
+        'END:VALARM',
+        'END:VEVENT',
+        'END:VCALENDAR',
+      ].filter(Boolean).join('\r\n');
+      document.getElementById('calIcsBtn').onclick = (e) => {
+        e.preventDefault();
+        const blob = new Blob([icsLines], { type: 'text/calendar;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url; link.download = `auction-${a.id}.ics`;
+        document.body.appendChild(link); link.click(); link.remove();
+        URL.revokeObjectURL(url);
+      };
+
+      // -------- Google Calendar deep link --------
+      const gUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+        '&text=' + encodeURIComponent(title) +
+        '&dates=' + toGoogleDate(startMs) + '/' + toGoogleDate(endMs) +
+        '&details=' + encodeURIComponent(lines.join('\n')) +
+        (location ? '&location=' + encodeURIComponent(location) : '');
+      document.getElementById('calGoogleBtn').href = gUrl;
+
+      // -------- Outlook.com Web deep link --------
+      const oUrl = 'https://outlook.live.com/calendar/0/deeplink/compose' +
+        '?path=/calendar/action/compose' +
+        '&rru=addevent' +
+        '&subject=' + encodeURIComponent(title) +
+        '&startdt=' + encodeURIComponent(toIso(startMs)) +
+        '&enddt=' + encodeURIComponent(toIso(endMs)) +
+        '&body=' + encodeURIComponent(lines.join('\n')) +
+        (location ? '&location=' + encodeURIComponent(location) : '');
+      document.getElementById('calOutlookBtn').href = oUrl;
+    } else {
+      calGroup.style.display = 'none';
     }
 
     // Shared-case warning. The MoJ keys the expert-report PDF on caseId,
