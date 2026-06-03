@@ -279,7 +279,7 @@
         <h6 class="mb-2">📷 الصور</h6>
         <div id="detailGallery" class="mb-3"><div class="text-muted small">انقر "تحميل التفاصيل" لجلب الصور وتقرير الخبرة من الموقع الأصلي.</div></div>
         <h6 class="mb-2">📄 تقرير الخبرة والمرفقات</h6>
-        <div id="detailSharedCase" class="alert alert-warning small d-none mb-2 py-2"></div>
+        <div id="detailSharedCase" class="alert alert-info small d-none mb-2 py-2"></div>
         <div id="detailReports" class="reports-list mb-2"></div>
       </div>
       <div class="modal-footer flex-wrap gap-1">
@@ -893,9 +893,8 @@
           return `<tr><td>${label}</td><td>${escapeHtml(String(plot))}</td><td>${escapeHtml(String(basin))}</td><td>${escapeHtml(String(area))}</td></tr>`;
         }).join('');
         sharedBox.innerHTML =
-          '⚠ <strong>' + sibs.length + ' مزادات</strong> في نفس القضية ' +
-          '(' + escapeHtml(a.caseNumber || '') + ') تتشارك نفس <em>تقرير الخبرة</em>. ' +
-          'التقرير غالباً يصف لوطاً واحداً فقط — قارن الأوصاف أدناه مع ما تراه في الـPDF لتعرف أيها يطابق التقرير.' +
+          'ℹ هذا اللوط جزء من قضية تنفيذية تحوي <strong>' + sibs.length + ' لوطات</strong> ' +
+          '(' + escapeHtml(a.caseNumber || '') + '). كل لوط له <em>تقرير خبرة</em> خاص به.' +
           '<table class="table table-sm mt-2 mb-0" style="background:#fffaf0">' +
           '<thead><tr><th>رقم المزاد</th><th>قطعة/نوع</th><th>الحوض/الموقع</th><th>المساحة/سنة</th></tr></thead>' +
           '<tbody>' + rows + '</tbody></table>';

@@ -11,7 +11,7 @@
 
   Discovery flow (mirrors the image-enrichment postback):
     1) GET /AuctionsList.aspx?token=<cat-token>     (warm session, grab ViewState)
-    2) POST back with __EVENTTARGET = ...$lbtnDetails + hdnCurrentAuctionID +
+    2) POST back with __EVENTTARGET = ...$lbtnViewAllImages + hdnCurrentAuctionID +
        hdnCaseId (mimic clicking the "تفاصيل" / "المرفقات والصور" button)
     3) Server redirects to a details page; parse the HTML for
        /Forms/Auctions/frmDownloadReports.aspx?token=<x>
@@ -31,7 +31,10 @@ param(
   [string]$OnlyCategory = '',
   [int]$DelayMs = 1500,
   [int]$MaxConsecutiveErrors = 5,
-  [switch]$ActiveOnly
+  [switch]$ActiveOnly,
+  # Re-scrape even auctions that already have a reportUrl/pdfPath. Useful
+  # for fixing wrong-PDF cases caused by previous use of lbtnDetails.
+  [switch]$Force
 )
 
 $ErrorActionPreference = 'Stop'
@@ -128,7 +131,7 @@ $isActive = {
   } catch { return $true }
 }
 $candidates = $data.auctions | Where-Object {
-  (-not $_.reportUrl -or $_.reportUrl -eq '') -and
+  ($Force -or -not $_.reportUrl -or $_.reportUrl -eq '') -and
   ($_.PSObject.Properties.Match('caseId').Count -and $_.caseId -gt 0) -and
   (-not $OnlyCategory -or ($_.category -match $OnlyCategory)) -and
   $tokenByCat.ContainsKey($_.category) -and
@@ -166,10 +169,13 @@ foreach ($a in $candidates) {
     continue
   }
 
-  # 2) POST back to AuctionsList.aspx with the lbtnDetails button + the auction selected
+  # 2) POST back to AuctionsList.aspx with the lbtnViewAllImages button.
+  #    Note: lbtnDetails returns a case-level token (same URL for every lot
+  #    sharing a court case). lbtnViewAllImages returns a PER-AUCTION token
+  #    pointing at the lot-specific expert report.
   $f = Get-FormFields $listing
   $body = @{
-    '__EVENTTARGET'                              = 'ctl00$cph_Base$AuctionsListRepeater$ctl00$lbtnDetails'
+    '__EVENTTARGET'                              = 'ctl00$cph_Base$AuctionsListRepeater$ctl00$lbtnViewAllImages'
     '__EVENTARGUMENT'                            = ''
     '__VIEWSTATE'                                = $f.ViewState
     '__VIEWSTATEGENERATOR'                       = $f.ViewStateGenerator
