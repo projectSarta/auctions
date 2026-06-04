@@ -515,8 +515,14 @@
   });
 
   // ---- Meta ----
-  document.getElementById('metaInfo').textContent =
-    `آخر تحديث: ${data.scrapedAt}  •  ${data.totalScraped} مزاد ${data.pageLimit > 0 ? '(عينة محدودة)' : '(كامل)'}`;
+  // Prefer the orchestrator's lastRunAt (stamped every successful run) over
+  // scrapedAt (only updates when scrape finds new items / completes cleanly).
+  // Tooltip exposes both so you can see the difference at a glance.
+  const headlineTs = data.lastRunAt || data.scrapedAt;
+  const metaEl = document.getElementById('metaInfo');
+  metaEl.textContent =
+    `آخر فحص: ${headlineTs}  •  ${data.totalScraped} مزاد ${data.pageLimit > 0 ? '(عينة محدودة)' : '(كامل)'}`;
+  metaEl.title = `آخر فحص للسيرفر: ${data.lastRunAt || '—'}\nآخر تحديث ناجح للبيانات: ${data.scrapedAt || '—'}`;
   document.getElementById('sourceLink').href = data.source;
 
   // category-name → token map (used to call /api/auction)

@@ -69,6 +69,20 @@ Step 'Phase 6: resize images' {
 Step 'Phase 7: commit + push' {
   Set-Location $Root
   $ErrorActionPreference = 'Continue'
+
+  # Stamp `lastRunAt` on auctions.json BEFORE staging so the dashboard knows
+  # when this orchestrator actually ran. (Unlike `scrapedAt`, which only
+  # updates when scrape.ps1 reaches its final Save-All — meaning a captcha
+  # or zero-new-items run leaves it stale.)
+  try {
+    $json = Get-Content (Join-Path $Root 'auctions.json') -Raw -Encoding UTF8 | ConvertFrom-Json
+    $stamp = (Get-Date).ToString('yyyy-MM-dd HH:mm:ss')
+    $json | Add-Member -MemberType NoteProperty -Name 'lastRunAt' -Value $stamp -Force
+    $out = $json | ConvertTo-Json -Depth 12
+    [System.IO.File]::WriteAllText((Join-Path $Root 'auctions.json'), $out, [System.Text.UTF8Encoding]::new($false))
+    [System.IO.File]::WriteAllText((Join-Path $Root 'auctions.js'),   "window.AUCTION_DATA = $out;", [System.Text.UTF8Encoding]::new($false))
+  } catch { Write-Host "lastRunAt stamp note: $($_.Exception.Message)" }
+
   try {
     & git add auctions.js auctions.json images reports dashboard.html enrich_images.ps1 enrich_reports.ps1 resize_images.ps1 overnight_run.ps1 probe_report.ps1 2>&1 | Out-String | Write-Host
   } catch { Write-Host "git add note: $($_.Exception.Message)" }
