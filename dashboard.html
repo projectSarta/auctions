@@ -47,6 +47,7 @@
   .fav-star.is-fav { color: #f1c40f; }
   .fav-cell:hover .fav-star { transform: scale(1.2); }
   #favOnlyBtn.active { background: #f1c40f !important; border-color: #d4ac0d !important; color: #24485f !important; font-weight: 700; }
+  #endingTodayBtn.active { background: #17a2b8 !important; border-color: #117a8b !important; color: #fff !important; font-weight: 700; }
   /* Multi-select widget (hides the underlying <select>, shows a button-dropdown w/ checkboxes) */
   .ms-wrap { position: relative; }
   .ms-button { display: flex; align-items: center; }
@@ -132,6 +133,7 @@
         <div class="col-md-2 d-flex gap-1 flex-wrap">
           <button class="btn btn-outline-success flex-grow-1 active" id="hideExpiredBtn" title="إخفاء المزادات المنتهية">⏱ نشط</button>
           <button class="btn btn-outline-danger flex-grow-1" id="newOnlyBtn" title="إظهار المزادات الجديدة فقط (آخر 3 أيام)">🆕 <span id="newCount">0</span></button>
+          <button class="btn btn-outline-info flex-grow-1" id="endingTodayBtn" title="إظهار المزادات المنتهية اليوم فقط">⏳ <span id="endingTodayCount">0</span></button>
           <button class="btn btn-outline-warning flex-grow-1" id="favOnlyBtn" title="إظهار المفضلة فقط">⭐ <span id="favCount">0</span></button>
           <button class="btn btn-outline-secondary flex-grow-1" id="clearFilters">مسح</button>
           <button class="btn btn-success flex-grow-1" id="exportCsv">CSV</button>
@@ -481,6 +483,11 @@
   const NEW_THRESHOLD_DAYS = 3;
   const NEW_THRESHOLD_MS = NEW_THRESHOLD_DAYS * 24 * 60 * 60 * 1000;
   const nowEnrichMs = Date.now();
+  // Local-day boundaries (today 00:00:00 → tomorrow 00:00:00 in the user's timezone).
+  const todayStart = new Date(); todayStart.setHours(0, 0, 0, 0);
+  const todayEnd   = new Date(todayStart.getTime() + 24 * 60 * 60 * 1000);
+  const todayStartMs = todayStart.getTime();
+  const todayEndMs   = todayEnd.getTime();
   const auctions = data.auctions.map(a => {
     const d = parseEndDate(a.endDate || a.announcementEnd);
     const det = a.details || {};
@@ -489,10 +496,12 @@
     // publishedAt is a fallback for rows scraped before that field existed.
     const newAnchor = parseEndDate(a.firstSeenAt) || parseEndDate(a.publishedAt);
     const ageMs = newAnchor ? (nowEnrichMs - newAnchor.getTime()) : null;
+    const endMs = d ? d.getTime() : null;
     return Object.assign({}, a, {
-      _endDateMs: d ? d.getTime() : null,
+      _endDateMs: endMs,
       _daysLeftMs: d ? (d.getTime() - Date.now()) : null,
       _isNew: ageMs !== null && ageMs >= 0 && ageMs <= NEW_THRESHOLD_MS,
+      _endsToday: endMs !== null && endMs >= todayStartMs && endMs < todayEndMs,
       startingAmountNum: num(a.startingAmount),
       estimatedValueNum: num(a.estimatedValue),
       currentAmountNum: num(a.currentAmount),
@@ -715,6 +724,7 @@
     if (filtCard) filtCard.classList.toggle('hide-vehicle-col', !showVehCol);
     const favOnly = document.getElementById('favOnlyBtn').classList.contains('active');
     const newOnly = document.getElementById('newOnlyBtn').classList.contains('active');
+    const endingToday = document.getElementById('endingTodayBtn').classList.contains('active');
     const hideExpired = document.getElementById('hideExpiredBtn').classList.contains('active');
     const nowMs = Date.now();
 
@@ -735,6 +745,7 @@
       (!hideExpired || a._endDateMs == null || a._endDateMs > nowMs) &&
       (!favOnly || isFav(a.id)) &&
       (!newOnly || a._isNew) &&
+      (!endingToday || a._endsToday) &&
       (!cats.length    || cats.includes(a.category)) &&
       (!courts.length  || courts.includes(a.court)) &&
       (!govs.length    || govs.includes(a.governorate)) &&
@@ -1532,6 +1543,19 @@
   // Count of active+new auctions for the badge — refreshed once at load.
   document.getElementById('newCount').textContent =
     auctions.filter(a => a._isNew && (a._endDateMs == null || a._endDateMs > Date.now())).length;
+
+  // Ending-today toggle + count badge
+  const ENDING_TODAY_KEY = 'mojAuctions.endingToday';
+  const endingTodayBtn = document.getElementById('endingTodayBtn');
+  if (localStorage.getItem(ENDING_TODAY_KEY) === '1') endingTodayBtn.classList.add('active');
+  endingTodayBtn.addEventListener('click', () => {
+    endingTodayBtn.classList.toggle('active');
+    try { localStorage.setItem(ENDING_TODAY_KEY, endingTodayBtn.classList.contains('active') ? '1' : '0'); } catch {}
+    apply();
+  });
+  // Count of auctions ending today (any time before midnight tonight, future only).
+  document.getElementById('endingTodayCount').textContent =
+    auctions.filter(a => a._endsToday && a._endDateMs > Date.now()).length;
 
   // Hide-expired toggle (default ON: only show live auctions)
   const HIDE_EXPIRED_KEY = 'mojAuctions.hideExpired';
