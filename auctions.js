@@ -11024,7 +11024,9 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "08/04/2026"
       },
       "image": "images/50142.jpg",
-      "caseId": 15750127
+      "caseId": 15750127,
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5PKZMcTWHMsOYzAu17JA-IUcV2LLehA60YcRsiIyyTig",
+      "pdfPath": "reports/50142.pdf"
     },
     {
       "id": 50157,
@@ -99843,5 +99845,5 @@ window.AUCTION_DATA = {
       "firstSeenAt": "2026-06-06T05:06:49Z"
     }
   ],
-  "lastRunAt": "2026-06-06 20:15:06"
+  "lastRunAt": "2026-06-07 05:28:10"
 };
