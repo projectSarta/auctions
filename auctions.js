@@ -99872,5 +99872,5 @@ window.AUCTION_DATA = {
       "firstSeenAt": "2026-06-06T05:06:49Z"
     }
   ],
-  "lastRunAt": "2026-06-09 20:59:22"
+  "lastRunAt": "2026-06-10 05:19:43"
 };
