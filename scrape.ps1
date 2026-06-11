@@ -42,7 +42,30 @@ $ErrorActionPreference = 'Stop'
 
 $CurlExe   = 'C:\Windows\System32\curl.exe'
 $Base      = 'https://auctions.moj.gov.jo'
-$UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36'
+
+# ---- Anti-bot resilience ----
+# Rotate User-Agent on every session reset so MoJ's fingerprinting can't pin
+# the scraper to a single client signature. Picked from current versions of
+# Chrome, Edge, Firefox, Safari across Windows/Mac.
+$UserAgents = @(
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101 Firefox/127.0',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15',
+  'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
+  'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36'
+)
+$UserAgent = $UserAgents | Get-Random
+function Rotate-UserAgent { $script:UserAgent = $script:UserAgents | Get-Random; Write-Host ("    [ua] rotated -> " + $script:UserAgent.Substring(0, [Math]::Min(60, $script:UserAgent.Length)) + "...") -ForegroundColor DarkGray }
+
+# Jittered delay: ±50% around the base value so the request cadence isn't
+# clockwork-perfect (which is one of the cheapest bot signals to detect).
+function Get-JitteredDelay {
+  if ($DelayMs -le 0) { return 0 }
+  $min = [int]($DelayMs * 0.5)
+  $max = [int]($DelayMs * 1.5)
+  return (Get-Random -Minimum $min -Maximum $max)
+}
 $CookieJar = Join-Path $PSScriptRoot 'cookies.txt'
 if (Test-Path $CookieJar) { Remove-Item $CookieJar -Force }
 
@@ -116,6 +139,7 @@ function Wait-PastCaptcha([string]$probeUrl) {
 
 function Reset-Session {
   if (Test-Path $CookieJar) { Remove-Item $CookieJar -Force }
+  Rotate-UserAgent
   Start-Sleep -Seconds $CaptchaCooldownSec
   try { [void](Curl-Get "$Base/index.aspx") } catch { }
 }
@@ -445,7 +469,8 @@ foreach ($cat in $categories) {
         'ctl00$cph_Base$hdnUserIdAuctionStatus' = '-1'
       }
 
-      if ($DelayMs -gt 0) { Start-Sleep -Milliseconds $DelayMs }
+      $sleepMs = Get-JitteredDelay
+      if ($sleepMs -gt 0) { Start-Sleep -Milliseconds $sleepMs }
 
       try {
         $next = Curl-PostForm $catUrl $body
@@ -455,12 +480,40 @@ foreach ($cat in $categories) {
       }
 
       if (Test-Captcha $next) {
-        Write-Host "  [captcha] hit mid-walk" -ForegroundColor Yellow
-        break
+        Write-Host "  [captcha] hit mid-walk — rotating UA + resetting session, then retrying once" -ForegroundColor Yellow
+        Reset-Session
+        # Refetch the listing page from scratch with the new session, then
+        # ask for the next page again. If still captcha'd, give up this walk.
+        try {
+          $reWarmed = Curl-Get $catUrl
+          $f2 = Get-FormFields $reWarmed
+          $body['__VIEWSTATE']          = $f2.ViewState
+          $body['__VIEWSTATEGENERATOR'] = $f2.ViewStateGenerator
+          $body['__EVENTVALIDATION']    = $f2.EventValidation
+          Start-Sleep -Milliseconds (Get-JitteredDelay)
+          $next = Curl-PostForm $catUrl $body
+        } catch { $next = $null }
+        if ((-not $next) -or (Test-Captcha $next)) {
+          Write-Host "  [captcha] retry failed, breaking walk" -ForegroundColor DarkYellow
+          break
+        }
+        Write-Host "  [captcha] recovered after reset" -ForegroundColor Green
       }
 
       $html = $next
       $page++
+
+      # Periodic preemptive session reset. MoJ's anti-bot typically trips
+      # after ~30-50 consecutive requests on the same session — refresh
+      # cookies + UA every 12 pages so we stay under the radar.
+      if (($page % 12) -eq 0) {
+        Write-Host "  [proactive] resetting session at page $page" -ForegroundColor DarkGray
+        Reset-Session
+        try {
+          $rewarmed = Curl-Get $catUrl
+          if (-not (Test-Captcha $rewarmed)) { $html = $rewarmed }
+        } catch {}
+      }
     }
 
     if ($cat.totalCount -gt 0 -and $seen.Count -ge $cat.totalCount) { break }
