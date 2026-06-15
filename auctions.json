@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-06-14 20:28:43",
+  "scrapedAt": "2026-06-15 21:44:18",
   "source": "https://auctions.moj.gov.jo/index.aspx",
   "totalScraped": 2126,
   "pageLimit": 0,
@@ -13,7 +13,7 @@
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE",
       "name": "أرض/ مجمع",
-      "totalCount": 1272
+      "totalCount": 1280
     },
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc",
@@ -23,12 +23,12 @@
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY",
       "name": "أُخرى",
-      "totalCount": 103
+      "totalCount": 104
     },
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY",
       "name": "مركبة",
-      "totalCount": 366
+      "totalCount": 372
     }
   ],
   "auctions": [
@@ -49124,7 +49124,9 @@
         "تاريخ النشر": "12/04/2026"
       },
       "caseId": 13725392,
-      "image": "images/45851.jpg"
+      "image": "images/45851.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4TvcDff67lhFk_nju7W3gfIKi0_rpv8AVcKCZOBVKAMA",
+      "pdfPath": "reports/45851.pdf"
     },
     {
       "id": 47127,
@@ -49170,7 +49172,9 @@
         "تاريخ النشر": "12/04/2026"
       },
       "caseId": 14852152,
-      "image": "images/47127.jpg"
+      "image": "images/47127.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6E2nzRh06yCBuJJF16lMIS9cczDuC8GkHNwJ_DEyukwg",
+      "pdfPath": "reports/47127.pdf"
     },
     {
       "id": 47097,
@@ -101451,5 +101455,5 @@
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5bWiMtnpLEuoZF7zXuihdwsvABw8Yq1Rzg2vynixbwCg"
     }
   ],
-  "lastRunAt": "2026-06-15 06:29:40"
+  "lastRunAt": "2026-06-15 21:45:15"
 }
