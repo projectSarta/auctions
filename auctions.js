@@ -101011,7 +101011,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "17/05/2026"
       },
       "firstSeenAt": "2026-06-14T20:20:49Z",
-      "image": "images/51536.jpg"
+      "image": "images/51536.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6GeDvkbyo7XxJ_sr5o4zpQ8XVGIL3IuqxcocTskpJiIA"
     },
     {
       "id": 51100,
@@ -101455,5 +101456,5 @@ window.AUCTION_DATA = {
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5bWiMtnpLEuoZF7zXuihdwsvABw8Yq1Rzg2vynixbwCg"
     }
   ],
-  "lastRunAt": "2026-06-15 21:45:15"
+  "lastRunAt": "2026-06-16 06:34:48"
 };
