@@ -1,9 +1,9 @@
 {
-  "scrapedAt": "2026-06-19 20:35:06",
+  "scrapedAt": "2026-06-20 05:23:50",
   "source": "https://auctions.moj.gov.jo/index.aspx",
-  "totalScraped": 2178,
+  "totalScraped": 2179,
   "pageLimit": 0,
-  "inProgress": false,
+  "inProgress": true,
   "categories": [
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vgTIHx4qwtzJBsfviXhuz8j6Ht9U78JeLm9XVD2AcY4D1ojcWsBjK8kD_Sndyoqb_UXPceoK3yJilkjyc0tzRz0",
@@ -13,7 +13,7 @@
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE",
       "name": "أرض/ مجمع",
-      "totalCount": 1257
+      "totalCount": 1248
     },
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc",
@@ -23,12 +23,12 @@
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY",
       "name": "أُخرى",
-      "totalCount": 106
+      "totalCount": 103
     },
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY",
       "name": "مركبة",
-      "totalCount": 358
+      "totalCount": 330
     }
   ],
   "auctions": [
@@ -15258,7 +15258,8 @@
         "تاريخ النشر": "08/04/2026"
       },
       "caseId": 15504639,
-      "image": "images/50143.jpg"
+      "image": "images/50143.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7fCVkHfor2ayy5Nh5R_ZTfwydtey8whUBFz1BRTRYP_g"
     },
     {
       "id": 50225,
@@ -64778,9 +64779,9 @@
       "announcementEnd": "21/06/2026 15:00:00",
       "startingAmount": "4410",
       "estimatedValue": "8811",
-      "currentAmount": "8500",
+      "currentAmount": "10000",
       "minIncrement": "50 دينار اردني",
-      "numBids": "10",
+      "numBids": "11",
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "20165",
       "publishedAt": "04/05/2026",
@@ -64826,9 +64827,9 @@
       "announcementEnd": "21/06/2026 15:00:00",
       "startingAmount": "8559",
       "estimatedValue": "17118",
-      "currentAmount": "13500",
+      "currentAmount": "15000",
       "minIncrement": "50 دينار اردني",
-      "numBids": "6",
+      "numBids": "7",
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "20165",
       "publishedAt": "04/05/2026",
@@ -83222,7 +83223,9 @@
         "العدد": "20171",
         "تاريخ النشر": "10/05/2026"
       },
-      "image": "images/50041.jpg"
+      "image": "images/50041.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7YxtdftAF5DxriiD4T2BVwLhs5f45P-nbkXgTM59PbTg",
+      "pdfPath": "reports/50041.pdf"
     },
     {
       "id": 14588,
@@ -102722,7 +102725,9 @@
         "تاريخ النشر": "09/06/2026"
       },
       "firstSeenAt": "2026-06-18T21:24:48Z",
-      "image": "images/49591.jpg"
+      "image": "images/49591.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7wtKbqeQ42Emx2Vn91AR7ZZX3zzdsu5dn7bPF9nK2jcQ",
+      "pdfPath": "reports/49591.pdf"
     },
     {
       "id": 46374,
@@ -103675,7 +103680,6 @@
       "newspaperIssue": "21106",
       "publishedAt": "24/05/2026",
       "endDate": "2026-06-21 14:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=51366",
       "details": {
@@ -103703,7 +103707,8 @@
         "العدد": "21106",
         "تاريخ النشر": "24/05/2026"
       },
-      "firstSeenAt": "2026-06-19T20:35:05Z"
+      "firstSeenAt": "2026-06-19T20:35:05Z",
+      "image": "images/51366.jpg"
     },
     {
       "id": 51683,
@@ -103875,7 +103880,6 @@
       "newspaperIssue": "21125",
       "publishedAt": "18/06/2026",
       "endDate": "2026-06-21 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=51767",
       "details": {
@@ -103903,7 +103907,8 @@
         "العدد": "21125",
         "تاريخ النشر": "18/06/2026"
       },
-      "firstSeenAt": "2026-06-19T20:35:05Z"
+      "firstSeenAt": "2026-06-19T20:35:05Z",
+      "image": "images/51767.jpg"
     },
     {
       "id": 51521,
@@ -103954,7 +103959,51 @@
       },
       "firstSeenAt": "2026-06-19T20:35:05Z",
       "image": "images/51521.jpg"
+    },
+    {
+      "id": 51771,
+      "caseId": 12622414,
+      "category": "شركة / علامة تجارية",
+      "header": "رقم المزاد :5-11-25230-2022-سجل عام شركة / علامة تجارية - 2026/06/15 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-25230-2022-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementStart": "15/06/2026 00:00:00",
+      "announcementEnd": "25/06/2026 15:00:00",
+      "startingAmount": "17750",
+      "estimatedValue": "35500",
+      "currentAmount": "0",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "20200",
+      "publishedAt": "14/06/2026",
+      "endDate": "2026-06-25 15:00:00",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vgTIHx4qwtzJBsfviXhuz8j6Ht9U78JeLm9XVD2AcY4D1ojcWsBjK8kD_Sndyoqb_UXPceoK3yJilkjyc0tzRz0&auction=51771",
+      "details": {
+        "إسم المنشأة": "شركة الخط الذهبي العالمي للنقل",
+        "نوع المنشأة": "خاصة",
+        "الإسم التجاري": "شركة الخط الذهبي العالمي للنقل",
+        "رقم السجل": "",
+        "الرقم الوطني للمنشأة": "",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-25230-2022-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "15/06/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "25/06/2026 15:00:00",
+        "القيمة الابتدائية للمزاد": "17750 دينار اردني",
+        "القيمة التقديرية": "35500 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "20200",
+        "تاريخ النشر": "14/06/2026"
+      },
+      "firstSeenAt": "2026-06-20T05:17:58Z",
+      "image": "images/51771.png"
     }
   ],
-  "lastRunAt": "2026-06-19 20:40:53"
+  "lastRunAt": "2026-06-20 05:28:49"
 }
