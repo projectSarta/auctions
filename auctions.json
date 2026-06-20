@@ -83640,7 +83640,8 @@
         "العدد": "7774",
         "تاريخ النشر": "29/04/2026"
       },
-      "image": "images/50985.jpg"
+      "image": "images/50985.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6vOrPRwiIXeMys83tXQSePeevtdSMUnCHE70Dp_MX81Q"
     },
     {
       "id": 50920,
@@ -104005,5 +104006,5 @@
       "image": "images/51771.png"
     }
   ],
-  "lastRunAt": "2026-06-20 05:28:49"
+  "lastRunAt": "2026-06-20 20:20:29"
 }
