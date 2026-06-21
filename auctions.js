@@ -1,7 +1,7 @@
 window.AUCTION_DATA = {
-  "scrapedAt": "2026-06-20 05:23:50",
+  "scrapedAt": "2026-06-21 06:19:45",
   "source": "https://auctions.moj.gov.jo/index.aspx",
-  "totalScraped": 2179,
+  "totalScraped": 2182,
   "pageLimit": 0,
   "inProgress": true,
   "categories": [
@@ -13,22 +13,22 @@ window.AUCTION_DATA = {
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE",
       "name": "أرض/ مجمع",
-      "totalCount": 1248
+      "totalCount": 1236
     },
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc",
       "name": "شقة/ مكتب",
-      "totalCount": 572
+      "totalCount": 569
     },
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY",
       "name": "أُخرى",
-      "totalCount": 103
+      "totalCount": 104
     },
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY",
       "name": "مركبة",
-      "totalCount": 330
+      "totalCount": 354
     }
   ],
   "auctions": [
@@ -1851,13 +1851,13 @@ window.AUCTION_DATA = {
     {
       "id": 42138,
       "category": "أرض/ مجمع",
-      "header": "رقم المزاد :11-11-51-2020-سجل عام أرض/ مجمع - 2026/04/06 تنفيذ السلط",
+      "header": "رقم المزاد :11-11-51-2020-سجل عام أرض/ مجمع - 2026/06/18 تنفيذ السلط",
       "court": "تنفيذ السلط",
       "caseNumber": "ا 11-11-51-2020-سجل عام",
       "status": "قيد التنفيذ",
       "announcement": "اعلان فرق شاسع",
       "announcementStart": "06/04/2026 08:00:00",
-      "announcementEnd": "05/05/2026 15:00:00",
+      "announcementEnd": "27/06/2026 15:00:00",
       "startingAmount": "736000",
       "estimatedValue": "1064880",
       "currentAmount": "736000",
@@ -1866,7 +1866,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "20136",
       "publishedAt": "05/04/2026",
-      "endDate": "2026-05-05 15:00:00",
+      "endDate": "2026-06-27 15:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionsList.aspx#auction_42138",
       "details": {
@@ -1892,7 +1892,9 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/04/2026"
       },
       "image": "images/42138.jpg",
-      "caseId": 10615382
+      "caseId": 10615382,
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7USewEHSOmfbwg285DuqpJ6Vj-mq-8S7BRj6QAhSmA_w",
+      "pdfPath": "reports/42138.pdf"
     },
     {
       "id": 44328,
@@ -10408,9 +10410,9 @@ window.AUCTION_DATA = {
       "announcementEnd": "21/06/2026 15:00:00",
       "startingAmount": "49102.50",
       "estimatedValue": "65470",
-      "currentAmount": "49703",
+      "currentAmount": "54703",
       "minIncrement": "200 دينار اردني",
-      "numBids": "4",
+      "numBids": "5",
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "20138",
       "publishedAt": "07/04/2026",
@@ -19470,13 +19472,13 @@ window.AUCTION_DATA = {
     {
       "id": 48773,
       "category": "شقة/ مكتب",
-      "header": "رقم المزاد :10-11-3378-2023-سجل عام شقة/ مكتب - 2026/04/15 تنفيذ الزرقاء",
+      "header": "رقم المزاد :10-11-3378-2023-سجل عام شقة/ مكتب - 2026/06/10 تنفيذ الزرقاء",
       "court": "تنفيذ الزرقاء",
       "caseNumber": "ا 10-11-3378-2023-سجل عام",
       "status": "قيد التنفيذ",
       "announcement": "اعلان فرق شاسع",
       "announcementStart": "15/04/2026 00:00:00",
-      "announcementEnd": "14/05/2026 15:00:00",
+      "announcementEnd": "21/06/2026 15:00:00",
       "startingAmount": "17250",
       "estimatedValue": "34500",
       "currentAmount": "17250",
@@ -19485,7 +19487,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "20145",
       "publishedAt": "14/04/2026",
-      "endDate": "2026-05-14 15:00:00",
+      "endDate": "2026-06-21 15:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc&auction=48773",
       "details": {
@@ -21373,13 +21375,13 @@ window.AUCTION_DATA = {
     {
       "id": 48861,
       "category": "شقة/ مكتب",
-      "header": "رقم المزاد :33-11-201-2025-سجل عام شقة/ مكتب - 2026/04/20 تنفيذ الطفيلة",
+      "header": "رقم المزاد :33-11-201-2025-سجل عام شقة/ مكتب - 2026/06/10 تنفيذ الطفيلة",
       "court": "تنفيذ الطفيلة",
       "caseNumber": "ا 33-11-201-2025-سجل عام",
       "status": "قيد التنفيذ",
       "announcement": "اعلان فرق شاسع",
       "announcementStart": "20/04/2026 00:00:00",
-      "announcementEnd": "19/05/2026 15:00:00",
+      "announcementEnd": "21/06/2026 15:00:00",
       "startingAmount": "11446.06",
       "estimatedValue": "22892",
       "currentAmount": "11466",
@@ -21388,7 +21390,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الغد",
       "newspaperIssue": "7764",
       "publishedAt": "19/04/2026",
-      "endDate": "2026-05-19 15:00:00",
+      "endDate": "2026-06-21 15:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc&auction=48861",
       "details": {
@@ -24646,13 +24648,13 @@ window.AUCTION_DATA = {
     {
       "id": 40002,
       "category": "شقة/ مكتب",
-      "header": "رقم المزاد :10-11-4077-2020-سجل عام شقة/ مكتب - 2026/04/30 تنفيذ الزرقاء",
+      "header": "رقم المزاد :10-11-4077-2020-سجل عام شقة/ مكتب - 2026/06/05 تنفيذ الزرقاء",
       "court": "تنفيذ الزرقاء",
       "caseNumber": "ا 10-11-4077-2020-سجل عام",
       "status": "قيد التنفيذ",
       "announcement": "اعلان 30 يوم",
       "announcementStart": "30/04/2026 00:00:00",
-      "announcementEnd": "31/05/2026 15:00:00",
+      "announcementEnd": "21/06/2026 15:00:00",
       "startingAmount": "11600",
       "estimatedValue": "23200",
       "currentAmount": "11600",
@@ -24661,7 +24663,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "20160",
       "publishedAt": "29/04/2026",
-      "endDate": "2026-05-31 15:00:00",
+      "endDate": "2026-06-21 15:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc&auction=40002",
       "details": {
@@ -29116,13 +29118,13 @@ window.AUCTION_DATA = {
     {
       "id": 47359,
       "category": "شقة/ مكتب",
-      "header": "رقم المزاد :1-11-111-2025-سجل الانابات شقة/ مكتب - 2026/03/31 تنفيذ عمان / قسم شمال عمان",
+      "header": "رقم المزاد :1-11-111-2025-سجل الانابات شقة/ مكتب - 2026/05/21 تنفيذ عمان / قسم شمال عمان",
       "court": "تنفيذ عمان / قسم شمال عمان",
       "caseNumber": "ا 1-11-111-2025-سجل الانابات",
       "status": "قيد التنفيذ",
       "announcement": "اعلان 30 يوم",
       "announcementStart": "31/03/2026 00:00:00",
-      "announcementEnd": "29/04/2026 15:00:00",
+      "announcementEnd": "21/06/2026 15:00:00",
       "startingAmount": "28400",
       "estimatedValue": "56800",
       "currentAmount": "0",
@@ -29131,7 +29133,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الغد",
       "newspaperIssue": "7744",
       "publishedAt": "30/03/2026",
-      "endDate": "2026-04-29 15:00:00",
+      "endDate": "2026-06-21 15:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc&auction=47359",
       "details": {
@@ -29159,7 +29161,10 @@ window.AUCTION_DATA = {
         "العدد": "7744",
         "تاريخ النشر": "30/03/2026"
       },
-      "image": "images/47359.jpg"
+      "image": "images/47359.jpg",
+      "caseId": 15114938,
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7vYXU8mw5QxU1mqK-uZ6eAVOMvBkHNfjvUzc4uSIQQBQ",
+      "pdfPath": "reports/47359.pdf"
     },
     {
       "id": 47574,
@@ -50929,13 +50934,13 @@ window.AUCTION_DATA = {
     {
       "id": 50727,
       "category": "أرض/ مجمع",
-      "header": "رقم المزاد :24-11-955-2025-سجل عام أرض/ مجمع - 2026/04/15 تنفيذ الرمثا",
+      "header": "رقم المزاد :24-11-955-2025-سجل عام أرض/ مجمع - 2026/06/12 تنفيذ الرمثا",
       "court": "تنفيذ الرمثا",
       "caseNumber": "ا 24-11-955-2025-سجل عام",
       "status": "قيد التنفيذ",
       "announcement": "الاعلان الاول",
       "announcementStart": "15/04/2026 00:00:00",
-      "announcementEnd": "14/05/2026 15:00:00",
+      "announcementEnd": "26/06/2026 15:00:00",
       "startingAmount": "5004",
       "estimatedValue": "10008",
       "currentAmount": "6275",
@@ -50944,7 +50949,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الدستور",
       "newspaperIssue": "21068",
       "publishedAt": "14/04/2026",
-      "endDate": "2026-05-14 15:00:00",
+      "endDate": "2026-06-26 15:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=50727",
       "details": {
@@ -51352,13 +51357,13 @@ window.AUCTION_DATA = {
     {
       "id": 49332,
       "category": "أرض/ مجمع",
-      "header": "رقم المزاد :42-11-31-2025-سجل الانابات أرض/ مجمع - 2026/05/22 تنفيذ المزار الجنوبي",
+      "header": "رقم المزاد :42-11-31-2025-سجل الانابات أرض/ مجمع - 2026/06/16 تنفيذ المزار الجنوبي",
       "court": "تنفيذ المزار الجنوبي",
       "caseNumber": "ا 42-11-31-2025-سجل الانابات",
       "status": "قيد التنفيذ",
       "announcement": "الاعلان الاول",
       "announcementStart": "15/04/2026 00:00:00",
-      "announcementEnd": "07/06/2026 15:00:00",
+      "announcementEnd": "25/06/2026 15:00:00",
       "startingAmount": "10057.50",
       "estimatedValue": "20115",
       "currentAmount": "15300",
@@ -51367,7 +51372,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الدستور",
       "newspaperIssue": "21068",
       "publishedAt": "14/04/2026",
-      "endDate": "2026-06-07 15:00:00",
+      "endDate": "2026-06-25 15:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=49332",
       "details": {
@@ -52715,13 +52720,13 @@ window.AUCTION_DATA = {
     {
       "id": 50710,
       "category": "أرض/ مجمع",
-      "header": "رقم المزاد :24-11-1132-2022-سجل عام أرض/ مجمع - 2026/04/17 تنفيذ الرمثا",
+      "header": "رقم المزاد :24-11-1132-2022-سجل عام أرض/ مجمع - 2026/06/12 تنفيذ الرمثا",
       "court": "تنفيذ الرمثا",
       "caseNumber": "ا 24-11-1132-2022-سجل عام",
       "status": "قيد التنفيذ",
       "announcement": "الاعلان الاول",
       "announcementStart": "17/04/2026 00:00:00",
-      "announcementEnd": "16/05/2026 15:00:00",
+      "announcementEnd": "26/06/2026 15:00:00",
       "startingAmount": "9862.50",
       "estimatedValue": "19725",
       "currentAmount": "9865",
@@ -52730,7 +52735,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الدستور",
       "newspaperIssue": "21070",
       "publishedAt": "16/04/2026",
-      "endDate": "2026-05-16 15:00:00",
+      "endDate": "2026-06-26 15:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=50710",
       "details": {
@@ -55794,13 +55799,13 @@ window.AUCTION_DATA = {
     {
       "id": 50718,
       "category": "أرض/ مجمع",
-      "header": "رقم المزاد :21-11-4408-2025-سجل عام أرض/ مجمع - 2026/04/21 تنفيذ المفرق",
+      "header": "رقم المزاد :21-11-4408-2025-سجل عام أرض/ مجمع - 2026/06/12 تنفيذ المفرق",
       "court": "تنفيذ المفرق",
       "caseNumber": "ا 21-11-4408-2025-سجل عام",
       "status": "قيد التنفيذ",
       "announcement": "اعلان 30 يوم",
       "announcementStart": "21/04/2026 00:00:00",
-      "announcementEnd": "20/05/2026 15:00:00",
+      "announcementEnd": "28/06/2026 15:00:00",
       "startingAmount": "5000",
       "estimatedValue": "10000",
       "currentAmount": "5001",
@@ -55809,7 +55814,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الدستور",
       "newspaperIssue": "1",
       "publishedAt": "20/04/2026",
-      "endDate": "2026-05-20 15:00:00",
+      "endDate": "2026-06-28 15:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=50718",
       "details": {
@@ -58203,9 +58208,9 @@ window.AUCTION_DATA = {
       "announcementEnd": "25/06/2026 15:00:00",
       "startingAmount": "2206.50",
       "estimatedValue": "4413",
-      "currentAmount": "3900",
+      "currentAmount": "3950",
       "minIncrement": "50 دينار اردني",
-      "numBids": "7",
+      "numBids": "8",
       "newspaper": "جريدة الدستور",
       "newspaperIssue": "21076",
       "publishedAt": "22/04/2026",
@@ -64779,9 +64784,9 @@ window.AUCTION_DATA = {
       "announcementEnd": "21/06/2026 15:00:00",
       "startingAmount": "4410",
       "estimatedValue": "8811",
-      "currentAmount": "10000",
+      "currentAmount": "11500",
       "minIncrement": "50 دينار اردني",
-      "numBids": "11",
+      "numBids": "13",
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "20165",
       "publishedAt": "04/05/2026",
@@ -64827,9 +64832,9 @@ window.AUCTION_DATA = {
       "announcementEnd": "21/06/2026 15:00:00",
       "startingAmount": "8559",
       "estimatedValue": "17118",
-      "currentAmount": "15000",
+      "currentAmount": "16500",
       "minIncrement": "50 دينار اردني",
-      "numBids": "7",
+      "numBids": "8",
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "20165",
       "publishedAt": "04/05/2026",
@@ -65058,13 +65063,13 @@ window.AUCTION_DATA = {
     {
       "id": 50870,
       "category": "أرض/ مجمع",
-      "header": "رقم المزاد :12-11-2768-2025-سجل عام أرض/ مجمع - 2026/05/06 تنفيذ مادبا",
+      "header": "رقم المزاد :12-11-2768-2025-سجل عام أرض/ مجمع - 2026/06/12 تنفيذ مادبا",
       "court": "تنفيذ مادبا",
       "caseNumber": "ا 12-11-2768-2025-سجل عام",
       "status": "قيد التنفيذ",
       "announcement": "الاعلان الاول",
       "announcementStart": "06/05/2026 08:00:00",
-      "announcementEnd": "04/06/2026 15:00:00",
+      "announcementEnd": "26/06/2026 15:00:00",
       "startingAmount": "18170",
       "estimatedValue": "36340",
       "currentAmount": "22000",
@@ -65073,7 +65078,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الرأي جريدة الدستور",
       "newspaperIssue": "20166,21087",
       "publishedAt": "05/05/2026",
-      "endDate": "2026-06-04 15:00:00",
+      "endDate": "2026-06-26 15:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=50870",
       "details": {
@@ -65442,22 +65447,22 @@ window.AUCTION_DATA = {
     {
       "id": 49726,
       "category": "أرض/ مجمع",
-      "header": "رقم المزاد :12-11-1075-2023-سجل عام أرض/ مجمع - 2026/05/08 تنفيذ مادبا",
+      "header": "رقم المزاد :12-11-1075-2023-سجل عام أرض/ مجمع - 2026/06/12 تنفيذ مادبا",
       "court": "تنفيذ مادبا",
       "caseNumber": "ا 12-11-1075-2023-سجل عام",
       "status": "قيد التنفيذ",
       "announcement": "الاعلان الاول",
       "announcementStart": "08/05/2026 08:00:00",
-      "announcementEnd": "06/06/2026 15:00:00",
+      "announcementEnd": "26/06/2026 15:00:00",
       "startingAmount": "1867",
       "estimatedValue": "3734",
-      "currentAmount": "0",
+      "currentAmount": "1900",
       "minIncrement": "50 دينار اردني",
-      "numBids": "0",
+      "numBids": "1",
       "newspaper": "جريدة الغد",
       "newspaperIssue": "7781",
       "publishedAt": "07/05/2026",
-      "endDate": "2026-06-06 15:00:00",
+      "endDate": "2026-06-26 15:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=49726",
       "details": {
@@ -65682,13 +65687,13 @@ window.AUCTION_DATA = {
     {
       "id": 50869,
       "category": "أرض/ مجمع",
-      "header": "رقم المزاد :4-11-108-2026-سجل عام أرض/ مجمع - 2026/05/07 تنفيذ عمان / قسم غرب عمان",
+      "header": "رقم المزاد :4-11-108-2026-سجل عام أرض/ مجمع - 2026/06/12 تنفيذ عمان / قسم غرب عمان",
       "court": "تنفيذ عمان / قسم غرب عمان",
       "caseNumber": "ا 4-11-108-2026-سجل عام",
       "status": "قيد التنفيذ",
       "announcement": "اعلان 30 يوم",
       "announcementStart": "07/05/2026 00:00:00",
-      "announcementEnd": "07/06/2026 15:00:00",
+      "announcementEnd": "28/06/2026 15:00:00",
       "startingAmount": "156987.50",
       "estimatedValue": "313975",
       "currentAmount": "234000",
@@ -65697,7 +65702,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "20167",
       "publishedAt": "06/05/2026",
-      "endDate": "2026-06-07 15:00:00",
+      "endDate": "2026-06-28 15:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=50869",
       "details": {
@@ -65922,13 +65927,13 @@ window.AUCTION_DATA = {
     {
       "id": 50848,
       "category": "أرض/ مجمع",
-      "header": "رقم المزاد :2-11-30-2026-سجل الانابات أرض/ مجمع - 2026/05/07 تنفيذ عمان / قسم جنوب عمان",
+      "header": "رقم المزاد :2-11-30-2026-سجل الانابات أرض/ مجمع - 2026/06/12 تنفيذ عمان / قسم جنوب عمان",
       "court": "تنفيذ عمان / قسم جنوب عمان",
       "caseNumber": "ا 2-11-30-2026-سجل الانابات",
       "status": "قيد التنفيذ",
       "announcement": "اعلان 30 يوم",
       "announcementStart": "07/05/2026 00:00:00",
-      "announcementEnd": "07/06/2026 15:00:00",
+      "announcementEnd": "28/06/2026 15:00:00",
       "startingAmount": "105500",
       "estimatedValue": "211000",
       "currentAmount": "211000",
@@ -65937,7 +65942,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الغد",
       "newspaperIssue": "20167",
       "publishedAt": "06/05/2026",
-      "endDate": "2026-06-07 15:00:00",
+      "endDate": "2026-06-28 15:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=50848",
       "details": {
@@ -85597,22 +85602,22 @@ window.AUCTION_DATA = {
       "id": 51022,
       "caseId": 14052180,
       "category": "أرض/ مجمع",
-      "header": "رقم المزاد :22-11-184-2024-سجل عام أرض/ مجمع - 2026/05/11 تنفيذ جرش",
+      "header": "رقم المزاد :22-11-184-2024-سجل عام أرض/ مجمع - 2026/06/12 تنفيذ جرش",
       "court": "تنفيذ جرش",
       "caseNumber": "ا 22-11-184-2024-سجل عام",
       "status": "قيد التنفيذ",
       "announcement": "الاعلان الاول",
       "announcementStart": "11/05/2026 00:00:00",
-      "announcementEnd": "09/06/2026 15:00:00",
+      "announcementEnd": "26/06/2026 15:00:00",
       "startingAmount": "57927",
       "estimatedValue": "115854",
-      "currentAmount": "0",
+      "currentAmount": "58500",
       "minIncrement": "500 دينار اردني",
-      "numBids": "0",
+      "numBids": "2",
       "newspaper": "جريدة الدستور",
       "newspaperIssue": "21092",
       "publishedAt": "10/05/2026",
-      "endDate": "2026-06-09 15:00:00",
+      "endDate": "2026-06-26 15:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=51022",
       "details": {
@@ -102408,9 +102413,9 @@ window.AUCTION_DATA = {
       "announcementEnd": "23/06/2026 15:00:00",
       "startingAmount": "16650",
       "estimatedValue": "16650",
-      "currentAmount": "0",
+      "currentAmount": "16900",
       "minIncrement": "50 دينار اردني",
-      "numBids": "0",
+      "numBids": "2",
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "2026,20185",
       "publishedAt": "24/05/2026",
@@ -102632,7 +102637,9 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "24/05/2026"
       },
       "firstSeenAt": "2026-06-18T21:24:25Z",
-      "image": "images/51371.jpg"
+      "image": "images/51371.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da61qpjDMR-R_uCD-_6fh_xbwPKZMQoYiJF3JEttKtS2Zw",
+      "pdfPath": "reports/51371.pdf"
     },
     {
       "id": 45281,
@@ -102822,7 +102829,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "10/06/2026"
       },
       "firstSeenAt": "2026-06-18T21:25:12Z",
-      "image": "images/36473.jpg"
+      "image": "images/36473.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5qAlSfPr_aCJbicBmw0DvoCAs1d3x7yOtWxoY44jRnqA"
     },
     {
       "id": 37180,
@@ -102872,7 +102880,9 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "07/06/2026"
       },
       "firstSeenAt": "2026-06-18T21:37:39Z",
-      "image": "images/37180.png"
+      "image": "images/37180.png",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5M27tGxzXcqWUCIa_0sqoxTxGILVhg563DYnXBOLQ6qw",
+      "pdfPath": "reports/37180.pdf"
     },
     {
       "id": 51498,
@@ -102963,7 +102973,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "10/06/2026"
       },
       "firstSeenAt": "2026-06-18T21:37:45Z",
-      "image": "images/51748.jpg"
+      "image": "images/51748.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4faMaHEhDWuPmdQlSM2zgjNw6K2Hu7VIaNUbcu4XcADg"
     },
     {
       "id": 51740,
@@ -103013,7 +103024,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "07/06/2026"
       },
       "firstSeenAt": "2026-06-18T21:37:45Z",
-      "image": "images/51740.png"
+      "image": "images/51740.png",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5Jmw9Ag-6iYPvBiLLwrCKR0ydNLd-bMNRwsC8rlClD4w"
     },
     {
       "id": 51762,
@@ -103063,7 +103075,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "18/06/2026"
       },
       "firstSeenAt": "2026-06-18T21:37:45Z",
-      "image": "images/51762.jpg"
+      "image": "images/51762.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7MRTaSBW0ee8GXe60mDWJX3VG3dt6FVCVYccfkoIY3Uw"
     },
     {
       "id": 51739,
@@ -103113,7 +103126,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "11/06/2026"
       },
       "firstSeenAt": "2026-06-18T21:37:45Z",
-      "image": "images/51739.jpg"
+      "image": "images/51739.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da66cyBFp4Q77Dy8k3jFCFURZLW4NCmwQW85z_YJhl6l_w"
     },
     {
       "id": 51597,
@@ -103163,7 +103177,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "11/06/2026"
       },
       "firstSeenAt": "2026-06-18T21:37:45Z",
-      "image": "images/51597.jpg"
+      "image": "images/51597.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4OknDxf9I2Y9DVOU6ngTur9_4oc9Ken5h1t40R_PCQHA"
     },
     {
       "id": 51710,
@@ -103213,7 +103228,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "11/06/2026"
       },
       "firstSeenAt": "2026-06-18T21:37:45Z",
-      "image": "images/51710.jpg"
+      "image": "images/51710.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6nh5ACkU7QaDb-ecM_ijkNPbM0lALBT34fKxF9uWHSfw"
     },
     {
       "id": 51595,
@@ -103263,7 +103279,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "11/06/2026"
       },
       "firstSeenAt": "2026-06-18T21:37:45Z",
-      "image": "images/51595.jpg"
+      "image": "images/51595.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4G8abY4UyPj9Z6BE66cm5hteUB8ugRCVAs9pBk3PsXyQ"
     },
     {
       "id": 51734,
@@ -104004,7 +104021,148 @@ window.AUCTION_DATA = {
       },
       "firstSeenAt": "2026-06-20T05:17:58Z",
       "image": "images/51771.png"
+    },
+    {
+      "id": 22434,
+      "caseId": 11347213,
+      "category": "أرض/ مجمع",
+      "header": "رقم المزاد :20-11-530-2021-سجل عام أرض/ مجمع - 2026/06/11 تنفيذ عجلون",
+      "court": "تنفيذ عجلون",
+      "caseNumber": "ا 20-11-530-2021-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان احالة مؤقتة",
+      "announcementStart": "11/06/2026 00:00:00",
+      "announcementEnd": "25/06/2026 15:00:00",
+      "startingAmount": "21000",
+      "estimatedValue": "36126",
+      "currentAmount": "21200",
+      "minIncrement": "200 دينار اردني",
+      "numBids": "2",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "20196",
+      "publishedAt": "10/06/2026",
+      "endDate": "2026-06-25 15:00:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=22434",
+      "details": {
+        "المحافظة": "محافظة عجلون",
+        "المديرية": "اراضي عجلون",
+        "القرية": "كفرنجه",
+        "الحوض": "004/البلد",
+        "الحي": "جدول الأحياء",
+        "رقم القطعة": "1190",
+        "نوع القطعة": "ملك",
+        "مساحة القطعة": "468",
+        "المحكمة / الدائرة": "تنفيذ عجلون",
+        "رقم الدعوى": "ا 20-11-530-2021-سجل عام",
+        "الإعلان": "اعلان احالة مؤقتة",
+        "تاريخ بداية الاعلان": "11/06/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "25/06/2026 15:00:00",
+        "القيمة الابتدائية للمزاد": "21000 دينار اردني",
+        "القيمة التقديرية": "36126 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "200 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "20196",
+        "تاريخ النشر": "10/06/2026"
+      },
+      "firstSeenAt": "2026-06-21T06:11:10Z"
+    },
+    {
+      "id": 34778,
+      "caseId": 12349705,
+      "category": "أرض/ مجمع",
+      "header": "رقم المزاد :20-11-1074-2022-سجل عام أرض/ مجمع - 2026/06/11 تنفيذ عجلون",
+      "court": "تنفيذ عجلون",
+      "caseNumber": "ا 20-11-1074-2022-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "الاعلان الاول",
+      "announcementStart": "11/06/2026 00:00:00",
+      "announcementEnd": "25/06/2026 15:00:00",
+      "startingAmount": "8610.4550",
+      "estimatedValue": "17221",
+      "currentAmount": "0",
+      "minIncrement": "50 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الدستور",
+      "newspaperIssue": "21117",
+      "publishedAt": "10/06/2026",
+      "endDate": "2026-06-25 15:00:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=34778",
+      "details": {
+        "المحافظة": "محافظة عجلون",
+        "المديرية": "اراضي عجلون",
+        "القرية": "كفرنجه",
+        "الحوض": "012/الوطي",
+        "الحي": "جدول الأحياء",
+        "رقم القطعة": "42",
+        "نوع القطعة": "ملك",
+        "مساحة القطعة": "163285.67",
+        "المحكمة / الدائرة": "تنفيذ عجلون",
+        "رقم الدعوى": "ا 20-11-1074-2022-سجل عام",
+        "الإعلان": "الاعلان الاول",
+        "تاريخ بداية الاعلان": "11/06/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "25/06/2026 15:00:00",
+        "القيمة الابتدائية للمزاد": "8610.4550 دينار اردني",
+        "القيمة التقديرية": "17221 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "50 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الدستور",
+        "العدد": "21117",
+        "تاريخ النشر": "10/06/2026"
+      },
+      "firstSeenAt": "2026-06-21T06:11:10Z"
+    },
+    {
+      "id": 45360,
+      "caseId": 14939771,
+      "category": "أرض/ مجمع",
+      "header": "رقم المزاد :4-11-1093-2025-سجل عام أرض/ مجمع - 2026/06/18 تنفيذ عمان / قسم غرب عمان",
+      "court": "تنفيذ عمان / قسم غرب عمان",
+      "caseNumber": "ا 4-11-1093-2025-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان احالة قطعية",
+      "announcementStart": "18/06/2026 00:00:00",
+      "announcementEnd": "28/06/2026 15:00:00",
+      "startingAmount": "1650000",
+      "estimatedValue": "2995200",
+      "currentAmount": "1500000",
+      "minIncrement": "20000 دينار اردني",
+      "numBids": "1",
+      "newspaper": "جريدة الدستور",
+      "newspaperIssue": "21124",
+      "publishedAt": "17/06/2026",
+      "endDate": "2026-06-28 15:00:00",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=45360",
+      "details": {
+        "المحافظة": "محافظة العاصمة",
+        "المديرية": "اراضي غرب عمان",
+        "القرية": "وادي السير",
+        "الحوض": "015/خربة الصويفية",
+        "الحي": "جدول الأحياء",
+        "رقم القطعة": "3217",
+        "نوع القطعة": "تجاري",
+        "مساحة القطعة": "844",
+        "المحكمة / الدائرة": "تنفيذ عمان / قسم غرب عمان",
+        "رقم الدعوى": "ا 4-11-1093-2025-سجل عام",
+        "الإعلان": "اعلان احالة قطعية",
+        "تاريخ بداية الاعلان": "18/06/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "28/06/2026 15:00:00",
+        "القيمة الابتدائية للمزاد": "1650000 دينار اردني",
+        "القيمة التقديرية": "2995200 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20000 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الدستور",
+        "العدد": "21124",
+        "تاريخ النشر": "17/06/2026"
+      },
+      "firstSeenAt": "2026-06-21T06:11:19Z",
+      "image": "images/45360.jpg"
     }
   ],
-  "lastRunAt": "2026-06-20 20:20:29"
+  "lastRunAt": "2026-06-21 06:29:09"
 };
