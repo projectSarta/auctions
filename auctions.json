@@ -102783,7 +102783,9 @@
         "تاريخ النشر": "14/06/2026"
       },
       "firstSeenAt": "2026-06-18T21:25:03Z",
-      "image": "images/46374.jpg"
+      "image": "images/46374.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5tWBjGjTtSGxTxzzpw_NU6cFleijWoMGhyazq9IKbzww",
+      "pdfPath": "reports/46374.pdf"
     },
     {
       "id": 36473,
@@ -104216,5 +104218,5 @@
       "image": "images/35925.png"
     }
   ],
-  "lastRunAt": "2026-06-21 20:35:48"
+  "lastRunAt": "2026-06-22 06:35:22"
 }
