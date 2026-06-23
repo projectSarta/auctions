@@ -1,5 +1,5 @@
 {
-  "scrapedAt": "2026-06-22 21:40:09",
+  "scrapedAt": "2026-06-23 21:03:08",
   "source": "https://auctions.moj.gov.jo/index.aspx",
   "totalScraped": 2188,
   "pageLimit": 0,
@@ -13,12 +13,12 @@
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE",
       "name": "أرض/ مجمع",
-      "totalCount": 1255
+      "totalCount": 1252
     },
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc",
       "name": "شقة/ مكتب",
-      "totalCount": 578
+      "totalCount": 570
     },
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY",
@@ -28,7 +28,7 @@
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY",
       "name": "مركبة",
-      "totalCount": 327
+      "totalCount": 322
     }
   ],
   "auctions": [
@@ -11750,7 +11750,9 @@
         "تاريخ النشر": "08/04/2026"
       },
       "image": "images/50166.jpg",
-      "caseId": 14867537
+      "caseId": 14867537,
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da55iFQlXUtfLibiVEJo_koPu-zJK6QNzCOFUwvjNzJB_Q",
+      "pdfPath": "reports/50166.pdf"
     },
     {
       "id": 50168,
@@ -104463,5 +104465,5 @@
       "image": "images/30084.jpg"
     }
   ],
-  "lastRunAt": "2026-06-23 05:06:17"
+  "lastRunAt": "2026-06-23 21:05:58"
 }
