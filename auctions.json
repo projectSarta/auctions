@@ -11798,7 +11798,9 @@
         "تاريخ النشر": "08/04/2026"
       },
       "image": "images/50168.jpg",
-      "caseId": 14867568
+      "caseId": 14867568,
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7dD15ytNYb07psiiJ_yxrtkGWOPXVfbdwpXC_8QsYJEg",
+      "pdfPath": "reports/50168.pdf"
     },
     {
       "id": 50177,
@@ -104182,7 +104184,9 @@
         "تاريخ النشر": "17/06/2026"
       },
       "firstSeenAt": "2026-06-21T06:11:19Z",
-      "image": "images/45360.jpg"
+      "image": "images/45360.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5c1DFf1xcz7alIY4l2qzx0qrd8cdP289w9ElWUPefA6g",
+      "pdfPath": "reports/45360.pdf"
     },
     {
       "id": 35925,
@@ -104274,7 +104278,9 @@
         "تاريخ النشر": "15/06/2026"
       },
       "firstSeenAt": "2026-06-22T21:36:49Z",
-      "image": "images/38290.jpg"
+      "image": "images/38290.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7eeMcuwg9k-w2sEWw4suM71t40MXDpYMGwCTbgtneLFg",
+      "pdfPath": "reports/38290.pdf"
     },
     {
       "id": 38287,
@@ -104321,7 +104327,9 @@
         "تاريخ النشر": "15/06/2026"
       },
       "firstSeenAt": "2026-06-22T21:39:45Z",
-      "image": "images/38287.jpg"
+      "image": "images/38287.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5aDcTAnFJ07YlmEQ70mLgfXwRsjaKUEsSCa1m2yS4MRw",
+      "pdfPath": "reports/38287.pdf"
     },
     {
       "id": 38288,
@@ -104368,7 +104376,9 @@
         "تاريخ النشر": "15/06/2026"
       },
       "firstSeenAt": "2026-06-22T21:39:45Z",
-      "image": "images/38288.jpg"
+      "image": "images/38288.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7rr_5fqx5wT_4t_BD343CV-FSsTRRA2jcv1l22W0IRrw",
+      "pdfPath": "reports/38288.pdf"
     },
     {
       "id": 38289,
@@ -104465,5 +104475,5 @@
       "image": "images/30084.jpg"
     }
   ],
-  "lastRunAt": "2026-06-23 21:05:58"
+  "lastRunAt": "2026-06-24 05:08:35"
 }
