@@ -38,13 +38,28 @@ function Curl-PostForm([string]$url, [hashtable]$form, [string]$referer) {
   $bodyFile = [System.IO.Path]::GetTempFileName()
   $outFile  = [System.IO.Path]::GetTempFileName()
   try {
+    # [System.Uri]::EscapeDataString throws on strings >65,520 chars (e.g. ViewState).
+    # Chunk in 32k slices.
+    $encode = {
+      param([string]$s)
+      if ($null -eq $s -or $s.Length -eq 0) { return '' }
+      if ($s.Length -le 32000) { return [System.Uri]::EscapeDataString($s) }
+      $out = New-Object System.Text.StringBuilder
+      $i = 0
+      while ($i -lt $s.Length) {
+        $chunk = $s.Substring($i, [Math]::Min(32000, $s.Length - $i))
+        [void]$out.Append([System.Uri]::EscapeDataString($chunk))
+        $i += $chunk.Length
+      }
+      return $out.ToString()
+    }
     $sb = New-Object System.Text.StringBuilder
     $first = $true
     foreach ($k in $form.Keys) {
       if (-not $first) { [void]$sb.Append('&') }
-      [void]$sb.Append([System.Uri]::EscapeDataString($k))
+      [void]$sb.Append((& $encode $k))
       [void]$sb.Append('=')
-      [void]$sb.Append([System.Uri]::EscapeDataString([string]$form[$k]))
+      [void]$sb.Append((& $encode ([string]$form[$k])))
       $first = $false
     }
     [System.IO.File]::WriteAllText($bodyFile, $sb.ToString(), [System.Text.UTF8Encoding]::new($false))

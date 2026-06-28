@@ -90,13 +90,31 @@ function Curl-PostForm([string]$url, [hashtable]$form) {
   $bodyFile = [System.IO.Path]::GetTempFileName()
   $outFile  = [System.IO.Path]::GetTempFileName()
   try {
+    # x-www-form-urlencoded encoder that handles arbitrarily long values.
+    # [System.Uri]::EscapeDataString() throws on inputs >65,520 chars — modern
+    # ASP.NET ViewStates routinely exceed that. We chunk in 32k slices and
+    # concatenate (each chunk is encoded safely since neither boundary lands
+    # in the middle of a multi-byte sequence we care about).
+    $encode = {
+      param([string]$s)
+      if ($null -eq $s -or $s.Length -eq 0) { return '' }
+      if ($s.Length -le 32000) { return [System.Uri]::EscapeDataString($s) }
+      $out = New-Object System.Text.StringBuilder
+      $i = 0
+      while ($i -lt $s.Length) {
+        $chunk = $s.Substring($i, [Math]::Min(32000, $s.Length - $i))
+        [void]$out.Append([System.Uri]::EscapeDataString($chunk))
+        $i += $chunk.Length
+      }
+      return $out.ToString()
+    }
     $sb = New-Object System.Text.StringBuilder
     $first = $true
     foreach ($k in $form.Keys) {
       if (-not $first) { [void]$sb.Append('&') }
-      [void]$sb.Append([System.Uri]::EscapeDataString($k))
+      [void]$sb.Append((& $encode $k))
       [void]$sb.Append('=')
-      [void]$sb.Append([System.Uri]::EscapeDataString([string]$form[$k]))
+      [void]$sb.Append((& $encode ([string]$form[$k])))
       $first = $false
     }
     [System.IO.File]::WriteAllText($bodyFile, $sb.ToString(), [System.Text.UTF8Encoding]::new($false))
@@ -430,14 +448,18 @@ foreach ($cat in $categories) {
         Write-Host ("  (walked {0} pages of known territory without new items — reset)" -f $MaxKnownPages) -ForegroundColor DarkYellow
         break
       }
-      # Stall detection only applies AFTER the walk has yielded at least one new item.
-      # Until then we may be walking through already-known pages from a previous walk —
-      # we must push through them to reach the new territory deeper in the listing.
+      # Identical-page detection ALWAYS fires — if the next-page POST returns the same
+      # IDs we just saw, MoJ's anti-bot is silently rejecting our pagination requests
+      # (instead of returning a captcha page we'd catch via Test-Captcha). Reset and
+      # try again rather than burning 14 more identical pages before MaxKnownPages.
+      if ($lastPageIds -and $thisPageIds.Count -gt 0 -and $thisPageIds.SetEquals($lastPageIds)) {
+        Write-Host "  (same IDs as previous page — pagination silently blocked, will reset)" -ForegroundColor Yellow
+        break
+      }
+      # The "0 new items for 3 pages in a row" stall is still gated on having seen new
+      # items in this walk — otherwise a refresh-only walk through known territory
+      # would bail immediately.
       if ($seenNewThisWalk) {
-        if ($lastPageIds -and $thisPageIds.Count -gt 0 -and $thisPageIds.SetEquals($lastPageIds)) {
-          Write-Host "  (same IDs as previous page — pagination stalled)" -ForegroundColor Yellow
-          break
-        }
         if ($newCount -eq 0) {
           $stalePageStreak++
           if ($stalePageStreak -ge 3) {
