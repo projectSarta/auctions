@@ -67187,7 +67187,9 @@
         "تاريخ النشر": "13/01/2026"
       },
       "caseId": 15512243,
-      "image": "images/48759.png"
+      "image": "images/48759.png",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4DvhfRa_fsWYVPl_SJrn6VO_o8CFkxZ3ROm4d8lon11A",
+      "pdfPath": "reports/48759.pdf"
     },
     {
       "id": 49085,
@@ -104822,5 +104824,5 @@
       "image": "images/51901.jpg"
     }
   ],
-  "lastRunAt": "2026-06-28 05:17:48"
+  "lastRunAt": "2026-06-28 20:17:27"
 }
