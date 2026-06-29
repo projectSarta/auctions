@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>لوحة المزادات - وزارة العدل الأردنية</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <style>
   /* ──── Color system: trust (navy) + desire (gold) + urgency (wine red) ──── */
   :root {
@@ -130,6 +129,7 @@
   /* ──── Motion layer: entrance + interaction polish ──── */
   @keyframes rise        { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes fade-scale  { from { opacity: 0; transform: scale(0.97);     } to { opacity: 1; transform: scale(1);     } }
+  @keyframes fade-in     { from { opacity: 0; } to { opacity: 1; } }
   @keyframes select-pop  { 0% { transform: scale(0.94); } 60% { transform: scale(1.04); } 100% { transform: scale(1); } }
 
   /* Compound hover transitions */
@@ -146,9 +146,12 @@
   /* Filter chip / Bootstrap dropdown-toggle selection pop */
   .ms-button.has-selection { animation: select-pop 220ms var(--ease-back-out); }
 
-  /* Multi-select dropdown menu open polish */
-  .dropdown-menu { transition: opacity var(--motion-base) var(--ease-out-quart), transform var(--motion-base) var(--ease-out-quart); }
-  .dropdown-menu.show { animation: rise var(--motion-base) var(--ease-out-quart); }
+  /* Multi-select dropdown menu open polish.
+     IMPORTANT: opacity-only — DO NOT animate transform here. Bootstrap uses
+     Popper.js to position dropdowns via inline transform, so any CSS-driven
+     transform on .dropdown-menu (or any of its non-static ancestors) will
+     fight Popper and the menu lands at the wrong coordinates / appears cut. */
+  .dropdown-menu.show { animation: fade-in var(--motion-base) var(--ease-out-quart); }
 
   /* Modal polish — slower open, faster close. Mirrors Bootstrap's class flow. */
   .modal.fade .modal-dialog { transition: transform var(--motion-medium) var(--ease-out-expo), opacity var(--motion-medium) var(--ease-out-expo); transform: translateY(20px) scale(0.97); opacity: 0; }
@@ -162,7 +165,10 @@
   @media (prefers-reduced-motion: no-preference) {
     nav.navbar             { animation: rise var(--motion-large) var(--ease-out-expo) 0ms   both; }
     .row.g-3.mb-3          { animation: rise var(--motion-large) var(--ease-out-expo) 80ms  both; }
-    .filters-card          { animation: rise var(--motion-large) var(--ease-out-expo) 160ms both; }
+    /* fade-in (no transform) — the .filters-card hosts the multi-select
+       dropdowns; a leftover transform on this element would create a new
+       positioning context and break Popper.js for the descendant menus. */
+    .filters-card          { animation: fade-in var(--motion-large) var(--ease-out-expo) 160ms both; }
     table.dash             { animation: fade-scale var(--motion-xl) var(--ease-out-expo) 240ms both; }
     /* Stat-card stagger within the .row.g-3 wrapper */
     .row.g-3.mb-3 > [class*="col-"]:nth-child(1) .stat-card { animation: rise var(--motion-large) var(--ease-out-expo) 120ms both; }
@@ -412,7 +418,6 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script src="auctions.js"></script>
 <script>
 (function () {
@@ -598,28 +603,44 @@
   const auctions = data.auctions.map(a => {
     const d = parseEndDate(a.endDate || a.announcementEnd);
     const det = a.details || {};
+    const governorate = det['المحافظة'] || '';
+    const directorate = det['المديرية'] || '';
+    const village     = det['القرية']   || '';
+    const basin       = det['الحوض']    || '';
+    const vehicleType = det['نوع المركبة'] || '';
     // "New" = first seen by our scraper OR published date is within the last
     // NEW_THRESHOLD_DAYS. firstSeenAt is the authoritative source when set;
     // publishedAt is a fallback for rows scraped before that field existed.
     const newAnchor = parseEndDate(a.firstSeenAt) || parseEndDate(a.publishedAt);
     const ageMs = newAnchor ? (nowEnrichMs - newAnchor.getTime()) : null;
     const endMs = d ? d.getTime() : null;
+    const lastSeenMs = a.lastSeenInListingAt ? Date.parse(a.lastSeenInListingAt) : NaN;
+    const searchText = [
+      a.id, a.category, a.header, a.court, a.caseNumber, a.status,
+      a.newspaper, a.notes, a.announcement, governorate, directorate,
+      village, basin, vehicleType,
+    ].concat(Object.values(det)).join(' ').toLowerCase();
     return Object.assign({}, a, {
       _endDateMs: endMs,
       _daysLeftMs: d ? (d.getTime() - Date.now()) : null,
       _isNew: ageMs !== null && ageMs >= 0 && ageMs <= NEW_THRESHOLD_MS,
       _endsToday: endMs !== null && endMs >= todayStartMs && endMs < todayEndMs,
+      _lastSeenMs: Number.isFinite(lastSeenMs) ? lastSeenMs : null,
+      _searchText: searchText,
       startingAmountNum: num(a.startingAmount),
       estimatedValueNum: num(a.estimatedValue),
       currentAmountNum: num(a.currentAmount),
       numBidsNum: num(a.numBids) || 0,
-      governorate: det['المحافظة'] || '',
-      directorate: det['المديرية'] || '',
-      village:     det['القرية']   || '',
-      basin:       det['الحوض']    || '',
-      vehicleType: det['نوع المركبة'] || '',   // only populated for مركبة rows
+      governorate,
+      directorate,
+      village,
+      basin,
+      vehicleType,   // only populated for مركبة rows
     });
   });
+  const auctionById = new Map(auctions.map(a => [Number(a.id), a]));
+  const REAL_ESTATE_CATEGORIES = new Set(['أرض/ مجمع', 'شقة/ مكتب']);
+  const isRealEstateAuction = (a) => REAL_ESTATE_CATEGORIES.has(a.category);
 
   // ---- Meta ----
   // Prefer the orchestrator's lastRunAt (stamped every successful run) over
@@ -678,6 +699,8 @@
   // ---- Stats ----
   // Pre-compute the canonical category list (in the order the source provides them)
   const allCategoryNames = (data.categories || []).map(c => c.name);
+  const vehCategoryName = allCategoryNames.find(name => String(name || '').includes('مركبة'));
+  const ACTIVE_SEEN_WINDOW_MS = 48 * 3600 * 1000;
 
   // Pre-compute dataset-wide totals (independent of any filter): active vs total per category.
   // "active" = endDate in the future (or unknown). These numbers don't change as filters move.
@@ -768,10 +791,18 @@
     });
   };
   const getVals = (id) => [...document.getElementById(id).selectedOptions].map(o => o.value).filter(v => v !== '');
+  let lastLocationCascadeKey = null;
   const refreshLocationCascade = () => {
     // Use the union of all selected governorates as the basis for directorates,
     // and so on down the chain. Empty selection = no constraint (= all).
     const govs = getVals('govFilter');
+    const cascadeKey = [
+      govs.join('\u001f'),
+      getVals('dirFilter').join('\u001f'),
+      getVals('villageFilter').join('\u001f'),
+    ].join('\u001e');
+    if (cascadeKey === lastLocationCascadeKey) return;
+
     const dirBasis = auctions.filter(a => !govs.length || govs.includes(a.governorate));
     populateFilterFrom('dirFilter', a => a.directorate, dirBasis);
 
@@ -788,19 +819,23 @@
       const w = window._msWidgets && window._msWidgets[id];
       if (w) w.refresh();
     });
+    lastLocationCascadeKey = [
+      getVals('govFilter').join('\u001f'),
+      getVals('dirFilter').join('\u001f'),
+      getVals('villageFilter').join('\u001f'),
+    ].join('\u001e');
   };
 
   // ---- Filtering ----
   let sortKey = '_endDateMs'; let sortDir = 1; // ascending = soonest first
 
-  const matches = (a, q) => {
-    if (!q) return true;
-    const haystack = [
-      a.id, a.category, a.header, a.court, a.caseNumber, a.status,
-      a.newspaper, a.notes, a.announcement, a.vehicleType
-    ].concat(Object.values(a.details || {})).join(' ').toLowerCase();
-    return q.split(/\s+/).every(t => haystack.includes(t));
+  const selectedSet = (id) => {
+    const vals = getVals(id);
+    return vals.length ? new Set(vals) : null;
   };
+  const selectedHas = (set, value) => !set || set.has(value || '');
+  const searchTerms = (q) => q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  const matches = (a, terms) => terms.length === 0 || terms.every(t => a._searchText.includes(t));
 
   const apply = () => {
     // Before reading filter values, rebuild dir/village/basin option lists to match
@@ -808,27 +843,21 @@
     // selections that no longer exist within the new scope.
     refreshLocationCascade();
 
-    const q = document.getElementById('searchInput').value.trim().toLowerCase();
-    const cats    = getVals('categoryFilter');
-    const courts  = getVals('courtFilter');
-    const govs    = getVals('govFilter');
-    const dirs    = getVals('dirFilter');
-    const vils    = getVals('villageFilter');
-    const bsns    = getVals('basinFilter');
-    const anns    = getVals('announcementFilter');
-    const vtypes  = getVals('vehicleTypeFilter');
+    const terms = searchTerms(document.getElementById('searchInput').value);
+    const cats    = selectedSet('categoryFilter');
+    const courts  = selectedSet('courtFilter');
+    const govs    = selectedSet('govFilter');
+    const dirs    = selectedSet('dirFilter');
+    const vils    = selectedSet('villageFilter');
+    const bsns    = selectedSet('basinFilter');
+    const anns    = selectedSet('announcementFilter');
+    const vtypes  = selectedSet('vehicleTypeFilter');
     const estRanges = getVals('estValueFilter');     // multi-range OR
 
     // Show/hide the "نوع المركبة" column + filter based on whether any vehicle
     // category is in scope. When no category is selected (all visible) or
     // when مركبة is one of the selected categories, the column is shown.
-    const vehCategoryName = (data.categories || []).find(c =>
-      Array.from(c.name).some(ch => ch.charCodeAt(0) === 1605) &&
-      Array.from(c.name).some(ch => ch.charCodeAt(0) === 1585) &&
-      Array.from(c.name).some(ch => ch.charCodeAt(0) === 1603) &&
-      Array.from(c.name).some(ch => ch.charCodeAt(0) === 1576)
-    )?.name;
-    const showVehCol = (cats.length === 0) || (vehCategoryName && cats.includes(vehCategoryName));
+    const showVehCol = !cats || (vehCategoryName && cats.has(vehCategoryName));
     // Toggle a class on the table + filter card. CSS handles the actual hiding,
     // so the rule still works after apply() re-renders the table body.
     const tbl = document.getElementById('auctionTable');
@@ -861,22 +890,22 @@
       // Falls back to endDate-in-future for any row the scraper hasn't yet
       // stamped, so older data continues to filter correctly until refresh.
       (!hideExpired || (
-        (a.lastSeenInListingAt && (nowMs - Date.parse(a.lastSeenInListingAt) < 48 * 3600 * 1000)) ||
-        (!a.lastSeenInListingAt && (a._endDateMs == null || a._endDateMs > nowMs))
+        (a._lastSeenMs !== null && (nowMs - a._lastSeenMs < ACTIVE_SEEN_WINDOW_MS)) ||
+        (a._lastSeenMs === null && (a._endDateMs == null || a._endDateMs > nowMs))
       )) &&
       (!favOnly || isFav(a.id)) &&
       (!newOnly || a._isNew) &&
       (!endingToday || a._endsToday) &&
-      (!cats.length    || cats.includes(a.category)) &&
-      (!courts.length  || courts.includes(a.court)) &&
-      (!govs.length    || govs.includes(a.governorate)) &&
-      (!dirs.length    || dirs.includes(a.directorate)) &&
-      (!vils.length    || vils.includes(a.village)) &&
-      (!bsns.length    || bsns.includes(a.basin)) &&
-      (!anns.length    || anns.includes(a.announcement)) &&
-      (!vtypes.length  || vtypes.includes(a.vehicleType)) &&
+      selectedHas(cats, a.category) &&
+      selectedHas(courts, a.court) &&
+      selectedHas(govs, a.governorate) &&
+      selectedHas(dirs, a.directorate) &&
+      selectedHas(vils, a.village) &&
+      selectedHas(bsns, a.basin) &&
+      selectedHas(anns, a.announcement) &&
+      selectedHas(vtypes, a.vehicleType) &&
       (!estRanges.length || inAnyRange(a.estimatedValueNum)) &&
-      matches(a, q)
+      matches(a, terms)
     );
 
     // Sort
@@ -902,6 +931,16 @@
     renderTable(rows);
     document.getElementById('resultCount').textContent = `عرض ${rows.length} من أصل ${auctions.length} مزاد`;
     window._currentRows = rows;
+  };
+
+  let applyQueued = false;
+  const scheduleApply = () => {
+    if (applyQueued) return;
+    applyQueued = true;
+    requestAnimationFrame(() => {
+      applyQueued = false;
+      apply();
+    });
   };
 
   // ---- Render ----
@@ -965,7 +1004,7 @@
     const tr = e.target.closest('tr.row-clickable');
     if (!tr) return;
     const id = +tr.getAttribute('data-id');
-    const a = auctions.find(x => x.id === id);
+    const a = auctionById.get(id);
     if (!a) return;
     openAuctionModal(a);
   });
@@ -977,7 +1016,7 @@
     if (!link) return;
     e.preventDefault();
     const sid = +link.getAttribute('data-id');
-    const sa = auctions.find(x => x.id === sid);
+    const sa = auctionById.get(sid);
     if (sa) openAuctionModal(sa);
   });
 
@@ -1178,33 +1217,40 @@
     document.getElementById('loadDetailsBtn').disabled = false;
     document.getElementById('loadDetailsBtn').textContent = '⤓ صور + تقرير الخبرة';
 
-    // Map buttons: hide DLS button if we don't have parcel-locating fields; set Google Maps URL
+    // Map buttons: show location only for real-estate auction types.
     const det = a.details || {};
     const parcelNo = det['رقم القطعة'];
     const dlsBits = [a.governorate, a.directorate, a.village, a.basin, parcelNo].filter(Boolean);
     const dlsBtn = document.getElementById('dlsMapBtn');
-    if (dlsBits.length >= 3) {
+    const gmapsBtn = document.getElementById('gmapsBtn');
+    const mapWrap = document.getElementById('detailMapWrap');
+    const canShowLocation = isRealEstateAuction(a);
+    if (canShowLocation && dlsBits.length >= 3) {
       dlsBtn.style.display = '';
       dlsBtn.dataset.copyText = dlsBits.join(' | ');
     } else {
       dlsBtn.style.display = 'none';
+      dlsBtn.dataset.copyText = '';
     }
-    const gmapsParts = [a.governorate, a.directorate, a.village, a.basin ? 'حوض ' + a.basin : '', 'الأردن'].filter(Boolean);
-    document.getElementById('gmapsBtn').href = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(gmapsParts.join(' '));
+    gmapsBtn.style.display = 'none';
+    gmapsBtn.removeAttribute('href');
 
-    // Map: try to geocode the village/area via Nominatim and show on Leaflet
-    showMapForAuction(a);
+    if (canShowLocation) {
+      showMapForAuction(a);
+    } else {
+      if (mapWrap) mapWrap.style.display = 'none';
+      clearMapLayer();
+    }
 
     new bootstrap.Modal(document.getElementById('detailModal')).show();
   }
 
-  // ==== Map (Leaflet + aradi.io exact-parcel lookup, with Nominatim fallback) ====
+  // ==== Map (Leaflet + aradi.io exact-parcel lookup) ====
   let _leafletMap = null;
   let _leafletLayer = null;
-  const GEO_CACHE_KEY = 'mojAuctions.geoCache';
-  let geoCache;
-  try { geoCache = JSON.parse(localStorage.getItem(GEO_CACHE_KEY) || '{}'); } catch { geoCache = {}; }
-  const saveGeoCache = () => { try { localStorage.setItem(GEO_CACHE_KEY, JSON.stringify(geoCache)); } catch {} };
+  let _leafletAssetsPromise = null;
+  const LEAFLET_CSS_URL = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+  const LEAFLET_JS_URL = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
 
   // --- aradi.io: free public DLS code/name index + plot polygon API (no auth) ---
   const ARADI_BASE = 'https://cdn.aradi.io/json/2019-12-25/indices';
@@ -1265,26 +1311,35 @@
     return null;
   }
 
-  async function geocode(query) {
-    if (geoCache[query]) return geoCache[query];
-    try {
-      const url = 'https://nominatim.openstreetmap.org/search?format=json&limit=1&accept-language=ar&q=' + encodeURIComponent(query);
-      const r = await fetch(url, { headers: { 'Accept': 'application/json' } });
-      const arr = await r.json();
-      if (Array.isArray(arr) && arr.length) {
-        const hit = { lat: parseFloat(arr[0].lat), lon: parseFloat(arr[0].lon), name: arr[0].display_name };
-        geoCache[query] = hit;
-        saveGeoCache();
-        return hit;
-      }
-    } catch {}
-    geoCache[query] = null;
-    saveGeoCache();
-    return null;
+  function loadLeafletAssets() {
+    if (window.L) return Promise.resolve();
+    if (_leafletAssetsPromise) return _leafletAssetsPromise;
+
+    if (!document.querySelector(`link[href="${LEAFLET_CSS_URL}"]`)) {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = LEAFLET_CSS_URL;
+      link.crossOrigin = '';
+      document.head.appendChild(link);
+    }
+
+    _leafletAssetsPromise = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = LEAFLET_JS_URL;
+      script.crossOrigin = '';
+      script.onload = () => resolve();
+      script.onerror = () => {
+        _leafletAssetsPromise = null;
+        reject(new Error('Leaflet failed to load'));
+      };
+      document.head.appendChild(script);
+    });
+    return _leafletAssetsPromise;
   }
 
-  function ensureMap() {
+  async function ensureMap() {
     if (_leafletMap) return;
+    await loadLeafletAssets();
     _leafletMap = L.map('detailMap', { zoomControl: true, attributionControl: true });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
@@ -1296,10 +1351,87 @@
   async function showMapForAuction(a) {
     const wrap = document.getElementById('detailMapWrap');
     const note = document.getElementById('detailMapNote');
+    const mapEl = document.getElementById('detailMap');
+    if (!wrap || !note || !mapEl || !isRealEstateAuction(a)) {
+      if (wrap) wrap.style.display = 'none';
+      clearMapLayer();
+      return;
+    }
+
+    const parcelNo = (a.details || {})['رقم القطعة'];
+    if (!a.governorate || !a.directorate || !a.village || !a.basin || !parcelNo) {
+      clearMapLayer();
+      wrap.style.display = '';
+      mapEl.style.display = 'none';
+      note.textContent = 'لا توجد بيانات قطعة كافية لعرض موقع دقيق عبر aradi.io.';
+      return;
+    }
+
+    wrap.style.display = '';
+    mapEl.style.display = 'none';
+    note.textContent = 'جاري مطابقة القطعة عبر aradi.io...';
+    clearMapLayer();
+
+    try {
+      const idx = await loadAradiIndex();
+      const codes = lookupAradiCodes(a, idx);
+      const plot = codes ? await fetchAradiPlot(codes) : null;
+      if (!codes || !plot) {
+        note.textContent = 'تعذر مطابقة حدود القطعة عبر aradi.io. استخدم زر دائرة الأراضي للتحقق اليدوي.';
+        return;
+      }
+
+      note.textContent = 'جاري تحميل الخريطة...';
+      try {
+        await ensureMap();
+      } catch (err) {
+        note.textContent = 'تم العثور على القطعة، لكن تعذر تحميل الخريطة.';
+        return;
+      }
+
+      mapEl.style.display = '';
+      const props = plot.properties || {};
+      _leafletLayer = L.geoJSON(plot, {
+        style: { color:'#B73E3E', weight:3, fillColor:'#C9A961', fillOpacity:0.28 }
+      }).addTo(_leafletMap);
+      _leafletLayer.bindPopup(
+        `<div dir="rtl" style="text-align:right">
+           <strong>حدود القطعة</strong><br>
+           القرية: ${escapeHtml(props.village_name || codes.villageName || '')}<br>
+           الحوض: ${escapeHtml(props.hod_name || codes.blockName || '')}<br>
+           محافظة: ${escapeHtml(props.district_name || '')}<br>
+           المساحة: ${(props.area || 0).toLocaleString('en-US', {maximumFractionDigits:0})} م²<br>
+           DLS Key: <code>${escapeHtml(props.dls_key || '')}</code>
+         </div>`
+      ).openPopup();
+      const b = _leafletLayer.getBounds();
+      _leafletMap.fitBounds(b.pad(0.5));
+      const c = b.getCenter();
+      const gmapExact = `https://www.google.com/maps/place/${c.lat},${c.lng}/@${c.lat},${c.lng},19z/data=!3m1!1e3`;
+      note.innerHTML = `🎯 الحدود الفعلية للقطعة من aradi.io (المساحة ${(props.area||0).toLocaleString('en-US',{maximumFractionDigits:0})} م²) · ` +
+        `<a href="${gmapExact}" target="_blank" rel="noopener">Google Maps (satellite)</a>`;
+      const gmapsBtn = document.getElementById('gmapsBtn');
+      if (gmapsBtn) {
+        gmapsBtn.style.display = '';
+        gmapsBtn.href = gmapExact;
+      }
+      setTimeout(() => { try { _leafletMap.invalidateSize(); } catch {} }, 300);
+      return;
+    } catch (err) {
+      note.textContent = 'تعذر جلب حدود القطعة من aradi.io الآن. استخدم زر دائرة الأراضي للتحقق اليدوي.';
+      return;
+    }
+
     if (!a.governorate && !a.village) { wrap.style.display = 'none'; return; }
     wrap.style.display = '';
+    note.textContent = 'جاري تحميل الخريطة...';
+    try {
+      await ensureMap();
+    } catch (err) {
+      note.textContent = 'تعذر تحميل الخريطة. افتح Google Maps من الزر أعلاه.';
+      return;
+    }
     note.textContent = 'يتم تحديد الموقع...';
-    ensureMap();
     clearMapLayer();
 
     // 1) Try aradi.io exact-parcel polygon
@@ -1632,7 +1764,7 @@
   multiIds.forEach(id => setupMultiSelect(id, 'الكل'));
 
   // Filter inputs (search is plain text; the rest fire `change` from the widget)
-  document.getElementById('searchInput').addEventListener('input', apply);
+  document.getElementById('searchInput').addEventListener('input', scheduleApply);
   multiIds.forEach(id => {
     document.getElementById(id).addEventListener('change', apply);
   });
@@ -1874,7 +2006,7 @@
   };
 
   const applyBidUpdate = (id, currentAmount, numBids) => {
-    const a = auctions.find(x => x.id === id);
+    const a = auctionById.get(id);
     if (!a) return false;
     let changed = false;
     if (currentAmount !== a.currentAmountNum && Number.isFinite(currentAmount)) {
