@@ -349,6 +349,13 @@ function Save-All([bool]$inProgress = $true) {
   Save-Progress $jsonPath $jsPath $payload
 }
 
+# Track every auction ID we actually see on MoJ during this run, across all
+# categories. After the walk, we stamp auction.inListing=true on these IDs
+# and inListing=false on anything else still in our DB. The dashboard's
+# "active" filter uses this, since endDate gets stale on re-announcements
+# but presence on the listing is the source of truth.
+$inListingIds = New-Object 'System.Collections.Generic.HashSet[int]'
+
 foreach ($cat in $categories) {
   if ($OnlyCategory -and ($cat.name -notmatch $OnlyCategory)) {
     Write-Host ("Skipping category (filter): {0}" -f $cat.name) -ForegroundColor DarkGray
@@ -392,6 +399,8 @@ foreach ($cat in $categories) {
       $updatedCount = 0
       foreach ($it in $items) {
         $itId = [int]$it.id
+        # Mark this ID as seen on MoJ during this run (whether new or known).
+        [void]$inListingIds.Add($itId)
         if (-not $seen.Contains($itId)) {
           # Stamp the moment WE first saw this auction (ISO-8601 UTC). Drives
           # the "🆕 جديد" badge in the dashboard. Set on creation only; never
@@ -577,6 +586,28 @@ foreach ($cat in $categories) {
 
   Save-All $true
   Write-Host ("  [saved] {0} auctions written so far" -f $all.Count) -ForegroundColor DarkGray
+}
+
+# Stamp inListing on every auction: TRUE if MoJ showed it during this walk,
+# FALSE otherwise. The dashboard's "active" filter switches off endDate (which
+# stays stale on re-announcement) to this field. Only stamp if we actually
+# completed enough of a walk to call the data meaningful — if we touched
+# very few categories due to early bail, don't trash the flag for everyone.
+if ($inListingIds.Count -gt 50) {
+  $listed   = 0
+  $unlisted = 0
+  foreach ($a in $all) {
+    $present = $inListingIds.Contains([int]$a.id)
+    if ($present) { $listed++ } else { $unlisted++ }
+    if ($a.PSObject.Properties.Match('inListing').Count) {
+      $a.inListing = $present
+    } else {
+      $a | Add-Member -MemberType NoteProperty -Name 'inListing' -Value $present -Force
+    }
+  }
+  Write-Host ("inListing flagged: {0} present on MoJ, {1} no longer listed" -f $listed, $unlisted) -ForegroundColor Cyan
+} else {
+  Write-Host ("inListing flagging skipped — only saw {0} IDs (run was too short to trust)" -f $inListingIds.Count) -ForegroundColor DarkYellow
 }
 
 Save-All $false

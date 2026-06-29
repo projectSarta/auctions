@@ -748,7 +748,14 @@
     };
 
     let rows = auctions.filter(a =>
-      (!hideExpired || a._endDateMs == null || a._endDateMs > nowMs) &&
+      // "Active" = present on MoJ's listing during the last scrape walk
+      // (a.inListing === true). Falls back to endDate-in-future for any row
+      // the scraper hasn't yet stamped, so older data continues to filter
+      // correctly until the next refresh.
+      (!hideExpired || (
+        (a.inListing === true) ||
+        (a.inListing === undefined && (a._endDateMs == null || a._endDateMs > nowMs))
+      )) &&
       (!favOnly || isFav(a.id)) &&
       (!newOnly || a._isNew) &&
       (!endingToday || a._endsToday) &&
