@@ -200,9 +200,20 @@ function Parse-Auctions([string]$html, [string]$category) {
       }
     }
 
+    # endDate: prefer the LIVE countdown deadline (3rd hidden input inside
+    # divCountDownVal). This is what MoJ's "باقي على انتهاء المزاد" uses, and
+    # it reflects re-announcements properly. The AuctionEndDateFormated_ span
+    # can stay stuck on the original deadline.
     $endDate = ''
-    $em = [regex]::Match($blk, 'id="AuctionEndDateFormated_' + $id + '"[^>]*>([^<]*)</span>')
-    if ($em.Success) { $endDate = $em.Groups[1].Value.Trim() }
+    $dcd = [regex]::Match($blk, '<div class="divCountDownVal">([\s\S]*?)</div>')
+    if ($dcd.Success) {
+      $inputVals = [regex]::Matches($dcd.Groups[1].Value, 'value="([^"]*)"') | ForEach-Object { $_.Groups[1].Value }
+      if ($inputVals.Count -ge 3) { $endDate = $inputVals[2].Trim() }
+    }
+    if (-not $endDate) {
+      $em = [regex]::Match($blk, 'id="AuctionEndDateFormated_' + $id + '"[^>]*>([^<]*)</span>')
+      if ($em.Success) { $endDate = $em.Groups[1].Value.Trim() }
+    }
 
     $numBids  = (([regex]::Match($blk, 'id="NumberOfBiddings_' + $id + '">([^<]*)')).Groups[1].Value).Trim()
     $startAmt = (([regex]::Match($blk, 'id="StartingAuctionAmount_' + $id + '">([^<]*)')).Groups[1].Value).Trim()
