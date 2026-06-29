@@ -7,47 +7,84 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <style>
-  body { font-family: 'Segoe UI', Tahoma, 'Arabic UI Text', sans-serif; background: #f4f6f9; }
+  /* ──── Color system: trust (navy) + desire (gold) + urgency (wine red) ──── */
+  :root {
+    --color-primary:        #1B3A57;   /* Court Navy   — banking trust + government authority */
+    --color-primary-deep:   #0E2438;   /* hero gradient end */
+    --color-primary-soft:   #EEF2F6;   /* navy tinted at 6% — table hover, modal th bg */
+    --color-gold:           #C9A961;   /* Treasury Gold — desire / value / opportunity */
+    --color-gold-deep:      #A88840;   /* hover/border for gold */
+    --color-gold-soft:      #FBF6E8;   /* gold tinted at 8% — pre-selected gold rows */
+    --color-red:            #B73E3E;   /* Hammer Red   — urgency / deadline / decision */
+    --color-red-deep:       #962E2E;   /* hover/border for red */
+    --color-red-soft:       #FBF2F2;   /* red tinted — row-new bg */
+    --color-bg:             #FAF8F4;   /* Parchment    — page bg */
+    --color-surface:        #FFFFFF;   /* Document     — cards, modals */
+    --color-border:         #E5DFD3;   /* Linen        — soft separators */
+    --color-success:        #3D7A6A;   /* Verdigris    — confirmations, live ON */
+    --color-success-soft:   #E6F0EC;   /* bid-flash up bg */
+    --color-info:           #4A6B85;
+    --text-primary:         #1A1F2E;   /* Ink          — headlines, key data */
+    --text-body:            #3D4859;   /* Slate        — paragraph text */
+    --text-muted:           #7B8499;   /* Stone        — labels, captions */
+    --text-tertiary:        #B8BEC9;   /* Mist         — placeholders, disabled */
+    --hero-gradient: linear-gradient(225deg, #1B3A57 0%, #0E2438 100%);
+    /* Bootstrap variable overrides — propagates the new palette to .btn-*, .bg-*, .text-*, badges, etc. */
+    --bs-primary: #1B3A57;
+    --bs-primary-rgb: 27,58,87;
+    --bs-danger: #B73E3E;
+    --bs-danger-rgb: 183,62,62;
+    --bs-warning: #C9A961;
+    --bs-warning-rgb: 201,169,97;
+    --bs-success: #3D7A6A;
+    --bs-success-rgb: 61,122,106;
+    --bs-info: #4A6B85;
+    --bs-info-rgb: 74,107,133;
+    --bs-body-color: #1A1F2E;
+    --bs-body-bg: #FAF8F4;
+    --bs-border-color: #E5DFD3;
+  }
+  body { font-family: 'Segoe UI', Tahoma, 'Arabic UI Text', sans-serif; background: var(--color-bg); color: var(--text-body); }
   .navbar-brand { font-weight: 700; }
-  .stat-card { border: none; box-shadow: 0 2px 6px rgba(0,0,0,.06); border-radius: 12px; }
-  .stat-card .stat-label { font-size: .85rem; color: #6c757d; }
-  .stat-card .stat-value { font-size: 1.6rem; font-weight: 700; color: #24485f; }
-  .filters-card { background: #fff; border: none; box-shadow: 0 2px 6px rgba(0,0,0,.04); border-radius: 12px; }
-  table.dash th { background: #24485f; color: #fff; font-weight: 600; white-space: nowrap; vertical-align: middle; cursor: pointer; user-select: none; }
+  .stat-card { border: none; box-shadow: 0 2px 6px rgba(0,0,0,.06); border-radius: 12px; background: var(--color-surface); }
+  .stat-card .stat-label { font-size: .85rem; color: var(--text-muted); }
+  .stat-card .stat-value { font-size: 1.6rem; font-weight: 700; color: var(--color-primary); }
+  .filters-card { background: var(--color-surface); border: none; box-shadow: 0 2px 6px rgba(0,0,0,.04); border-radius: 12px; }
+  table.dash th { background: var(--color-primary); color: #fff; font-weight: 600; white-space: nowrap; vertical-align: middle; cursor: pointer; user-select: none; }
   table.dash th .sort-ind { opacity: .5; font-size: .75rem; }
-  table.dash td { vertical-align: middle; }
+  table.dash td { vertical-align: middle; color: var(--text-body); }
   table.dash tr.row-clickable { cursor: pointer; }
-  table.dash tr.row-clickable:hover { background: #eef3f7; }
+  table.dash tr.row-clickable:hover { background: var(--color-primary-soft); }
   .badge-cat { font-size: .75rem; }
-  .thumb { width: 56px; height: 42px; object-fit: cover; border-radius: 4px; display: inline-block; vertical-align: middle; margin-left: .35rem; background: #eef3f7; }
-  .ending-soon { color: #c0392b; font-weight: 700; }
-  .ending-week { color: #d68910; font-weight: 600; }
+  .thumb { width: 56px; height: 42px; object-fit: cover; border-radius: 4px; display: inline-block; vertical-align: middle; margin-left: .35rem; background: var(--color-primary-soft); }
+  .ending-soon { color: var(--color-red); font-weight: 700; }
+  .ending-week { color: var(--color-gold-deep); font-weight: 600; }
   .header-cell { max-width: 360px; }
   .header-cell .header-text { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .modal-detail-table th { width: 40%; background: #f2f5f8; font-weight: 600; }
+  .modal-detail-table th { width: 40%; background: var(--color-primary-soft); color: var(--text-primary); font-weight: 600; }
   .modal-detail-table td, .modal-detail-table th { padding: .5rem .75rem; }
   .num { font-variant-numeric: tabular-nums; font-family: Consolas, 'Courier New', monospace; }
   .source-link { font-size: .85rem; }
-  #emptyState { display: none; padding: 4rem 1rem; text-align: center; color: #6c757d; }
+  #emptyState { display: none; padding: 4rem 1rem; text-align: center; color: var(--text-muted); }
   .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: .5rem; }
-  .gallery a { display: block; aspect-ratio: 4/3; overflow: hidden; border-radius: 6px; background: #eee; }
+  .gallery a { display: block; aspect-ratio: 4/3; overflow: hidden; border-radius: 6px; background: var(--color-border); }
   .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .15s; }
   .gallery img:hover { transform: scale(1.04); }
   .reports-list { display: flex; flex-direction: column; gap: .35rem; }
-  .reports-list a { padding: .5rem .75rem; border: 1px solid #d8e1ea; border-radius: 6px; text-decoration: none; background: #f8fafd; }
-  .reports-list a:hover { background: #eef3f7; }
-  .skeleton { height: 80px; background: linear-gradient(90deg, #eee 0%, #f6f6f6 50%, #eee 100%); background-size: 200% 100%; animation: shimmer 1.2s infinite; border-radius: 6px; }
+  .reports-list a { padding: .5rem .75rem; border: 1px solid var(--color-border); border-radius: 6px; text-decoration: none; background: var(--color-surface); color: var(--color-primary); }
+  .reports-list a:hover { background: var(--color-primary-soft); }
+  .skeleton { height: 80px; background: linear-gradient(90deg, var(--color-border) 0%, var(--color-bg) 50%, var(--color-border) 100%); background-size: 200% 100%; animation: shimmer 1.2s infinite; border-radius: 6px; }
   @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
   .refresh-toast { position: fixed; bottom: 1rem; left: 1rem; right: 1rem; max-width: 540px; margin: 0 auto; z-index: 2000; }
   #refreshBtn .spinner { display: none; width: 1rem; height: 1rem; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; vertical-align: middle; }
   #refreshBtn.is-running .spinner { display: inline-block; }
   @keyframes spin { to { transform: rotate(360deg); } }
   .fav-cell { width: 2rem; text-align: center; cursor: pointer; user-select: none; }
-  .fav-star { font-size: 1.25rem; color: #cbd5e0; transition: transform .1s, color .15s; }
-  .fav-star.is-fav { color: #f1c40f; }
+  .fav-star { font-size: 1.25rem; color: var(--text-tertiary); transition: transform .1s, color .15s; }
+  .fav-star.is-fav { color: var(--color-gold); }
   .fav-cell:hover .fav-star { transform: scale(1.2); }
-  #favOnlyBtn.active { background: #f1c40f !important; border-color: #d4ac0d !important; color: #24485f !important; font-weight: 700; }
-  #endingTodayBtn.active { background: #17a2b8 !important; border-color: #117a8b !important; color: #fff !important; font-weight: 700; }
+  #favOnlyBtn.active { background: var(--color-gold) !important; border-color: var(--color-gold-deep) !important; color: var(--color-primary) !important; font-weight: 700; }
+  #endingTodayBtn.active { background: var(--color-red) !important; border-color: var(--color-red-deep) !important; color: #fff !important; font-weight: 700; }
   /* Multi-select widget (hides the underlying <select>, shows a button-dropdown w/ checkboxes) */
   .ms-wrap { position: relative; }
   .ms-button { display: flex; align-items: center; }
@@ -57,30 +94,30 @@
   .ms-list .form-check { margin-bottom: 0; padding-block: .15rem; }
   .ms-list .form-check-label { cursor: pointer; }
   .ms-empty { color: #94a3b8; font-size: .85rem; padding: .5rem; text-align: center; }
-  /* "New" indicator — red dot + subtle row tint for listings added in the last few days */
-  .new-dot { display: inline-block; width: .55rem; height: .55rem; background: #dc3545; border-radius: 50%; margin-inline-end: .35rem; vertical-align: middle; box-shadow: 0 0 0 0 rgba(220,53,69,.6); animation: newPulse 1.8s infinite; }
-  @keyframes newPulse { 0% { box-shadow: 0 0 0 0 rgba(220,53,69,.55); } 70% { box-shadow: 0 0 0 .35rem rgba(220,53,69,0); } 100% { box-shadow: 0 0 0 0 rgba(220,53,69,0); } }
-  tr.row-new { background: #fff8f8; }
-  tr.row-new:hover { background: #fef0f0 !important; }
-  #newOnlyBtn.active { background:#dc3545 !important; border-color:#c82333 !important; color:#fff !important; font-weight:700; }
+  /* "New" indicator — Hammer Red dot + subtle row tint for listings added in the last few days */
+  .new-dot { display: inline-block; width: .55rem; height: .55rem; background: var(--color-red); border-radius: 50%; margin-inline-end: .35rem; vertical-align: middle; box-shadow: 0 0 0 0 rgba(183,62,62,.6); animation: newPulse 1.8s infinite; }
+  @keyframes newPulse { 0% { box-shadow: 0 0 0 0 rgba(183,62,62,.55); } 70% { box-shadow: 0 0 0 .35rem rgba(183,62,62,0); } 100% { box-shadow: 0 0 0 0 rgba(183,62,62,0); } }
+  tr.row-new { background: var(--color-red-soft); }
+  tr.row-new:hover { background: #F4E4E4 !important; }
+  #newOnlyBtn.active { background: var(--color-red) !important; border-color: var(--color-red-deep) !important; color:#fff !important; font-weight:700; }
   /* Vehicle-type column visibility: toggled by adding/removing .hide-vehicle-col
      on the <table> (and on the filters container) so the rule applies to cells
      re-rendered later by apply() too. */
   table.hide-vehicle-col .col-vehicle-type,
   .filters-card.hide-vehicle-col .col-vehicle-type { display: none !important; }
-  /* Live bid flash — cells that changed in the last poll briefly glow green/red */
-  @keyframes bidFlashUp   { 0% { background:#c8f5d0; } 100% { background:transparent; } }
-  @keyframes bidFlashDown { 0% { background:#f9d6d6; } 100% { background:transparent; } }
+  /* Live bid flash — cells that changed in the last poll briefly glow Verdigris (up) / Hammer Red (down) */
+  @keyframes bidFlashUp   { 0% { background: var(--color-success-soft); } 100% { background: transparent; } }
+  @keyframes bidFlashDown { 0% { background: var(--color-red-soft);     } 100% { background: transparent; } }
   .bid-flash-up   { animation: bidFlashUp 1.6s ease-out; }
   .bid-flash-down { animation: bidFlashDown 1.6s ease-out; }
-  #liveBtn.live-on { background:#28a745 !important; border-color:#28a745 !important; color:#fff !important; }
+  #liveBtn.live-on { background: var(--color-success) !important; border-color: var(--color-success) !important; color:#fff !important; }
   #liveBtn.live-on .live-dot { display:inline-block; width:.55rem; height:.55rem; background:#fff; border-radius:50%; margin-inline-end:.4rem; animation: livePulse 1.2s infinite; vertical-align:middle; }
   @keyframes livePulse { 0%,100% { opacity:1; } 50% { opacity:.3; } }
 </style>
 </head>
 <body>
 
-<nav class="navbar navbar-dark" style="background:#24485f">
+<nav class="navbar navbar-dark" style="background: var(--hero-gradient); box-shadow: 0 2px 8px rgba(14,36,56,.15);">
   <div class="container-fluid">
     <span class="navbar-brand">⚖️ لوحة المزادات الإلكترونية - وزارة العدل الأردنية</span>
     <div class="d-flex align-items-center gap-3">
@@ -602,11 +639,11 @@
           label: name,
           value: `${active.toLocaleString('en-US')} / ${totalInSet.toLocaleString('en-US')}`,
           sub: 'نشط / المجموع',
-          color: '#24485f',
+          color: 'var(--color-primary)',
         };
       }),
-      { label: 'تنتهي خلال 24 ساعة', value: endingSoon.toLocaleString('en-US'), color: '#c0392b' },
-      { label: 'تنتهي خلال أسبوع',   value: endingWeek.toLocaleString('en-US'), color: '#d68910' },
+      { label: 'تنتهي خلال 24 ساعة', value: endingSoon.toLocaleString('en-US'), color: 'var(--color-red)' },
+      { label: 'تنتهي خلال أسبوع',   value: endingWeek.toLocaleString('en-US'), color: 'var(--color-gold-deep)' },
     ];
     document.getElementById('statsRow').innerHTML = cards.map(c =>
       `<div class="col-md col-6"><div class="card stat-card p-3 h-100">
@@ -1027,7 +1064,7 @@
         sharedBox.innerHTML =
           'ℹ هذا اللوط جزء من قضية تنفيذية تحوي <strong>' + sibs.length + ' لوطات</strong> ' +
           '(' + escapeHtml(a.caseNumber || '') + '). كل لوط له <em>تقرير خبرة</em> خاص به.' +
-          '<table class="table table-sm mt-2 mb-0" style="background:#fffaf0">' +
+          '<table class="table table-sm mt-2 mb-0" style="background: var(--color-gold-soft)">' +
           '<thead><tr><th>رقم المزاد</th><th>قطعة/نوع</th><th>الحوض/الموقع</th><th>المساحة/سنة</th></tr></thead>' +
           '<tbody>' + rows + '</tbody></table>';
         sharedBox.classList.remove('d-none');
@@ -1201,7 +1238,7 @@
       const plot = codes ? await fetchAradiPlot(codes) : null;
       if (plot) {
         _leafletLayer = L.geoJSON(plot, {
-          style: { color: '#c0392b', weight: 3, fillColor: '#e74c3c', fillOpacity: 0.25 }
+          style: { color: '#B73E3E', weight: 3, fillColor: '#B73E3E', fillOpacity: 0.20 }
         }).addTo(_leafletMap);
         const props = plot.properties || {};
         _leafletLayer.bindPopup(
