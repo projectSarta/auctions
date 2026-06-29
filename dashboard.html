@@ -43,6 +43,17 @@
     --bs-body-color: #1A1F2E;
     --bs-body-bg: #FAF8F4;
     --bs-border-color: #E5DFD3;
+    /* ──── Motion system: timing + easing tokens ──── */
+    --motion-fast:    120ms;   /* hover tint, focus ring */
+    --motion-base:    220ms;   /* button press, checkbox, tooltip */
+    --motion-medium:  360ms;   /* card hover, dropdown, modal backdrop */
+    --motion-large:   520ms;   /* section entrance, hero text reveal */
+    --motion-xl:      720ms;   /* hero / first-paint orchestration */
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);       /* decel — repeat interactions */
+    --ease-in-quart:  cubic-bezier(0.5, 0, 0.75, 0);       /* accel — exits */
+    --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);       /* premium entrances */
+    --ease-standard:  cubic-bezier(0.4, 0, 0.2, 1);        /* Material-style safe default */
+    --ease-back-out:  cubic-bezier(0.34, 1.56, 0.64, 1);   /* subtle overshoot — selections only */
   }
   body { font-family: 'Segoe UI', Tahoma, 'Arabic UI Text', sans-serif; background: var(--color-bg); color: var(--text-body); }
   .navbar-brand { font-weight: 700; }
@@ -53,8 +64,10 @@
   table.dash th { background: var(--color-primary); color: #fff; font-weight: 600; white-space: nowrap; vertical-align: middle; cursor: pointer; user-select: none; }
   table.dash th .sort-ind { opacity: .5; font-size: .75rem; }
   table.dash td { vertical-align: middle; color: var(--text-body); }
-  table.dash tr.row-clickable { cursor: pointer; }
+  table.dash tr.row-clickable { cursor: pointer; transition: background-color var(--motion-base) var(--ease-out-quart); }
   table.dash tr.row-clickable:hover { background: var(--color-primary-soft); }
+  table.dash tr.row-clickable .thumb { transition: transform var(--motion-medium) var(--ease-out-quart); }
+  table.dash tr.row-clickable:hover .thumb { transform: scale(1.06); }
   .badge-cat { font-size: .75rem; }
   .thumb { width: 56px; height: 42px; object-fit: cover; border-radius: 4px; display: inline-block; vertical-align: middle; margin-left: .35rem; background: var(--color-primary-soft); }
   .ending-soon { color: var(--color-red); font-weight: 700; }
@@ -73,16 +86,17 @@
   .reports-list { display: flex; flex-direction: column; gap: .35rem; }
   .reports-list a { padding: .5rem .75rem; border: 1px solid var(--color-border); border-radius: 6px; text-decoration: none; background: var(--color-surface); color: var(--color-primary); }
   .reports-list a:hover { background: var(--color-primary-soft); }
-  .skeleton { height: 80px; background: linear-gradient(90deg, var(--color-border) 0%, var(--color-bg) 50%, var(--color-border) 100%); background-size: 200% 100%; animation: shimmer 1.2s infinite; border-radius: 6px; }
+  .skeleton { height: 80px; background: linear-gradient(100deg, var(--color-border) 30%, var(--color-bg) 50%, var(--color-border) 70%); background-size: 200% 100%; animation: shimmer 1.6s linear infinite; border-radius: 6px; }
   @keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
   .refresh-toast { position: fixed; bottom: 1rem; left: 1rem; right: 1rem; max-width: 540px; margin: 0 auto; z-index: 2000; }
   #refreshBtn .spinner { display: none; width: 1rem; height: 1rem; border: 2px solid currentColor; border-top-color: transparent; border-radius: 50%; animation: spin 1s linear infinite; vertical-align: middle; }
   #refreshBtn.is-running .spinner { display: inline-block; }
   @keyframes spin { to { transform: rotate(360deg); } }
   .fav-cell { width: 2rem; text-align: center; cursor: pointer; user-select: none; }
-  .fav-star { font-size: 1.25rem; color: var(--text-tertiary); transition: transform .1s, color .15s; }
+  .fav-star { font-size: 1.25rem; color: var(--text-tertiary); transition: transform var(--motion-base) var(--ease-back-out), color var(--motion-base) var(--ease-out-quart); }
   .fav-star.is-fav { color: var(--color-gold); }
   .fav-cell:hover .fav-star { transform: scale(1.2); }
+  .fav-cell:active .fav-star { transform: scale(0.92); transition-duration: 80ms; }
   #favOnlyBtn.active { background: var(--color-gold) !important; border-color: var(--color-gold-deep) !important; color: var(--color-primary) !important; font-weight: 700; }
   #endingTodayBtn.active { background: var(--color-red) !important; border-color: var(--color-red-deep) !important; color: #fff !important; font-weight: 700; }
   /* Multi-select widget (hides the underlying <select>, shows a button-dropdown w/ checkboxes) */
@@ -105,13 +119,69 @@
      re-rendered later by apply() too. */
   table.hide-vehicle-col .col-vehicle-type,
   .filters-card.hide-vehicle-col .col-vehicle-type { display: none !important; }
-  /* Live bid flash — cells that changed in the last poll briefly glow Verdigris (up) / Hammer Red (down) */
-  @keyframes bidFlashUp   { 0% { background: var(--color-success-soft); } 100% { background: transparent; } }
-  @keyframes bidFlashDown { 0% { background: var(--color-red-soft);     } 100% { background: transparent; } }
-  .bid-flash-up   { animation: bidFlashUp 1.6s ease-out; }
-  .bid-flash-down { animation: bidFlashDown 1.6s ease-out; }
+  /* Live bid flash — pulse-once: brief tint + subtle 1.5% scale, then decay to neutral */
+  @keyframes bidFlashUp   { 0% { background: var(--color-success-soft); transform: scale(1); } 20% { transform: scale(1.015); } 100% { background: transparent; transform: scale(1); } }
+  @keyframes bidFlashDown { 0% { background: var(--color-red-soft);     transform: scale(1); } 20% { transform: scale(1.015); } 100% { background: transparent; transform: scale(1); } }
+  .bid-flash-up   { animation: bidFlashUp   1.4s var(--ease-out-quart); }
+  .bid-flash-down { animation: bidFlashDown 1.4s var(--ease-out-quart); }
   #liveBtn.live-on { background: var(--color-success) !important; border-color: var(--color-success) !important; color:#fff !important; }
   #liveBtn.live-on .live-dot { display:inline-block; width:.55rem; height:.55rem; background:#fff; border-radius:50%; margin-inline-end:.4rem; animation: livePulse 1.2s infinite; vertical-align:middle; }
+
+  /* ──── Motion layer: entrance + interaction polish ──── */
+  @keyframes rise        { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fade-scale  { from { opacity: 0; transform: scale(0.97);     } to { opacity: 1; transform: scale(1);     } }
+  @keyframes select-pop  { 0% { transform: scale(0.94); } 60% { transform: scale(1.04); } 100% { transform: scale(1); } }
+
+  /* Compound hover transitions */
+  .stat-card    { transition: transform var(--motion-medium) var(--ease-out-quart), box-shadow var(--motion-medium) var(--ease-out-quart); }
+  .stat-card:hover { transform: translateY(-2px); box-shadow: 0 1px 2px rgba(14,36,56,0.06), 0 12px 28px -12px rgba(14,36,56,0.22); }
+  .filters-card { transition: box-shadow var(--motion-medium) var(--ease-out-quart); }
+
+  /* Bootstrap .btn polish: subtle lift on hover, press-back on active. Press is 80ms so it feels instant. */
+  .btn { transition: background-color var(--motion-fast) var(--ease-out-quart), color var(--motion-fast) var(--ease-out-quart), border-color var(--motion-fast) var(--ease-out-quart), transform var(--motion-base) var(--ease-out-quart), box-shadow var(--motion-base) var(--ease-out-quart) !important; }
+  .btn:hover  { transform: translateY(-1px); }
+  .btn:active { transform: translateY(0) scale(0.985); transition-duration: 80ms !important; }
+  .btn:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 3px; }
+
+  /* Filter chip / Bootstrap dropdown-toggle selection pop */
+  .ms-button.has-selection { animation: select-pop 220ms var(--ease-back-out); }
+
+  /* Multi-select dropdown menu open polish */
+  .dropdown-menu { transition: opacity var(--motion-base) var(--ease-out-quart), transform var(--motion-base) var(--ease-out-quart); }
+  .dropdown-menu.show { animation: rise var(--motion-base) var(--ease-out-quart); }
+
+  /* Modal polish — slower open, faster close. Mirrors Bootstrap's class flow. */
+  .modal.fade .modal-dialog { transition: transform var(--motion-medium) var(--ease-out-expo), opacity var(--motion-medium) var(--ease-out-expo); transform: translateY(20px) scale(0.97); opacity: 0; }
+  .modal.show .modal-dialog { transform: translateY(0) scale(1); opacity: 1; }
+  .modal-backdrop.fade { transition: opacity var(--motion-medium) var(--ease-standard); }
+
+  /* Gallery image hover smoothed */
+  .gallery img { transition: transform var(--motion-medium) var(--ease-out-quart); }
+
+  /* Entrance orchestration on first paint. Stagger: navbar → meta → stats → filters → table. */
+  @media (prefers-reduced-motion: no-preference) {
+    nav.navbar             { animation: rise var(--motion-large) var(--ease-out-expo) 0ms   both; }
+    .row.g-3.mb-3          { animation: rise var(--motion-large) var(--ease-out-expo) 80ms  both; }
+    .filters-card          { animation: rise var(--motion-large) var(--ease-out-expo) 160ms both; }
+    table.dash             { animation: fade-scale var(--motion-xl) var(--ease-out-expo) 240ms both; }
+    /* Stat-card stagger within the .row.g-3 wrapper */
+    .row.g-3.mb-3 > [class*="col-"]:nth-child(1) .stat-card { animation: rise var(--motion-large) var(--ease-out-expo) 120ms both; }
+    .row.g-3.mb-3 > [class*="col-"]:nth-child(2) .stat-card { animation: rise var(--motion-large) var(--ease-out-expo) 180ms both; }
+    .row.g-3.mb-3 > [class*="col-"]:nth-child(3) .stat-card { animation: rise var(--motion-large) var(--ease-out-expo) 240ms both; }
+    .row.g-3.mb-3 > [class*="col-"]:nth-child(4) .stat-card { animation: rise var(--motion-large) var(--ease-out-expo) 300ms both; }
+    .row.g-3.mb-3 > [class*="col-"]:nth-child(5) .stat-card { animation: rise var(--motion-large) var(--ease-out-expo) 360ms both; }
+    .row.g-3.mb-3 > [class*="col-"]:nth-child(n+6) .stat-card { animation: rise var(--motion-large) var(--ease-out-expo) 420ms both; }
+  }
+
+  /* Accessibility: vestibular users get instant state. Single block, covers everything. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 1ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
   @keyframes livePulse { 0%,100% { opacity:1; } 50% { opacity:.3; } }
 </style>
 </head>
