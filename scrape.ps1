@@ -349,13 +349,13 @@ function Save-All([bool]$inProgress = $true) {
   Save-Progress $jsonPath $jsPath $payload
 }
 
-# Track every auction ID we actually see on MoJ during this run, across all
-# categories. After the walk, we stamp auction.inListing=true on these IDs
-# and inListing=false on anything else still in our DB. The dashboard's
-# "active" filter uses this, since endDate gets stale on re-announcements
-# but presence on the listing is the source of truth.
-$inListingIds = New-Object 'System.Collections.Generic.HashSet[int]'
-
+# We stamp `lastSeenInListingAt` (ISO-8601 UTC) on every auction we see on
+# MoJ during this run — immediately as each item is parsed, not at the end.
+# Why immediately: deeper pagination keeps getting silently rejected past
+# ~150 items per category, so the scrape often dies mid-walk. By stamping
+# eagerly, partial runs still contribute useful "this row was on MoJ this
+# morning" data. The dashboard's "active" filter accepts anything seen in
+# the last 48h, so stale rows naturally fall out without a separate cleanup.
 foreach ($cat in $categories) {
   if ($OnlyCategory -and ($cat.name -notmatch $OnlyCategory)) {
     Write-Host ("Skipping category (filter): {0}" -f $cat.name) -ForegroundColor DarkGray
@@ -397,17 +397,18 @@ foreach ($cat in $categories) {
 
       $newCount = 0
       $updatedCount = 0
+      $nowIso = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
       foreach ($it in $items) {
         $itId = [int]$it.id
-        # Mark this ID as seen on MoJ during this run (whether new or known).
-        [void]$inListingIds.Add($itId)
         if (-not $seen.Contains($itId)) {
           # Stamp the moment WE first saw this auction (ISO-8601 UTC). Drives
           # the "🆕 جديد" badge in the dashboard. Set on creation only; never
           # overwritten by later refreshes.
           if (-not $it.PSObject.Properties.Match('firstSeenAt').Count -or -not $it.firstSeenAt) {
-            $it | Add-Member -MemberType NoteProperty -Name 'firstSeenAt' -Value ((Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')) -Force
+            $it | Add-Member -MemberType NoteProperty -Name 'firstSeenAt' -Value $nowIso -Force
           }
+          # Stamp lastSeenInListingAt immediately on the new item.
+          $it | Add-Member -MemberType NoteProperty -Name 'lastSeenInListingAt' -Value $nowIso -Force
           [void]$seen.Add($itId)
           [void]$all.Add($it)
           $allById[$itId] = $it
@@ -416,6 +417,14 @@ foreach ($cat in $categories) {
           # Refresh mutable fields on already-known records (live bid + countdown + status).
           $existing = $allById[$itId]
           if ($null -ne $existing) {
+            # Stamp lastSeenInListingAt on the existing record — confirms MoJ
+            # is still showing this row right now, regardless of whether any
+            # other field changed.
+            if ($existing.PSObject.Properties.Match('lastSeenInListingAt').Count) {
+              $existing.lastSeenInListingAt = $nowIso
+            } else {
+              $existing | Add-Member -MemberType NoteProperty -Name 'lastSeenInListingAt' -Value $nowIso -Force
+            }
             $changed = $false
             foreach ($prop in 'currentAmount','numBids','endDate','status','header','image') {
               $newVal = $it.$prop
@@ -443,8 +452,10 @@ foreach ($cat in $categories) {
       if ($newCount -gt 0) { $seenNewThisWalk = $true }
       Write-Host ("  Page {0}: {1} items ({2} new, {3} refreshed, total this category: {4}/{5}, all={6})" -f $page, $items.Count, $newCount, $updatedCount, $seen.Count, $cat.totalCount, $all.Count)
 
-      # Save after every page that yielded any change (new OR refreshed bid)
-      if ($newCount -gt 0 -or $updatedCount -gt 0) { Save-All $true }
+      # Save after every page that processed at least one item — even pages
+      # where nothing visibly "changed" still updated lastSeenInListingAt on
+      # every row we saw, which the dashboard's "active" filter cares about.
+      if ($items.Count -gt 0) { Save-All $true }
 
       if (-not $Refresh -and $cat.totalCount -gt 0 -and $seen.Count -ge $cat.totalCount) {
         Write-Host "  (collected all)" -ForegroundColor Green
@@ -588,28 +599,8 @@ foreach ($cat in $categories) {
   Write-Host ("  [saved] {0} auctions written so far" -f $all.Count) -ForegroundColor DarkGray
 }
 
-# Stamp inListing on every auction: TRUE if MoJ showed it during this walk,
-# FALSE otherwise. The dashboard's "active" filter switches off endDate (which
-# stays stale on re-announcement) to this field. Only stamp if we actually
-# completed enough of a walk to call the data meaningful — if we touched
-# very few categories due to early bail, don't trash the flag for everyone.
-if ($inListingIds.Count -gt 50) {
-  $listed   = 0
-  $unlisted = 0
-  foreach ($a in $all) {
-    $present = $inListingIds.Contains([int]$a.id)
-    if ($present) { $listed++ } else { $unlisted++ }
-    if ($a.PSObject.Properties.Match('inListing').Count) {
-      $a.inListing = $present
-    } else {
-      $a | Add-Member -MemberType NoteProperty -Name 'inListing' -Value $present -Force
-    }
-  }
-  Write-Host ("inListing flagged: {0} present on MoJ, {1} no longer listed" -f $listed, $unlisted) -ForegroundColor Cyan
-} else {
-  Write-Host ("inListing flagging skipped — only saw {0} IDs (run was too short to trust)" -f $inListingIds.Count) -ForegroundColor DarkYellow
-}
-
+# (inListing is no longer stamped at end-of-run; lastSeenInListingAt is
+# updated eagerly per page so partial scrapes survive a kill.)
 Save-All $false
 Write-Host ""
 Write-Host ("TOTAL: {0} auctions" -f $all.Count) -ForegroundColor Green
