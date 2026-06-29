@@ -169,7 +169,11 @@
        dropdowns; a leftover transform on this element would create a new
        positioning context and break Popper.js for the descendant menus. */
     .filters-card          { animation: fade-in var(--motion-large) var(--ease-out-expo) 160ms both; }
-    table.dash             { animation: fade-scale var(--motion-xl) var(--ease-out-expo) 240ms both; }
+    /* fade-in (no transform). fade-scale here would leave transform: scale(1)
+       on the table — that creates a new stacking context, and since the table
+       appears AFTER the filters-card in the DOM, its context renders on top
+       and clips the multi-select dropdown menus that overflow downward. */
+    table.dash             { animation: fade-in var(--motion-xl) var(--ease-out-expo) 240ms both; }
     /* Stat-card stagger within the .row.g-3 wrapper */
     .row.g-3.mb-3 > [class*="col-"]:nth-child(1) .stat-card { animation: rise var(--motion-large) var(--ease-out-expo) 120ms both; }
     .row.g-3.mb-3 > [class*="col-"]:nth-child(2) .stat-card { animation: rise var(--motion-large) var(--ease-out-expo) 180ms both; }
