@@ -356,6 +356,53 @@ function Save-All([bool]$inProgress = $true) {
 # eagerly, partial runs still contribute useful "this row was on MoJ this
 # morning" data. The dashboard's "active" filter accepts anything seen in
 # the last 48h, so stale rows naturally fall out without a separate cleanup.
+
+# ============================================================================
+# PASS A: Breadth-first page-1 sweep. Visit each category ONCE, fetch page 1,
+# upsert items (which eagerly stamps lastSeenInListingAt + firstSeenAt).
+# This guarantees that even if the deep walk in Pass B dies on the first big
+# category, we've already confirmed ~50 active rows per category × 5 = ~250
+# total — far better than the ~10 we get when Pass B dies on category #2.
+# ============================================================================
+Write-Host ""
+Write-Host "==== PASS A: breadth-first page-1 sweep ====" -ForegroundColor Magenta
+$sweepNowIso = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
+foreach ($cat in $categories) {
+  if ($OnlyCategory -and ($cat.name -notmatch $OnlyCategory)) { continue }
+  Write-Host -NoNewline ("  {0,-25} ... " -f $cat.name)
+  $script:CurrentToken = $cat.token
+  $sweepUrl = "$Base/AuctionsList.aspx?token=$($cat.token)"
+  try {
+    $sweepHtml = Curl-Get $sweepUrl
+    if (Test-Captcha $sweepHtml) { Write-Host "captcha — skipping in pass A" -ForegroundColor Yellow; continue }
+    $sweepItems = Parse-Auctions $sweepHtml $cat.name
+    $sweepStamped = 0
+    foreach ($it in $sweepItems) {
+      $itId = [int]$it.id
+      if ($allById.ContainsKey($itId)) {
+        $existing = $allById[$itId]
+        if ($existing.PSObject.Properties.Match('lastSeenInListingAt').Count) { $existing.lastSeenInListingAt = $sweepNowIso }
+        else { $existing | Add-Member -MemberType NoteProperty -Name 'lastSeenInListingAt' -Value $sweepNowIso -Force }
+        # Also refresh the live deadline from divCountDownVal[2]
+        if ($it.endDate -and $existing.endDate -ne $it.endDate) { $existing.endDate = $it.endDate }
+        $sweepStamped++
+      } else {
+        # New auction discovered in the sweep — add it.
+        $it | Add-Member -MemberType NoteProperty -Name 'firstSeenAt'         -Value $sweepNowIso -Force
+        $it | Add-Member -MemberType NoteProperty -Name 'lastSeenInListingAt' -Value $sweepNowIso -Force
+        [void]$all.Add($it)
+        $allById[$itId] = $it
+        $sweepStamped++
+      }
+    }
+    Write-Host ("stamped {0} items" -f $sweepStamped) -ForegroundColor Green
+  } catch { Write-Host ("error: {0}" -f $_.Exception.Message) -ForegroundColor Yellow }
+  Start-Sleep -Milliseconds (Get-JitteredDelay)
+}
+Save-All $true
+Write-Host ""
+Write-Host "==== PASS B: deep walk per category ====" -ForegroundColor Magenta
+
 foreach ($cat in $categories) {
   if ($OnlyCategory -and ($cat.name -notmatch $OnlyCategory)) {
     Write-Host ("Skipping category (filter): {0}" -f $cat.name) -ForegroundColor DarkGray
