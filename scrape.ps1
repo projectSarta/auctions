@@ -437,13 +437,13 @@ foreach ($cat in $categories) {
     }
     try {
       $next = Curl-PostForm $sweepUrl $sweepBody
-    } catch { Write-Host ("    page $sweepPage error: {0}" -f $_.Exception.Message) -ForegroundColor Yellow; break }
-    if (Test-Captcha $next) { Write-Host "    page $sweepPage: captcha — stopping sweep for this category" -ForegroundColor Yellow; break }
+    } catch { Write-Host ("    page {0} error: {1}" -f $sweepPage, $_.Exception.Message) -ForegroundColor Yellow; break }
+    if (Test-Captcha $next) { Write-Host ("    page {0}: captcha — stopping sweep for this category" -f $sweepPage) -ForegroundColor Yellow; break }
 
     $nextItems = Parse-Auctions $next $cat.name
     $stamped = & $stampItems $nextItems
     $sweepCatStamped += $stamped
-    Write-Host ("    page $sweepPage: {0} items, +{1} stamped" -f $nextItems.Count, $stamped)
+    Write-Host ("    page {0}: {1} items, +{2} stamped" -f $sweepPage, $nextItems.Count, $stamped)
     $sweepHtml = $next
     Start-Sleep -Milliseconds (Get-JitteredDelay)
   }
