@@ -358,48 +358,99 @@ function Save-All([bool]$inProgress = $true) {
 # the last 48h, so stale rows naturally fall out without a separate cleanup.
 
 # ============================================================================
-# PASS A: Breadth-first page-1 sweep. Visit each category ONCE, fetch page 1,
-# upsert items (which eagerly stamps lastSeenInListingAt + firstSeenAt).
-# This guarantees that even if the deep walk in Pass B dies on the first big
-# category, we've already confirmed ~50 active rows per category × 5 = ~250
-# total — far better than the ~10 we get when Pass B dies on category #2.
+# PASS A: Breadth-first page-1..7 sweep. Visit each category, walk up to 7
+# pages, upsert items (which eagerly stamps lastSeenInListingAt + firstSeenAt).
+# 7 pages × 10 items × 5 categories = ~350 items stamped even before PASS B
+# starts. Uses the same paginate-via-postback flow as PASS B, but limited to
+# 7 pages per category, so we bail early if MoJ blocks pagination on any one
+# category and still move on to the next.
 # ============================================================================
+$SweepMaxPages = 7
 Write-Host ""
-Write-Host "==== PASS A: breadth-first page-1 sweep ====" -ForegroundColor Magenta
+Write-Host ("==== PASS A: breadth-first sweep (up to {0} pages/category) ====" -f $SweepMaxPages) -ForegroundColor Magenta
 $sweepNowIso = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
+
+# Local helper: takes an HTML page's items and upserts them into $all/$allById.
+# Returns the count of items stamped this call.
+$stampItems = {
+  param($items)
+  $count = 0
+  foreach ($it in $items) {
+    $itId = [int]$it.id
+    if ($allById.ContainsKey($itId)) {
+      $existing = $allById[$itId]
+      if ($existing.PSObject.Properties.Match('lastSeenInListingAt').Count) { $existing.lastSeenInListingAt = $sweepNowIso }
+      else { $existing | Add-Member -MemberType NoteProperty -Name 'lastSeenInListingAt' -Value $sweepNowIso -Force }
+      if ($it.endDate -and $existing.endDate -ne $it.endDate) { $existing.endDate = $it.endDate }
+      $count++
+    } else {
+      $it | Add-Member -MemberType NoteProperty -Name 'firstSeenAt'         -Value $sweepNowIso -Force
+      $it | Add-Member -MemberType NoteProperty -Name 'lastSeenInListingAt' -Value $sweepNowIso -Force
+      [void]$all.Add($it)
+      $allById[$itId] = $it
+      $count++
+    }
+  }
+  return $count
+}
+
 foreach ($cat in $categories) {
   if ($OnlyCategory -and ($cat.name -notmatch $OnlyCategory)) { continue }
-  Write-Host -NoNewline ("  {0,-25} ... " -f $cat.name)
+  Write-Host ("  {0}" -f $cat.name)
   $script:CurrentToken = $cat.token
   $sweepUrl = "$Base/AuctionsList.aspx?token=$($cat.token)"
+  $sweepCatStamped = 0
+
+  # Page 1: plain GET
   try {
     $sweepHtml = Curl-Get $sweepUrl
-    if (Test-Captcha $sweepHtml) { Write-Host "captcha — skipping in pass A" -ForegroundColor Yellow; continue }
-    $sweepItems = Parse-Auctions $sweepHtml $cat.name
-    $sweepStamped = 0
-    foreach ($it in $sweepItems) {
-      $itId = [int]$it.id
-      if ($allById.ContainsKey($itId)) {
-        $existing = $allById[$itId]
-        if ($existing.PSObject.Properties.Match('lastSeenInListingAt').Count) { $existing.lastSeenInListingAt = $sweepNowIso }
-        else { $existing | Add-Member -MemberType NoteProperty -Name 'lastSeenInListingAt' -Value $sweepNowIso -Force }
-        # Also refresh the live deadline from divCountDownVal[2]
-        if ($it.endDate -and $existing.endDate -ne $it.endDate) { $existing.endDate = $it.endDate }
-        $sweepStamped++
-      } else {
-        # New auction discovered in the sweep — add it.
-        $it | Add-Member -MemberType NoteProperty -Name 'firstSeenAt'         -Value $sweepNowIso -Force
-        $it | Add-Member -MemberType NoteProperty -Name 'lastSeenInListingAt' -Value $sweepNowIso -Force
-        [void]$all.Add($it)
-        $allById[$itId] = $it
-        $sweepStamped++
-      }
+    if (Test-Captcha $sweepHtml) {
+      Write-Host "    page 1: captcha — skipping category" -ForegroundColor Yellow
+      continue
     }
-    Write-Host ("stamped {0} items" -f $sweepStamped) -ForegroundColor Green
-  } catch { Write-Host ("error: {0}" -f $_.Exception.Message) -ForegroundColor Yellow }
+    $items = Parse-Auctions $sweepHtml $cat.name
+    $stamped = & $stampItems $items
+    $sweepCatStamped += $stamped
+    Write-Host ("    page 1: {0} items, +{1} stamped" -f $items.Count, $stamped)
+  } catch { Write-Host ("    page 1 error: {0}" -f $_.Exception.Message) -ForegroundColor Yellow; continue }
   Start-Sleep -Milliseconds (Get-JitteredDelay)
+
+  # Pages 2..N: postback to lbNext
+  $sweepPage = 1
+  while ($sweepPage -lt $SweepMaxPages) {
+    if ($sweepHtml -notmatch 'id="cph_Base_lbNext"\s+class="page-link lnkPN"\s+href="javascript:__doPostBack') {
+      Write-Host "    no more pages"; break
+    }
+    $sweepPage++
+    $sf = Get-FormFields $sweepHtml
+    $sweepBody = @{
+      '__EVENTTARGET'                         = 'ctl00$cph_Base$lbNext'
+      '__EVENTARGUMENT'                       = ''
+      '__VIEWSTATE'                           = $sf.ViewState
+      '__VIEWSTATEGENERATOR'                  = $sf.ViewStateGenerator
+      '__EVENTVALIDATION'                     = $sf.EventValidation
+      '__SCROLLPOSITIONX'                     = '0'
+      '__SCROLLPOSITIONY'                     = '0'
+      'ctl00$cph_Base$hdnCurrentAuctionID'    = '-1'
+      'ctl00$cph_Base$hdnCaseId'              = '-1'
+      'ctl00$cph_Base$hdnUserIdAuctionStatus' = '-1'
+    }
+    try {
+      $next = Curl-PostForm $sweepUrl $sweepBody
+    } catch { Write-Host ("    page $sweepPage error: {0}" -f $_.Exception.Message) -ForegroundColor Yellow; break }
+    if (Test-Captcha $next) { Write-Host "    page $sweepPage: captcha — stopping sweep for this category" -ForegroundColor Yellow; break }
+
+    $nextItems = Parse-Auctions $next $cat.name
+    $stamped = & $stampItems $nextItems
+    $sweepCatStamped += $stamped
+    Write-Host ("    page $sweepPage: {0} items, +{1} stamped" -f $nextItems.Count, $stamped)
+    $sweepHtml = $next
+    Start-Sleep -Milliseconds (Get-JitteredDelay)
+  }
+
+  Write-Host ("    → category total stamped: {0}" -f $sweepCatStamped) -ForegroundColor Green
+  Save-All $true    # save after each category so partial progress survives
 }
-Save-All $true
 Write-Host ""
 Write-Host "==== PASS B: deep walk per category ====" -ForegroundColor Magenta
 
