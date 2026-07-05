@@ -119761,7 +119761,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "0",
       "publishedAt": "01/07/2026",
       "endDate": "2026-07-15 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY&auction=52156",
       "details": {
@@ -119781,7 +119780,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "01/07/2026"
       },
       "firstSeenAt": "2026-07-05T05:05:13Z",
-      "lastSeenInListingAt": "2026-07-05T05:05:13Z"
+      "lastSeenInListingAt": "2026-07-05T05:05:13Z",
+      "image": "images/52156.jpg"
     },
     {
       "id": 52150,
@@ -120517,7 +120517,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "0",
       "publishedAt": "04/07/2026",
       "endDate": "2026-07-07 11:10:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52133",
       "details": {
@@ -120546,7 +120545,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "04/07/2026"
       },
       "firstSeenAt": "2026-07-05T05:05:13Z",
-      "lastSeenInListingAt": "2026-07-05T05:05:13Z"
+      "lastSeenInListingAt": "2026-07-05T05:05:13Z",
+      "image": "images/52133.jpg"
     },
     {
       "id": 47916,
@@ -120651,5 +120651,5 @@ window.AUCTION_DATA = {
       "image": "images/52134.jpg"
     }
   ],
-  "lastRunAt": "2026-07-05 05:37:12"
+  "lastRunAt": "2026-07-05 20:20:25"
 };
