@@ -1,11 +1,17 @@
 name: Daily MoJ Auctions Scrape
 
-# Runs twice every day at 04:00 + 22:00 Amman time
-# (Asia/Amman is UTC+3 year-round → 01:00 + 19:00 UTC).
-# Also runnable on demand via the "Run workflow" button in the Actions tab.
+# Runs every 3 hours (8 slots/day): 01, 04, 07, 10, 13, 16, 19, 22 UTC.
+# In Amman time (UTC+3): 04:00, 07:00, 10:00, 13:00, 16:00, 19:00, 22:00, 01:00.
+#
+# MoJ's anti-bot blocks ~4 of 5 runs from GitHub's runner IPs. The 3-hour
+# cadence means a blocked run gets retried automatically within 3 hours,
+# instead of the count decaying until the next day's slot. The "Skip if
+# fresh" step at the top of the job avoids doing work when a recent run
+# already succeeded — saves runner minutes AND reduces MoJ hit-frequency
+# (fewer requests → less anti-bot pressure).
 on:
   schedule:
-    - cron: '0 1,19 * * *'
+    - cron: '0 1,4,7,10,13,16,19,22 * * *'
   workflow_dispatch: {}
 
 # Need write access to push the updated auctions.json + images + reports back to the repo.
@@ -35,7 +41,32 @@ jobs:
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
 
+      # Retry-on-block gate: we run every 3 hours, but if the PREVIOUS run
+      # already stamped a healthy batch (30+ rows in the last 2 hours) then
+      # nothing needs re-fetching — skip this slot to avoid pinging MoJ
+      # unnecessarily. Only manual workflow_dispatch bypasses this check.
+      - name: Skip if the last run already succeeded
+        id: gate
+        if: github.event_name == 'schedule'
+        shell: pwsh
+        run: |
+          $data = Get-Content .\auctions.json -Raw -Encoding UTF8 | ConvertFrom-Json
+          $now = [DateTime]::UtcNow
+          $recent = @($data.auctions | Where-Object {
+            $_.lastSeenInListingAt -and
+            ([DateTime]::Parse($_.lastSeenInListingAt).ToUniversalTime() -gt $now.AddHours(-2))
+          }).Count
+          Write-Host "rows stamped in last 2 hours: $recent"
+          if ($recent -ge 30) {
+            Write-Host "Previous run already stamped $recent rows within 2h — skipping this slot."
+            "skip=true" >> $env:GITHUB_OUTPUT
+          } else {
+            Write-Host "Previous run stamped only $recent rows in last 2h — running scrape."
+            "skip=false" >> $env:GITHUB_OUTPUT
+          }
+
       - name: Show starting state
+        if: steps.gate.outputs.skip != 'true'
         shell: pwsh
         run: |
           Write-Host "Runner: $env:RUNNER_NAME"
@@ -44,6 +75,7 @@ jobs:
           Get-Item .\auctions.json | Select-Object Name, Length, LastWriteTime
 
       - name: Run overnight orchestration
+        if: steps.gate.outputs.skip != 'true'
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Continue'
@@ -54,6 +86,7 @@ jobs:
         continue-on-error: true
 
       - name: Show ending state + last 3 commits
+        if: steps.gate.outputs.skip != 'true'
         shell: pwsh
         run: |
           git log --oneline -3
@@ -62,7 +95,7 @@ jobs:
           if (Test-Path .\overnight.log) { Get-Content .\overnight.log -Tail 20 }
 
       - name: Upload run log as artifact
-        if: always()
+        if: always() && steps.gate.outputs.skip != 'true'
         uses: actions/upload-artifact@v4
         with:
           name: overnight-log-${{ github.run_id }}
