@@ -401,18 +401,48 @@ foreach ($cat in $categories) {
   $sweepUrl = "$Base/AuctionsList.aspx?token=$($cat.token)"
   $sweepCatStamped = 0
 
-  # Page 1: plain GET
-  try {
-    $sweepHtml = Curl-Get $sweepUrl
-    if (Test-Captcha $sweepHtml) {
-      Write-Host "    page 1: captcha — skipping category" -ForegroundColor Yellow
-      continue
+  # Page 1: plain GET. If it returns valid HTML but zero items (which we've
+  # seen intermittently on the vehicles listing — no captcha, just an empty
+  # result), rotate session + UA and retry once. This handles the "not
+  # captcha but obviously blocked" state.
+  $sweepHtml = $null
+  $items = @()
+  $attempt = 0
+  while ($attempt -lt 2) {
+    $attempt++
+    try {
+      $sweepHtml = Curl-Get $sweepUrl
+      if (Test-Captcha $sweepHtml) {
+        if ($attempt -eq 1) {
+          Write-Host "    page 1: captcha — rotating session and retrying" -ForegroundColor Yellow
+          Reset-Session
+          continue
+        } else {
+          Write-Host "    page 1: still captcha after retry — skipping category" -ForegroundColor Yellow
+          $sweepHtml = $null; break
+        }
+      }
+      $items = Parse-Auctions $sweepHtml $cat.name
+      if ($items.Count -eq 0 -and $attempt -eq 1) {
+        Write-Host "    page 1: 0 items (silent block?) — rotating session and retrying" -ForegroundColor Yellow
+        Reset-Session
+        continue
+      }
+      break
+    } catch {
+      Write-Host ("    page 1 error: {0}" -f $_.Exception.Message) -ForegroundColor Yellow
+      if ($attempt -eq 1) {
+        Write-Host "    retrying after session reset" -ForegroundColor Yellow
+        Reset-Session
+        continue
+      }
+      $sweepHtml = $null; break
     }
-    $items = Parse-Auctions $sweepHtml $cat.name
-    $stamped = & $stampItems $items
-    $sweepCatStamped += $stamped
-    Write-Host ("    page 1: {0} items, +{1} stamped" -f $items.Count, $stamped)
-  } catch { Write-Host ("    page 1 error: {0}" -f $_.Exception.Message) -ForegroundColor Yellow; continue }
+  }
+  if (-not $sweepHtml) { continue }
+  $stamped = & $stampItems $items
+  $sweepCatStamped += $stamped
+  Write-Host ("    page 1: {0} items, +{1} stamped" -f $items.Count, $stamped)
   Start-Sleep -Milliseconds (Get-JitteredDelay)
 
   # Pages 2..N: postback to lbNext
