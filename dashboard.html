@@ -704,7 +704,12 @@
   // Pre-compute the canonical category list (in the order the source provides them)
   const allCategoryNames = (data.categories || []).map(c => c.name);
   const vehCategoryName = allCategoryNames.find(name => String(name || '').includes('مركبة'));
-  const ACTIVE_SEEN_WINDOW_MS = 48 * 3600 * 1000;
+  // "Active" acceptance window for lastSeenInListingAt. Was 48h, widened to
+  // 7 days because GitHub Actions runners' IPs are flagged by MoJ's anti-bot
+  // most of the time — many scheduled runs stamp 0 items. A 48h window
+  // decayed to near-zero between the sparse successful runs. 7 days lets
+  // one lucky run every 2-3 days keep the count populated.
+  const ACTIVE_SEEN_WINDOW_MS = 7 * 24 * 3600 * 1000;
 
   // Pre-compute dataset-wide totals (independent of any filter): active vs total per category.
   // "active" = endDate in the future (or unknown). These numbers don't change as filters move.
