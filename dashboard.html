@@ -59,7 +59,18 @@
   .stat-card { border: none; box-shadow: 0 2px 6px rgba(0,0,0,.06); border-radius: 12px; background: var(--color-surface); }
   .stat-card .stat-label { font-size: .85rem; color: var(--text-muted); }
   .stat-card .stat-value { font-size: 1.6rem; font-weight: 700; color: var(--color-primary); }
-  .filters-card { background: var(--color-surface); border: none; box-shadow: 0 2px 6px rgba(0,0,0,.04); border-radius: 12px; }
+  .filters-card {
+    background: var(--color-surface);
+    border: none;
+    box-shadow: 0 2px 6px rgba(0,0,0,.04);
+    border-radius: 12px;
+    /* Own stacking context above the table wrapper (which has overflow-x: auto
+       from Bootstrap's .table-responsive and can clip downward-opening
+       dropdown menus). z-index: 5 wins against .table-responsive's default. */
+    position: relative;
+    z-index: 5;
+  }
+  .filters-card .dropdown-menu.show { z-index: 1080; }
   table.dash th { background: var(--color-primary); color: #fff; font-weight: 600; white-space: nowrap; vertical-align: middle; cursor: pointer; user-select: none; }
   table.dash th .sort-ind { opacity: .5; font-size: .75rem; }
   table.dash td { vertical-align: middle; color: var(--text-body); }
