@@ -66670,7 +66670,8 @@
       },
       "lastSeenInListingAt": "2026-07-10T15:29:25Z",
       "image": "images/49453.jpg",
-      "caseId": 15312091
+      "caseId": 15312091,
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7JqYaS5xxfFPMekZqPXQn09wr_FX9LGaEbXRd7UJ1xyQ"
     },
     {
       "id": 46742,
@@ -138670,5 +138671,5 @@
       "image": "images/52286.jpg"
     }
   ],
-  "lastRunAt": "2026-07-10 15:36:40"
+  "lastRunAt": "2026-07-10 17:46:01"
 }
