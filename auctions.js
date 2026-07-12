@@ -139933,7 +139933,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "0",
       "publishedAt": "06/07/2026",
       "endDate": "2026-07-14 12:40:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52341",
       "details": {
@@ -139962,7 +139961,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "06/07/2026"
       },
       "firstSeenAt": "2026-07-12T04:25:46Z",
-      "lastSeenInListingAt": "2026-07-12T04:25:46Z"
+      "lastSeenInListingAt": "2026-07-12T04:25:46Z",
+      "image": "images/52341.jpg"
     },
     {
       "id": 52342,
@@ -140086,7 +140086,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "0",
       "publishedAt": "30/06/2026",
       "endDate": "2026-07-14 13:10:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52344",
       "details": {
@@ -140115,7 +140114,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "30/06/2026"
       },
       "firstSeenAt": "2026-07-12T04:25:46Z",
-      "lastSeenInListingAt": "2026-07-12T04:25:46Z"
+      "lastSeenInListingAt": "2026-07-12T04:25:46Z",
+      "image": "images/52344.jpg"
     },
     {
       "id": 52345,
@@ -140239,7 +140239,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "0",
       "publishedAt": "03/06/2026",
       "endDate": "2026-07-14 13:40:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52348",
       "details": {
@@ -140268,8 +140267,9 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "03/06/2026"
       },
       "firstSeenAt": "2026-07-12T04:25:46Z",
-      "lastSeenInListingAt": "2026-07-12T04:25:46Z"
+      "lastSeenInListingAt": "2026-07-12T04:25:46Z",
+      "image": "images/52348.jpg"
     }
   ],
-  "lastRunAt": "2026-07-12 04:44:22"
+  "lastRunAt": "2026-07-12 09:04:04"
 };
