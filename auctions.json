@@ -140979,7 +140979,6 @@
       "newspaperIssue": "0",
       "publishedAt": "05/07/2026",
       "endDate": "2026-07-14 14:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52351",
       "details": {
@@ -141008,8 +141007,9 @@
         "تاريخ النشر": "05/07/2026"
       },
       "firstSeenAt": "2026-07-13T04:29:07Z",
-      "lastSeenInListingAt": "2026-07-13T04:29:07Z"
+      "lastSeenInListingAt": "2026-07-13T04:29:07Z",
+      "image": "images/52351.jpg"
     }
   ],
-  "lastRunAt": "2026-07-13 04:46:42"
+  "lastRunAt": "2026-07-13 10:21:15"
 }
