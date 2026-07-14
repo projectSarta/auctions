@@ -125631,7 +125631,8 @@
       },
       "firstSeenAt": "2026-07-07T07:55:11Z",
       "lastSeenInListingAt": "2026-07-13T04:40:53Z",
-      "image": "images/51749.jpg"
+      "image": "images/51749.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5KNQo7l-6Lt3fxzKecsG1lm7satLAsaL6Zg4nuHgOL_A"
     },
     {
       "id": 51933,
@@ -141432,5 +141433,5 @@
       "image": "images/52380.jpg"
     }
   ],
-  "lastRunAt": "2026-07-13 22:58:20"
+  "lastRunAt": "2026-07-14 03:56:57"
 }
