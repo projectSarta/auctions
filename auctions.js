@@ -18585,7 +18585,9 @@ window.AUCTION_DATA = {
       },
       "image": "images/50304.jpg",
       "lastSeenInListingAt": "2026-07-15T06:29:18Z",
-      "caseId": 11688712
+      "caseId": 11688712,
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4Z1YckPW0lqRPYU4Ul117Pyy4RXkO1VtL062o67j2dcA",
+      "pdfPath": "reports/50304.pdf"
     },
     {
       "id": 50402,
@@ -143418,5 +143420,5 @@ window.AUCTION_DATA = {
       "image": "images/52455.jpg"
     }
   ],
-  "lastRunAt": "2026-07-15 11:41:47"
+  "lastRunAt": "2026-07-15 14:47:15"
 };
