@@ -554,7 +554,11 @@ foreach ($cat in $categories) {
               $existing | Add-Member -MemberType NoteProperty -Name 'lastSeenInListingAt' -Value $nowIso -Force
             }
             $changed = $false
-            foreach ($prop in 'currentAmount','numBids','endDate','status','header','image') {
+            # `announcement` and `announcementStart` refresh here because
+            # extensions (Article 88 / اعلان تمديد) flip "الاعلان الاول" to
+            # "اعلان تمديد/مادة 88" — without this the dashboard shows the
+            # original announcement type forever even though MoJ updated it.
+            foreach ($prop in 'currentAmount','numBids','endDate','status','header','image','announcement','announcementStart') {
               $newVal = $it.$prop
               if ($null -ne $newVal -and $newVal -ne '' -and $existing.$prop -ne $newVal) {
                 $existing.$prop = $newVal
