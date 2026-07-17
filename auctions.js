@@ -117610,7 +117610,9 @@ window.AUCTION_DATA = {
       },
       "firstSeenAt": "2026-07-01T21:04:18Z",
       "lastSeenInListingAt": "2026-07-16T11:21:17Z",
-      "image": "images/51558.jpg"
+      "image": "images/51558.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5l6PZfmHX-0n6cP4Ntt_4akhSeNlpKeQp7VopfD9_G5Q",
+      "pdfPath": "reports/51558.pdf"
     },
     {
       "id": 51559,
@@ -117708,7 +117710,8 @@ window.AUCTION_DATA = {
       },
       "firstSeenAt": "2026-07-01T21:04:18Z",
       "lastSeenInListingAt": "2026-07-16T11:21:17Z",
-      "image": "images/51560.jpg"
+      "image": "images/51560.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4dFSGoM9nb7uHAYL6LBZm-r2AacEuB46cYG01Y8gkCOQ"
     },
     {
       "id": 51676,
@@ -150634,5 +150637,5 @@ window.AUCTION_DATA = {
       "image": "images/36891.jpg"
     }
   ],
-  "lastRunAt": "2026-07-17 17:05:02"
+  "lastRunAt": "2026-07-17 20:04:56"
 };
