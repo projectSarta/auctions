@@ -22366,7 +22366,8 @@
       },
       "image": "images/43834.jpg",
       "lastSeenInListingAt": "2026-07-19T14:54:03Z",
-      "caseId": 14608791
+      "caseId": 14608791,
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6Zq0sMLSGkdJUdQsTHN55Nk1cjTrS2R6SUtHP5gATF2w"
     },
     {
       "id": 50672,
@@ -112169,7 +112170,8 @@
       },
       "firstSeenAt": "2026-07-01T07:50:48Z",
       "lastSeenInListingAt": "2026-07-19T14:54:03Z",
-      "image": "images/31127.png"
+      "image": "images/31127.png",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7FUFWVoRloe-3Z6s7DaDJ8khvCdrxy-lz-T6-669lNVg"
     },
     {
       "id": 51503,
@@ -146756,7 +146758,8 @@
       },
       "firstSeenAt": "2026-07-16T11:20:16Z",
       "lastSeenInListingAt": "2026-07-19T14:42:42Z",
-      "image": "images/46464.jpg"
+      "image": "images/46464.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7PpxMk_bvQIra9xLBflYklidzOijC0I0lLcDIMUMiytw"
     },
     {
       "id": 46462,
@@ -146854,7 +146857,9 @@
       },
       "firstSeenAt": "2026-07-16T11:20:16Z",
       "lastSeenInListingAt": "2026-07-19T14:42:59Z",
-      "image": "images/46472.jpg"
+      "image": "images/46472.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5moCE9Z3JysEzzOcaThVF9eTHDJlXJwtdin_aiz_DkPA",
+      "pdfPath": "reports/46472.pdf"
     },
     {
       "id": 52020,
@@ -152730,7 +152735,6 @@
       "newspaperIssue": "20230",
       "publishedAt": "14/07/2026",
       "endDate": "2026-07-27 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vgTIHx4qwtzJBsfviXhuz8j6Ht9U78JeLm9XVD2AcY4D1ojcWsBjK8kD_Sndyoqb_UXPceoK3yJilkjyc0tzRz0&auction=52560",
       "details": {
@@ -152753,7 +152757,8 @@
         "تاريخ النشر": "14/07/2026"
       },
       "firstSeenAt": "2026-07-19T14:29:07Z",
-      "lastSeenInListingAt": "2026-07-19T14:29:07Z"
+      "lastSeenInListingAt": "2026-07-19T14:29:07Z",
+      "image": "images/52560.png"
     },
     {
       "id": 52559,
@@ -152846,5 +152851,5 @@
       "image": "images/52560.png"
     }
   ],
-  "lastRunAt": "2026-07-19 15:02:49"
+  "lastRunAt": "2026-07-19 20:10:14"
 }
