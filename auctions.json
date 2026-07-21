@@ -41663,7 +41663,9 @@
       },
       "lastSeenInListingAt": "2026-07-21T04:28:44Z",
       "image": "images/44225.jpg",
-      "caseId": 14525918
+      "caseId": 14525918,
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5uPYRB52r_fPOv4o5hnKnvOxx1NouuINK8_wInFenrFA",
+      "pdfPath": "reports/44225.pdf"
     },
     {
       "id": 48501,
@@ -112534,7 +112536,9 @@
       },
       "firstSeenAt": "2026-07-01T07:50:48Z",
       "lastSeenInListingAt": "2026-07-21T04:28:44Z",
-      "image": "images/45347.jpg"
+      "image": "images/45347.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4zZZubxytuBmzFvOue3sI1GRfhN5XBCgL6eGNssBARjQ",
+      "pdfPath": "reports/45347.pdf"
     },
     {
       "id": 18436,
@@ -153277,5 +153281,5 @@
       "image": "images/52569.jpg"
     }
   ],
-  "lastRunAt": "2026-07-21 04:32:11"
+  "lastRunAt": "2026-07-21 09:28:37"
 }
