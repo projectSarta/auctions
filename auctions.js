@@ -28681,7 +28681,9 @@ window.AUCTION_DATA = {
       },
       "image": "images/16070.jpg",
       "lastSeenInListingAt": "2026-07-27T04:42:01Z",
-      "caseId": 10923949
+      "caseId": 10923949,
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6jX1Ja9SgbDRmDN8GRxids8C1QGZ4Bga7HlYubFsZaKw",
+      "pdfPath": "reports/16070.pdf"
     },
     {
       "id": 16131,
@@ -107480,7 +107482,9 @@ window.AUCTION_DATA = {
       },
       "firstSeenAt": "2026-06-29T06:01:20Z",
       "image": "images/44569.jpg",
-      "lastSeenInListingAt": "2026-07-26T23:06:19Z"
+      "lastSeenInListingAt": "2026-07-26T23:06:19Z",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6DMirXu2eKj_EXQSUXtEhmUYMYIJEkMOR7EfoK1GkOwQ",
+      "pdfPath": "reports/44569.pdf"
     },
     {
       "id": 51971,
@@ -162039,7 +162043,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "0",
       "publishedAt": "26/07/2026",
       "endDate": "2026-07-30 13:40:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52735",
       "details": {
@@ -162069,7 +162072,8 @@ window.AUCTION_DATA = {
       },
       "firstSeenAt": "2026-07-26T22:51:32Z",
       "lastSeenInListingAt": "2026-07-26T22:51:32Z",
-      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4AI5JUUsLrX4vFee6t4A0aQHQ7li-IHPt2nBoBdvIQ1w"
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4AI5JUUsLrX4vFee6t4A0aQHQ7li-IHPt2nBoBdvIQ1w",
+      "image": "images/52735.jpg"
     },
     {
       "id": 52713,
@@ -163705,5 +163709,5 @@ window.AUCTION_DATA = {
       "image": "images/44680.jpg"
     }
   ],
-  "lastRunAt": "2026-07-27 04:47:17"
+  "lastRunAt": "2026-07-27 10:39:34"
 };
