@@ -163746,7 +163746,6 @@
       "newspaperIssue": "0",
       "publishedAt": "21/07/2026",
       "endDate": "2026-07-28 10:40:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52721",
       "details": {
@@ -163775,7 +163774,8 @@
         "تاريخ النشر": "21/07/2026"
       },
       "firstSeenAt": "2026-07-27T15:42:20Z",
-      "lastSeenInListingAt": "2026-07-27T15:42:20Z"
+      "lastSeenInListingAt": "2026-07-27T15:42:20Z",
+      "image": "images/52721.jpg"
     },
     {
       "id": 52726,
@@ -163797,7 +163797,6 @@
       "newspaperIssue": "0",
       "publishedAt": "20/07/2026",
       "endDate": "2026-07-28 11:20:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52726",
       "details": {
@@ -163826,7 +163825,8 @@
         "تاريخ النشر": "20/07/2026"
       },
       "firstSeenAt": "2026-07-27T15:42:20Z",
-      "lastSeenInListingAt": "2026-07-27T15:42:20Z"
+      "lastSeenInListingAt": "2026-07-27T15:42:20Z",
+      "image": "images/52726.jpg"
     },
     {
       "id": 52685,
@@ -163848,7 +163848,6 @@
       "newspaperIssue": "0",
       "publishedAt": "06/07/2026",
       "endDate": "2026-07-28 12:20:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52685",
       "details": {
@@ -163877,7 +163876,8 @@
         "تاريخ النشر": "06/07/2026"
       },
       "firstSeenAt": "2026-07-27T15:42:20Z",
-      "lastSeenInListingAt": "2026-07-27T15:42:20Z"
+      "lastSeenInListingAt": "2026-07-27T15:42:20Z",
+      "image": "images/52685.jpg"
     },
     {
       "id": 52355,
@@ -163928,5 +163928,5 @@
       "image": "images/52355.jpg"
     }
   ],
-  "lastRunAt": "2026-07-27 16:09:35"
+  "lastRunAt": "2026-07-27 20:19:06"
 }
