@@ -163744,7 +163744,8 @@ window.AUCTION_DATA = {
       },
       "firstSeenAt": "2026-07-26T22:58:46Z",
       "lastSeenInListingAt": "2026-07-28T06:30:17Z",
-      "image": "images/44680.jpg"
+      "image": "images/44680.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6FmO95GePBqr37atFfbgpR399AzaG8GLpO04A0F6GIZA"
     },
     {
       "id": 52721,
@@ -163992,5 +163993,5 @@ window.AUCTION_DATA = {
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da79Jv6yrli9QfHz3fkkPFoh4YwC8nmdC_99RFFKoJH6mg"
     }
   ],
-  "lastRunAt": "2026-07-28 09:35:40"
+  "lastRunAt": "2026-07-28 11:53:37"
 };
