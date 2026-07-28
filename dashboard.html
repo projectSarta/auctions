@@ -63,8 +63,8 @@
   .stat-card-filter { cursor: pointer; user-select: none; position: relative; }
   .stat-card-filter:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
   .stat-card-filter .stat-label::after { content: ' ⟶'; opacity: .35; font-size: .85em; }
-  .stat-card-filter.active { background: color-mix(in srgb, var(--color-red) 12%, var(--color-surface)); box-shadow: 0 0 0 2px var(--color-red) inset, 0 2px 6px rgba(0,0,0,.06); }
-  .stat-card-filter.active .stat-label { color: var(--color-red-deep); font-weight: 700; }
+  .stat-card-filter.active { background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface)); box-shadow: 0 0 0 2px var(--color-primary) inset, 0 2px 6px rgba(0,0,0,.06); }
+  .stat-card-filter.active .stat-label { color: var(--color-primary); font-weight: 700; }
   .stat-card-filter.active .stat-label::after { content: ' ✕'; opacity: .55; }
   .filters-card {
     background: var(--color-surface);
@@ -648,6 +648,7 @@
       _isNew: ageMs !== null && ageMs >= 0 && ageMs <= NEW_THRESHOLD_MS,
       _endsToday: endMs !== null && endMs >= todayStartMs && endMs < todayEndMs,
       _endsIn24h: endMs !== null && endMs > Date.now() && endMs < Date.now() + 86400000,
+      _endsInWeek: endMs !== null && endMs > Date.now() && endMs < Date.now() + 7 * 86400000,
       _lastSeenMs: Number.isFinite(lastSeenMs) ? lastSeenMs : null,
       _searchText: searchText,
       startingAmountNum: num(a.startingAmount),
@@ -752,7 +753,7 @@
       }
     });
     const cards = [
-      { label: 'إجمالي المعروض (مفلتر)', value: total.toLocaleString('en-US') },
+      { label: 'إجمالي المعروض (مفلتر)', value: total.toLocaleString('en-US'), filter: 'clearAll', hint: 'انقر لمسح كل الفلاتر' },
       ...allCategoryNames.map(name => {
         const active = datasetActiveByCat[name] || 0;
         const totalInSet = datasetTotalByCat[name] || 0;
@@ -761,16 +762,32 @@
           value: `${active.toLocaleString('en-US')} / ${totalInSet.toLocaleString('en-US')}`,
           sub: 'نشط / المجموع',
           color: 'var(--color-primary)',
+          filter: 'category:' + name,
+          hint: `انقر لعرض فئة "${name}" فقط`,
         };
       }),
-      { label: 'تنتهي خلال 24 ساعة', value: endingSoon.toLocaleString('en-US'), color: 'var(--color-red)', filter: 'endsIn24h', hint: 'انقر لعرض المزادات المنتهية خلال 24 ساعة فقط' },
-      { label: 'تنتهي خلال أسبوع',   value: endingWeek.toLocaleString('en-US'), color: 'var(--color-gold-deep)' },
+      { label: 'تنتهي خلال 24 ساعة', value: endingSoon.toLocaleString('en-US'), color: 'var(--color-red)',       filter: 'endsIn24h',  hint: 'انقر لعرض المزادات المنتهية خلال 24 ساعة فقط' },
+      { label: 'تنتهي خلال أسبوع',   value: endingWeek.toLocaleString('en-US'), color: 'var(--color-gold-deep)', filter: 'endsInWeek', hint: 'انقر لعرض المزادات المنتهية خلال أسبوع فقط' },
     ];
-    const activeFilter24h = document.body.classList.contains('filter-endsIn24h');
+    // Which categories are currently the *sole* selection in the category filter?
+    // (Used to highlight the matching category tile as active.)
+    const catSelSole = (() => {
+      const vals = [...document.getElementById('categoryFilter').selectedOptions].map(o => o.value).filter(v => v !== '');
+      return vals.length === 1 ? vals[0] : null;
+    })();
+    const activeFilter24h  = document.body.classList.contains('filter-endsIn24h');
+    const activeFilterWeek = document.body.classList.contains('filter-endsInWeek');
+    const isCardActive = (f) => {
+      if (!f) return false;
+      if (f === 'endsIn24h')  return activeFilter24h;
+      if (f === 'endsInWeek') return activeFilterWeek;
+      if (f.startsWith('category:')) return catSelSole && f === 'category:' + catSelSole;
+      return false; // clearAll is an action, not a persistent state
+    };
     document.getElementById('statsRow').innerHTML = cards.map(c => {
       const isFilter = !!c.filter;
-      const isActive = isFilter && c.filter === 'endsIn24h' && activeFilter24h;
-      return `<div class="col-md col-6"><div class="card stat-card p-3 h-100${isFilter ? ' stat-card-filter' : ''}${isActive ? ' active' : ''}"${isFilter ? ` data-filter="${c.filter}" role="button" tabindex="0" title="${escapeHtml(c.hint || '')}"` : ''}>
+      const isActive = isCardActive(c.filter);
+      return `<div class="col-md col-6"><div class="card stat-card p-3 h-100${isFilter ? ' stat-card-filter' : ''}${isActive ? ' active' : ''}"${isFilter ? ` data-filter="${escapeHtml(c.filter)}" role="button" tabindex="0" title="${escapeHtml(c.hint || '')}"` : ''}>
         <div class="stat-label">${escapeHtml(c.label)}</div>
         <div class="stat-value" style="${c.color ? 'color:' + c.color : ''}">${c.value}</div>
         ${c.sub ? `<div class="stat-sub small text-muted">${escapeHtml(c.sub)}</div>` : ''}
@@ -899,6 +916,7 @@
     const newOnly = document.getElementById('newOnlyBtn').classList.contains('active');
     const endingToday = document.getElementById('endingTodayBtn').classList.contains('active');
     const endsIn24h   = document.body.classList.contains('filter-endsIn24h');
+    const endsInWeek  = document.body.classList.contains('filter-endsInWeek');
     const hideExpired = document.getElementById('hideExpiredBtn').classList.contains('active');
     const nowMs = Date.now();
 
@@ -929,6 +947,7 @@
       (!newOnly || a._isNew) &&
       (!endingToday || a._endsToday) &&
       (!endsIn24h || a._endsIn24h) &&
+      (!endsInWeek || a._endsInWeek) &&
       selectedHas(cats, a.category) &&
       selectedHas(courts, a.court) &&
       selectedHas(govs, a.governorate) &&
@@ -1866,24 +1885,71 @@
     apply();
   });
 
-  // "تنتهي خلال 24 ساعة" stat card doubles as a filter chip. State lives on
-  // <body> so renderStats() (which rebuilds #statsRow innerHTML on every apply)
-  // can re-check it and stamp .active on the newly-rendered card.
-  const ENDS_IN_24H_KEY = 'mojAuctions.endsIn24h';
-  if (localStorage.getItem(ENDS_IN_24H_KEY) === '1') document.body.classList.add('filter-endsIn24h');
-  const toggleEndsIn24h = () => {
-    const on = document.body.classList.toggle('filter-endsIn24h');
-    try { localStorage.setItem(ENDS_IN_24H_KEY, on ? '1' : '0'); } catch {}
+  // Stat tiles double as filter chips. All state lives on <body> or on the
+  // underlying <select> elements — renderStats() (which rebuilds #statsRow
+  // innerHTML on every apply) re-checks it and stamps .active on the newly-
+  // rendered card. Handled via event delegation so re-renders don't lose the
+  // wiring.
+  const ENDS_IN_24H_KEY  = 'mojAuctions.endsIn24h';
+  const ENDS_IN_WEEK_KEY = 'mojAuctions.endsInWeek';
+  if (localStorage.getItem(ENDS_IN_24H_KEY)  === '1') document.body.classList.add('filter-endsIn24h');
+  if (localStorage.getItem(ENDS_IN_WEEK_KEY) === '1') document.body.classList.add('filter-endsInWeek');
+
+  const toggleBodyFilter = (cls, storageKey) => {
+    const on = document.body.classList.toggle(cls);
+    try { localStorage.setItem(storageKey, on ? '1' : '0'); } catch {}
     apply();
   };
+  const setCategorySole = (name) => {
+    const sel = document.getElementById('categoryFilter');
+    const currentVals = [...sel.selectedOptions].map(o => o.value).filter(v => v !== '');
+    const alreadySole = currentVals.length === 1 && currentVals[0] === name;
+    [...sel.options].forEach(o => { o.selected = !alreadySole && o.value === name; });
+    if (window._msWidgets && window._msWidgets['categoryFilter']) window._msWidgets['categoryFilter'].refresh();
+    apply();
+  };
+  const clearAllFilters = () => {
+    document.getElementById('searchInput').value = '';
+    ['categoryFilter','courtFilter','govFilter','dirFilter','villageFilter','basinFilter','announcementFilter','vehicleTypeFilter','estValueFilter']
+      .forEach(id => {
+        const sel = document.getElementById(id);
+        if (sel) [...sel.options].forEach(o => { o.selected = false; });
+        if (window._msWidgets && window._msWidgets[id]) window._msWidgets[id].refresh();
+      });
+    // Toggle buttons that narrow the set (keep hideExpired alone — its default is on)
+    ['newOnlyBtn','endingTodayBtn','favOnlyBtn'].forEach(id => {
+      const btn = document.getElementById(id);
+      if (btn) btn.classList.remove('active');
+    });
+    try {
+      localStorage.setItem('mojAuctions.newOnly', '0');
+      localStorage.setItem('mojAuctions.endingToday', '0');
+      localStorage.setItem('mojAuctions.favOnly', '0');
+    } catch {}
+    // Body-class filters (24h / week stat tiles)
+    document.body.classList.remove('filter-endsIn24h', 'filter-endsInWeek');
+    try {
+      localStorage.setItem(ENDS_IN_24H_KEY, '0');
+      localStorage.setItem(ENDS_IN_WEEK_KEY, '0');
+    } catch {}
+    apply();
+  };
+
+  const dispatchStatCard = (filter) => {
+    if (!filter) return;
+    if (filter === 'clearAll')    { clearAllFilters(); return; }
+    if (filter === 'endsIn24h')   { toggleBodyFilter('filter-endsIn24h',  ENDS_IN_24H_KEY);  return; }
+    if (filter === 'endsInWeek')  { toggleBodyFilter('filter-endsInWeek', ENDS_IN_WEEK_KEY); return; }
+    if (filter.startsWith('category:')) { setCategorySole(filter.slice('category:'.length)); return; }
+  };
   document.getElementById('statsRow').addEventListener('click', (ev) => {
-    const card = ev.target.closest('[data-filter="endsIn24h"]');
-    if (card) toggleEndsIn24h();
+    const card = ev.target.closest('[data-filter]');
+    if (card) dispatchStatCard(card.getAttribute('data-filter'));
   });
   document.getElementById('statsRow').addEventListener('keydown', (ev) => {
     if (ev.key !== 'Enter' && ev.key !== ' ') return;
-    const card = ev.target.closest('[data-filter="endsIn24h"]');
-    if (card) { ev.preventDefault(); toggleEndsIn24h(); }
+    const card = ev.target.closest('[data-filter]');
+    if (card) { ev.preventDefault(); dispatchStatCard(card.getAttribute('data-filter')); }
   });
   // Count of auctions ending today (any time before midnight tonight, future only).
   document.getElementById('endingTodayCount').textContent =
