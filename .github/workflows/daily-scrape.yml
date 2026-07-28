@@ -1,17 +1,16 @@
 name: Daily MoJ Auctions Scrape
 
-# Runs every 3 hours (8 slots/day): 01, 04, 07, 10, 13, 16, 19, 22 UTC.
-# In Amman time (UTC+3): 04:00, 07:00, 10:00, 13:00, 16:00, 19:00, 22:00, 01:00.
+# Runs 6 slots/day: 01, 04, 07, 16, 19, 22 UTC.
+# In Amman time (UTC+3):        04, 07, 10, 19, 22, 01.
+# 13:00 and 16:00 Amman (= 10, 13 UTC) removed — the mid-day gap.
 #
-# MoJ's anti-bot blocks ~4 of 5 runs from GitHub's runner IPs. The 3-hour
-# cadence means a blocked run gets retried automatically within 3 hours,
-# instead of the count decaying until the next day's slot. The "Skip if
+# MoJ's anti-bot blocks ~4 of 5 runs from GitHub's runner IPs. The "Skip if
 # fresh" step at the top of the job avoids doing work when a recent run
 # already succeeded — saves runner minutes AND reduces MoJ hit-frequency
 # (fewer requests → less anti-bot pressure).
 on:
   schedule:
-    - cron: '0 1,4,7,10,13,16,19,22 * * *'
+    - cron: '0 1,4,7,16,19,22 * * *'
   workflow_dispatch: {}
 
 # Need write access to push the updated auctions.json + images + reports back to the repo.
