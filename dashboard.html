@@ -1290,18 +1290,21 @@
   }
   function lookupAradiCodes(a, idx) {
     if (!idx || !a) return null;
+    // Land-registry fields live in `details` under Arabic keys (المحافظة, المديرية, القرية, الحوض).
+    // Fall back to top-level fields in case a future scrape starts writing them there.
+    const det = a.details || {};
     const norm = (s) => (s == null ? '' : String(s)).replace(/^محافظة\s+/, '').trim();
-    const govName = norm(a.governorate);
+    const govName = norm(det['المحافظة'] || a.governorate);
     const district = idx.d.find(x => (x.DISTRECT_ANAME || '').trim() === govName);
     if (!district) return null;
-    const dirName = (a.directorate || '').trim();
+    const dirName = (det['المديرية'] || a.directorate || '').trim();
     const dept = idx.dept.find(x => (x.DEPT_ANAME || '').trim() === dirName && x.DISTRECT_CODE === district.DISTRECT_CODE);
     if (!dept) return null;
-    const villName = (a.village || '').trim();
+    const villName = (det['القرية'] || a.village || '').trim();
     const village = idx.vill.find(x => (x.VILL_ANAME || '').trim() === villName && x.DEPT_CODE === dept.DEPT_CODE);
     if (!village) return null;
     // basin "008/البلد" — try the leading numeric code, fall back to the name
-    const basinRaw = (a.basin || '').trim();
+    const basinRaw = (det['الحوض'] || a.basin || '').trim();
     let blockCodeStr = basinRaw, blockName = '';
     if (basinRaw.includes('/')) {
       const parts = basinRaw.split('/');
