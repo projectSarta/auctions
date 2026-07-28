@@ -59,6 +59,13 @@
   .stat-card { border: none; box-shadow: 0 2px 6px rgba(0,0,0,.06); border-radius: 12px; background: var(--color-surface); }
   .stat-card .stat-label { font-size: .85rem; color: var(--text-muted); }
   .stat-card .stat-value { font-size: 1.6rem; font-weight: 700; color: var(--color-primary); }
+  /* Clickable stat card (filter chip disguised as a stat tile). */
+  .stat-card-filter { cursor: pointer; user-select: none; position: relative; }
+  .stat-card-filter:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+  .stat-card-filter .stat-label::after { content: ' ⟶'; opacity: .35; font-size: .85em; }
+  .stat-card-filter.active { background: color-mix(in srgb, var(--color-red) 12%, var(--color-surface)); box-shadow: 0 0 0 2px var(--color-red) inset, 0 2px 6px rgba(0,0,0,.06); }
+  .stat-card-filter.active .stat-label { color: var(--color-red-deep); font-weight: 700; }
+  .stat-card-filter.active .stat-label::after { content: ' ✕'; opacity: .55; }
   .filters-card {
     background: var(--color-surface);
     border: none;
@@ -640,6 +647,7 @@
       _daysLeftMs: d ? (d.getTime() - Date.now()) : null,
       _isNew: ageMs !== null && ageMs >= 0 && ageMs <= NEW_THRESHOLD_MS,
       _endsToday: endMs !== null && endMs >= todayStartMs && endMs < todayEndMs,
+      _endsIn24h: endMs !== null && endMs > Date.now() && endMs < Date.now() + 86400000,
       _lastSeenMs: Number.isFinite(lastSeenMs) ? lastSeenMs : null,
       _searchText: searchText,
       startingAmountNum: num(a.startingAmount),
@@ -755,16 +763,19 @@
           color: 'var(--color-primary)',
         };
       }),
-      { label: 'تنتهي خلال 24 ساعة', value: endingSoon.toLocaleString('en-US'), color: 'var(--color-red)' },
+      { label: 'تنتهي خلال 24 ساعة', value: endingSoon.toLocaleString('en-US'), color: 'var(--color-red)', filter: 'endsIn24h', hint: 'انقر لعرض المزادات المنتهية خلال 24 ساعة فقط' },
       { label: 'تنتهي خلال أسبوع',   value: endingWeek.toLocaleString('en-US'), color: 'var(--color-gold-deep)' },
     ];
-    document.getElementById('statsRow').innerHTML = cards.map(c =>
-      `<div class="col-md col-6"><div class="card stat-card p-3 h-100">
+    const activeFilter24h = document.body.classList.contains('filter-endsIn24h');
+    document.getElementById('statsRow').innerHTML = cards.map(c => {
+      const isFilter = !!c.filter;
+      const isActive = isFilter && c.filter === 'endsIn24h' && activeFilter24h;
+      return `<div class="col-md col-6"><div class="card stat-card p-3 h-100${isFilter ? ' stat-card-filter' : ''}${isActive ? ' active' : ''}"${isFilter ? ` data-filter="${c.filter}" role="button" tabindex="0" title="${escapeHtml(c.hint || '')}"` : ''}>
         <div class="stat-label">${escapeHtml(c.label)}</div>
         <div class="stat-value" style="${c.color ? 'color:' + c.color : ''}">${c.value}</div>
         ${c.sub ? `<div class="stat-sub small text-muted">${escapeHtml(c.sub)}</div>` : ''}
-      </div></div>`
-    ).join('');
+      </div></div>`;
+    }).join('');
   };
 
   // ---- Filters init ----
@@ -887,6 +898,7 @@
     const favOnly = document.getElementById('favOnlyBtn').classList.contains('active');
     const newOnly = document.getElementById('newOnlyBtn').classList.contains('active');
     const endingToday = document.getElementById('endingTodayBtn').classList.contains('active');
+    const endsIn24h   = document.body.classList.contains('filter-endsIn24h');
     const hideExpired = document.getElementById('hideExpiredBtn').classList.contains('active');
     const nowMs = Date.now();
 
@@ -916,6 +928,7 @@
       (!favOnly || isFav(a.id)) &&
       (!newOnly || a._isNew) &&
       (!endingToday || a._endsToday) &&
+      (!endsIn24h || a._endsIn24h) &&
       selectedHas(cats, a.category) &&
       selectedHas(courts, a.court) &&
       selectedHas(govs, a.governorate) &&
@@ -1851,6 +1864,26 @@
     endingTodayBtn.classList.toggle('active');
     try { localStorage.setItem(ENDING_TODAY_KEY, endingTodayBtn.classList.contains('active') ? '1' : '0'); } catch {}
     apply();
+  });
+
+  // "تنتهي خلال 24 ساعة" stat card doubles as a filter chip. State lives on
+  // <body> so renderStats() (which rebuilds #statsRow innerHTML on every apply)
+  // can re-check it and stamp .active on the newly-rendered card.
+  const ENDS_IN_24H_KEY = 'mojAuctions.endsIn24h';
+  if (localStorage.getItem(ENDS_IN_24H_KEY) === '1') document.body.classList.add('filter-endsIn24h');
+  const toggleEndsIn24h = () => {
+    const on = document.body.classList.toggle('filter-endsIn24h');
+    try { localStorage.setItem(ENDS_IN_24H_KEY, on ? '1' : '0'); } catch {}
+    apply();
+  };
+  document.getElementById('statsRow').addEventListener('click', (ev) => {
+    const card = ev.target.closest('[data-filter="endsIn24h"]');
+    if (card) toggleEndsIn24h();
+  });
+  document.getElementById('statsRow').addEventListener('keydown', (ev) => {
+    if (ev.key !== 'Enter' && ev.key !== ' ') return;
+    const card = ev.target.closest('[data-filter="endsIn24h"]');
+    if (card) { ev.preventDefault(); toggleEndsIn24h(); }
   });
   // Count of auctions ending today (any time before midnight tonight, future only).
   document.getElementById('endingTodayCount').textContent =
