@@ -1325,6 +1325,10 @@
   }
   async function fetchAradiPlot(codes) {
     if (!codes) return null;
+    // aradi.io's /api/plot endpoint doesn't send CORS headers, so browsers
+    // can't call it from other origins. Kept as a best-effort fallback in
+    // case they add CORS later — normally the polygon is pre-fetched by
+    // enrich_aradi.ps1 and lives in a.aradiPlot (see renderMap below).
     try {
       const r = await fetch(`https://aradi.io/api/plot/${codes.village}/${codes.block}/${codes.plot}`);
       if (!r.ok) return null;
@@ -1381,8 +1385,13 @@
       return;
     }
 
-    const parcelNo = (a.details || {})['رقم القطعة'];
-    if (!a.governorate || !a.directorate || !a.village || !a.basin || !parcelNo) {
+    const det = a.details || {};
+    const parcelNo = det['رقم القطعة'];
+    const govT     = det['المحافظة'] || a.governorate;
+    const dirT     = det['المديرية'] || a.directorate;
+    const villT    = det['القرية']   || a.village;
+    const basinT   = det['الحوض']    || a.basin;
+    if (!govT || !dirT || !villT || !basinT || !parcelNo) {
       clearMapLayer();
       wrap.style.display = '';
       mapEl.style.display = 'none';
@@ -1396,9 +1405,23 @@
     clearMapLayer();
 
     try {
-      const idx = await loadAradiIndex();
-      const codes = lookupAradiCodes(a, idx);
-      const plot = codes ? await fetchAradiPlot(codes) : null;
+      // Prefer pre-fetched polygon (enrich_aradi.ps1 baked it into auctions.json).
+      // aradi.io/api/plot has no CORS headers, so a runtime browser fetch would
+      // be blocked by the browser — the embedded path is the primary source.
+      let codes = null, plot = null;
+      if (a.aradiPlot && a.aradiPlot.status === 'ok' && a.aradiPlot.geometry) {
+        codes = { village: a.aradiPlot.village, block: a.aradiPlot.block, plot: a.aradiPlot.plot };
+        plot  = { geometry: a.aradiPlot.geometry, properties: a.aradiPlot.properties || {} };
+      } else if (a.aradiPlot && (a.aradiPlot.status === 'no-plot' || a.aradiPlot.status === 'no-codes')) {
+        note.textContent = 'تعذر مطابقة حدود القطعة عبر aradi.io. استخدم زر دائرة الأراضي للتحقق اليدوي.';
+        return;
+      } else {
+        // No pre-fetched value yet — try live (will fail on CORS from most origins
+        // but works on aradi's own domain and doesn't hurt when it doesn't).
+        const idx = await loadAradiIndex();
+        codes = lookupAradiCodes(a, idx);
+        plot  = codes ? await fetchAradiPlot(codes) : null;
+      }
       if (!codes || !plot) {
         note.textContent = 'تعذر مطابقة حدود القطعة عبر aradi.io. استخدم زر دائرة الأراضي للتحقق اليدوي.';
         return;
