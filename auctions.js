@@ -1,5 +1,5 @@
 window.AUCTION_DATA = {
-  "scrapedAt": "2026-07-28 23:09:18",
+  "scrapedAt": "2026-07-29 09:47:02",
   "source": "https://auctions.moj.gov.jo/index.aspx",
   "totalScraped": 3366,
   "pageLimit": 0,
@@ -13,22 +13,22 @@ window.AUCTION_DATA = {
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE",
       "name": "أرض/ مجمع",
-      "totalCount": 1289
+      "totalCount": 1293
     },
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc",
       "name": "شقة/ مكتب",
-      "totalCount": 580
+      "totalCount": 581
     },
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY",
       "name": "أُخرى",
-      "totalCount": 116
+      "totalCount": 118
     },
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY",
       "name": "مركبة",
-      "totalCount": 369
+      "totalCount": 378
     }
   ],
   "auctions": [
@@ -74,7 +74,7 @@ window.AUCTION_DATA = {
       },
       "caseId": 13731587,
       "image": "images/50646.jpg",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z"
+      "lastSeenInListingAt": "2026-07-29T09:35:31Z"
     },
     {
       "id": 50649,
@@ -118,7 +118,7 @@ window.AUCTION_DATA = {
       },
       "caseId": 13731587,
       "image": "images/50649.jpg",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z"
+      "lastSeenInListingAt": "2026-07-29T09:41:41Z"
     },
     {
       "id": 50647,
@@ -162,7 +162,7 @@ window.AUCTION_DATA = {
       },
       "caseId": 13731587,
       "image": "images/50647.jpg",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z"
+      "lastSeenInListingAt": "2026-07-29T09:35:31Z"
     },
     {
       "id": 50648,
@@ -206,7 +206,7 @@ window.AUCTION_DATA = {
       },
       "caseId": 13731587,
       "image": "images/50648.jpg",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z"
+      "lastSeenInListingAt": "2026-07-29T09:41:41Z"
     },
     {
       "id": 40796,
@@ -250,7 +250,7 @@ window.AUCTION_DATA = {
       },
       "caseId": 14732018,
       "image": "images/40796.jpg",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z"
+      "lastSeenInListingAt": "2026-07-29T09:41:41Z"
     },
     {
       "id": 50368,
@@ -784,7 +784,7 @@ window.AUCTION_DATA = {
       "caseId": 15181899,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6yPsSGJX80lx4VDjIkbYrfmx_n5VZiYOIbqGZidE4gZQ",
       "pdfPath": "reports/49573.pdf",
-      "lastSeenInListingAt": "2026-07-28T23:07:37Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:30Z",
       "aradiPlot": {
         "status": "ok",
         "village": 100,
@@ -1643,7 +1643,7 @@ window.AUCTION_DATA = {
       },
       "image": "images/41009.jpg",
       "caseId": 8451706,
-      "lastSeenInListingAt": "2026-07-28T23:07:37Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:30Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da510d1jAe55hQQ-s4x-r0-u3zdMzKZCUKBNwqTdkS_3zg",
       "aradiPlot": {
         "status": "ok",
@@ -5755,7 +5755,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/04/2026"
       },
       "image": "images/50120.png",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:59Z",
       "aradiPlot": {
         "status": "ok",
         "village": 128,
@@ -7017,7 +7017,7 @@ window.AUCTION_DATA = {
       "caseId": 15506962,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4NKOf6BH_7JdpZ7pUn3g7R7Pn-57a3fWzpFD6W4_rxCQ",
       "pdfPath": "reports/50154.pdf",
-      "lastSeenInListingAt": "2026-07-28T20:38:34Z"
+      "lastSeenInListingAt": "2026-07-29T09:47:02Z"
     },
     {
       "id": 50574,
@@ -16718,7 +16718,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "07/04/2026"
       },
       "image": "images/50106.jpg",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:59Z",
       "aradiPlot": {
         "status": "ok",
         "village": 171,
@@ -17204,7 +17204,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "22/04/2026"
       },
       "image": "images/49565.jpg",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:59Z",
       "aradiPlot": {
         "status": "ok",
         "village": 1,
@@ -20348,7 +20348,7 @@ window.AUCTION_DATA = {
       },
       "caseId": 15328493,
       "image": "images/49377.jpg",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:59Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da40LcE8t_sLUkcSbsY_0y9o7r1RIafRNE-PV7Mrta5ZnA",
       "aradiPlot": {
         "status": "ok",
@@ -23308,7 +23308,7 @@ window.AUCTION_DATA = {
       },
       "image": "images/42994.jpg",
       "caseId": 14857639,
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:59Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7RHX65_xoaJ7S1OpBL6QHlXr7qaOv5bQHwNDVs4dydTQ",
       "aradiPlot": {
         "status": "ok",
@@ -28674,7 +28674,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "23/04/2026"
       },
       "image": "images/50801.png",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:59Z",
       "caseId": 15566341,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da55-BKGDApWrDU7d3m6NV_ipVARP9xN1MxniNEwE_9o9w",
       "pdfPath": "reports/50801.pdf",
@@ -44403,7 +44403,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "15/03/2026"
       },
       "image": "images/49913.jpg",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:59Z",
       "aradiPlot": {
         "status": "ok",
         "village": 1,
@@ -46851,7 +46851,7 @@ window.AUCTION_DATA = {
       },
       "image": "images/48909.jpg",
       "caseId": 14529421,
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:59Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7Vefeqapzlb_Ec04v7O4p2_P09qJ9FKHopR82XBuaHxw",
       "aradiPlot": {
         "status": "no-plot",
@@ -63747,7 +63747,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "08/04/2026"
       },
       "caseId": 14735900,
-      "lastSeenInListingAt": "2026-07-28T23:07:37Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:30Z",
       "image": "images/45993.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5d0qL2lOhLimIP-lYb9bONU6KqjmVFWmVASCxpWX80hQ",
       "pdfPath": "reports/45993.pdf",
@@ -66768,7 +66768,7 @@ window.AUCTION_DATA = {
       "caseId": 12973773,
       "image": "images/29178.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da60zl4OE3pW0rACx1N8IIwo3wDElq99PaRyPDv0eVhaIQ",
-      "lastSeenInListingAt": "2026-07-28T23:07:37Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:30Z",
       "aradiPlot": {
         "status": "ok",
         "village": 171,
@@ -70702,7 +70702,7 @@ window.AUCTION_DATA = {
       "caseId": 15497184,
       "image": "images/49821.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da60zl4OE3pW0rACx1N8IIwo3wDElq99PaRyPDv0eVhaIQ",
-      "lastSeenInListingAt": "2026-07-28T23:07:37Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:30Z",
       "aradiPlot": {
         "status": "ok",
         "village": 179,
@@ -77340,7 +77340,7 @@ window.AUCTION_DATA = {
       "caseId": 15331729,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da60zl4OE3pW0rACx1N8IIwo3wDElq99PaRyPDv0eVhaIQ",
       "pdfPath": "reports/47975.pdf",
-      "lastSeenInListingAt": "2026-07-28T23:07:37Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:30Z",
       "aradiPlot": {
         "status": "ok",
         "village": 104,
@@ -86778,13 +86778,13 @@ window.AUCTION_DATA = {
     {
       "id": 48394,
       "category": "أُخرى",
-      "header": "رقم المزاد :5-11-42385-2025-سجل عام أُخرى - 2026/02/06 تنفيذ عمان",
+      "header": "رقم المزاد :5-11-42385-2025-سجل عام أُخرى - 2026/07/13 تنفيذ عمان",
       "court": "تنفيذ عمان",
       "caseNumber": "ا 5-11-42385-2025-سجل عام",
       "status": "قيد التنفيذ",
       "announcement": "اعلان بيع",
-      "announcementStart": "06/02/2026 00:00:00",
-      "announcementEnd": "25/02/2026 14:00:00",
+      "announcementStart": "13/07/2026 00:00:00",
+      "announcementEnd": "29/07/2026 15:00:00",
       "startingAmount": "1177.50",
       "estimatedValue": "2355",
       "currentAmount": "0",
@@ -86793,7 +86793,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "20081",
       "publishedAt": "05/02/2026",
-      "endDate": "2026-02-25 14:00:00",
+      "endDate": "2026-07-29 15:00:00",
       "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY&auction=48394",
@@ -86813,7 +86813,8 @@ window.AUCTION_DATA = {
         "العدد": "20081",
         "تاريخ النشر": "05/02/2026"
       },
-      "caseId": 15449030
+      "caseId": 15449030,
+      "lastSeenInListingAt": "2026-07-29T09:47:02Z"
     },
     {
       "id": 47900,
@@ -93452,7 +93453,7 @@ window.AUCTION_DATA = {
       },
       "caseId": 11739987,
       "image": "images/49269.jpg",
-      "lastSeenInListingAt": "2026-07-26T20:05:24Z",
+      "lastSeenInListingAt": "2026-07-29T09:35:31Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6cxTD1Rul9Kky0NIenXQ4SqOMVCTFfucTVJBafLKUoPg"
     },
     {
@@ -120914,7 +120915,7 @@ window.AUCTION_DATA = {
       "firstSeenAt": "2026-06-01T14:00:08Z",
       "image": "images/51327.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7fMM0FXoDlSxfwI7b3zG-fvJZTguDxySTP6CeasIM-kA",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z"
+      "lastSeenInListingAt": "2026-07-29T09:41:41Z"
     },
     {
       "id": 51211,
@@ -127193,7 +127194,7 @@ window.AUCTION_DATA = {
       "firstSeenAt": "2026-06-21T20:32:06Z",
       "image": "images/35925.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da45wc8Jaxd5jdpykUU7eS1T90Q8mWd_hStsVH9QpQ-rYA",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z"
+      "lastSeenInListingAt": "2026-07-29T09:41:41Z"
     },
     {
       "id": 38290,
@@ -133241,7 +133242,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "29/06/2026"
       },
       "firstSeenAt": "2026-06-30T06:25:00Z",
-      "lastSeenInListingAt": "2026-07-28T17:16:28Z",
+      "lastSeenInListingAt": "2026-07-29T09:35:31Z",
       "image": "images/51610.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7On5RTqtvsxVzeyBDE0nmmrfBkpV09tOy-G8o-YH9tCQ"
     },
@@ -153198,7 +153199,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "30/06/2026"
       },
       "firstSeenAt": "2026-07-07T08:35:58Z",
-      "lastSeenInListingAt": "2026-07-28T20:38:34Z",
+      "lastSeenInListingAt": "2026-07-29T09:47:02Z",
       "image": "images/52256.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4ww5ZIWy2JU5J0rCx5fwmrkBEUfanV7YtVGlJ2zdX4Ow"
     },
@@ -165607,7 +165608,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "06/07/2026"
       },
       "firstSeenAt": "2026-07-08T15:08:42Z",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-29T09:41:41Z",
       "image": "images/52301.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7eUj-BFUMux5Z9kvzJQcyWs5pZs96M0IZueLQX72aF9g"
     },
@@ -165653,7 +165654,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "06/07/2026"
       },
       "firstSeenAt": "2026-07-08T15:08:42Z",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-29T09:41:41Z",
       "image": "images/52300.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7b-pfQ3bbnllFJEIJYOPUC0PmTDuhSSch0hJh7yZUkVw",
       "pdfPath": "reports/52300.pdf"
@@ -167317,7 +167318,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "09/07/2026"
       },
       "firstSeenAt": "2026-07-11T10:57:52Z",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-29T09:41:41Z",
       "image": "images/52354.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5Hj6qqAA5Gk_F9308JtyW7Uw4u-gwm1mhHBt2yaj-AVg"
     },
@@ -169224,7 +169225,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "08/07/2026"
       },
       "firstSeenAt": "2026-07-13T17:52:14Z",
-      "lastSeenInListingAt": "2026-07-28T20:38:34Z",
+      "lastSeenInListingAt": "2026-07-29T09:47:02Z",
       "image": "images/52392.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4mri9IOlArHgtjrdrZgc-9WLYM3PJMjCQr5BaIlfIPhg"
     },
@@ -172899,7 +172900,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "29/06/2026"
       },
       "firstSeenAt": "2026-07-16T11:14:51Z",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:59Z",
       "image": "images/52094.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7hp2wbM7noOxW9d2M-DYdWBc39PPXG_L77mnS29Wu-OA",
       "aradiPlot": {
@@ -173045,7 +173046,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "29/06/2026"
       },
       "firstSeenAt": "2026-07-16T11:14:51Z",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:59Z",
       "image": "images/44322.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5aI26HnlUygJyorY5bsqhPs3JWjP0DlS2B5AC6OKji_A",
       "aradiPlot": {
@@ -174766,7 +174767,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "22/06/2026"
       },
       "firstSeenAt": "2026-07-16T11:14:51Z",
-      "lastSeenInListingAt": "2026-07-26T20:05:24Z",
+      "lastSeenInListingAt": "2026-07-29T09:35:31Z",
       "image": "images/52444.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4Vqn2c6JyUuqL_tRqhbD-3B-U1x1Bq5rC2COGP7ZGMUQ"
     },
@@ -182185,7 +182186,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "19/07/2026"
       },
       "firstSeenAt": "2026-07-19T14:31:28Z",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-29T09:41:41Z",
       "image": "images/52559.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7h0uppzXnMO4CSErLcl-z8RBLIpor0LpUMHPb6L0QRHg",
       "pdfPath": "reports/52559.pdf"
@@ -182232,7 +182233,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "14/07/2026"
       },
       "firstSeenAt": "2026-07-19T14:31:28Z",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-29T09:41:41Z",
       "image": "images/52560.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5-fPzEgrBlDRqe_i7PKxgYzenqPTd-UCyxUhu1jdtSGg",
       "pdfPath": "reports/52560.pdf"
@@ -182301,9 +182302,9 @@ window.AUCTION_DATA = {
       "announcementEnd": "29/07/2026 15:00:00",
       "startingAmount": "161902.94",
       "estimatedValue": "323806",
-      "currentAmount": "0",
+      "currentAmount": "161903",
       "minIncrement": "500 دينار اردني",
-      "numBids": "0",
+      "numBids": "1",
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "20235",
       "publishedAt": "19/07/2026",
@@ -182327,7 +182328,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "19/07/2026"
       },
       "firstSeenAt": "2026-07-19T23:01:37Z",
-      "lastSeenInListingAt": "2026-07-28T20:38:34Z",
+      "lastSeenInListingAt": "2026-07-29T09:47:02Z",
       "image": "images/52562.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7ncdSNobb289Jx2jy8MyDMI_wT1mY7B1F37jTs8wYA1Q",
       "pdfPath": "reports/52562.pdf"
@@ -201914,7 +201915,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "21/06/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-26T20:05:24Z",
+      "lastSeenInListingAt": "2026-07-29T09:35:31Z",
       "image": "images/52516.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6NCMOD8qM-P5aSeuID8RII-5h834EcQqYYc91uS9gR7g",
       "pdfPath": "reports/52516.pdf"
@@ -201967,7 +201968,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "13/05/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-26T20:05:24Z",
+      "lastSeenInListingAt": "2026-07-29T09:35:31Z",
       "image": "images/52547.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7S9E7h2zoyQDOtR-NgcE9QQsRld9MyeAHhbuhgcUrfBA",
       "pdfPath": "reports/52547.pdf"
@@ -202020,7 +202021,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "13/05/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-26T20:05:24Z",
+      "lastSeenInListingAt": "2026-07-29T09:35:31Z",
       "image": "images/52548.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7YchxPTjbtor_d4ITMfuvXPRKXw6cUxxF4BokAx5E8Dg",
       "pdfPath": "reports/52548.pdf"
@@ -202073,7 +202074,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "13/05/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-26T20:05:24Z",
+      "lastSeenInListingAt": "2026-07-29T09:35:31Z",
       "image": "images/52551.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5IW6j9rbMugRsBObtG48XzYCHZVIi4TAJa9MeYVI6Pyw",
       "pdfPath": "reports/52551.pdf"
@@ -203970,7 +203971,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "29/06/2026"
       },
       "firstSeenAt": "2026-07-21T15:03:35Z",
-      "lastSeenInListingAt": "2026-07-28T23:07:37Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:30Z",
       "image": "images/52373.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da61yUk2kpxEepJpz2dXEYihq0UnnxCT-HfG8TXyd9h20g",
       "pdfPath": "reports/52373.pdf",
@@ -209606,7 +209607,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "29/06/2026"
       },
       "firstSeenAt": "2026-07-21T15:03:35Z",
-      "lastSeenInListingAt": "2026-07-28T23:07:37Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:30Z",
       "image": "images/33397.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da77r9WGqLaONg4gHhiCsZDaBcq-V69JENqdCH8kXaniXw",
       "pdfPath": "reports/33397.pdf",
@@ -209770,7 +209771,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "29/06/2026"
       },
       "firstSeenAt": "2026-07-21T15:03:42Z",
-      "lastSeenInListingAt": "2026-07-28T23:07:37Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:30Z",
       "image": "images/52044.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da770fYm-BM8wo7INM5RQkM80gJBwcqmL2CaPtENCYwuYw",
       "pdfPath": "reports/52044.pdf",
@@ -209826,7 +209827,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "29/06/2026"
       },
       "firstSeenAt": "2026-07-21T15:03:49Z",
-      "lastSeenInListingAt": "2026-07-28T23:07:55Z",
+      "lastSeenInListingAt": "2026-07-29T09:46:30Z",
       "image": "images/52066.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6vaxgmt0hvYv4PXpdtFuPdLSi14yls9AIOPG7wkYXqMw",
       "pdfPath": "reports/52066.pdf",
@@ -216038,9 +216039,9 @@ window.AUCTION_DATA = {
       "announcementEnd": "29/07/2026 14:00:00",
       "startingAmount": "640.50",
       "estimatedValue": "1281",
-      "currentAmount": "0",
+      "currentAmount": "900",
       "minIncrement": "20 دينار اردني",
-      "numBids": "0",
+      "numBids": "1",
       "newspaper": "جريدة الغد",
       "newspaperIssue": "7849",
       "publishedAt": "20/07/2026",
@@ -216064,7 +216065,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "20/07/2026"
       },
       "firstSeenAt": "2026-07-23T20:18:32Z",
-      "lastSeenInListingAt": "2026-07-28T20:38:34Z",
+      "lastSeenInListingAt": "2026-07-29T09:47:02Z",
       "image": "images/52633.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7abK4BoA3W4swVkQg-Yjut3tpB6xiRX_O_DOyD0FWk-g",
       "pdfPath": "reports/52633.pdf"
@@ -217296,7 +217297,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "23/07/2026"
       },
       "firstSeenAt": "2026-07-23T22:55:41Z",
-      "lastSeenInListingAt": "2026-07-28T20:38:34Z",
+      "lastSeenInListingAt": "2026-07-29T09:47:02Z",
       "image": "images/52656.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6jJ4ZE0tU8SQY2CA4TygpswT9ZmWCaNzRiIR3mQESK1Q"
     },
@@ -217911,7 +217912,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "28/06/2026"
       },
       "firstSeenAt": "2026-07-25T03:57:56Z",
-      "lastSeenInListingAt": "2026-07-26T20:05:24Z",
+      "lastSeenInListingAt": "2026-07-29T09:35:31Z",
       "image": "images/52555.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7oKvD8BCJ1ar3XFhHPP5KbhTOXJftyAnFXTL7_YuNgQw"
     },
@@ -217963,7 +217964,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "01/07/2026"
       },
       "firstSeenAt": "2026-07-25T03:57:56Z",
-      "lastSeenInListingAt": "2026-07-26T20:05:24Z",
+      "lastSeenInListingAt": "2026-07-29T09:35:31Z",
       "image": "images/52577.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5YFLoOox7fBSMwZ4r1sJhCz-Ox04V-ZBdDxbhR0cBwXA"
     },
@@ -218015,7 +218016,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "28/06/2026"
       },
       "firstSeenAt": "2026-07-25T03:57:56Z",
-      "lastSeenInListingAt": "2026-07-26T20:05:24Z",
+      "lastSeenInListingAt": "2026-07-29T09:35:31Z",
       "image": "images/52554.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7La0r58H_MgpI3-QEdvb_65RsDFYT4jEAmKQQDq_4I3A"
     },
@@ -219144,7 +219145,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "26/07/2026"
       },
       "firstSeenAt": "2026-07-26T11:14:04Z",
-      "lastSeenInListingAt": "2026-07-28T20:38:34Z",
+      "lastSeenInListingAt": "2026-07-29T09:47:02Z",
       "image": "images/52718.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6_VbnhwT_fd6XYR_RqTJECPl6qWdF1A7AiXtD6rXBBUA"
     },
@@ -219187,7 +219188,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "23/07/2026"
       },
       "firstSeenAt": "2026-07-26T11:14:04Z",
-      "lastSeenInListingAt": "2026-07-28T20:38:34Z",
+      "lastSeenInListingAt": "2026-07-29T09:47:02Z",
       "image": "images/52716.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5CcA7kXRMnQjhD18bBanMqFaH1h0KkoFSc_ZA4E_giBA",
       "pdfPath": "reports/52716.pdf"
@@ -219235,7 +219236,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "01/04/2026"
       },
       "firstSeenAt": "2026-07-26T14:25:56Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z"
+      "lastSeenInListingAt": "2026-07-29T09:35:31Z"
     },
     {
       "id": 52699,
@@ -229942,7 +229943,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "20/07/2026"
       },
       "firstSeenAt": "2026-07-28T03:57:59Z",
-      "lastSeenInListingAt": "2026-07-28T20:38:34Z",
+      "lastSeenInListingAt": "2026-07-29T09:47:02Z",
       "image": "images/52748.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da79Jv6yrli9QfHz3fkkPFoh4YwC8nmdC_99RFFKoJH6mg"
     },
@@ -229986,7 +229987,9 @@ window.AUCTION_DATA = {
       },
       "firstSeenAt": "2026-07-28T17:16:28Z",
       "lastSeenInListingAt": "2026-07-28T17:16:28Z",
-      "image": "images/52778.jpg"
+      "image": "images/52778.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6m2afrbIJDm24CNhLEVu620_zjG02JdxawPjq_xUKJJA",
+      "pdfPath": "reports/52778.pdf"
     },
     {
       "id": 52771,
@@ -230395,7 +230398,9 @@ window.AUCTION_DATA = {
           "village_id": 477,
           "village_name": "عين و المعمرية"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6uHqMQuiAKUtx8wCo8XriDeSxbOjANUIeEfSv4iYj0pw",
+      "pdfPath": "reports/48227.pdf"
     },
     {
       "id": 52278,
@@ -230449,7 +230454,8 @@ window.AUCTION_DATA = {
         "village": 472,
         "block": 1,
         "plot": 705
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7gkKDIOeCZXp_ICba4WDwPR110OrIDl8GO98YRT5JR8Q"
     },
     {
       "id": 52279,
@@ -234648,5 +234654,5 @@ window.AUCTION_DATA = {
       "image": "images/45429.jpg"
     }
   ],
-  "lastRunAt": "2026-07-29 06:31:35"
+  "lastRunAt": "2026-07-29 09:49:56"
 };
