@@ -234326,7 +234326,6 @@
       "newspaperIssue": "7830",
       "publishedAt": "01/07/2026",
       "endDate": "2026-08-02 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=45429",
       "details": {
@@ -234644,8 +234643,9 @@
           "village_id": 62,
           "village_name": "وادي السير"
         }
-      }
+      },
+      "image": "images/45429.jpg"
     }
   ],
-  "lastRunAt": "2026-07-28 23:13:03"
+  "lastRunAt": "2026-07-29 04:02:48"
 }
