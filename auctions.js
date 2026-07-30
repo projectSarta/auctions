@@ -152909,7 +152909,9 @@ window.AUCTION_DATA = {
           "village_id": 137,
           "village_name": "العبدلية"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6bPNopDx070as6Pqf2_DtggE2YiUszgsuc6ioB6ppQ9A",
+      "pdfPath": "reports/47186.pdf"
     },
     {
       "id": 35209,
@@ -160309,7 +160311,9 @@ window.AUCTION_DATA = {
       },
       "firstSeenAt": "2026-07-07T08:35:58Z",
       "lastSeenInListingAt": "2026-07-30T06:19:08Z",
-      "image": "images/51832.jpg"
+      "image": "images/51832.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4LghfEbwFah38_6qNnbwi6C6FDqkJlQd9I_6Koj36pnA",
+      "pdfPath": "reports/51832.pdf"
     },
     {
       "id": 52078,
@@ -260683,5 +260687,5 @@ window.AUCTION_DATA = {
       "image": "images/52789.jpg"
     }
   ],
-  "lastRunAt": "2026-07-30 06:35:39"
+  "lastRunAt": "2026-07-30 09:33:09"
 };
