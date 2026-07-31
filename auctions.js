@@ -1,7 +1,7 @@
 window.AUCTION_DATA = {
-  "scrapedAt": "2026-07-30 20:45:16",
+  "scrapedAt": "2026-07-31 04:42:23",
   "source": "https://auctions.moj.gov.jo/index.aspx",
-  "totalScraped": 3421,
+  "totalScraped": 3436,
   "pageLimit": 0,
   "inProgress": false,
   "categories": [
@@ -18,17 +18,17 @@ window.AUCTION_DATA = {
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc",
       "name": "شقة/ مكتب",
-      "totalCount": 582
+      "totalCount": 581
     },
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY",
       "name": "أُخرى",
-      "totalCount": 119
+      "totalCount": 115
     },
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY",
       "name": "مركبة",
-      "totalCount": 373
+      "totalCount": 365
     }
   ],
   "auctions": [
@@ -118,7 +118,7 @@ window.AUCTION_DATA = {
       },
       "caseId": 13731587,
       "image": "images/50649.jpg",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50647,
@@ -206,7 +206,7 @@ window.AUCTION_DATA = {
       },
       "caseId": 13731587,
       "image": "images/50648.jpg",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 40796,
@@ -250,7 +250,7 @@ window.AUCTION_DATA = {
       },
       "caseId": 14732018,
       "image": "images/40796.jpg",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50368,
@@ -4662,7 +4662,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "19/04/2026"
       },
       "image": "images/49288.png",
-      "lastSeenInListingAt": "2026-07-30T06:19:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "caseId": 14866033,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4oesAM6JLP0CSO3FIY7iuC9Am4_lSxnokDmw9vRs08fQ",
       "pdfPath": "reports/49288.pdf",
@@ -4720,7 +4720,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "19/04/2026"
       },
       "image": "images/49295.jpg",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "caseId": 14866033,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5GGENL0SlpjgFNR_JlsQfiyxCW-JoPau6EvCE7XEmdOA",
       "aradiPlot": {
@@ -5323,7 +5323,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "20/04/2026"
       },
       "image": "images/49297.jpg",
-      "lastSeenInListingAt": "2026-07-30T06:19:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "caseId": 14866033,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4UuLw2ytoy7c8ryA2xuBOCzGbfUD10LIjzkHBPFd_-pw",
       "aradiPlot": {
@@ -5534,7 +5534,8 @@ window.AUCTION_DATA = {
         "village": 637,
         "block": 27,
         "plot": 705
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7faoFia3Pr8gKI3MvTiBLjE4sjFF3iMSvy3Ziy3hdmRA"
     },
     {
       "id": 50054,
@@ -6297,7 +6298,7 @@ window.AUCTION_DATA = {
       "image": "images/49264.jpg",
       "caseId": 13767338,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7SekVq3M6kJo-EH-WjWRW-RYSe9VXwj6zT7rz70FTneA",
-      "lastSeenInListingAt": "2026-07-25T20:06:01Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50743,
@@ -6337,7 +6338,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "30/03/2026"
       },
       "image": "images/50743.png",
-      "lastSeenInListingAt": "2026-07-14T17:20:51Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "caseId": 15405970
     },
     {
@@ -6377,7 +6378,8 @@ window.AUCTION_DATA = {
         "العدد": "0",
         "تاريخ النشر": "28/04/2026"
       },
-      "image": "images/50690.jpg"
+      "image": "images/50690.jpg",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50513,
@@ -6417,7 +6419,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "23/04/2026"
       },
       "image": "images/50513.jpg",
-      "lastSeenInListingAt": "2026-07-14T17:20:51Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "caseId": 15655793
     },
     {
@@ -6458,7 +6460,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "26/04/2026"
       },
       "image": "images/50696.jpg",
-      "lastSeenInListingAt": "2026-07-14T17:20:51Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "caseId": 14237289
     },
     {
@@ -6501,7 +6503,7 @@ window.AUCTION_DATA = {
       "image": "images/50749.jpg",
       "caseId": 15471533,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4hgQIGSyBin9Y6a7za11OPo-yowga8H2DzTS6eRnY-jA",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 49391,
@@ -6543,7 +6545,7 @@ window.AUCTION_DATA = {
       "image": "images/49391.jpg",
       "caseId": 15540533,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6XVzkEo0DfvJja0x3tMZ0KaZmBwuR_9leisbdHicZqbw",
-      "lastSeenInListingAt": "2026-07-26T22:51:32Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50497,
@@ -6583,7 +6585,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "13/04/2026"
       },
       "image": "images/50497.jpg",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "caseId": 14425069
     },
     {
@@ -6624,7 +6626,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "15/04/2026"
       },
       "image": "images/50544.jpg",
-      "lastSeenInListingAt": "2026-07-14T17:20:51Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "caseId": 15374904
     },
     {
@@ -6667,7 +6669,7 @@ window.AUCTION_DATA = {
       "image": "images/48849.jpg",
       "caseId": 15535944,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da42FII2XjOO8Fx9EwJnNqw18ok4TqtpMxnNBkjmwrdq1A",
-      "lastSeenInListingAt": "2026-07-25T20:06:01Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50691,
@@ -6707,7 +6709,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "26/04/2026"
       },
       "image": "images/50691.jpg",
-      "lastSeenInListingAt": "2026-07-14T17:20:51Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "caseId": 15718851
     },
     {
@@ -6792,7 +6794,7 @@ window.AUCTION_DATA = {
       "caseId": 15437076,
       "image": "images/50730.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5nuzkGy_iXmOy6RsRiLmyiKtSapaJP6bBAE2mLDu0p5A",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50365,
@@ -6834,7 +6836,7 @@ window.AUCTION_DATA = {
       "caseId": 14968870,
       "image": "images/50365.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5nuzkGy_iXmOy6RsRiLmyiKtSapaJP6bBAE2mLDu0p5A",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 49902,
@@ -6999,7 +7001,7 @@ window.AUCTION_DATA = {
       },
       "image": "images/49681.jpg",
       "caseId": 15436478,
-      "lastSeenInListingAt": "2026-07-30T20:45:12Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50154,
@@ -7123,7 +7125,8 @@ window.AUCTION_DATA = {
         "العدد": "20143",
         "تاريخ النشر": "12/04/2026"
       },
-      "image": "images/50510.jpg"
+      "image": "images/50510.jpg",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50434,
@@ -7437,7 +7440,8 @@ window.AUCTION_DATA = {
         "العدد": "21068",
         "تاريخ النشر": "14/04/2026"
       },
-      "image": "images/50554.jpg"
+      "image": "images/50554.jpg",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50429,
@@ -7476,7 +7480,8 @@ window.AUCTION_DATA = {
         "العدد": "0",
         "تاريخ النشر": "19/04/2026"
       },
-      "image": "images/50429.jpg"
+      "image": "images/50429.jpg",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50489,
@@ -14551,7 +14556,8 @@ window.AUCTION_DATA = {
         "العدد": "20144",
         "تاريخ النشر": "13/04/2026"
       },
-      "image": "images/50259.jpg"
+      "image": "images/50259.jpg",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 48463,
@@ -14789,7 +14795,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "09/04/2026"
       },
       "image": "images/48465.jpg",
-      "caseId": 15234773
+      "caseId": 15234773,
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 48840,
@@ -14830,7 +14837,7 @@ window.AUCTION_DATA = {
       },
       "image": "images/48840.jpg",
       "caseId": 15234773,
-      "lastSeenInListingAt": "2026-07-08T23:09:31Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50404,
@@ -14871,7 +14878,7 @@ window.AUCTION_DATA = {
       },
       "image": "images/50404.jpg",
       "caseId": 15317044,
-      "lastSeenInListingAt": "2026-07-08T23:09:31Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50202,
@@ -14913,7 +14920,7 @@ window.AUCTION_DATA = {
       "image": "images/50202.jpg",
       "caseId": 15487253,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6Tri7ftR3WK4_6rWHl5mZ1uvRfmqXqhB210NplGR1rjg",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50364,
@@ -14994,7 +15001,7 @@ window.AUCTION_DATA = {
       },
       "image": "images/50133.jpg",
       "caseId": 11359130,
-      "lastSeenInListingAt": "2026-07-08T23:09:31Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50372,
@@ -15401,7 +15408,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "26/03/2026"
       },
       "caseId": 15187403,
-      "lastSeenInListingAt": "2026-07-30T20:45:12Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50260,
@@ -15606,7 +15613,7 @@ window.AUCTION_DATA = {
       },
       "image": "images/49960.jpg",
       "caseId": 15061364,
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50002,
@@ -16811,7 +16818,7 @@ window.AUCTION_DATA = {
       "caseId": 13143524,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7Tawej00M7lEB7_ADis2jJMywtiepfJoV2zhIDHumhzw",
       "pdfPath": "reports/50503.pdf",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 182,
@@ -16993,13 +17000,13 @@ window.AUCTION_DATA = {
     {
       "id": 49869,
       "category": "شقة/ مكتب",
-      "header": "رقم المزاد :12-11-3685-2025-سجل عام شقة/ مكتب - 2026/05/21 تنفيذ مادبا",
+      "header": "رقم المزاد :12-11-3685-2025-سجل عام شقة/ مكتب - 2026/07/23 تنفيذ مادبا",
       "court": "تنفيذ مادبا",
       "caseNumber": "ا 12-11-3685-2025-سجل عام",
       "status": "قيد التنفيذ",
-      "announcement": "اعلان احالة مؤقتة",
-      "announcementStart": "23/04/2026 08:00:00",
-      "announcementEnd": "19/06/2026 15:00:00",
+      "announcement": "اعلان احالة قطعية",
+      "announcementStart": "23/07/2026 08:00:00",
+      "announcementEnd": "01/08/2026 15:00:00",
       "startingAmount": "15965",
       "estimatedValue": "31930",
       "currentAmount": "16000",
@@ -17040,7 +17047,7 @@ window.AUCTION_DATA = {
       "caseId": 15570326,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7Tawej00M7lEB7_ADis2jJMywtiepfJoV2zhIDHumhzw",
       "pdfPath": "reports/49869.pdf",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:16Z",
       "aradiPlot": {
         "status": "ok",
         "village": 68,
@@ -18298,7 +18305,7 @@ window.AUCTION_DATA = {
       "caseId": 15611807,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7Tawej00M7lEB7_ADis2jJMywtiepfJoV2zhIDHumhzw",
       "pdfPath": "reports/50225.pdf",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "no-plot",
         "village": 637,
@@ -18649,7 +18656,7 @@ window.AUCTION_DATA = {
       },
       "caseId": 15576876,
       "image": "images/50175.jpg",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7vPDy5z71jKM1AHREF_3WtyWiJbbvm9n_iR4POXNO20Q",
       "aradiPlot": {
         "status": "ok",
@@ -21921,7 +21928,7 @@ window.AUCTION_DATA = {
       "image": "images/50294.jpg",
       "caseId": 15517123,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7ZeaUMVtuisaSd5JydOMskDtvRwJxXteRj1zzTP3WKHQ",
-      "lastSeenInListingAt": "2026-07-30T06:19:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "no-plot",
         "village": 381,
@@ -22766,7 +22773,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "28/04/2026"
       },
       "image": "images/49440.jpg",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "caseId": 15230746,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4tAFY5lqhPr7X6wfG9mu3AxKQ3RPEhHUwHpm1zzF8CWg",
       "aradiPlot": {
@@ -23608,7 +23615,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "13/04/2026"
       },
       "image": "images/42924.jpg",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 171,
@@ -24033,7 +24040,7 @@ window.AUCTION_DATA = {
       },
       "image": "images/42926.jpg",
       "caseId": 14779699,
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 171,
@@ -24246,7 +24253,7 @@ window.AUCTION_DATA = {
       },
       "image": "images/42991.jpg",
       "caseId": 14779628,
-      "lastSeenInListingAt": "2026-07-30T06:19:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 171,
@@ -24672,7 +24679,7 @@ window.AUCTION_DATA = {
       },
       "image": "images/42993.jpg",
       "caseId": 14857702,
-      "lastSeenInListingAt": "2026-07-28T23:09:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5KDT46Fz1CG9AnUzkOu6Q8K9BYWRgix1BRhawlZ_TGUg",
       "aradiPlot": {
         "status": "ok",
@@ -24885,7 +24892,7 @@ window.AUCTION_DATA = {
       },
       "image": "images/42992.jpg",
       "caseId": 14911843,
-      "lastSeenInListingAt": "2026-07-28T23:09:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da764nOi8dDt5PWFDSQI7nh6Zb3kNBVKtEXMObKgpErGqg",
       "aradiPlot": {
         "status": "ok",
@@ -25098,7 +25105,7 @@ window.AUCTION_DATA = {
       },
       "image": "images/44000.jpg",
       "caseId": 14911869,
-      "lastSeenInListingAt": "2026-07-30T06:19:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 171,
@@ -25414,7 +25421,7 @@ window.AUCTION_DATA = {
       },
       "image": "images/50314.jpg",
       "caseId": 15648801,
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6lEnfIrHafnNyrDUJD4CZFjUi1ti4wEFDmF7KunWN6Hg",
       "aradiPlot": {
         "status": "ok",
@@ -26394,7 +26401,7 @@ window.AUCTION_DATA = {
       "image": "images/50363.jpg",
       "caseId": 15651471,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6xf2ZAHjovQ22P1TRP6T7H3YF7vZSx9gF_do1pKqQB3Q",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 1,
@@ -31280,7 +31287,7 @@ window.AUCTION_DATA = {
       "caseId": 15367514,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6xf2ZAHjovQ22P1TRP6T7H3YF7vZSx9gF_do1pKqQB3Q",
       "pdfPath": "reports/50382.pdf",
-      "lastSeenInListingAt": "2026-07-23T22:55:41Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 120,
@@ -31830,7 +31837,7 @@ window.AUCTION_DATA = {
       "caseId": 14477178,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6xf2ZAHjovQ22P1TRP6T7H3YF7vZSx9gF_do1pKqQB3Q",
       "pdfPath": "reports/50456.pdf",
-      "lastSeenInListingAt": "2026-07-23T22:55:41Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 355,
@@ -33552,7 +33559,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "22/04/2026"
       },
       "image": "images/46475.jpg",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 119,
@@ -34393,7 +34400,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "23/04/2026"
       },
       "image": "images/31483.jpg",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "caseId": 13244984,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5D1_53Ksh_vwhDQmqA0sOSAFcrdx-GgjWq5U5LdfbFZQ",
       "pdfPath": "reports/31483.pdf",
@@ -36901,7 +36908,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "22/04/2026"
       },
       "image": "images/50498.jpg",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "no-plot",
         "village": 109,
@@ -37457,7 +37464,7 @@ window.AUCTION_DATA = {
       "image": "images/50577.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6xf2ZAHjovQ22P1TRP6T7H3YF7vZSx9gF_do1pKqQB3Q",
       "pdfPath": "reports/50577.pdf",
-      "lastSeenInListingAt": "2026-07-23T22:55:41Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 119,
@@ -38357,7 +38364,7 @@ window.AUCTION_DATA = {
       "image": "images/50578.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6xf2ZAHjovQ22P1TRP6T7H3YF7vZSx9gF_do1pKqQB3Q",
       "pdfPath": "reports/50578.pdf",
-      "lastSeenInListingAt": "2026-07-23T22:55:41Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 117,
@@ -39435,7 +39442,7 @@ window.AUCTION_DATA = {
       "image": "images/50798.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6xf2ZAHjovQ22P1TRP6T7H3YF7vZSx9gF_do1pKqQB3Q",
       "pdfPath": "reports/50798.pdf",
-      "lastSeenInListingAt": "2026-07-23T22:55:41Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "no-plot",
         "village": 129,
@@ -39493,7 +39500,7 @@ window.AUCTION_DATA = {
       "image": "images/50807.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6xf2ZAHjovQ22P1TRP6T7H3YF7vZSx9gF_do1pKqQB3Q",
       "pdfPath": "reports/50807.pdf",
-      "lastSeenInListingAt": "2026-07-23T22:55:41Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 128,
@@ -41273,7 +41280,7 @@ window.AUCTION_DATA = {
       "image": "images/33816.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6xf2ZAHjovQ22P1TRP6T7H3YF7vZSx9gF_do1pKqQB3Q",
       "pdfPath": "reports/33816.pdf",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 124,
@@ -42064,7 +42071,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "01/04/2026"
       },
       "image": "images/35474.jpg",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 1,
@@ -43260,7 +43267,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "02/04/2026"
       },
       "image": "images/49229.jpg",
-      "lastSeenInListingAt": "2026-07-26T22:51:32Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 382,
@@ -47121,7 +47128,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "09/04/2026"
       },
       "image": "images/49568.png",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 128,
@@ -49914,7 +49921,7 @@ window.AUCTION_DATA = {
       },
       "image": "images/43271.jpg",
       "caseId": 14663409,
-      "lastSeenInListingAt": "2026-07-28T23:09:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5nFItAvqA3_TgXa7QbzZUPJP_o-3KdEjgIpOhLXK8TIw",
       "pdfPath": "reports/43271.pdf",
       "aradiPlot": {
@@ -54404,7 +54411,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "01/03/2026"
       },
       "image": "images/37172.jpg",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 1,
@@ -59568,7 +59575,7 @@ window.AUCTION_DATA = {
         "العدد": "20098",
         "تاريخ النشر": "22/02/2026"
       },
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/46258.jpg",
       "aradiPlot": {
         "status": "ok",
@@ -59970,7 +59977,7 @@ window.AUCTION_DATA = {
         "العدد": "20094",
         "تاريخ النشر": "18/02/2026"
       },
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/48527.png",
       "caseId": 15400885,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4i_olcY_yOgNsuD6swncV4anHCJu8nnsyGK_hrOPo2lA",
@@ -61674,8 +61681,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "20067",
       "publishedAt": "22/01/2026",
-      "endDate": "2026-02-22 15:00:00",
-      "image": "",
+      "endDate": "2026-08-09 15:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc&auction=48591",
       "details": {
@@ -61702,6 +61708,2120 @@ window.AUCTION_DATA = {
         "الصحيفة": "جريدة الرأي",
         "العدد": "20067",
         "تاريخ النشر": "22/01/2026"
+      },
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
+      "image": "images/48591.jpg",
+      "aradiPlot": {
+        "status": "ok",
+        "village": 62,
+        "block": 11,
+        "plot": 683,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                35.858735628091736,
+                31.961181805801452
+              ],
+              [
+                35.8588089693803,
+                31.960577763194866
+              ],
+              [
+                35.858809036225395,
+                31.96057719472509
+              ],
+              [
+                35.85880907805752,
+                31.960576828384305
+              ],
+              [
+                35.85880911777406,
+                31.960576462054433
+              ],
+              [
+                35.85880915536862,
+                31.960576094833705
+              ],
+              [
+                35.8588091919118,
+                31.960575728520176
+              ],
+              [
+                35.85880922739078,
+                31.960575361310344
+              ],
+              [
+                35.85880926076058,
+                31.96057499501313
+              ],
+              [
+                35.85880929306621,
+                31.960574627819664
+              ],
+              [
+                35.85880932431405,
+                31.96057426063163
+              ],
+              [
+                35.8588093534463,
+                31.960573893454484
+              ],
+              [
+                35.85880938045658,
+                31.960573525386486
+              ],
+              [
+                35.85880940641545,
+                31.960573158225703
+              ],
+              [
+                35.85880943131655,
+                31.960572791070366
+              ],
+              [
+                35.858809454095685,
+                31.96057242302416
+              ],
+              [
+                35.858809475823406,
+                31.96057205588517
+              ],
+              [
+                35.858809495429185,
+                31.960571687855325
+              ],
+              [
+                35.85880951397715,
+                31.960571319830926
+              ],
+              [
+                35.858809531473725,
+                31.960570952713727
+              ],
+              [
+                35.85880954579054,
+                31.960570584711142
+              ],
+              [
+                35.85880956010735,
+                31.960570216708515
+              ],
+              [
+                35.85880957230859,
+                31.960569848716812
+              ],
+              [
+                35.85880958345204,
+                31.960569480730566
+              ],
+              [
+                35.85880959247992,
+                31.960569112755238
+              ],
+              [
+                35.858809600449995,
+                31.96056874478532
+              ],
+              [
+                35.858809606304504,
+                31.960568376826288
+              ],
+              [
+                35.85880961110123,
+                31.960568008872745
+              ],
+              [
+                35.85880961378236,
+                31.960567640930087
+              ],
+              [
+                35.85880961539932,
+                31.96056727209113
+              ],
+              [
+                35.85880961490709,
+                31.96056690416481
+              ],
+              [
+                35.858809613357074,
+                31.96056653624395
+              ],
+              [
+                35.85880961074926,
+                31.960566168328555
+              ],
+              [
+                35.85880960602587,
+                31.96056580042404
+              ],
+              [
+                35.85880960024471,
+                31.960565432524984
+              ],
+              [
+                35.85880959234158,
+                31.96056506373505
+              ],
+              [
+                35.85880958338702,
+                31.960564695852327
+              ],
+              [
+                35.858809572316915,
+                31.960564327980517
+              ],
+              [
+                35.85880956018903,
+                31.96056396011415
+              ],
+              [
+                35.85880954700331,
+                31.960563592253227
+              ],
+              [
+                35.85880953170205,
+                31.960563224403185
+              ],
+              [
+                35.8588095142852,
+                31.960562856564092
+              ],
+              [
+                35.85880949581057,
+                31.96056248873041
+              ],
+              [
+                35.85880947627813,
+                31.960562120902207
+              ],
+              [
+                35.85880945463652,
+                31.960561753986607
+              ],
+              [
+                35.85880943193073,
+                31.960561386174746
+              ],
+              [
+                35.85880940710936,
+                31.96056101837376
+              ],
+              [
+                35.8588093812366,
+                31.96056065148
+              ],
+              [
+                35.858809353241874,
+                31.960560283695372
+              ],
+              [
+                35.858809324195725,
+                31.96055991681794
+              ],
+              [
+                35.85880929408541,
+                31.9605595490442
+              ],
+              [
+                35.85880926186592,
+                31.96055918218311
+              ],
+              [
+                35.858809228588626,
+                31.96055881532749
+              ],
+              [
+                35.85880919319577,
+                31.96055844848277
+              ],
+              [
+                35.85880915674511,
+                31.960558081643498
+              ],
+              [
+                35.85880911817888,
+                31.960557714815106
+              ],
+              [
+                35.85880907856126,
+                31.960557348893953
+              ],
+              [
+                35.85880903682166,
+                31.960556982081904
+              ],
+              [
+                35.85880899403067,
+                31.96055661617707
+              ],
+              [
+                35.8588089501755,
+                31.960556249375944
+              ],
+              [
+                35.85880890421115,
+                31.960555883487448
+              ],
+              [
+                35.858808856131226,
+                31.960555517609865
+              ],
+              [
+                35.85880880805768,
+                31.960555152634047
+              ],
+              [
+                35.858808756804386,
+                31.96055478677281
+              ],
+              [
+                35.85880870555108,
+                31.96055442091157
+              ],
+              [
+                35.8588086521886,
+                31.96055405596299
+              ],
+              [
+                35.85880859671053,
+                31.9605536910253
+              ],
+              [
+                35.85880854017468,
+                31.960553326093056
+              ],
+              [
+                35.85880848258103,
+                31.960552961166286
+              ],
+              [
+                35.85880842287183,
+                31.960552596250377
+              ],
+              [
+                35.858808361053434,
+                31.960552232247146
+              ],
+              [
+                35.85880829923504,
+                31.960551868243904
+              ],
+              [
+                35.85880823424327,
+                31.960551504257
+              ],
+              [
+                35.8588081692515,
+                31.960551140270105
+              ],
+              [
+                35.858808102144174,
+                31.96055077629414
+              ],
+              [
+                35.85880803292763,
+                31.960550413230802
+              ],
+              [
+                35.85880796371113,
+                31.960550050167463
+              ],
+              [
+                35.858807891321234,
+                31.96054968712046
+              ],
+              [
+                35.85880781787355,
+                31.960549324078926
+              ],
+              [
+                35.85880774337447,
+                31.960548961944593
+              ],
+              [
+                35.8588076678176,
+                31.96054859981569
+              ],
+              [
+                35.85880759014517,
+                31.96054823769772
+              ],
+              [
+                35.85880751035715,
+                31.960547875590624
+              ],
+              [
+                35.85880742951775,
+                31.96054751439073
+              ],
+              [
+                35.858807347614146,
+                31.96054715229454
+              ],
+              [
+                35.85880726360137,
+                31.96054679111098
+              ],
+              [
+                35.858807178537205,
+                31.960546430834665
+              ],
+              [
+                35.85880709135745,
+                31.96054607056922
+              ],
+              [
+                35.858807003113505,
+                31.96054570940747
+              ],
+              [
+                35.85880691382459,
+                31.960545350054662
+              ],
+              [
+                35.85880682241369,
+                31.960544989811037
+              ],
+              [
+                35.858806729951375,
+                31.960544630474583
+              ],
+              [
+                35.85880663537352,
+                31.96054427114905
+              ],
+              [
+                35.858806539744236,
+                31.96054391273071
+              ],
+              [
+                35.858806443050774,
+                31.960543553416077
+              ],
+              [
+                35.85880634424816,
+                31.960543195014083
+              ],
+              [
+                35.85880624333634,
+                31.96054283752474
+              ],
+              [
+                35.85880614242451,
+                31.9605424800354
+              ],
+              [
+                35.85880603833932,
+                31.960542122562398
+              ],
+              [
+                35.85880593425415,
+                31.960541765089406
+              ],
+              [
+                35.85880582805977,
+                31.960541408529075
+              ],
+              [
+                35.85880572080762,
+                31.960541051974168
+              ],
+              [
+                35.858805611439884,
+                31.960540695430183
+              ],
+              [
+                35.858805501020754,
+                31.9605403397934
+              ],
+              [
+                35.858805388486054,
+                31.960539984167518
+              ],
+              [
+                35.858805274899964,
+                31.96053962944881
+              ],
+              [
+                35.85880516025606,
+                31.96053927473559
+              ],
+              [
+                35.8588050434966,
+                31.960538920033244
+              ],
+              [
+                35.85880492568576,
+                31.9605385662381
+              ],
+              [
+                35.858804805759306,
+                31.96053821245385
+              ],
+              [
+                35.85880468477509,
+                31.960537858675046
+              ],
+              [
+                35.858804562739465,
+                31.960537505803472
+              ],
+              [
+                35.85880443859466,
+                31.960537153844545
+              ],
+              [
+                35.85880431338568,
+                31.960536800989285
+              ],
+              [
+                35.85880418606751,
+                31.96053644904671
+              ],
+              [
+                35.85880405875573,
+                31.96053609800587
+              ],
+              [
+                35.85880392827059,
+                31.960535746981364
+              ],
+              [
+                35.85880379778546,
+                31.960535395956903
+              ],
+              [
+                35.85880366519115,
+                31.960535045845063
+              ],
+              [
+                35.85880353048124,
+                31.960534695744112
+              ],
+              [
+                35.858803394719935,
+                31.960534346550396
+              ],
+              [
+                35.858803257900874,
+                31.960533997362095
+              ],
+              [
+                35.85880311897259,
+                31.96053364908647
+              ],
+              [
+                35.85880298004434,
+                31.96053330081083
+              ],
+              [
+                35.8588028379427,
+                31.960532952551528
+              ],
+              [
+                35.858802695847466,
+                31.96053260519401
+              ],
+              [
+                35.85880255058526,
+                31.960532258754572
+              ],
+              [
+                35.85880240532305,
+                31.96053191231517
+              ],
+              [
+                35.858802257945264,
+                31.96053156588661
+              ],
+              [
+                35.858802109516084,
+                31.96053122036527
+              ],
+              [
+                35.85880196002912,
+                31.960530874849407
+              ],
+              [
+                35.85880180843296,
+                31.960530530246167
+              ],
+              [
+                35.85880165472763,
+                31.960530186555605
+              ],
+              [
+                35.8588015010223,
+                31.960529842865007
+              ],
+              [
+                35.85880134520138,
+                31.960529499185338
+              ],
+              [
+                35.858801188329075,
+                31.96052915641283
+              ],
+              [
+                35.858801029341194,
+                31.960528813651244
+              ],
+              [
+                35.85880086930192,
+                31.96052847179688
+              ],
+              [
+                35.85880070821125,
+                31.960528130849717
+              ],
+              [
+                35.85880054500501,
+                31.960527789913446
+              ],
+              [
+                35.85880038074736,
+                31.960527449884346
+              ],
+              [
+                35.85880021437414,
+                31.96052710986619
+              ],
+              [
+                35.85880004800093,
+                31.96052676984802
+              ],
+              [
+                35.858799879524916,
+                31.960526431644237
+              ],
+              [
+                35.85879970892693,
+                31.960526092549614
+              ],
+              [
+                35.85879953728396,
+                31.96052575526396
+              ],
+              [
+                35.8587993645832,
+                31.9605254179837
+              ],
+              [
+                35.85879919082462,
+                31.96052508070894
+              ],
+              [
+                35.85879901495688,
+                31.960524744346824
+              ],
+              [
+                35.85879883803775,
+                31.960524408891896
+              ],
+              [
+                35.858798660060835,
+                31.96052407344241
+              ],
+              [
+                35.85879847997472,
+                31.960523738905607
+              ],
+              [
+                35.85879829883723,
+                31.96052340527599
+              ],
+              [
+                35.85879811664195,
+                31.960523071651846
+              ],
+              [
+                35.85879793233108,
+                31.960522738038566
+              ],
+              [
+                35.858797746975206,
+                31.960522406234233
+              ],
+              [
+                35.858797560561555,
+                31.960522074435378
+              ],
+              [
+                35.85879737203232,
+                31.96052174264742
+              ],
+              [
+                35.85879718245171,
+                31.96052141176667
+              ],
+              [
+                35.85879699181968,
+                31.960521081793104
+              ],
+              [
+                35.858796800129866,
+                31.960520751824976
+              ],
+              [
+                35.85879660633087,
+                31.960520422769523
+              ],
+              [
+                35.8587964114805,
+                31.960520094621277
+              ],
+              [
+                35.85879621557231,
+                31.960519766478463
+              ],
+              [
+                35.858796017554965,
+                31.960519439248298
+              ],
+              [
+                35.85879581848621,
+                31.960519112925347
+              ],
+              [
+                35.85879561835968,
+                31.960518786607846
+              ],
+              [
+                35.85879541612395,
+                31.960518461203005
+              ],
+              [
+                35.858795212836824,
+                31.960518136705332
+              ],
+              [
+                35.858795008491924,
+                31.960517812213133
+              ],
+              [
+                35.858794803095634,
+                31.96051748862813
+              ],
+              [
+                35.85879459559015,
+                31.960517165955782
+              ],
+              [
+                35.85879438702687,
+                31.960516843288893
+              ],
+              [
+                35.8587941774122,
+                31.960516521529183
+              ],
+              [
+                35.85879396568834,
+                31.960516200682125
+              ],
+              [
+                35.85879375397089,
+                31.96051588073683
+              ],
+              [
+                35.85879354013787,
+                31.960515560802452
+              ],
+              [
+                35.85879332419564,
+                31.960515241780687
+              ],
+              [
+                35.85879310825344,
+                31.960514922758936
+              ],
+              [
+                35.85879289020844,
+                31.960514605551612
+              ],
+              [
+                35.85879267110564,
+                31.96051428834971
+              ],
+              [
+                35.85879245095146,
+                31.960513972055015
+              ],
+              [
+                35.858792228681686,
+                31.960513655771237
+              ],
+              [
+                35.858792005360534,
+                31.960513340394662
+              ],
+              [
+                35.85879178098798,
+                31.960513025925277
+              ],
+              [
+                35.85879155556404,
+                31.960512712363066
+              ],
+              [
+                35.85879132908869,
+                31.960512399708104
+              ],
+              [
+                35.858791100497754,
+                31.96051208706401
+              ],
+              [
+                35.858790870855465,
+                31.960511775327127
+              ],
+              [
+                35.85879064016175,
+                31.960511464497447
+              ],
+              [
+                35.85879040735246,
+                31.960511153678663
+              ],
+              [
+                35.858790173498186,
+                31.96051084466884
+              ],
+              [
+                35.858789939643884,
+                31.960510535659008
+              ],
+              [
+                35.85878970262263,
+                31.96051022756729
+              ],
+              [
+                35.858789465601376,
+                31.96050991947556
+              ],
+              [
+                35.85878922753513,
+                31.960509613192794
+              ],
+              [
+                35.858788987353286,
+                31.96050930692092
+              ],
+              [
+                35.85878874612005,
+                31.960509001556265
+              ],
+              [
+                35.85878850383544,
+                31.960508697098774
+              ],
+              [
+                35.85878825944163,
+                31.960508393553962
+              ],
+              [
+                35.85878801504783,
+                31.960508090009156
+              ],
+              [
+                35.858787768544836,
+                31.960507787376955
+              ],
+              [
+                35.85878752099685,
+                31.960507486553773
+              ],
+              [
+                35.85878727239104,
+                31.960507185736
+              ],
+              [
+                35.85878702272748,
+                31.960506884923674
+              ],
+              [
+                35.85878677096113,
+                31.960506585925778
+              ],
+              [
+                35.858786518136995,
+                31.960506286933327
+              ],
+              [
+                35.858786265325634,
+                31.96050598974435
+              ],
+              [
+                35.85878601039868,
+                31.96050569256631
+              ],
+              [
+                35.85878575336258,
+                31.9605053963009
+              ],
+              [
+                35.858785496332864,
+                31.96050510093725
+              ],
+              [
+                35.85878523718756,
+                31.960504805584495
+              ],
+              [
+                35.85878497805505,
+                31.96050451203525
+              ],
+              [
+                35.85878471680695,
+                31.960504218496883
+              ],
+              [
+                35.85878445451386,
+                31.960503926767505
+              ],
+              [
+                35.85878419116298,
+                31.960503635043555
+              ],
+              [
+                35.858783925702916,
+                31.960503344232247
+              ],
+              [
+                35.85878366024925,
+                31.960503054322704
+              ],
+              [
+                35.8587833926864,
+                31.960502765325813
+              ],
+              [
+                35.858783124065766,
+                31.960502476334355
+              ],
+              [
+                35.85878285440011,
+                31.960502189151903
+              ],
+              [
+                35.85878258368307,
+                31.96050190287661
+              ],
+              [
+                35.858782311908264,
+                31.96050161660677
+              ],
+              [
+                35.85878203908204,
+                31.960501331244114
+              ],
+              [
+                35.85878176415304,
+                31.960501047695896
+              ],
+              [
+                35.85878148922402,
+                31.96050076414767
+              ],
+              [
+                35.85878121218584,
+                31.96050048151209
+              ],
+              [
+                35.858780934096245,
+                31.960500199783713
+              ],
+              [
+                35.85878065495526,
+                31.960499918962533
+              ],
+              [
+                35.85878037476287,
+                31.96049963904855
+              ],
+              [
+                35.858780093512735,
+                31.960499359140027
+              ],
+              [
+                35.85877981121756,
+                31.960499081040453
+              ],
+              [
+                35.85877952787099,
+                31.96049880384808
+              ],
+              [
+                35.85877924240886,
+                31.960498526666612
+              ],
+              [
+                35.85877895695951,
+                31.96049825128864
+              ],
+              [
+                35.85877866940098,
+                31.96049797682333
+              ],
+              [
+                35.85877838078466,
+                31.96049770236349
+              ],
+              [
+                35.85877809217472,
+                31.96049742880538
+              ],
+              [
+                35.858777801462004,
+                31.960497157061646
+              ],
+              [
+                35.85877750969149,
+                31.960496885323373
+              ],
+              [
+                35.858777216875986,
+                31.960496615394074
+              ],
+              [
+                35.85877692300269,
+                31.96049634547024
+              ],
+              [
+                35.85877662807799,
+                31.960496076453573
+              ],
+              [
+                35.85877633105052,
+                31.96049580925132
+              ],
+              [
+                35.85877603402305,
+                31.960495542049077
+              ],
+              [
+                35.85877573594416,
+                31.960495275754035
+              ],
+              [
+                35.85877543576251,
+                31.960495011273395
+              ],
+              [
+                35.858775135580835,
+                31.96049474679273
+              ],
+              [
+                35.85877483434778,
+                31.960494483219286
+              ],
+              [
+                35.85877453100552,
+                31.96049422055848
+              ],
+              [
+                35.85877422767606,
+                31.96049395970121
+              ],
+              [
+                35.85877392223104,
+                31.960493698854812
+              ],
+              [
+                35.858773615734606,
+                31.96049343891563
+              ],
+              [
+                35.858773309250964,
+                31.960493180779952
+              ],
+              [
+                35.85877300065175,
+                31.960492922655142
+              ],
+              [
+                35.85877269100752,
+                31.96049266633933
+              ],
+              [
+                35.8587723813633,
+                31.960492410023498
+              ],
+              [
+                35.85877206961628,
+                31.960492155522072
+              ],
+              [
+                35.858771756811485,
+                31.960491901026096
+              ],
+              [
+                35.858771444019474,
+                31.960491648333633
+              ],
+              [
+                35.85877112911189,
+                31.960491395652063
+              ],
+              [
+                35.8587708131593,
+                31.960491144779425
+              ],
+              [
+                35.858770497213094,
+                31.960490894808558
+              ],
+              [
+                35.858770179157716,
+                31.96049064575035
+              ],
+              [
+                35.85876986004454,
+                31.96049039669757
+              ],
+              [
+                35.858769540944174,
+                31.960490149448322
+              ],
+              [
+                35.85876921973459,
+                31.960489903111704
+              ],
+              [
+                35.85876889747363,
+                31.960489657682295
+              ],
+              [
+                35.85876857521907,
+                31.960489413154622
+              ],
+              [
+                35.858768250861715,
+                31.96048917044138
+              ],
+              [
+                35.85876792650435,
+                31.960488927728136
+              ],
+              [
+                35.85876760003781,
+                31.96048868592753
+              ],
+              [
+                35.85876727358406,
+                31.96048844593043
+              ],
+              [
+                35.85876694501471,
+                31.960488205944223
+              ],
+              [
+                35.85876661645816,
+                31.96048796776155
+              ],
+              [
+                35.85876628685022,
+                31.960487730486065
+              ],
+              [
+                35.85876595619089,
+                31.96048749411777
+              ],
+              [
+                35.85876562448016,
+                31.96048725865667
+              ],
+              [
+                35.858765291718036,
+                31.96048702410279
+              ],
+              [
+                35.85876495790451,
+                31.960486790456088
+              ],
+              [
+                35.8587646230396,
+                31.96048655771661
+              ],
+              [
+                35.85876428712967,
+                31.960486326786093
+              ],
+              [
+                35.85876395016196,
+                31.960486095860986
+              ],
+              [
+                35.858763612149254,
+                31.960485866744882
+              ],
+              [
+                35.85876327414292,
+                31.960485638530503
+              ],
+              [
+                35.85876293402743,
+                31.960485411228785
+              ],
+              [
+                35.85876259391833,
+                31.9604851848288
+              ],
+              [
+                35.858762252757806,
+                31.96048495933603
+              ],
+              [
+                35.85876190948813,
+                31.96048473475593
+              ],
+              [
+                35.85876156623123,
+                31.960484511979296
+              ],
+              [
+                35.858761221916524,
+                31.960484289208132
+              ],
+              [
+                35.85876087761463,
+                31.960484068240493
+              ],
+              [
+                35.85876053120356,
+                31.96048384818546
+              ],
+              [
+                35.85876018374107,
+                31.96048362903766
+              ],
+              [
+                35.85875983629136,
+                31.960483411693367
+              ],
+              [
+                35.8587594877839,
+                31.960483194354516
+              ],
+              [
+                35.858759138231406,
+                31.96048297882463
+              ],
+              [
+                35.85875878762112,
+                31.96048276330018
+              ],
+              [
+                35.858758435965846,
+                31.96048254958468
+              ],
+              [
+                35.858758083265556,
+                31.960482337678105
+              ],
+              [
+                35.85875772950749,
+                31.960482125777034
+              ],
+              [
+                35.85875737575582,
+                31.96048191477769
+              ],
+              [
+                35.85875702095913,
+                31.960481705587306
+              ],
+              [
+                35.85875666511105,
+                31.960481497304116
+              ],
+              [
+                35.85875630821159,
+                31.960481289928133
+              ],
+              [
+                35.858755950260715,
+                31.960481083459353
+              ],
+              [
+                35.858755592322645,
+                31.960480878794062
+              ],
+              [
+                35.85875523226899,
+                31.96048067413968
+              ],
+              [
+                35.85875487222811,
+                31.96048047128883
+              ],
+              [
+                35.85875451113584,
+                31.96048026934515
+              ],
+              [
+                35.85875415004997,
+                31.96048006830323
+              ],
+              [
+                35.85875378686131,
+                31.96047986907571
+              ],
+              [
+                35.85875342367264,
+                31.9604796698482
+              ],
+              [
+                35.85875305943897,
+                31.960479472429643
+              ],
+              [
+                35.85875269415391,
+                31.960479275918292
+              ],
+              [
+                35.85875232782384,
+                31.96047908121588
+              ],
+              [
+                35.858751961493766,
+                31.96047888651346
+              ],
+              [
+                35.858751594118694,
+                31.96047869362001
+              ],
+              [
+                35.85875122569224,
+                31.960478501633766
+              ],
+              [
+                35.85875085621437,
+                31.960478310554688
+              ],
+              [
+                35.85875048569151,
+                31.96047812128459
+              ],
+              [
+                35.85875011517504,
+                31.960477932916277
+              ],
+              [
+                35.85874974360718,
+                31.960477745455123
+              ],
+              [
+                35.85874937098791,
+                31.960477558901182
+              ],
+              [
+                35.85874899837504,
+                31.96047737324898
+              ],
+              [
+                35.85874862471716,
+                31.960477189405765
+              ],
+              [
+                35.858748250007885,
+                31.960477006469745
+              ],
+              [
+                35.858747874247236,
+                31.960476824440892
+              ],
+              [
+                35.85874749849295,
+                31.960476643313818
+              ],
+              [
+                35.858747121693675,
+                31.96047646399568
+              ],
+              [
+                35.85874674384301,
+                31.96047628558476
+              ],
+              [
+                35.85874636494092,
+                31.960476108081046
+              ],
+              [
+                35.858745986051645,
+                31.96047593238084
+              ],
+              [
+                35.858745606110965,
+                31.960475757587812
+              ],
+              [
+                35.858745225118895,
+                31.960475583702003
+              ],
+              [
+                35.85874484413321,
+                31.960475410717955
+              ],
+              [
+                35.85874446210253,
+                31.960475239542845
+              ],
+              [
+                35.85874407902046,
+                31.960475069274942
+              ],
+              [
+                35.85874369594476,
+                31.960474899908775
+              ],
+              [
+                35.85874331181767,
+                31.960474731449818
+              ],
+              [
+                35.85874292664558,
+                31.960474564799835
+              ],
+              [
+                35.858742541479884,
+                31.96047439905157
+              ],
+              [
+                35.858742155262796,
+                31.96047423421052
+              ],
+              [
+                35.858741768000684,
+                31.960474071178453
+              ],
+              [
+                35.858741380745,
+                31.9604739090481
+              ],
+              [
+                35.858740992437895,
+                31.960473747824977
+              ],
+              [
+                35.85874060413719,
+                31.96047358750357
+              ],
+              [
+                35.85874021373368,
+                31.960473428996607
+              ],
+              [
+                35.85873982333657,
+                31.96047327139138
+              ],
+              [
+                35.858739432952255,
+                31.960473115589647
+              ],
+              [
+                35.85873904151014,
+                31.960472959793382
+              ],
+              [
+                35.85873864902941,
+                31.960472806707823
+              ],
+              [
+                35.858738256548705,
+                31.96047265362223
+              ],
+              [
+                35.858737863022974,
+                31.960472502345617
+              ],
+              [
+                35.85873746843946,
+                31.960472351074454
+              ],
+              [
+                35.85873707387512,
+                31.96047220250854
+              ],
+              [
+                35.858736678252995,
+                31.960472053948095
+              ],
+              [
+                35.858736282643655,
+                31.96047190719114
+              ],
+              [
+                35.858735885989304,
+                31.960471762243134
+              ],
+              [
+                35.858735489334954,
+                31.960471617295145
+              ],
+              [
+                35.858735091635594,
+                31.960471474156087
+              ],
+              [
+                35.85873469288485,
+                31.96047133192424
+              ],
+              [
+                35.85873429414689,
+                31.960471191495913
+              ],
+              [
+                35.858733894357535,
+                31.960471051974757
+              ],
+              [
+                35.85873349457456,
+                31.960470913355376
+              ],
+              [
+                35.8587330937466,
+                31.96047077654495
+              ],
+              [
+                35.85873269292502,
+                31.960470640636263
+              ],
+              [
+                35.858732291052036,
+                31.96047050563477
+              ],
+              [
+                35.858731888134045,
+                31.960470372442238
+              ],
+              [
+                35.858731485222464,
+                31.96047024015148
+              ],
+              [
+                35.85873108231728,
+                31.960470108762447
+              ],
+              [
+                35.858730678367074,
+                31.960469979182395
+              ],
+              [
+                35.85873027336547,
+                31.960469850509536
+              ],
+              [
+                35.858729868370276,
+                31.96046972273842
+              ],
+              [
+                35.85872946233006,
+                31.960469596776264
+              ],
+              [
+                35.85872905629624,
+                31.960469471715843
+              ],
+              [
+                35.858728650268816,
+                31.960469347557193
+              ],
+              [
+                35.85872824319639,
+                31.960469225207483
+              ],
+              [
+                35.85872783507895,
+                31.960469104666743
+              ],
+              [
+                35.85872742696152,
+                31.960468984126003
+              ],
+              [
+                35.85872701779908,
+                31.960468865394194
+              ],
+              [
+                35.85872660864304,
+                31.96046874756417
+              ],
+              [
+                35.85872619949978,
+                31.960468631537626
+              ],
+              [
+                35.858725789305105,
+                31.9604685164183
+              ],
+              [
+                35.85872537911684,
+                31.960468402200714
+              ],
+              [
+                35.85872496788358,
+                31.960468289792082
+              ],
+              [
+                35.8587245555989,
+                31.960468178290643
+              ],
+              [
+                35.8587241443848,
+                31.960468068587264
+              ],
+              [
+                35.85872373106152,
+                31.960467959796556
+              ],
+              [
+                35.85872331880241,
+                31.96046785190214
+              ],
+              [
+                35.858722905498304,
+                31.960467745816683
+              ],
+              [
+                35.8587224911428,
+                31.960467640638402
+              ],
+              [
+                35.8587220767937,
+                31.960467536361882
+              ],
+              [
+                35.85872166245736,
+                31.960467433888894
+              ],
+              [
+                35.85872124707602,
+                31.960467333224855
+              ],
+              [
+                35.85872083169468,
+                31.960467232560795
+              ],
+              [
+                35.85872041632613,
+                31.960467133700256
+              ],
+              [
+                35.85871999991258,
+                31.960467036648666
+              ],
+              [
+                35.858719583505405,
+                31.960466940498822
+              ],
+              [
+                35.858719166046846,
+                31.960466845256178
+              ],
+              [
+                35.858718748594676,
+                31.96046675091527
+              ],
+              [
+                35.85871833009751,
+                31.960466658383364
+              ],
+              [
+                35.858717911613105,
+                31.960466567654912
+              ],
+              [
+                35.85871749313512,
+                31.960466477828255
+              ],
+              [
+                35.8587170746635,
+                31.960466388903324
+              ],
+              [
+                35.85871665514051,
+                31.960466300885614
+              ],
+              [
+                35.85871623563027,
+                31.9604662146714
+              ],
+              [
+                35.85871581507503,
+                31.960466130266123
+              ],
+              [
+                35.8587153945262,
+                31.960466046762615
+              ],
+              [
+                35.858714973983766,
+                31.960465964160854
+              ],
+              [
+                35.858714552396314,
+                31.96046588336804
+              ],
+              [
+                35.85871413081525,
+                31.960465803477
+              ],
+              [
+                35.85871370924058,
+                31.9604657244877
+              ],
+              [
+                35.85871328662092,
+                31.960465647307355
+              ],
+              [
+                35.8587128650654,
+                31.960465571023317
+              ],
+              [
+                35.85871244140713,
+                31.960465496553656
+              ],
+              [
+                35.85871201881301,
+                31.960465422980327
+              ],
+              [
+                35.85871159517389,
+                31.960465351215927
+              ],
+              [
+                35.85871117154117,
+                31.960465280353322
+              ],
+              [
+                35.85871074791484,
+                31.960465210392442
+              ],
+              [
+                35.8587103232435,
+                31.9604651422405
+              ],
+              [
+                35.85870989857855,
+                31.96046507499033
+              ],
+              [
+                35.85870947392639,
+                31.96046500954367
+              ],
+              [
+                35.85870904928061,
+                31.96046494499876
+              ],
+              [
+                35.858708623589855,
+                31.96046488226279
+              ],
+              [
+                35.85870819790544,
+                31.960464820428587
+              ],
+              [
+                35.858707772227454,
+                31.96046475949611
+              ],
+              [
+                35.858707345504456,
+                31.96046470037263
+              ],
+              [
+                35.858706919845645,
+                31.960464642145432
+              ],
+              [
+                35.85870649314181,
+                31.96046458572717
+              ],
+              [
+                35.858706066444356,
+                31.960464530210697
+              ],
+              [
+                35.85870563869552,
+                31.960464475601388
+              ],
+              [
+                35.85870521201726,
+                31.96046442279017
+              ],
+              [
+                35.85870478429399,
+                31.96046437178788
+              ],
+              [
+                35.85870435657711,
+                31.960464321687343
+              ],
+              [
+                35.85870392886661,
+                31.96046427248857
+              ],
+              [
+                35.858703500111126,
+                31.96046422509875
+              ],
+              [
+                35.85870307241981,
+                31.960464178605225
+              ],
+              [
+                35.8587026436771,
+                31.960464133018913
+              ],
+              [
+                35.85870221494716,
+                31.9604640892361
+              ],
+              [
+                35.858701786230014,
+                31.96046404725678
+              ],
+              [
+                35.85870135646148,
+                31.960464006184697
+              ],
+              [
+                35.858700927757106,
+                31.96046396600887
+              ],
+              [
+                35.85870049800775,
+                31.960463927642017
+              ],
+              [
+                35.858700068264746,
+                31.96046389017693
+              ],
+              [
+                35.858699638528144,
+                31.960463853613575
+              ],
+              [
+                35.85869920881073,
+                31.960463819755496
+              ],
+              [
+                35.85869877909331,
+                31.96046378589741
+              ],
+              [
+                35.858698349388675,
+                31.960463753842834
+              ],
+              [
+                35.85869791863265,
+                31.960463722695444
+              ],
+              [
+                35.858697487889394,
+                31.960463693351553
+              ],
+              [
+                35.858697058216705,
+                31.96046366580574
+              ],
+              [
+                35.85869662748624,
+                31.960463638265356
+              ],
+              [
+                35.85869619676854,
+                31.960463612528493
+              ],
+              [
+                35.85869576606363,
+                31.960463588595143
+              ],
+              [
+                35.85869533430733,
+                31.96046356556897
+              ],
+              [
+                35.85836691748104,
+                31.96044656179356
+              ],
+              [
+                35.858366106288436,
+                31.960474511429638
+              ],
+              [
+                35.85835948979901,
+                31.96070258924209
+              ],
+              [
+                35.858352062088635,
+                31.960958616680458
+              ],
+              [
+                35.85834515394581,
+                31.961196750894633
+              ],
+              [
+                35.858735628091736,
+                31.961181805801452
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "properties": {
+          "area": 3210.845687465,
+          "block_id": 11,
+          "block_name": "حنو الصويفية",
+          "department_id": 2,
+          "department_name": "اراضي غرب عمان",
+          "district_id": 1,
+          "district_name": "العاصمة",
+          "dls_key": "006201100000683",
+          "perimeter": 237.16673618078002,
+          "plot_id": 683,
+          "prices": [
+            [
+              "سكني",
+              "أ",
+              "مميز",
+              650
+            ],
+            [
+              "تجاري",
+              "مكاتب ج",
+              "ضعيف",
+              800
+            ],
+            [
+              "سكني",
+              "أ",
+              "ضعيف",
+              350
+            ],
+            [
+              "سكني",
+              "ب",
+              "مميز",
+              650
+            ],
+            [
+              "سكني",
+              "ب",
+              "جيد",
+              500
+            ],
+            [
+              "سكني",
+              "ب",
+              "ضعيف",
+              350
+            ],
+            [
+              "سكني",
+              "ج",
+              "جيد",
+              500
+            ],
+            [
+              "سكني",
+              "د",
+              "مميز",
+              650
+            ],
+            [
+              "سكني",
+              "د",
+              "جيد",
+              500
+            ],
+            [
+              "سكني",
+              "د",
+              "ضعيف",
+              350
+            ],
+            [
+              "تجاري",
+              "معارض",
+              "مميز",
+              1250
+            ],
+            [
+              "تجاري",
+              "معارض",
+              "ضعيف",
+              800
+            ],
+            [
+              "تجاري",
+              "مركزي",
+              "مميز",
+              1250
+            ],
+            [
+              "تجاري",
+              "مركزي",
+              "جيد",
+              1000
+            ],
+            [
+              "تجاري",
+              "مركزي",
+              "ضعيف",
+              800
+            ],
+            [
+              "تجاري",
+              "عادي سكن أ",
+              "مميز",
+              1200
+            ],
+            [
+              "تجاري",
+              "عادي سكن أ",
+              "جيد",
+              1000
+            ],
+            [
+              "تجاري",
+              "عادي سكن أ",
+              "ضعيف",
+              800
+            ],
+            [
+              "تجاري",
+              "عادي سكن ب",
+              "مميز",
+              1250
+            ],
+            [
+              "تجاري",
+              "عادي سكن ب",
+              "جيد",
+              1000
+            ],
+            [
+              "تجاري",
+              "عادي سكن ب",
+              "ضعيف",
+              800
+            ],
+            [
+              "تجاري",
+              "محلي سكن أ",
+              "مميز",
+              1250
+            ],
+            [
+              "تجاري",
+              "محلي سكن أ",
+              "جيد",
+              1000
+            ],
+            [
+              "تجاري",
+              "محلي سكن أ",
+              "ضعيف",
+              800
+            ],
+            [
+              "تجاري",
+              "محلي سكن ب",
+              "مميز",
+              1250
+            ],
+            [
+              "تجاري",
+              "محلي سكن ب",
+              "جيد",
+              1000
+            ],
+            [
+              "تجاري",
+              "محلي سكن ب",
+              "ضعيف",
+              800
+            ],
+            [
+              "تجاري",
+              "محلي سكن ج",
+              "مميز",
+              1250
+            ],
+            [
+              "تجاري",
+              "محلي سكن ج",
+              "جيد",
+              1000
+            ],
+            [
+              "تجاري",
+              "محلي سكن ج",
+              "ضعيف",
+              800
+            ],
+            [
+              "تجاري",
+              "مكاتب أ",
+              "مميز",
+              1250
+            ],
+            [
+              "تجاري",
+              "مكاتب أ",
+              "جيد",
+              1000
+            ],
+            [
+              "تجاري",
+              "مكاتب أ",
+              "ضعيف",
+              800
+            ],
+            [
+              "تجاري",
+              "مكاتب ب",
+              "مميز",
+              1250
+            ],
+            [
+              "تجاري",
+              "مكاتب ب",
+              "جيد",
+              1000
+            ],
+            [
+              "تجاري",
+              "مكاتب ب",
+              "ضعيف",
+              800
+            ],
+            [
+              "تجاري",
+              "مكاتب ج",
+              "مميز",
+              1250
+            ],
+            [
+              "تجاري",
+              "مكاتب ج",
+              "جيد",
+              1000
+            ],
+            [
+              "سكني",
+              "أ",
+              "جيد",
+              500
+            ]
+          ],
+          "type": "plot",
+          "village_id": 62,
+          "village_name": "وادي السير"
+        }
       }
     },
     {
@@ -63439,7 +65559,7 @@ window.AUCTION_DATA = {
         "العدد": "7667",
         "تاريخ النشر": "08/01/2026"
       },
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/48508.jpg",
       "aradiPlot": {
         "status": "ok",
@@ -64851,7 +66971,7 @@ window.AUCTION_DATA = {
         "العدد": "0",
         "تاريخ النشر": "04/05/2026"
       },
-      "lastSeenInListingAt": "2026-07-14T17:20:51Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "caseId": 14514498
     },
     {
@@ -66466,7 +68586,7 @@ window.AUCTION_DATA = {
       },
       "image": "images/50559.jpg",
       "caseId": 15073336,
-      "lastSeenInListingAt": "2026-07-22T17:09:51Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6PZiTh28Agb8lGlEAatgkDv8fBi2lTrOwIb8ghAZuxZw",
       "pdfPath": "reports/50559.pdf"
     },
@@ -67355,7 +69475,7 @@ window.AUCTION_DATA = {
       "image": "images/49480.jpg",
       "caseId": 11276595,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7RmLFvMCjJ8RrMHikhO5lcKe3M7ycgyLfZKtk4QmJi4A",
-      "lastSeenInListingAt": "2026-07-22T17:09:51Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 48864,
@@ -67406,7 +69526,7 @@ window.AUCTION_DATA = {
       "image": "images/48864.jpg",
       "caseId": 8886333,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6VVySDKqVjx6eMkMBmgeHR_hwk1mtCXpQUk1p7s3IloA",
-      "lastSeenInListingAt": "2026-07-25T16:45:59Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 49197,
@@ -67457,7 +69577,7 @@ window.AUCTION_DATA = {
       "image": "images/49197.jpg",
       "caseId": 12006391,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da77vrxn9AZxPtwsOz4h1X7BhGAbiRMwFQPdJGFPQDMLBw",
-      "lastSeenInListingAt": "2026-07-25T16:45:59Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50819,
@@ -67931,7 +70051,7 @@ window.AUCTION_DATA = {
       "caseId": 15398583,
       "image": "images/50814.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5nuzkGy_iXmOy6RsRiLmyiKtSapaJP6bBAE2mLDu0p5A",
-      "lastSeenInListingAt": "2026-07-30T20:45:12Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50843,
@@ -70278,13 +72398,13 @@ window.AUCTION_DATA = {
     {
       "id": 50255,
       "category": "أرض/ مجمع",
-      "header": "رقم المزاد :41-11-10-2025-انابات أرض/ مجمع - 2026/04/13 تنفيذ القويرة",
+      "header": "رقم المزاد :41-11-10-2025-انابات أرض/ مجمع - 2026/07/24 تنفيذ القويرة",
       "court": "تنفيذ القويرة",
       "caseNumber": "ا 41-11-10-2025-انابات",
       "status": "قيد التنفيذ",
-      "announcement": "الاعلان الاول",
-      "announcementStart": "13/04/2026 08:00:00",
-      "announcementEnd": "12/05/2026 15:00:00",
+      "announcement": "اعلان احالة مؤقتة",
+      "announcementStart": "24/07/2026 01:08:00",
+      "announcementEnd": "09/08/2026 13:03:00",
       "startingAmount": "24327.31",
       "estimatedValue": "48655",
       "currentAmount": "24400",
@@ -70293,7 +72413,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "20143",
       "publishedAt": "12/04/2026",
-      "endDate": "2026-05-12 15:00:00",
+      "endDate": "2026-08-09 13:03:00",
       "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=50255",
@@ -70319,7 +72439,14 @@ window.AUCTION_DATA = {
         "العدد": "20143",
         "تاريخ النشر": "12/04/2026"
       },
-      "caseId": 15427463
+      "caseId": 15427463,
+      "lastSeenInListingAt": "2026-07-31T04:27:31Z",
+      "aradiPlot": {
+        "status": "no-plot",
+        "village": 640,
+        "block": 2,
+        "plot": 723
+      }
     },
     {
       "id": 50378,
@@ -71908,13 +74035,13 @@ window.AUCTION_DATA = {
     {
       "id": 50298,
       "category": "أرض/ مجمع",
-      "header": "رقم المزاد :17-11-112-2025-سجل عام أرض/ مجمع - 2026/06/08 تنفيذ دير علا",
+      "header": "رقم المزاد :17-11-112-2025-سجل عام أرض/ مجمع - 2026/07/09 تنفيذ دير علا",
       "court": "تنفيذ دير علا",
       "caseNumber": "ا 17-11-112-2025-سجل عام",
       "status": "قيد التنفيذ",
-      "announcement": "الاعلان الاول",
-      "announcementStart": "14/04/2026 08:00:00",
-      "announcementEnd": "22/06/2026 15:00:00",
+      "announcement": "اعلان فرق شاسع",
+      "announcementStart": "09/07/2026 08:00:00",
+      "announcementEnd": "07/08/2026 15:00:00",
       "startingAmount": "5726",
       "estimatedValue": "11452",
       "currentAmount": "5726",
@@ -71923,7 +74050,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "20144",
       "publishedAt": "13/04/2026",
-      "endDate": "2026-06-22 15:00:00",
+      "endDate": "2026-08-07 15:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=50298",
       "details": {
@@ -71950,7 +74077,428 @@ window.AUCTION_DATA = {
       },
       "caseId": 14877174,
       "image": "images/50298.jpg",
-      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da60zl4OE3pW0rACx1N8IIwo3wDElq99PaRyPDv0eVhaIQ"
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da60zl4OE3pW0rACx1N8IIwo3wDElq99PaRyPDv0eVhaIQ",
+      "lastSeenInListingAt": "2026-07-31T04:27:31Z",
+      "aradiPlot": {
+        "status": "ok",
+        "village": 1419,
+        "block": 7,
+        "plot": 86,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                35.59054985891902,
+                32.19007122294942
+              ],
+              [
+                35.590550826961675,
+                32.190287656629415
+              ],
+              [
+                35.5908053454643,
+                32.19028912276936
+              ],
+              [
+                35.59080462138027,
+                32.190127366299386
+              ],
+              [
+                35.59080458228967,
+                32.1901256422336
+              ],
+              [
+                35.59080453368602,
+                32.190124679291095
+              ],
+              [
+                35.59080446387339,
+                32.19012371641332
+              ],
+              [
+                35.59080437498031,
+                32.19012275539735
+              ],
+              [
+                35.59080426487829,
+                32.190121794446064
+              ],
+              [
+                35.59080413782431,
+                32.190120837153636
+              ],
+              [
+                35.59080398956138,
+                32.19011987992593
+              ],
+              [
+                35.59080382222561,
+                32.1901189263635
+              ],
+              [
+                35.5908036336885,
+                32.19011797466935
+              ],
+              [
+                35.59080342607856,
+                32.19011702664045
+              ],
+              [
+                35.59080320151667,
+                32.19011608227042
+              ],
+              [
+                35.590802955753446,
+                32.19011513976861
+              ],
+              [
+                35.590802690924995,
+                32.1901142027356
+              ],
+              [
+                35.59080240702373,
+                32.19011326936791
+              ],
+              [
+                35.590802101928716,
+                32.19011233967197
+              ],
+              [
+                35.5908017798894,
+                32.190111415438366
+              ],
+              [
+                35.590801438777234,
+                32.190110494870055
+              ],
+              [
+                35.59080107859986,
+                32.19010957977058
+              ],
+              [
+                35.59080070147815,
+                32.190108670133405
+              ],
+              [
+                35.59080030317796,
+                32.19010776777507
+              ],
+              [
+                35.59079988793345,
+                32.19010687087904
+              ],
+              [
+                35.59079945362372,
+                32.19010597945185
+              ],
+              [
+                35.590799000256354,
+                32.19010509529694
+              ],
+              [
+                35.59079852994471,
+                32.19010421660438
+              ],
+              [
+                35.59079804270396,
+                32.19010334698122
+              ],
+              [
+                35.59079753639798,
+                32.19010248282684
+              ],
+              [
+                35.59079701316292,
+                32.19010162774184
+              ],
+              [
+                35.59079647087025,
+                32.19010077992917
+              ],
+              [
+                35.59079591164849,
+                32.19009994118586
+              ],
+              [
+                35.59079533549002,
+                32.19009910970842
+              ],
+              [
+                35.59079474452336,
+                32.19009828729384
+              ],
+              [
+                35.59079413450671,
+                32.190097473955134
+              ],
+              [
+                35.59079350756097,
+                32.1900966696858
+              ],
+              [
+                35.590792865807025,
+                32.19009587447936
+              ],
+              [
+                35.59079220713161,
+                32.1900950901458
+              ],
+              [
+                35.59079153152708,
+                32.190094314881634
+              ],
+              [
+                35.590790841121986,
+                32.19009355048383
+              ],
+              [
+                35.59079013590869,
+                32.19009279514895
+              ],
+              [
+                35.59078941377392,
+                32.190092050686935
+              ],
+              [
+                35.590788676838564,
+                32.19009131709138
+              ],
+              [
+                35.5907879251026,
+                32.19009059436218
+              ],
+              [
+                35.5907871585737,
+                32.19008988430293
+              ],
+              [
+                35.5907863772442,
+                32.190089185110104
+              ],
+              [
+                35.590785583235,
+                32.190088496777214
+              ],
+              [
+                35.590784774432834,
+                32.19008782111427
+              ],
+              [
+                35.5907839508301,
+                32.19008715631769
+              ],
+              [
+                35.59078311456289,
+                32.190086505988106
+              ],
+              [
+                35.590782265616,
+                32.19008586651845
+              ],
+              [
+                35.59078140187612,
+                32.19008523971874
+              ],
+              [
+                35.59078052759267,
+                32.19008462737952
+              ],
+              [
+                35.59077964062954,
+                32.19008402590025
+              ],
+              [
+                35.59077873888104,
+                32.190083438894405
+              ],
+              [
+                35.59077782870986,
+                32.190082866342586
+              ],
+              [
+                35.59077690373812,
+                32.19008230465719
+              ],
+              [
+                35.590775970351295,
+                32.19008175922933
+              ],
+              [
+                35.5907750242924,
+                32.19008122646492
+              ],
+              [
+                35.59077406768992,
+                32.19008070816101
+              ],
+              [
+                35.59077310054386,
+                32.19008020431759
+              ],
+              [
+                35.59077212285426,
+                32.190079714934676
+              ],
+              [
+                35.590771134621065,
+                32.19007924001228
+              ],
+              [
+                35.59077013797282,
+                32.19007878134741
+              ],
+              [
+                35.59076913289426,
+                32.19007833533302
+              ],
+              [
+                35.59076811727976,
+                32.190077905582655
+              ],
+              [
+                35.590767093242555,
+                32.19007749028634
+              ],
+              [
+                35.59076606078269,
+                32.19007708944403
+              ],
+              [
+                35.590765022028656,
+                32.190076704852764
+              ],
+              [
+                35.59076397273863,
+                32.19007633652554
+              ],
+              [
+                35.590762917146854,
+                32.190075982645865
+              ],
+              [
+                35.590761855260865,
+                32.19007564501726
+              ],
+              [
+                35.59076078708073,
+                32.19007532363973
+              ],
+              [
+                35.5907597104779,
+                32.19007501671619
+              ],
+              [
+                35.59075862970939,
+                32.19007472784078
+              ],
+              [
+                35.59075754051821,
+                32.1900744534194
+              ],
+              [
+                35.590756447153744,
+                32.1900741952426
+              ],
+              [
+                35.590755349623606,
+                32.19007395511392
+              ],
+              [
+                35.59075424791258,
+                32.19007372942633
+              ],
+              [
+                35.59075313991495,
+                32.190073521793295
+              ],
+              [
+                35.59075202773647,
+                32.190073328601365
+              ],
+              [
+                35.59075091351318,
+                32.19007315345106
+              ],
+              [
+                35.59074979511663,
+                32.19007299454537
+              ],
+              [
+                35.59074867254677,
+                32.19007285188424
+              ],
+              [
+                35.59074754792453,
+                32.190072725461256
+              ],
+              [
+                35.59074642125749,
+                32.1900726170799
+              ],
+              [
+                35.590745292538074,
+                32.19007252493666
+              ],
+              [
+                35.59074416176626,
+                32.19007244903156
+              ],
+              [
+                35.59074302894205,
+                32.190072389364545
+              ],
+              [
+                35.59074189619394,
+                32.19007234773272
+              ],
+              [
+                35.59074076139343,
+                32.19007232233904
+              ],
+              [
+                35.59054985891902,
+                32.19007122294942
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "properties": {
+          "area": 568.17013196,
+          "block_id": 7,
+          "block_name": "الطوال الشمالي",
+          "department_id": 24,
+          "department_name": "اراضي دير علا",
+          "district_id": 4,
+          "district_name": "البلقاء",
+          "dls_key": "141900700000086",
+          "perimeter": 93.43947170350229,
+          "plot_id": 86,
+          "prices": [
+            [
+              "سكني",
+              "د",
+              "مميز",
+              4
+            ],
+            [
+              "سكني",
+              "د",
+              "ضعيف",
+              2
+            ],
+            [
+              "سكني",
+              "د",
+              "جيد",
+              4
+            ]
+          ],
+          "type": "plot",
+          "village_id": 1419,
+          "village_name": "الطوال"
+        }
+      }
     },
     {
       "id": 50243,
@@ -95036,7 +97584,7 @@ window.AUCTION_DATA = {
       "caseId": 15031630,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6MKU2iH5QBUnSpoALEMPAKxpZJckSOEWZq17VFWxXkEw",
       "image": "images/48466.jpg",
-      "lastSeenInListingAt": "2026-07-26T22:51:32Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 47450,
@@ -95519,7 +98067,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "10/02/2026"
       },
       "caseId": 14951843,
-      "lastSeenInListingAt": "2026-07-30T20:45:12Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 48817,
@@ -99205,7 +101753,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "09/04/2026"
       },
       "image": "images/50621.jpg",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "caseId": 15308730,
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7_MyAZRzYAWQPFhuahP-h57ATrVrgTtBha4vx-3y7WGQ",
       "pdfPath": "reports/50621.pdf"
@@ -106822,13 +109370,13 @@ window.AUCTION_DATA = {
     {
       "id": 50928,
       "category": "أُخرى",
-      "header": "رقم المزاد :21-11-3032-2025-سجل عام أُخرى - 2026/06/24 تنفيذ المفرق",
+      "header": "رقم المزاد :21-11-3032-2025-سجل عام أُخرى - 2026/07/27 تنفيذ المفرق",
       "court": "تنفيذ المفرق",
       "caseNumber": "ا 21-11-3032-2025-سجل عام",
       "status": "قيد التنفيذ",
       "announcement": "اعلان بيع",
-      "announcementStart": "24/06/2026 00:00:00",
-      "announcementEnd": "08/07/2026 15:00:00",
+      "announcementStart": "27/07/2026 00:00:00",
+      "announcementEnd": "10/08/2026 15:00:00",
       "startingAmount": "108505",
       "estimatedValue": "217010",
       "currentAmount": "117722",
@@ -106858,7 +109406,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "03/05/2026"
       },
       "caseId": 15247218,
-      "lastSeenInListingAt": "2026-07-30T06:19:08Z"
+      "lastSeenInListingAt": "2026-07-31T04:42:18Z"
     },
     {
       "id": 50892,
@@ -107905,7 +110453,7 @@ window.AUCTION_DATA = {
       "caseId": 13739362,
       "image": "images/50908.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5nuzkGy_iXmOy6RsRiLmyiKtSapaJP6bBAE2mLDu0p5A",
-      "lastSeenInListingAt": "2026-07-30T20:45:12Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 46797,
@@ -107947,7 +110495,7 @@ window.AUCTION_DATA = {
       "caseId": 14937325,
       "image": "images/46797.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5nuzkGy_iXmOy6RsRiLmyiKtSapaJP6bBAE2mLDu0p5A",
-      "lastSeenInListingAt": "2026-07-30T20:45:12Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 46702,
@@ -107989,7 +110537,7 @@ window.AUCTION_DATA = {
       "caseId": 14934132,
       "image": "images/46702.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5nuzkGy_iXmOy6RsRiLmyiKtSapaJP6bBAE2mLDu0p5A",
-      "lastSeenInListingAt": "2026-07-30T20:45:12Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50933,
@@ -110366,13 +112914,13 @@ window.AUCTION_DATA = {
       "id": 51000,
       "caseId": 15662244,
       "category": "أُخرى",
-      "header": "رقم المزاد :35-11-353-2026-سجل عام أُخرى - 2026/05/13 تنفيذ العقبة",
+      "header": "رقم المزاد :35-11-353-2026-سجل عام أُخرى - 2026/08/10 تنفيذ العقبة",
       "court": "تنفيذ العقبة",
       "caseNumber": "ا 35-11-353-2026-سجل عام",
       "status": "قيد التنفيذ",
       "announcement": "اعلان بيع",
-      "announcementStart": "13/05/2026 08:00:00",
-      "announcementEnd": "13/05/2026 15:00:00",
+      "announcementStart": "10/08/2026 08:00:00",
+      "announcementEnd": "10/08/2026 15:00:00",
       "startingAmount": "942760.29",
       "estimatedValue": "1885521",
       "currentAmount": "0",
@@ -110381,8 +112929,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "20171",
       "publishedAt": "10/05/2026",
-      "endDate": "2026-05-13 15:00:00",
-      "image": "",
+      "endDate": "2026-08-10 15:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY&auction=51000",
       "details": {
@@ -110401,7 +112948,8 @@ window.AUCTION_DATA = {
         "العدد": "20171",
         "تاريخ النشر": "10/05/2026"
       },
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z"
+      "lastSeenInListingAt": "2026-07-31T04:42:18Z",
+      "image": "images/51000.jpg"
     },
     {
       "id": 50984,
@@ -110444,7 +112992,7 @@ window.AUCTION_DATA = {
       "image": "images/50984.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6lWfGm4XdNIkqPrMl021igpcANrZz1san363sNza3clw",
       "pdfPath": "reports/50984.pdf",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50884,
@@ -110873,7 +113421,7 @@ window.AUCTION_DATA = {
       "image": "images/50987.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7Onn8fAv5legmRO5N_fAQB2pBUOWpy06VGvSM2r5kEEg",
       "pdfPath": "reports/50987.pdf",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 50852,
@@ -111456,7 +114004,7 @@ window.AUCTION_DATA = {
         "العدد": "7784",
         "تاريخ النشر": "10/05/2026"
       },
-      "lastSeenInListingAt": "2026-07-30T20:45:12Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51007,
@@ -111917,7 +114465,7 @@ window.AUCTION_DATA = {
         "العدد": "21092",
         "تاريخ النشر": "10/05/2026"
       },
-      "lastSeenInListingAt": "2026-07-30T20:36:56Z",
+      "lastSeenInListingAt": "2026-07-31T04:29:30Z",
       "image": "images/47903.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5OuIul2Yays4xb_y31clXrQ_bSvXM8L7nZWJUMnvYdRg",
       "pdfPath": "reports/47903.pdf",
@@ -112658,7 +115206,8 @@ window.AUCTION_DATA = {
           "village_id": 392,
           "village_name": "السلط"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7D8JvswhM9mlfTQBkfaLzgoyky1iOU3lvHMKgr_otxbw"
     },
     {
       "id": 48950,
@@ -122692,7 +125241,7 @@ window.AUCTION_DATA = {
       "image": "images/51089.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7Tawej00M7lEB7_ADis2jJMywtiepfJoV2zhIDHumhzw",
       "pdfPath": "reports/51089.pdf",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 1,
@@ -122907,7 +125456,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "12/05/2026"
       },
       "firstSeenAt": "2026-05-25T14:13:56Z",
-      "lastSeenInListingAt": "2026-07-21T23:14:23Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6RhgTmSuXtJwdUPK4heGxD0ECMGl8su79VyeoqWtQg5Q",
       "image": "images/51035.jpg"
     },
@@ -129852,7 +132401,7 @@ window.AUCTION_DATA = {
       "firstSeenAt": "2026-06-01T14:00:08Z",
       "image": "images/51327.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7fMM0FXoDlSxfwI7b3zG-fvJZTguDxySTP6CeasIM-kA",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51211,
@@ -131179,7 +133728,7 @@ window.AUCTION_DATA = {
       },
       "firstSeenAt": "2026-06-03T13:01:36Z",
       "image": "images/51150.jpg",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51324,
@@ -131262,7 +133811,7 @@ window.AUCTION_DATA = {
       },
       "firstSeenAt": "2026-06-03T13:01:36Z",
       "image": "images/51356.jpg",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51263,
@@ -131304,7 +133853,7 @@ window.AUCTION_DATA = {
       },
       "firstSeenAt": "2026-06-03T13:01:36Z",
       "image": "images/51263.jpg",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 45076,
@@ -131346,7 +133895,7 @@ window.AUCTION_DATA = {
       },
       "firstSeenAt": "2026-06-03T13:01:36Z",
       "image": "images/45076.jpg",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51281,
@@ -131388,7 +133937,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "14/05/2026"
       },
       "firstSeenAt": "2026-06-03T13:01:36Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51346,
@@ -131606,7 +134155,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "13/05/2026"
       },
       "firstSeenAt": "2026-06-06T05:06:49Z",
-      "lastSeenInListingAt": "2026-07-30T20:45:12Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51171,
@@ -131648,7 +134197,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "17/05/2026"
       },
       "firstSeenAt": "2026-06-06T05:06:49Z",
-      "lastSeenInListingAt": "2026-07-30T20:45:12Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51052,
@@ -132347,7 +134896,7 @@ window.AUCTION_DATA = {
       "image": "images/51557.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4CWyLS76wIt6N9tygnepRQmApeHS_xbtoRKUowtgyzZg",
       "pdfPath": "reports/51557.pdf",
-      "lastSeenInListingAt": "2026-07-26T22:51:32Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51430,
@@ -132391,7 +134940,7 @@ window.AUCTION_DATA = {
       "image": "images/51430.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5Fw-_GV3NGGSFs_UeGD432HdHN6Tv4rvCVs1ijL2PNuw",
       "pdfPath": "reports/51430.pdf",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51518,
@@ -132477,7 +135026,7 @@ window.AUCTION_DATA = {
       "firstSeenAt": "2026-06-11T21:33:01Z",
       "image": "images/51513.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4HwypZ_cQTKKNyRpGAIWowtRDGocaSC5aQb31C7inb8g",
-      "lastSeenInListingAt": "2026-07-26T22:51:32Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51590,
@@ -133206,7 +135755,7 @@ window.AUCTION_DATA = {
       "firstSeenAt": "2026-06-14T20:28:43Z",
       "image": "images/51137.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6vYYhXBmI5YiWgEDECOLwzKjD6925vrMGvLyIClT5EpA",
-      "lastSeenInListingAt": "2026-07-26T22:51:32Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51647,
@@ -133249,7 +135798,7 @@ window.AUCTION_DATA = {
       "firstSeenAt": "2026-06-14T20:28:43Z",
       "image": "images/51647.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5bWiMtnpLEuoZF7zXuihdwsvABw8Yq1Rzg2vynixbwCg",
-      "lastSeenInListingAt": "2026-07-26T22:51:32Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 45537,
@@ -134825,7 +137374,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "24/05/2026"
       },
       "firstSeenAt": "2026-06-18T21:37:41Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51748,
@@ -135332,7 +137881,7 @@ window.AUCTION_DATA = {
       },
       "firstSeenAt": "2026-06-19T06:29:30Z",
       "image": "images/51722.jpg",
-      "lastSeenInListingAt": "2026-07-26T22:51:32Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51547,
@@ -135418,7 +137967,7 @@ window.AUCTION_DATA = {
       "image": "images/51682.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4f0QH5IJi0qOlzrcNqrlpRFD8ZQdnsihD-hWw37tY06w",
       "pdfPath": "reports/51682.pdf",
-      "lastSeenInListingAt": "2026-07-25T20:06:01Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51646,
@@ -135503,7 +138052,7 @@ window.AUCTION_DATA = {
       "firstSeenAt": "2026-06-19T06:29:30Z",
       "image": "images/51640.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4-ziJWdpxg9RuGvZCjVm2KWc1PedO64dtIOSo0S3BvEA",
-      "lastSeenInListingAt": "2026-07-25T20:06:01Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51765,
@@ -136138,7 +138687,7 @@ window.AUCTION_DATA = {
       "firstSeenAt": "2026-06-21T20:32:06Z",
       "image": "images/35925.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da45wc8Jaxd5jdpykUU7eS1T90Q8mWd_hStsVH9QpQ-rYA",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 38290,
@@ -136466,7 +139015,7 @@ window.AUCTION_DATA = {
       },
       "firstSeenAt": "2026-06-25T21:02:26Z",
       "image": "images/51561.jpg",
-      "lastSeenInListingAt": "2026-07-25T20:06:01Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51830,
@@ -141432,7 +143981,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "04/06/2026"
       },
       "firstSeenAt": "2026-06-30T06:24:25Z",
-      "lastSeenInListingAt": "2026-07-30T06:19:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/51416.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4pwPZd-IxIFwJZEVy5pmwWcK9nvphhGnhWzz4baACHTA",
       "aradiPlot": {
@@ -141622,7 +144171,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "21/05/2026"
       },
       "firstSeenAt": "2026-06-30T06:24:38Z",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 52018,
@@ -145454,18 +148003,18 @@ window.AUCTION_DATA = {
       "id": 51555,
       "caseId": 15795604,
       "category": "شقة/ مكتب",
-      "header": "رقم المزاد :3-11-2519-2026-سجل عام شقة/ مكتب - 2026/06/10 تنفيذ عمان / قسم شرق عمان",
+      "header": "رقم المزاد :3-11-2519-2026-سجل عام شقة/ مكتب - 2026/07/17 تنفيذ عمان / قسم شرق عمان",
       "court": "تنفيذ عمان / قسم شرق عمان",
       "caseNumber": "ا 3-11-2519-2026-سجل عام",
       "status": "قيد التنفيذ",
-      "announcement": "اعلان 30 يوم",
-      "announcementStart": "10/06/2026 00:00:00",
-      "announcementEnd": "09/07/2026 15:00:00",
+      "announcement": "اعلان احالة مؤقتة",
+      "announcementStart": "17/07/2026 00:00:00",
+      "announcementEnd": "02/08/2026 15:00:00",
       "startingAmount": "24957.50",
       "estimatedValue": "49915",
-      "currentAmount": "0",
+      "currentAmount": "24958",
       "minIncrement": "200 دينار اردني",
-      "numBids": "0",
+      "numBids": "1",
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "20195",
       "publishedAt": "09/06/2026",
@@ -145498,7 +148047,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "09/06/2026"
       },
       "firstSeenAt": "2026-07-01T07:50:48Z",
-      "lastSeenInListingAt": "2026-07-26T22:51:32Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:16Z",
       "image": "images/51555.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4HKWUwW5lruajqY6okaPsGjoj_ZYCw86iNJHYVOi4taQ",
       "aradiPlot": {
@@ -146045,7 +148594,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "03/06/2026"
       },
       "firstSeenAt": "2026-07-01T07:50:48Z",
-      "lastSeenInListingAt": "2026-07-21T14:57:44Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/51361.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7ILhaqe98y-713QzO1dqyO_WKwErk70hmAzP3Wy5-XWg"
     },
@@ -146149,7 +148698,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "03/06/2026"
       },
       "firstSeenAt": "2026-07-01T07:50:48Z",
-      "lastSeenInListingAt": "2026-07-21T14:57:44Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/51362.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5Dch2SA5vybdgbF-RQaKPhQlmRIO1_YFRc8oxWU9m9Rg"
     },
@@ -146660,7 +149209,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "07/05/2026"
       },
       "firstSeenAt": "2026-07-01T07:50:48Z",
-      "lastSeenInListingAt": "2026-07-25T16:45:59Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/51258.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7heMiPza_Fz_IG555pbDqvGf_5CY5ItvsG3iaVkQnDKw"
     },
@@ -147528,7 +150077,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "27/04/2026"
       },
       "firstSeenAt": "2026-07-01T07:50:48Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/51293.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da57fq85weinTvYt132paR4YaixeWWXvJ4wTZe0-Hr6SzA"
     },
@@ -148871,13 +151420,13 @@ window.AUCTION_DATA = {
       "id": 51259,
       "caseId": 15599685,
       "category": "شقة/ مكتب",
-      "header": "رقم المزاد :1-11-6-2026-سجل عام شقة/ مكتب - 2026/05/25 تنفيذ عمان / قسم شمال عمان",
+      "header": "رقم المزاد :1-11-6-2026-سجل عام شقة/ مكتب - 2026/07/17 تنفيذ عمان / قسم شمال عمان",
       "court": "تنفيذ عمان / قسم شمال عمان",
       "caseNumber": "ا 1-11-6-2026-سجل عام",
       "status": "قيد التنفيذ",
-      "announcement": "اعلان 30 يوم",
-      "announcementStart": "25/05/2026 00:00:00",
-      "announcementEnd": "23/06/2026 15:00:00",
+      "announcement": "اعلان احالة مؤقتة",
+      "announcementStart": "17/07/2026 00:00:00",
+      "announcementEnd": "02/08/2026 15:00:00",
       "startingAmount": "62500",
       "estimatedValue": "125000",
       "currentAmount": "63000",
@@ -148915,7 +151464,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "24/05/2026"
       },
       "firstSeenAt": "2026-07-01T07:55:44Z",
-      "lastSeenInListingAt": "2026-07-26T22:51:32Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:16Z",
       "image": "images/51259.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6Oyw4Q2A7Uxp9-13tTVT8lkZuBWy6iJ-EbExbOLK1z7g",
       "pdfPath": "reports/51259.pdf",
@@ -154109,7 +156658,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "02/06/2026"
       },
       "firstSeenAt": "2026-07-02T05:03:50Z",
-      "lastSeenInListingAt": "2026-07-30T06:19:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/51363.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4k6dCkkvbIp6wZUA3SI49y5Bup8Lx-Chzqx0EyIyrSgw",
       "aradiPlot": {
@@ -154675,7 +157224,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "17/06/2026"
       },
       "firstSeenAt": "2026-07-02T20:21:00Z",
-      "lastSeenInListingAt": "2026-07-25T20:06:01Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51809,
@@ -154717,7 +157266,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "11/06/2026"
       },
       "firstSeenAt": "2026-07-02T20:21:00Z",
-      "lastSeenInListingAt": "2026-07-25T20:06:01Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 51926,
@@ -157832,7 +160381,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/07/2026"
       },
       "firstSeenAt": "2026-07-07T04:54:34Z",
-      "lastSeenInListingAt": "2026-07-30T06:30:43Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:18Z",
       "image": "images/52244.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5r5PYwkjrREhp5DH5YbqEfyIRO2fYfmwEjHKsKJwrVtw",
       "pdfPath": "reports/52244.pdf"
@@ -158883,7 +161432,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "14/06/2026"
       },
       "firstSeenAt": "2026-07-07T07:50:20Z",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52117.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4T168BIsJrLtRwiZE9_V2WEziDfAugRBgsqfEWCzDn0g",
       "aradiPlot": {
@@ -159203,7 +161752,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "14/06/2026"
       },
       "firstSeenAt": "2026-07-07T07:50:20Z",
-      "lastSeenInListingAt": "2026-07-30T06:19:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/51665.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5tdGz-HHR0OLQejAwpAXmnSQHcC7q6A91hCQoIvjQUiA",
       "aradiPlot": {
@@ -161003,7 +163552,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "10/06/2026"
       },
       "firstSeenAt": "2026-07-07T07:50:20Z",
-      "lastSeenInListingAt": "2026-07-27T04:35:01Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/51766.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da44JHYSW9ctkLGge5k9YeB5or2YCpkMyj1a03c0PWsr8A",
       "pdfPath": "reports/51766.pdf"
@@ -163303,7 +165852,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/07/2026"
       },
       "firstSeenAt": "2026-07-07T08:35:58Z",
-      "lastSeenInListingAt": "2026-07-21T23:14:23Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/51671.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5-18jXz4otoavm5FSYETO0aawFJx4U4X7NZO372hKwew",
       "pdfPath": "reports/51671.pdf"
@@ -165028,7 +167577,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "07/07/2026"
       },
       "firstSeenAt": "2026-07-07T08:35:58Z",
-      "lastSeenInListingAt": "2026-07-21T14:57:44Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52260.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7SsKNNcAQsQUetU4P4ZSO9XzSNdd_ipAQpeuLbSFiFQw",
       "pdfPath": "reports/52260.pdf"
@@ -168965,7 +171514,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "11/06/2026"
       },
       "firstSeenAt": "2026-07-07T09:38:09Z",
-      "lastSeenInListingAt": "2026-07-23T22:55:41Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/46922.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7uliQSqlIuEejH9asrTPWE9eCuL71vBWGRRn4n16DgnQ",
       "aradiPlot": {
@@ -181458,7 +184007,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "06/07/2026"
       },
       "firstSeenAt": "2026-07-08T15:08:42Z",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52301.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7eUj-BFUMux5Z9kvzJQcyWs5pZs96M0IZueLQX72aF9g"
     },
@@ -181504,7 +184053,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "06/07/2026"
       },
       "firstSeenAt": "2026-07-08T15:08:42Z",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52300.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7b-pfQ3bbnllFJEIJYOPUC0PmTDuhSSch0hJh7yZUkVw",
       "pdfPath": "reports/52300.pdf"
@@ -181802,7 +184351,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "07/07/2026"
       },
       "firstSeenAt": "2026-07-08T15:08:42Z",
-      "lastSeenInListingAt": "2026-07-21T14:57:44Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52282.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7Hfd49_NqgoZhJoN5PhGtJFgNukUg2N-K9JvTb_qRI_Q",
       "pdfPath": "reports/52282.pdf"
@@ -183168,7 +185717,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "09/07/2026"
       },
       "firstSeenAt": "2026-07-11T10:57:52Z",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52354.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5Hj6qqAA5Gk_F9308JtyW7Uw4u-gwm1mhHBt2yaj-AVg"
     },
@@ -185585,7 +188134,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/07/2026"
       },
       "firstSeenAt": "2026-07-14T14:46:17Z",
-      "lastSeenInListingAt": "2026-07-17T14:29:02Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52371.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5SlIJ235YgsUD6_dKLByYGW7exhRwiee_GVJ0A9A8bzg"
     },
@@ -185637,7 +188186,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "13/07/2026"
       },
       "firstSeenAt": "2026-07-14T14:46:17Z",
-      "lastSeenInListingAt": "2026-07-19T04:23:34Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52439.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5NZm-IhDIVRA6WCfEza4J8AU-LETj26w41Dmla-goYHg"
     },
@@ -190357,7 +192906,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "12/07/2026"
       },
       "firstSeenAt": "2026-07-16T11:14:51Z",
-      "lastSeenInListingAt": "2026-07-25T16:45:59Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52469.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6LwPTIHp3pmlGpZzj86YdY3IvSiQ9v412JMBsnIbsVFA"
     },
@@ -190409,7 +192958,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "13/07/2026"
       },
       "firstSeenAt": "2026-07-16T11:14:51Z",
-      "lastSeenInListingAt": "2026-07-27T04:35:01Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52495.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da62qOuRmxxU4WI3j4NTciK8DGd67JLXuBn_V68IxdPXsA"
     },
@@ -190461,7 +193010,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "13/07/2026"
       },
       "firstSeenAt": "2026-07-16T11:14:51Z",
-      "lastSeenInListingAt": "2026-07-27T04:35:01Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52473.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7oE0d_nJZliP5d0pi0Fd3wU22NJAqCORSQLAMO_JOZiQ"
     },
@@ -194709,7 +197258,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "06/07/2026"
       },
       "firstSeenAt": "2026-07-16T11:44:34Z",
-      "lastSeenInListingAt": "2026-07-21T14:57:44Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52401.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4rw-E1uY3E9T4puqp9NcAn3k5lrfk_-rxb5c3IQA0xew"
     },
@@ -194761,7 +197310,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "09/07/2026"
       },
       "firstSeenAt": "2026-07-16T11:44:34Z",
-      "lastSeenInListingAt": "2026-07-21T14:57:44Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52428.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5wV7qVpj5ihgqaGd1O0WOjTt5FUpiq3rKCpybLvXlayg"
     },
@@ -194813,7 +197362,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "07/07/2026"
       },
       "firstSeenAt": "2026-07-16T11:44:34Z",
-      "lastSeenInListingAt": "2026-07-21T14:57:44Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52319.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4px9CMLgKISp_uiq4EP5eYVrRSQ45VNU2ehwfg4tOexw"
     },
@@ -194917,7 +197466,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "14/06/2026"
       },
       "firstSeenAt": "2026-07-16T11:44:34Z",
-      "lastSeenInListingAt": "2026-07-22T09:30:15Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52431.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da65BUGe0tJhnOfPoF_A4zCNVr7ubLCGSt_MOxjaAe265w"
     },
@@ -194969,7 +197518,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "13/05/2026"
       },
       "firstSeenAt": "2026-07-16T11:44:34Z",
-      "lastSeenInListingAt": "2026-07-22T09:30:15Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52322.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6uTNBAGMFm8faSGuXtY8nJmQiG32Dy7ifUKaRlHNEnrw"
     },
@@ -195072,7 +197621,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "08/07/2026"
       },
       "firstSeenAt": "2026-07-16T15:12:33Z",
-      "lastSeenInListingAt": "2026-07-19T22:44:45Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52477.jpg"
     },
     {
@@ -195123,7 +197672,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "06/07/2026"
       },
       "firstSeenAt": "2026-07-16T15:12:33Z",
-      "lastSeenInListingAt": "2026-07-19T22:44:45Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52317.jpg"
     },
     {
@@ -195378,7 +197927,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "09/07/2026"
       },
       "firstSeenAt": "2026-07-16T20:01:15Z",
-      "lastSeenInListingAt": "2026-07-19T22:44:45Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52427.jpg"
     },
     {
@@ -195480,7 +198029,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "16/07/2026"
       },
       "firstSeenAt": "2026-07-17T03:57:53Z",
-      "lastSeenInListingAt": "2026-07-17T14:29:02Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52480.jpg"
     },
     {
@@ -196022,7 +198571,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "03/06/2026"
       },
       "firstSeenAt": "2026-07-18T11:00:58Z",
-      "lastSeenInListingAt": "2026-07-21T14:57:44Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52519.jpg"
     },
     {
@@ -196532,7 +199081,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "06/07/2026"
       },
       "firstSeenAt": "2026-07-18T11:00:58Z",
-      "lastSeenInListingAt": "2026-07-21T14:57:44Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52529.jpg"
     },
     {
@@ -197042,7 +199591,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/07/2026"
       },
       "firstSeenAt": "2026-07-18T11:00:58Z",
-      "lastSeenInListingAt": "2026-07-21T14:57:44Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52539.jpg"
     },
     {
@@ -197093,7 +199642,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "13/07/2026"
       },
       "firstSeenAt": "2026-07-18T11:00:58Z",
-      "lastSeenInListingAt": "2026-07-21T14:57:44Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52540.jpg"
     },
     {
@@ -197286,7 +199835,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "15/07/2026"
       },
       "firstSeenAt": "2026-07-18T16:52:02Z",
-      "lastSeenInListingAt": "2026-07-19T22:44:45Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52512.jpg"
     },
     {
@@ -197337,7 +199886,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "09/07/2026"
       },
       "firstSeenAt": "2026-07-18T20:01:55Z",
-      "lastSeenInListingAt": "2026-07-22T04:20:07Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52404.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6_zvY4ZUAo7T6kj0QOcNC79pugGKV_GgYCQ-Ox6dAkzA"
     },
@@ -197441,7 +199990,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/07/2026"
       },
       "firstSeenAt": "2026-07-18T20:01:55Z",
-      "lastSeenInListingAt": "2026-07-25T16:45:59Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52438.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5CDQdJYsm1-e_s4dIgwS7gPoArC2aE6aLQNqUwxHdsYw"
     },
@@ -197493,7 +200042,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "06/07/2026"
       },
       "firstSeenAt": "2026-07-18T20:01:55Z",
-      "lastSeenInListingAt": "2026-07-25T16:45:59Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52405.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5ESW63xYqyl45EZLnP8kk_ObqUDAC658u22G_RAnI1vg"
     },
@@ -197596,7 +200145,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "14/07/2026"
       },
       "firstSeenAt": "2026-07-18T20:13:16Z",
-      "lastSeenInListingAt": "2026-07-22T09:30:15Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52541.jpg"
     },
     {
@@ -197698,7 +200247,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "09/07/2026"
       },
       "firstSeenAt": "2026-07-18T20:13:16Z",
-      "lastSeenInListingAt": "2026-07-22T09:30:15Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52433.jpg"
     },
     {
@@ -197801,7 +200350,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "09/07/2026"
       },
       "firstSeenAt": "2026-07-18T20:13:16Z",
-      "lastSeenInListingAt": "2026-07-22T17:09:51Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52445.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4X4-0lSKwCbLIOqXJVF1TJTy3GpTJSOEiPxK36foS5XA"
     },
@@ -198036,7 +200585,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "19/07/2026"
       },
       "firstSeenAt": "2026-07-19T14:31:28Z",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52559.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7h0uppzXnMO4CSErLcl-z8RBLIpor0LpUMHPb6L0QRHg",
       "pdfPath": "reports/52559.pdf"
@@ -198083,7 +200632,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "14/07/2026"
       },
       "firstSeenAt": "2026-07-19T14:31:28Z",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52560.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5-fPzEgrBlDRqe_i7PKxgYzenqPTd-UCyxUhu1jdtSGg",
       "pdfPath": "reports/52560.pdf"
@@ -213874,9 +216423,9 @@ window.AUCTION_DATA = {
       "announcementEnd": "02/08/2026 15:00:00",
       "startingAmount": "29250",
       "estimatedValue": "58500",
-      "currentAmount": "0",
+      "currentAmount": "35000",
       "minIncrement": "100 دينار اردني",
-      "numBids": "0",
+      "numBids": "1",
       "newspaper": "جريدة الدستور",
       "newspaperIssue": "21130",
       "publishedAt": "23/06/2026",
@@ -213909,7 +216458,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "23/06/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-26T22:51:32Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:16Z",
       "image": "images/52316.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da40srRH4sZSXFeCmDDHYZAPNBCQprmlhJ6Uk1iTkZDhgg",
       "pdfPath": "reports/52316.pdf",
@@ -213968,7 +216517,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "01/07/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52161.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5KF8K73CZu0dMeBOSWqmQQB2oGF1nJHldtuPnbXihKmQ",
       "pdfPath": "reports/52161.pdf",
@@ -214189,7 +216738,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "01/07/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-23T22:55:41Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:16Z",
       "image": "images/52162.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6IU1q0xM5VSPiz8T9I3fv1lfJKsajJTQEJ1awoGZnZmg",
       "pdfPath": "reports/52162.pdf",
@@ -214410,7 +216959,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "01/07/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:16Z",
       "image": "images/52163.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7ZV_ONZgQDDu6rbPlR0uY3bO5he2fAlYsofLcHOrl9cA",
       "pdfPath": "reports/52163.pdf",
@@ -214631,7 +217180,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "02/07/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:16Z",
       "image": "images/52172.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6HUt9lpl4fwk0MQ7iZQjkYDZHEmRtLDMxugDXOv7c-6g",
       "aradiPlot": {
@@ -214827,7 +217376,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "01/07/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:16Z",
       "image": "images/52265.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5FMo1GG_OCSz3ydAYGze1ffPbmM6km_8A3yYNLG63kmg",
       "pdfPath": "reports/52265.pdf",
@@ -215192,7 +217741,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "02/07/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-26T22:51:32Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:16Z",
       "image": "images/52281.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4S30H1aC5RpF0en8EB0ZYptUFMhw7kmpPoGFzUrowFtQ",
       "pdfPath": "reports/52281.pdf",
@@ -215251,7 +217800,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "02/07/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-28T22:55:58Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:16Z",
       "image": "images/52274.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5cov1bppUP8Xk25O-owuG_cwdrUjyyRIyubgacZYSViQ",
       "pdfPath": "reports/52274.pdf",
@@ -215434,7 +217983,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "19/07/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-23T22:55:41Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/51198.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4eHkiab477VFqTcrBySqLsg5eKX3gvnfPT_6SCfmUGOA",
       "pdfPath": "reports/51198.pdf",
@@ -217473,7 +220022,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/07/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-23T22:55:41Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52324.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da49SHezXBlIBWWZRs-qEKQEyJOJs2NXc__730GiQXh_Bg",
       "pdfPath": "reports/52324.pdf",
@@ -217532,7 +220081,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/07/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-30T06:19:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52275.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5lyN4oLERzpwDPpA9pP2evwh94D1_jUGqnEQefPkcM4w",
       "pdfPath": "reports/52275.pdf",
@@ -217933,22 +220482,22 @@ window.AUCTION_DATA = {
       "id": 52574,
       "caseId": 15571884,
       "category": "مركبة",
-      "header": "رقم المزاد :3-11-9020-2025-سجل عام مركبة - 2026/07/20 تنفيذ عمان / قسم شرق عمان",
+      "header": "رقم المزاد :3-11-9020-2025-سجل عام مركبة - 2026/07/31 تنفيذ عمان / قسم شرق عمان",
       "court": "تنفيذ عمان / قسم شرق عمان",
       "caseNumber": "ا 3-11-9020-2025-سجل عام",
       "status": "قيد التنفيذ",
       "announcement": "اعلان بيع",
-      "announcementStart": "20/07/2026 00:00:00",
-      "announcementEnd": "29/07/2026 14:40:00",
+      "announcementStart": "31/07/2026 00:00:00",
+      "announcementEnd": "02/08/2026 15:00:00",
       "startingAmount": "4250",
       "estimatedValue": "8500",
-      "currentAmount": "0",
+      "currentAmount": "5500",
       "minIncrement": "20 دينار اردني",
-      "numBids": "0",
+      "numBids": "1",
       "newspaper": "جريدة الغد",
       "newspaperIssue": "7848",
       "publishedAt": "19/07/2026",
-      "endDate": "2026-07-29 14:40:00",
+      "endDate": "2026-08-02 15:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52574",
       "details": {
@@ -217977,7 +220526,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "19/07/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-28T17:16:28Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:22Z",
       "image": "images/52574.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5ltvPxxrRDywc4c84g6g0BGSqr6d3EeAE13YUQ-lrYkg",
       "pdfPath": "reports/52574.pdf"
@@ -218251,22 +220800,22 @@ window.AUCTION_DATA = {
       "id": 52515,
       "caseId": 15257755,
       "category": "مركبة",
-      "header": "رقم المزاد :3-11-5227-2025-سجل عام مركبة - 2026/05/21 تنفيذ عمان / قسم شرق عمان",
+      "header": "رقم المزاد :3-11-5227-2025-سجل عام مركبة - 2026/07/31 تنفيذ عمان / قسم شرق عمان",
       "court": "تنفيذ عمان / قسم شرق عمان",
       "caseNumber": "ا 3-11-5227-2025-سجل عام",
       "status": "قيد التنفيذ",
       "announcement": "اعلان بيع",
-      "announcementStart": "21/05/2026 00:00:00",
-      "announcementEnd": "29/07/2026 17:50:00",
+      "announcementStart": "31/07/2026 00:00:00",
+      "announcementEnd": "02/08/2026 14:00:00",
       "startingAmount": "1900",
       "estimatedValue": "3800",
-      "currentAmount": "0",
+      "currentAmount": "2800",
       "minIncrement": "20 دينار اردني",
-      "numBids": "0",
+      "numBids": "3",
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "20181",
       "publishedAt": "20/05/2026",
-      "endDate": "2026-07-29 14:50:00",
+      "endDate": "2026-08-02 14:00:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52515",
       "details": {
@@ -218295,7 +220844,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "20/05/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-28T17:16:28Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:22Z",
       "image": "images/52515.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da63iqe6rQxSTixSW5AdBX6njYJQfZhS8xzaIcO8FGG4Lg",
       "pdfPath": "reports/52515.pdf"
@@ -218613,7 +221162,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "21/07/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-26T22:51:32Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:22Z",
       "image": "images/52600.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da75k7loD443gcFF8V2o7aT0Ek7hg1Hwaebs-3MhhBFsWw",
       "pdfPath": "reports/52600.pdf"
@@ -218666,7 +221215,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "13/07/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-26T22:51:32Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:22Z",
       "image": "images/52543.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6xcmYwZLV1UrVryZ6gy6qKw260n2yyb6c8wqn9pODHtQ",
       "pdfPath": "reports/52543.pdf"
@@ -218719,7 +221268,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "19/07/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-26T22:51:32Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:22Z",
       "image": "images/52612.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7DS4u-tq4VXvfY_UlL5TtomrOT5WU9EiZPIn1GwqfTOA",
       "pdfPath": "reports/52612.pdf"
@@ -218772,7 +221321,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "19/07/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-26T22:51:32Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:22Z",
       "image": "images/52610.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5VVY87s3K-C1vkOOTRWs1SfWxg5hiGNabUyk_tK7jf7Q",
       "pdfPath": "reports/52610.pdf"
@@ -218826,7 +221375,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "16/07/2026"
       },
       "firstSeenAt": "2026-07-21T14:57:44Z",
-      "lastSeenInListingAt": "2026-07-21T14:57:44Z"
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z"
     },
     {
       "id": 52121,
@@ -230668,7 +233217,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "19/07/2026"
       },
       "firstSeenAt": "2026-07-21T22:59:05Z",
-      "lastSeenInListingAt": "2026-07-22T22:58:13Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52583.jpg"
     },
     {
@@ -230719,7 +233268,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "07/07/2026"
       },
       "firstSeenAt": "2026-07-21T22:59:05Z",
-      "lastSeenInListingAt": "2026-07-22T22:58:13Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52584.jpg"
     },
     {
@@ -230770,7 +233319,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "06/07/2026"
       },
       "firstSeenAt": "2026-07-21T22:59:05Z",
-      "lastSeenInListingAt": "2026-07-22T22:58:13Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52585.jpg"
     },
     {
@@ -231178,7 +233727,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "13/07/2026"
       },
       "firstSeenAt": "2026-07-21T22:59:05Z",
-      "lastSeenInListingAt": "2026-07-22T17:09:51Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52594.jpg"
     },
     {
@@ -231280,7 +233829,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "14/07/2026"
       },
       "firstSeenAt": "2026-07-21T23:14:23Z",
-      "lastSeenInListingAt": "2026-07-21T23:14:23Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52549.jpg"
     },
     {
@@ -231382,7 +233931,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "08/07/2026"
       },
       "firstSeenAt": "2026-07-21T23:14:23Z",
-      "lastSeenInListingAt": "2026-07-25T16:45:59Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52545.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4M2fRRR0wc2hxriSOkFmqAM1d3V5YMzM91HOvUcVWsJA",
       "pdfPath": "reports/52545.pdf"
@@ -231777,7 +234326,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "23/07/2026"
       },
       "firstSeenAt": "2026-07-23T20:11:12Z",
-      "lastSeenInListingAt": "2026-07-25T16:45:59Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52669.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6PTHW18EKZQNVoAP-QTw-mYwH63tMJlq2ZXIDu659K4g"
     },
@@ -231829,7 +234378,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "12/07/2026"
       },
       "firstSeenAt": "2026-07-23T20:11:12Z",
-      "lastSeenInListingAt": "2026-07-25T16:45:59Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52668.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6PRvdTqBMHBkSBtEsrtyKA4shP3lOHupPa7ZFB2Pun1w"
     },
@@ -231968,7 +234517,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/07/2026"
       },
       "firstSeenAt": "2026-07-23T22:55:41Z",
-      "lastSeenInListingAt": "2026-07-23T22:55:41Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52652.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6eIe4WN1EDLNNkTWAEqvfCzkt7KRJR9l05YZATTEpHtQ",
       "aradiPlot": {
@@ -232026,7 +234575,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/07/2026"
       },
       "firstSeenAt": "2026-07-23T22:55:41Z",
-      "lastSeenInListingAt": "2026-07-23T22:55:41Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/27061.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5ixNYxAXggMVF9T4sFjjgJXozB35UbcYxdzY_91c4_FQ",
       "aradiPlot": {
@@ -232322,7 +234871,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/07/2026"
       },
       "firstSeenAt": "2026-07-23T22:55:41Z",
-      "lastSeenInListingAt": "2026-07-23T22:55:41Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/33209.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7lCOrark7IA6ko9BxEMW5wdkqKLpht8ZvIL7TBbN1BsA",
       "aradiPlot": {
@@ -232460,7 +235009,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/07/2026"
       },
       "firstSeenAt": "2026-07-23T22:55:41Z",
-      "lastSeenInListingAt": "2026-07-23T22:55:41Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/47578.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4nvk1jNOXTsFyD0O7gEvVXz4XPiUM6RDf3lx_ayeFubg",
       "aradiPlot": {
@@ -232644,7 +235193,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/07/2026"
       },
       "firstSeenAt": "2026-07-23T22:55:41Z",
-      "lastSeenInListingAt": "2026-07-23T22:55:41Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/47579.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da59bHxOVkZzY5mf6PHQDHgnzDKfCxcb0G_TEepZxMRoTw",
       "aradiPlot": {
@@ -232828,7 +235377,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/07/2026"
       },
       "firstSeenAt": "2026-07-23T22:55:41Z",
-      "lastSeenInListingAt": "2026-07-28T23:09:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/47580.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5sHu8E1ttiZ32WTS3_HOJYiQaFxCRK_CDpZj4cstzr8Q",
       "aradiPlot": {
@@ -233012,7 +235561,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/07/2026"
       },
       "firstSeenAt": "2026-07-23T22:55:41Z",
-      "lastSeenInListingAt": "2026-07-23T22:55:41Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52178.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6Zh1EEp4YOaoM1TV20TMP0wmMeL0UVzH9OYuj97tBwHg",
       "aradiPlot": {
@@ -233190,7 +235739,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "21/07/2026"
       },
       "firstSeenAt": "2026-07-23T22:55:41Z",
-      "lastSeenInListingAt": "2026-07-30T06:30:43Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:18Z",
       "image": "images/52653.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5bC4ZQGTKUDLZwb6EbMOkWo2U3IVtU6DAtTgSk2vvePQ"
     },
@@ -233658,7 +236207,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "19/07/2026"
       },
       "firstSeenAt": "2026-07-25T03:57:56Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52573.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7CxqKJM0lHITUc192hMIUcRJmx2HUaAQ3zHBH1MzkVCg"
     },
@@ -234074,7 +236623,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "17/06/2026"
       },
       "firstSeenAt": "2026-07-25T09:13:04Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52687.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4R51ZHuBFUhvA3impqai1ig4xfTaFs_tQCar-FkWNAKA"
     },
@@ -234126,7 +236675,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "22/07/2026"
       },
       "firstSeenAt": "2026-07-25T09:13:04Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52688.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da77aOyn5cn1ICZ0n5A0NV1E0xo7KnltBBkIr8LzdyxzCQ"
     },
@@ -234178,7 +236727,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "15/06/2026"
       },
       "firstSeenAt": "2026-07-25T09:13:04Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6lTD56ZPzuzfOOZMHLmfw7dRNW5zoXJSkhXsWqNT6veQ",
       "image": "images/52689.jpg"
     },
@@ -234230,7 +236779,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "09/07/2026"
       },
       "firstSeenAt": "2026-07-25T09:13:04Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52690.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da46vka2GI8Iae67sTqiGsfKy5UOVdbZdsKk0hNFVOPe2A"
     },
@@ -234282,7 +236831,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "09/07/2026"
       },
       "firstSeenAt": "2026-07-25T09:13:04Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52691.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5EKD9XeJpW9fCvV5xOxGKlBfKLF2Wb6aYhav3hD7_nlg"
     },
@@ -234334,7 +236883,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "23/06/2026"
       },
       "firstSeenAt": "2026-07-25T09:13:04Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/48066.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5YCnmzjWVpEKLsjTVkqQvGUyEL6oRy16t1V98d1BaXiA"
     },
@@ -234386,7 +236935,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "23/06/2026"
       },
       "firstSeenAt": "2026-07-25T09:13:04Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52692.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4iOrCiLBXxabDxsPP3Cuc92hshcoHevjCSkA8QeZ8tzg"
     },
@@ -234490,7 +237039,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "23/06/2026"
       },
       "firstSeenAt": "2026-07-25T09:13:04Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52694.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4w2HtNMI497-FBpcqqTQuirKpTIyREj9UyWjY4rYaZOQ"
     },
@@ -234595,7 +237144,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "10/06/2026"
       },
       "firstSeenAt": "2026-07-25T22:43:54Z",
-      "lastSeenInListingAt": "2026-07-27T15:42:20Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52676.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4fTxlQ2BB8mPm20clRbDTXh6Umf5GL8FrBHler9rwP-w"
     },
@@ -234647,7 +237196,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "16/07/2026"
       },
       "firstSeenAt": "2026-07-25T22:43:54Z",
-      "lastSeenInListingAt": "2026-07-27T15:42:20Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52677.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5-utkkn6uZ_fW9Vm09T975Jx08hG9vg8E_xVuGllmXEg"
     },
@@ -234699,7 +237248,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "28/06/2026"
       },
       "firstSeenAt": "2026-07-25T22:43:54Z",
-      "lastSeenInListingAt": "2026-07-27T15:42:20Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7znBc9T69ljtKxo71jNQon7dEi5xE2zbZNy5mUmuFrag",
       "image": "images/52678.jpg"
     },
@@ -234751,7 +237300,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "23/06/2026"
       },
       "firstSeenAt": "2026-07-25T22:43:54Z",
-      "lastSeenInListingAt": "2026-07-27T15:42:20Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52679.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6FCpI1mk_bWD1_rNEMJP3TrRSNpfxVphZlAR0RIu9tZQ"
     },
@@ -234803,7 +237352,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "19/07/2026"
       },
       "firstSeenAt": "2026-07-25T22:43:54Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52682.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da56UPQPg2OP9BkDJsbe5f6GSXIUGIEenFcprJ571HJrMA",
       "pdfPath": "reports/52682.pdf"
@@ -234856,7 +237405,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "19/07/2026"
       },
       "firstSeenAt": "2026-07-25T22:43:54Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7zUp5-lAUEHv0O3OXAVxYc4BR0vnK8WlDhBokvU7MVOA",
       "image": "images/52681.jpg"
     },
@@ -234908,7 +237457,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "06/07/2026"
       },
       "firstSeenAt": "2026-07-25T22:43:54Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/46677.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5Nb5NwaYnUN9JHp9o-VYmZ3PwJX6C23NsnfNa3lU1RhA"
     },
@@ -235451,7 +238000,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/07/2026"
       },
       "firstSeenAt": "2026-07-26T20:05:24Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da63TW_AqhwCx9npPp-aJbSTTOkKcrb8VEIlZVyO-fG3Kw",
       "image": "images/52696.jpg"
     },
@@ -235503,7 +238052,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "21/07/2026"
       },
       "firstSeenAt": "2026-07-26T20:05:24Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52697.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7rC0dIu33X1lhhcLaZN0GYyPqi1vB1FfgSJCzUKDQ2GA"
     },
@@ -235555,7 +238104,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "01/07/2026"
       },
       "firstSeenAt": "2026-07-26T20:05:24Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52698.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4InH4qtWjl_E0dbzVu_gc4BaaBABx_1bZdIQGRr26dzQ"
     },
@@ -237089,7 +239638,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "02/07/2026"
       },
       "firstSeenAt": "2026-07-26T22:54:58Z",
-      "lastSeenInListingAt": "2026-07-30T20:36:56Z",
+      "lastSeenInListingAt": "2026-07-31T04:29:30Z",
       "image": "images/52443.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5zzgCsA9lysJgL0eVebs4ETogvylXw0K4VH8-CBqHaTQ",
       "pdfPath": "reports/52443.pdf",
@@ -237253,7 +239802,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "02/07/2026"
       },
       "firstSeenAt": "2026-07-26T22:54:58Z",
-      "lastSeenInListingAt": "2026-07-30T20:36:56Z",
+      "lastSeenInListingAt": "2026-07-31T04:29:30Z",
       "image": "images/47635.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4mG0Zg8c-54NzTyf1LUO5ry6TpU7KROGQNmVnbay04Vw",
       "pdfPath": "reports/47635.pdf",
@@ -237529,7 +240078,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "02/07/2026"
       },
       "firstSeenAt": "2026-07-26T22:54:58Z",
-      "lastSeenInListingAt": "2026-07-30T20:36:56Z",
+      "lastSeenInListingAt": "2026-07-31T04:29:30Z",
       "image": "images/52119.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da73HndIpr5jCABXkAlFn8JkZJk1ZUsFK5Du1s2bMIcslw",
       "pdfPath": "reports/52119.pdf",
@@ -237779,7 +240328,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "02/07/2026"
       },
       "firstSeenAt": "2026-07-26T22:54:58Z",
-      "lastSeenInListingAt": "2026-07-30T20:36:56Z",
+      "lastSeenInListingAt": "2026-07-31T04:29:30Z",
       "image": "images/52109.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4-wu2c_j8gL_GCrv4KzhQlQ1q8ny4qL__e3Ru_xB1Kpg",
       "pdfPath": "reports/52109.pdf",
@@ -238261,7 +240810,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "01/07/2026"
       },
       "firstSeenAt": "2026-07-26T22:54:58Z",
-      "lastSeenInListingAt": "2026-07-30T20:36:56Z",
+      "lastSeenInListingAt": "2026-07-31T04:29:30Z",
       "image": "images/41563.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da49xziWN5cFLccsfg6ypQ0UpEGNKeHlbklmmtGuqIHHGg",
       "pdfPath": "reports/41563.pdf",
@@ -238585,7 +241134,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "02/07/2026"
       },
       "firstSeenAt": "2026-07-26T22:54:58Z",
-      "lastSeenInListingAt": "2026-07-30T20:36:56Z",
+      "lastSeenInListingAt": "2026-07-31T04:29:30Z",
       "image": "images/52120.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4KprOQRRm-CjFgzXXYlmLskqO_pX5Q5yyb9Sb2356Axg",
       "pdfPath": "reports/52120.pdf",
@@ -241645,7 +244194,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "02/07/2026"
       },
       "firstSeenAt": "2026-07-26T22:54:58Z",
-      "lastSeenInListingAt": "2026-07-30T20:36:56Z",
+      "lastSeenInListingAt": "2026-07-31T04:29:30Z",
       "image": "images/52124.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da59pK5nlPrqYztraCrNdJQJC_JPvvhD8JCXoujO11cY1Q",
       "pdfPath": "reports/52124.pdf",
@@ -245315,7 +247864,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "01/07/2026"
       },
       "firstSeenAt": "2026-07-26T22:58:46Z",
-      "lastSeenInListingAt": "2026-07-30T20:36:56Z",
+      "lastSeenInListingAt": "2026-07-31T04:29:30Z",
       "image": "images/44680.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6FmO95GePBqr37atFfbgpR399AzaG8GLpO04A0F6GIZA",
       "aradiPlot": {
@@ -245471,7 +248020,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "21/07/2026"
       },
       "firstSeenAt": "2026-07-27T15:42:20Z",
-      "lastSeenInListingAt": "2026-07-27T15:42:20Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52721.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5udGkjRfy8AmNuf1AnumboRdD4FDoNuBqFHIqzBi7d4A"
     },
@@ -245523,7 +248072,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "20/07/2026"
       },
       "firstSeenAt": "2026-07-27T15:42:20Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52726.jpg"
     },
     {
@@ -245574,7 +248123,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "06/07/2026"
       },
       "firstSeenAt": "2026-07-27T15:42:20Z",
-      "lastSeenInListingAt": "2026-07-28T20:12:19Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52685.jpg"
     },
     {
@@ -245622,7 +248171,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "01/07/2026"
       },
       "firstSeenAt": "2026-07-27T15:49:11Z",
-      "lastSeenInListingAt": "2026-07-30T20:36:56Z",
+      "lastSeenInListingAt": "2026-07-31T04:29:30Z",
       "image": "images/52355.jpg",
       "aradiPlot": {
         "status": "ok",
@@ -245793,7 +248342,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "20/07/2026"
       },
       "firstSeenAt": "2026-07-28T03:57:59Z",
-      "lastSeenInListingAt": "2026-07-30T06:30:43Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:18Z",
       "image": "images/52748.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da79Jv6yrli9QfHz3fkkPFoh4YwC8nmdC_99RFFKoJH6mg"
     },
@@ -245836,7 +248385,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "23/07/2026"
       },
       "firstSeenAt": "2026-07-28T17:16:28Z",
-      "lastSeenInListingAt": "2026-07-30T06:30:43Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:18Z",
       "image": "images/52778.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6m2afrbIJDm24CNhLEVu620_zjG02JdxawPjq_xUKJJA",
       "pdfPath": "reports/52778.pdf"
@@ -245880,7 +248429,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "26/07/2026"
       },
       "firstSeenAt": "2026-07-28T17:16:28Z",
-      "lastSeenInListingAt": "2026-07-30T06:30:43Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:18Z",
       "image": "images/52771.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4O9HvhPMICQlRCht0AexxKmX2u1rS1_mod1X6FSjJ7jw",
       "pdfPath": "reports/52771.pdf"
@@ -245898,9 +248447,9 @@ window.AUCTION_DATA = {
       "announcementEnd": "09/08/2026 14:00:00",
       "startingAmount": "66.50",
       "estimatedValue": "133",
-      "currentAmount": "0",
+      "currentAmount": "66.50",
       "minIncrement": "10 دينار اردني",
-      "numBids": "0",
+      "numBids": "1",
       "newspaper": "الجريدة الرسمية",
       "newspaperIssue": "0",
       "publishedAt": "28/07/2026",
@@ -245924,7 +248473,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "28/07/2026"
       },
       "firstSeenAt": "2026-07-28T17:16:28Z",
-      "lastSeenInListingAt": "2026-07-30T06:19:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:18Z",
       "image": "images/52767.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da412pLeV8kpJS6iMApPhtLersLPbYvrVddUJN-gYrGg1Q"
     },
@@ -245976,7 +248525,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "06/07/2026"
       },
       "firstSeenAt": "2026-07-28T20:12:19Z",
-      "lastSeenInListingAt": "2026-07-30T06:19:08Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 1,
@@ -250502,7 +253051,8 @@ window.AUCTION_DATA = {
           "village_name": "وادي السير"
         }
       },
-      "image": "images/45429.jpg"
+      "image": "images/45429.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5mUx0O0OKFF8E7fAoZtFD7VjpVuSaHqE8AldoCvk5pmw"
     },
     {
       "id": 52362,
@@ -250684,7 +253234,8 @@ window.AUCTION_DATA = {
           "village_name": "مقبله"
         }
       },
-      "image": "images/52362.jpg"
+      "image": "images/52362.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da53Bh2jC0vFbcT8XUOHM3jGrhyatRDzgVzEUzKGfk4dJQ"
     },
     {
       "id": 52250,
@@ -250946,7 +253497,8 @@ window.AUCTION_DATA = {
           "village_id": 395,
           "village_name": "الفحيص"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6lGf_Hbm1kKCa0L5pD7c1TXgHgqO4GH7LpM5RRkj7cOQ"
     },
     {
       "id": 52194,
@@ -254716,7 +257268,8 @@ window.AUCTION_DATA = {
           "village_id": 187,
           "village_name": "جمحه"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7pZ5hsCDA3VZR58HLWCLZFS0Ro5dW_tyOMh6KOsUjwVA"
     },
     {
       "id": 52245,
@@ -254854,7 +257407,8 @@ window.AUCTION_DATA = {
           "village_name": "العال و الروضة"
         }
       },
-      "image": "images/52245.jpg"
+      "image": "images/52245.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4Z7xjE3q65T78SB_gKCRyui55s33-_G6kSrixsBfQzcg"
     },
     {
       "id": 52257,
@@ -255180,7 +257734,9 @@ window.AUCTION_DATA = {
           "village_id": 75,
           "village_name": "الفيحاء"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6kKea6nspSwj8gMghT1dJcNzSYiSefH-UN9ys1Xidksg",
+      "pdfPath": "reports/52257.pdf"
     },
     {
       "id": 52264,
@@ -256700,7 +259256,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "07/07/2026"
       },
       "firstSeenAt": "2026-07-30T03:53:18Z",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "ok",
         "village": 171,
@@ -256841,7 +259397,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "08/07/2026"
       },
       "firstSeenAt": "2026-07-30T03:53:18Z",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52597.jpg",
       "aradiPlot": {
         "status": "ok",
@@ -257064,7 +259620,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "08/07/2026"
       },
       "firstSeenAt": "2026-07-30T03:53:18Z",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52596.jpg",
       "aradiPlot": {
         "status": "ok",
@@ -257287,7 +259843,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "09/07/2026"
       },
       "firstSeenAt": "2026-07-30T03:53:18Z",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "aradiPlot": {
         "status": "no-plot",
         "village": 123,
@@ -257344,7 +259900,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "09/07/2026"
       },
       "firstSeenAt": "2026-07-30T03:53:18Z",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52418.jpg",
       "aradiPlot": {
         "status": "ok",
@@ -259311,7 +261867,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "09/07/2026"
       },
       "firstSeenAt": "2026-07-30T03:53:18Z",
-      "lastSeenInListingAt": "2026-07-30T03:53:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
       "image": "images/52417.jpg",
       "aradiPlot": {
         "status": "ok",
@@ -263396,7 +265952,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "20244",
       "publishedAt": "28/07/2026",
       "endDate": "2026-08-03 12:30:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52801",
       "details": {
@@ -263425,7 +265980,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "28/07/2026"
       },
       "firstSeenAt": "2026-07-30T20:14:08Z",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z"
+      "lastSeenInListingAt": "2026-07-30T20:14:08Z",
+      "image": "images/52801.jpg"
     },
     {
       "id": 52809,
@@ -263549,7 +266105,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "20237",
       "publishedAt": "21/07/2026",
       "endDate": "2026-08-04 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52828",
       "details": {
@@ -263578,7 +266133,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "21/07/2026"
       },
       "firstSeenAt": "2026-07-30T20:14:08Z",
-      "lastSeenInListingAt": "2026-07-30T20:14:08Z"
+      "lastSeenInListingAt": "2026-07-30T20:14:08Z",
+      "image": "images/52828.jpg"
     },
     {
       "id": 52813,
@@ -264156,7 +266712,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "21142",
       "publishedAt": "05/07/2026",
       "endDate": "2026-08-04 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52368",
       "details": {
@@ -264342,7 +266897,8 @@ window.AUCTION_DATA = {
           "village_id": 108,
           "village_name": "مليح"
         }
-      }
+      },
+      "image": "images/52368.jpg"
     },
     {
       "id": 48694,
@@ -265440,7 +267996,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "7835",
       "publishedAt": "06/07/2026",
       "endDate": "2026-08-05 13:03:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52365",
       "details": {
@@ -265472,7 +268027,8 @@ window.AUCTION_DATA = {
         "village": 652,
         "block": 1,
         "plot": 801
-      }
+      },
+      "image": "images/52365.jpg"
     },
     {
       "id": 52327,
@@ -265768,7 +268324,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "2026,20222",
       "publishedAt": "06/07/2026",
       "endDate": "2026-08-05 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52411",
       "details": {
@@ -265922,7 +268477,8 @@ window.AUCTION_DATA = {
           "village_id": 595,
           "village_name": "مؤته"
         }
-      }
+      },
+      "image": "images/52411.jpg"
     },
     {
       "id": 52217,
@@ -268296,7 +270852,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "7835",
       "publishedAt": "06/07/2026",
       "endDate": "2026-08-05 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52226",
       "details": {
@@ -270270,7 +272825,8 @@ window.AUCTION_DATA = {
           "village_id": 365,
           "village_name": "الهاشمية"
         }
-      }
+      },
+      "image": "images/52226.jpg"
     },
     {
       "id": 52227,
@@ -274830,7 +277386,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "8741",
       "publishedAt": "12/07/2026",
       "endDate": "2026-08-11 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc&auction=52393",
       "details": {
@@ -274975,7 +277530,8 @@ window.AUCTION_DATA = {
           "village_id": 383,
           "village_name": "عطل الرصيفه"
         }
-      }
+      },
+      "image": "images/52393.jpg"
     },
     {
       "id": 52394,
@@ -277326,7 +279882,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "8741",
       "publishedAt": "12/07/2026",
       "endDate": "2026-08-11 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc&auction=52457",
       "details": {
@@ -277535,7 +280090,8 @@ window.AUCTION_DATA = {
           "village_id": 162,
           "village_name": "ناعور"
         }
-      }
+      },
+      "image": "images/52457.jpg"
     },
     {
       "id": 52458,
@@ -277761,7 +280317,4950 @@ window.AUCTION_DATA = {
           "village_name": "ناعور"
         }
       }
+    },
+    {
+      "id": 52607,
+      "caseId": 15537318,
+      "category": "شقة/ مكتب",
+      "header": "رقم المزاد :4-11-8855-2025-سجل عام شقة/ مكتب - 2026/07/09 تنفيذ عمان / قسم غرب عمان",
+      "court": "تنفيذ عمان / قسم غرب عمان",
+      "caseNumber": "ا 4-11-8855-2025-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان 30 يوم",
+      "announcementStart": "09/07/2026 00:00:00",
+      "announcementEnd": "09/08/2026 15:00:00",
+      "startingAmount": "35400",
+      "estimatedValue": "70800",
+      "currentAmount": "35400",
+      "minIncrement": "200 دينار اردني",
+      "numBids": "1",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "20224",
+      "publishedAt": "08/07/2026",
+      "endDate": "2026-08-09 15:00:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc&auction=52607",
+      "details": {
+        "رقم الشقة": "112",
+        "رقم المبنى": "1",
+        "إسم الشارع": "",
+        "المحافظة": "محافظة العاصمة",
+        "المديرية": "اراضي غرب عمان",
+        "القرية": "البصه",
+        "الحوض": "009/المعلقة",
+        "الحي": "جدول الأحياء",
+        "رقم القطعة": "771",
+        "مساحة الشقة": "177",
+        "العنوان": "",
+        "المحكمة / الدائرة": "تنفيذ عمان / قسم غرب عمان",
+        "رقم الدعوى": "ا 4-11-8855-2025-سجل عام",
+        "الإعلان": "اعلان 30 يوم",
+        "تاريخ بداية الاعلان": "09/07/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "09/08/2026 15:00:00",
+        "القيمة الابتدائية للمزاد": "35400 دينار اردني",
+        "القيمة التقديرية": "70800 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "200 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "20224",
+        "تاريخ النشر": "08/07/2026"
+      },
+      "firstSeenAt": "2026-07-31T04:23:57Z",
+      "lastSeenInListingAt": "2026-07-31T04:23:57Z",
+      "aradiPlot": {
+        "status": "ok",
+        "village": 64,
+        "block": 9,
+        "plot": 771,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                35.80541820059402,
+                31.92690963526255
+              ],
+              [
+                35.80529132270851,
+                31.926665428400792
+              ],
+              [
+                35.80501973313727,
+                31.926773214031584
+              ],
+              [
+                35.80500635261018,
+                31.926780582700125
+              ],
+              [
+                35.805006141715005,
+                31.926780673876156
+              ],
+              [
+                35.805005931405674,
+                31.926780855228923
+              ],
+              [
+                35.80500572051049,
+                31.92678094640496
+              ],
+              [
+                35.805005615941646,
+                31.926781127258128
+              ],
+              [
+                35.805005405046465,
+                31.926781218434133
+              ],
+              [
+                35.80500519473713,
+                31.92678139978692
+              ],
+              [
+                35.80500509016829,
+                31.926781580640057
+              ],
+              [
+                35.80500487927309,
+                31.926781671816084
+              ],
+              [
+                35.80500466896376,
+                31.926781853168887
+              ],
+              [
+                35.805004458068574,
+                31.926781944344903
+              ],
+              [
+                35.80500435349974,
+                31.92678212519804
+              ],
+              [
+                35.805004143190374,
+                31.926782306550805
+              ],
+              [
+                35.8050039322952,
+                31.92678239772684
+              ],
+              [
+                35.80500382772635,
+                31.926782578579996
+              ],
+              [
+                35.80500361683118,
+                31.926782669756005
+              ],
+              [
+                35.80500340652182,
+                31.92678285110879
+              ],
+              [
+                35.80500319621247,
+                31.926783032461554
+              ],
+              [
+                35.80500309105778,
+                31.926783123137923
+              ],
+              [
+                35.805002880748425,
+                31.926783304490726
+              ],
+              [
+                35.80500277617957,
+                31.92678348534386
+              ],
+              [
+                35.80500256528438,
+                31.92678357651989
+              ],
+              [
+                35.805002354975045,
+                31.926783757872652
+              ],
+              [
+                35.80500225040617,
+                31.926783938725805
+              ],
+              [
+                35.805002039510995,
+                31.926784029901842
+              ],
+              [
+                35.80500182920163,
+                31.926784211254603
+              ],
+              [
+                35.80500172463278,
+                31.926784392107756
+              ],
+              [
+                35.80500151373759,
+                31.92678448328376
+              ],
+              [
+                35.80500140916873,
+                31.926784664136893
+              ],
+              [
+                35.805001198859365,
+                31.926784845489678
+              ],
+              [
+                35.805000988550006,
+                31.926785026842452
+              ],
+              [
+                35.805000883395316,
+                31.926785117518833
+              ],
+              [
+                35.805000673085964,
+                31.926785298871604
+              ],
+              [
+                35.805000568517094,
+                31.926785479724717
+              ],
+              [
+                35.80500035820772,
+                31.926785661077524
+              ],
+              [
+                35.805000253053045,
+                31.926785751753897
+              ],
+              [
+                35.80500004274367,
+                31.926785933106675
+              ],
+              [
+                35.80499993817481,
+                31.926786113959796
+              ],
+              [
+                35.80499972786545,
+                31.926786295312592
+              ],
+              [
+                35.80499962271076,
+                31.92678638598896
+              ],
+              [
+                35.804999412401386,
+                31.92678656734174
+              ],
+              [
+                35.804999307832546,
+                31.92678674819488
+              ],
+              [
+                35.80499909752315,
+                31.92678692954763
+              ],
+              [
+                35.80499899295429,
+                31.926787110400785
+              ],
+              [
+                35.804998782059094,
+                31.92678720157679
+              ],
+              [
+                35.80499867749023,
+                31.92678738242993
+              ],
+              [
+                35.804998467180866,
+                31.926787563782696
+              ],
+              [
+                35.80499836261199,
+                31.926787744635828
+              ],
+              [
+                35.80499815230262,
+                31.926787925988613
+              ],
+              [
+                35.80499804773375,
+                31.926788106841727
+              ],
+              [
+                35.80499794257907,
+                31.926788197518132
+              ],
+              [
+                35.80499773226968,
+                31.92678837887089
+              ],
+              [
+                35.804997627700814,
+                31.92678855972403
+              ],
+              [
+                35.804997417391434,
+                31.926788741076805
+              ],
+              [
+                35.80499731282256,
+                31.926788921929912
+              ],
+              [
+                35.80499720825371,
+                31.926789102783076
+              ],
+              [
+                35.8049969979443,
+                31.926789284135843
+              ],
+              [
+                35.804996893375424,
+                31.926789464988964
+              ],
+              [
+                35.804996683066044,
+                31.926789646341735
+              ],
+              [
+                35.80499657791136,
+                31.926789737018108
+              ],
+              [
+                35.80499647334248,
+                31.926789917871236
+              ],
+              [
+                35.80499626303311,
+                31.926790099224007
+              ],
+              [
+                35.80499615846423,
+                31.926790280077153
+              ],
+              [
+                35.80499605389535,
+                31.926790460930267
+              ],
+              [
+                35.804995843585964,
+                31.926790642283034
+              ],
+              [
+                35.80499573901709,
+                31.926790823136187
+              ],
+              [
+                35.804995634448204,
+                31.92679100398932
+              ],
+              [
+                35.80499552987934,
+                31.92679118484245
+              ],
+              [
+                35.804995319569954,
+                31.9267913661952
+              ],
+              [
+                35.80499521500107,
+                31.926791547048346
+              ],
+              [
+                35.804995110432195,
+                31.92679172790147
+              ],
+              [
+                35.804995005863326,
+                31.9267919087546
+              ],
+              [
+                35.804994795553924,
+                31.926792090107377
+              ],
+              [
+                35.804994690985055,
+                31.92679227096049
+              ],
+              [
+                35.80499458641617,
+                31.92679245181363
+              ],
+              [
+                35.804994481847295,
+                31.92679263266676
+              ],
+              [
+                35.80499427153789,
+                31.92679281401951
+              ],
+              [
+                35.80499416696902,
+                31.92679299487266
+              ],
+              [
+                35.80499406240013,
+                31.926793175725805
+              ],
+              [
+                35.80499395783124,
+                31.926793356578926
+              ],
+              [
+                35.80499385326236,
+                31.926793537432065
+              ],
+              [
+                35.80499364295296,
+                31.926793718784808
+              ],
+              [
+                35.804993538384075,
+                31.926793899637953
+              ],
+              [
+                35.8049934338152,
+                31.926794080491078
+              ],
+              [
+                35.80499332924633,
+                31.9267942613442
+              ],
+              [
+                35.80499322467743,
+                31.926794442197345
+              ],
+              [
+                35.80499312010854,
+                31.926794623050466
+              ],
+              [
+                35.80499301553966,
+                31.926794803903604
+              ],
+              [
+                35.804992910970775,
+                31.926794984756718
+              ],
+              [
+                35.80499270066137,
+                31.92679516610949
+              ],
+              [
+                35.80499259609248,
+                31.926795346962624
+              ],
+              [
+                35.804992491523585,
+                31.92679552781575
+              ],
+              [
+                35.804992386954716,
+                31.92679570866887
+              ],
+              [
+                35.80499228297165,
+                31.926795979698767
+              ],
+              [
+                35.80499217840274,
+                31.926796160551902
+              ],
+              [
+                35.80499207383386,
+                31.926796341405026
+              ],
+              [
+                35.80499196926497,
+                31.926796522258154
+              ],
+              [
+                35.80499186469608,
+                31.92679670311128
+              ],
+              [
+                35.80499176012719,
+                31.926796883964414
+              ],
+              [
+                35.8049916555583,
+                31.92679706481756
+              ],
+              [
+                35.80499155098941,
+                31.926797245670674
+              ],
+              [
+                35.804991446420516,
+                31.926797426523798
+              ],
+              [
+                35.80499134243743,
+                31.926797697553685
+              ],
+              [
+                35.80499123786855,
+                31.926797878406816
+              ],
+              [
+                35.804991133299666,
+                31.92679805925993
+              ],
+              [
+                35.80499102873076,
+                31.926798240113065
+              ],
+              [
+                35.804990924161864,
+                31.926798420966218
+              ],
+              [
+                35.80499081959297,
+                31.926798601819332
+              ],
+              [
+                35.804990715024076,
+                31.926798782672456
+              ],
+              [
+                35.804990611041,
+                31.926799053702343
+              ],
+              [
+                35.80499061221262,
+                31.92679923405585
+              ],
+              [
+                35.80499050764372,
+                31.926799414908974
+              ],
+              [
+                35.804990403074825,
+                31.926799595762102
+              ],
+              [
+                35.80499029850594,
+                31.926799776615233
+              ],
+              [
+                35.804990193937044,
+                31.92679995746838
+              ],
+              [
+                35.80499008995396,
+                31.92680022849825
+              ],
+              [
+                35.80498998538506,
+                31.92680040935136
+              ],
+              [
+                35.804989880816166,
+                31.92680059020451
+              ],
+              [
+                35.80498988198777,
+                31.92680077055801
+              ],
+              [
+                35.804989777418896,
+                31.92680095141113
+              ],
+              [
+                35.804989672849985,
+                31.926801132264238
+              ],
+              [
+                35.8049895688669,
+                31.92680140329414
+              ],
+              [
+                35.80498946429801,
+                31.926801584147277
+              ],
+              [
+                35.80498946546962,
+                31.92680176450076
+              ],
+              [
+                35.80498936090073,
+                31.926801945353905
+              ],
+              [
+                35.80498925633182,
+                31.926802126207043
+              ],
+              [
+                35.80498915234873,
+                31.92680239723689
+              ],
+              [
+                35.80498915352036,
+                31.926802577590408
+              ],
+              [
+                35.80498904895145,
+                31.92680275844352
+              ],
+              [
+                35.80498894438256,
+                31.926802939296675
+              ],
+              [
+                35.80498884039947,
+                31.92680321032653
+              ],
+              [
+                35.804988841571095,
+                31.92680339068002
+              ],
+              [
+                35.804988737002176,
+                31.92680357153316
+              ],
+              [
+                35.80498863243328,
+                31.926803752386295
+              ],
+              [
+                35.8049886336049,
+                31.926803932739787
+              ],
+              [
+                35.80498852962181,
+                31.926804203769667
+              ],
+              [
+                35.804988425052905,
+                31.926804384622812
+              ],
+              [
+                35.804988426224526,
+                31.92680456497632
+              ],
+              [
+                35.80498832165561,
+                31.926804745829436
+              ],
+              [
+                35.80498821767253,
+                31.926805016859298
+              ],
+              [
+                35.80498821884415,
+                31.926805197212822
+              ],
+              [
+                35.80498811427524,
+                31.92680537806595
+              ],
+              [
+                35.80498800970634,
+                31.92680555891907
+              ],
+              [
+                35.804988011463756,
+                31.92680582944931
+              ],
+              [
+                35.80498790689486,
+                31.92680601030246
+              ],
+              [
+                35.80498790806647,
+                31.92680619065596
+              ],
+              [
+                35.80498780408338,
+                31.926806461685835
+              ],
+              [
+                35.804987805254996,
+                31.926806642039338
+              ],
+              [
+                35.80498770068609,
+                31.926806822892473
+              ],
+              [
+                35.80498770185771,
+                31.92680700324595
+              ],
+              [
+                35.804987597874614,
+                31.92680727427582
+              ],
+              [
+                35.8049874933057,
+                31.926807455128973
+              ],
+              [
+                35.80498749447733,
+                31.926807635482465
+              ],
+              [
+                35.8049873899084,
+                31.926807816335597
+              ],
+              [
+                35.80498739166583,
+                31.926808086865837
+              ],
+              [
+                35.804987392837454,
+                31.926808267219343
+              ],
+              [
+                35.80498728826854,
+                31.926808448072475
+              ],
+              [
+                35.804987290025984,
+                31.92680871860273
+              ],
+              [
+                35.804987185457065,
+                31.92680889945586
+              ],
+              [
+                35.804987186628686,
+                31.926809079809374
+              ],
+              [
+                35.804987082645596,
+                31.92680935083923
+              ],
+              [
+                35.8049870838172,
+                31.926809531192728
+              ],
+              [
+                35.80498697924828,
+                31.92680971204586
+              ],
+              [
+                35.8049869804199,
+                31.926809892399366
+              ],
+              [
+                35.80498698217733,
+                31.926810162929613
+              ],
+              [
+                35.80498687760842,
+                31.926810343782737
+              ],
+              [
+                35.80498687878004,
+                31.926810524136233
+              ],
+              [
+                35.80498688053748,
+                31.92681079466649
+              ],
+              [
+                35.80498677596856,
+                31.926810975519622
+              ],
+              [
+                35.80498677714017,
+                31.926811155873136
+              ],
+              [
+                35.804986778897614,
+                31.926811426403386
+              ],
+              [
+                35.80498667432869,
+                31.926811607256496
+              ],
+              [
+                35.8049866755003,
+                31.92681178760999
+              ],
+              [
+                35.80498667725774,
+                31.92681205814026
+              ],
+              [
+                35.804986572688804,
+                31.926812238993392
+              ],
+              [
+                35.80498657386043,
+                31.92681241934689
+              ],
+              [
+                35.80498657561786,
+                31.92681268987713
+              ],
+              [
+                35.804986576789474,
+                31.926812870230656
+              ],
+              [
+                35.80498647222057,
+                31.92681305108377
+              ],
+              [
+                35.804986473977976,
+                31.926813321614006
+              ],
+              [
+                35.80498647514962,
+                31.926813501967523
+              ],
+              [
+                35.804986476321226,
+                31.926813682321015
+              ],
+              [
+                35.80498637233812,
+                31.92681395335091
+              ],
+              [
+                35.80498637350973,
+                31.926814133704408
+              ],
+              [
+                35.80498637468135,
+                31.926814314057907
+              ],
+              [
+                35.80498637643878,
+                31.926814584588147
+              ],
+              [
+                35.8049863776104,
+                31.92681476494164
+              ],
+              [
+                35.80498627304147,
+                31.9268149457948
+              ],
+              [
+                35.80498627479891,
+                31.92681521632505
+              ],
+              [
+                35.80498627597052,
+                31.92681539667854
+              ],
+              [
+                35.804986277142156,
+                31.92681557703203
+              ],
+              [
+                35.804986278899584,
+                31.92681584756231
+              ],
+              [
+                35.80498628007119,
+                31.926816027915788
+              ],
+              [
+                35.80498628124282,
+                31.9268162082693
+              ],
+              [
+                35.80498628300023,
+                31.926816478799548
+              ],
+              [
+                35.804986284171854,
+                31.926816659153054
+              ],
+              [
+                35.804986179602935,
+                31.926816840006186
+              ],
+              [
+                35.80498618136036,
+                31.926817110536426
+              ],
+              [
+                35.80498618253198,
+                31.92681729088994
+              ],
+              [
+                35.80498618370359,
+                31.92681747124345
+              ],
+              [
+                35.80498618546102,
+                31.926817741773682
+              ],
+              [
+                35.804986186632625,
+                31.92681792212717
+              ],
+              [
+                35.804986187804246,
+                31.926818102480702
+              ],
+              [
+                35.80498618956168,
+                31.92681837301095
+              ],
+              [
+                35.8049861907333,
+                31.92681855336444
+              ],
+              [
+                35.80498619190492,
+                31.926818733717955
+              ],
+              [
+                35.80498619366234,
+                31.9268190042482
+              ],
+              [
+                35.80498619483396,
+                31.926819184601698
+              ],
+              [
+                35.804986196005586,
+                31.926819364955197
+              ],
+              [
+                35.80498619776301,
+                31.92681963548547
+              ],
+              [
+                35.804986304675175,
+                31.92681981533935
+              ],
+              [
+                35.804986305846796,
+                31.926819995692842
+              ],
+              [
+                35.804986307604224,
+                31.926820266223096
+              ],
+              [
+                35.80498630877585,
+                31.926820446576606
+              ],
+              [
+                35.80498630994746,
+                31.9268206269301
+              ],
+              [
+                35.804986311704894,
+                31.92682089746036
+              ],
+              [
+                35.80498631287651,
+                31.92682107781385
+              ],
+              [
+                35.80498631404813,
+                31.926821258167358
+              ],
+              [
+                35.80498631580556,
+                31.926821528697598
+              ],
+              [
+                35.804986422717725,
+                31.926821708551483
+              ],
+              [
+                35.80498642388934,
+                31.926821888904996
+              ],
+              [
+                35.80498642564677,
+                31.92682215943524
+              ],
+              [
+                35.804986426818395,
+                31.926822339788735
+              ],
+              [
+                35.80498642799,
+                31.92682252014224
+              ],
+              [
+                35.804986535487984,
+                31.926822790172867
+              ],
+              [
+                35.804986536659605,
+                31.92682297052636
+              ],
+              [
+                35.80498653783122,
+                31.92682315087989
+              ],
+              [
+                35.80498653958865,
+                31.92682342141013
+              ],
+              [
+                35.80498654076026,
+                31.926823601763623
+              ],
+              [
+                35.80498664767244,
+                31.9268237816175
+              ],
+              [
+                35.80498664942986,
+                31.92682405214777
+              ],
+              [
+                35.80498665060148,
+                31.926824232501254
+              ],
+              [
+                35.80498675751365,
+                31.92682441235512
+              ],
+              [
+                35.80498675927109,
+                31.926824682885403
+              ],
+              [
+                35.80498676044271,
+                31.9268248632389
+              ],
+              [
+                35.80498676161434,
+                31.9268250435924
+              ],
+              [
+                35.80498686852649,
+                31.92682522344627
+              ],
+              [
+                35.804986870283926,
+                31.926825493976533
+              ],
+              [
+                35.80498687145556,
+                31.92682567433004
+              ],
+              [
+                35.8049869783677,
+                31.9268258541839
+              ],
+              [
+                35.80498698012515,
+                31.92682612471416
+              ],
+              [
+                35.80498708703731,
+                31.92682630456804
+              ],
+              [
+                35.80498708820894,
+                31.926826484921545
+              ],
+              [
+                35.80498708996637,
+                31.926826755451795
+              ],
+              [
+                35.80498719687855,
+                31.926826935305677
+              ],
+              [
+                35.80498719805017,
+                31.926827115659176
+              ],
+              [
+                35.80498730554816,
+                31.926827385689794
+              ],
+              [
+                35.804987306719774,
+                31.9268275660433
+              ],
+              [
+                35.804987307891395,
+                31.926827746396793
+              ],
+              [
+                35.80498741480357,
+                31.926827926250684
+              ],
+              [
+                35.804987416561,
+                31.926828196780917
+              ],
+              [
+                35.804987523473166,
+                31.926828376634802
+              ],
+              [
+                35.80498752464477,
+                31.926828556988315
+              ],
+              [
+                35.80498763214278,
+                31.926828827018934
+              ],
+              [
+                35.804987633314404,
+                31.92682900737244
+              ],
+              [
+                35.80498774022658,
+                31.92682918722632
+              ],
+              [
+                35.8049877413982,
+                31.926829367579824
+              ],
+              [
+                35.80498784889618,
+                31.92682963761044
+              ],
+              [
+                35.80498785006782,
+                31.926829817963938
+              ],
+              [
+                35.80498795697998,
+                31.926829997817823
+              ],
+              [
+                35.80498806447797,
+                31.926830267848448
+              ],
+              [
+                35.804988065649596,
+                31.926830448201947
+              ],
+              [
+                35.804988172561785,
+                31.926830628055814
+              ],
+              [
+                35.80498817373339,
+                31.926830808409328
+              ],
+              [
+                35.80498828123139,
+                31.926831078439964
+              ],
+              [
+                35.80498838814357,
+                31.92683125829383
+              ],
+              [
+                35.8049883893152,
+                31.926831438647337
+              ],
+              [
+                35.804988496227374,
+                31.926831618501208
+              ],
+              [
+                35.8049884979848,
+                31.926831889031455
+              ],
+              [
+                35.804988604897005,
+                31.926832068885336
+              ],
+              [
+                35.80498871180918,
+                31.926832248739213
+              ],
+              [
+                35.804988712980794,
+                31.926832429092713
+              ],
+              [
+                35.8049888204788,
+                31.926832699123324
+              ],
+              [
+                35.80498892739098,
+                31.926832878977205
+              ],
+              [
+                35.80498892856261,
+                31.926833059330722
+              ],
+              [
+                35.80498903547479,
+                31.92683323918459
+              ],
+              [
+                35.80498914238698,
+                31.926833419038466
+              ],
+              [
+                35.804989249884976,
+                31.9268336890691
+              ],
+              [
+                35.8049892510566,
+                31.926833869422605
+              ],
+              [
+                35.80498935796878,
+                31.92683404927648
+              ],
+              [
+                35.804989464880975,
+                31.92683422913034
+              ],
+              [
+                35.80498957237897,
+                31.926834499160975
+              ],
+              [
+                35.80498957355059,
+                31.926834679514474
+              ],
+              [
+                35.80498968046278,
+                31.926834859368356
+              ],
+              [
+                35.804989787374964,
+                31.9268350392222
+              ],
+              [
+                35.80498989428716,
+                31.926835219076093
+              ],
+              [
+                35.804990001785164,
+                31.926835489106733
+              ],
+              [
+                35.8049900029568,
+                31.926835669460225
+              ],
+              [
+                35.804990109868974,
+                31.92683584931409
+              ],
+              [
+                35.80499021678118,
+                31.926836029167976
+              ],
+              [
+                35.80499032369336,
+                31.926836209021843
+              ],
+              [
+                35.80499043060555,
+                31.92683638887572
+              ],
+              [
+                35.80499053810356,
+                31.926836658906346
+              ],
+              [
+                35.80499053927518,
+                31.926836839259852
+              ],
+              [
+                35.80499064618736,
+                31.92683701911372
+              ],
+              [
+                35.80499075309956,
+                31.92683719896759
+              ],
+              [
+                35.80499086001177,
+                31.926837378821478
+              ],
+              [
+                35.80499096692396,
+                31.92683755867535
+              ],
+              [
+                35.804991074421956,
+                31.92683782870598
+              ],
+              [
+                35.80499118133415,
+                31.92683800855984
+              ],
+              [
+                35.80499128824635,
+                31.92683818841372
+              ],
+              [
+                35.80499139515855,
+                31.926838368267585
+              ],
+              [
+                35.80499150207074,
+                31.92683854812146
+              ],
+              [
+                35.80499160898294,
+                31.92683872797533
+              ],
+              [
+                35.80499171589514,
+                31.926838907829218
+              ],
+              [
+                35.804991823393145,
+                31.926839177859836
+              ],
+              [
+                35.80499193030534,
+                31.926839357713714
+              ],
+              [
+                35.804992037217524,
+                31.926839537567567
+              ],
+              [
+                35.80499214412975,
+                31.926839717421466
+              ],
+              [
+                35.80499225104193,
+                31.926839897275325
+              ],
+              [
+                35.80499235795414,
+                31.926840077129185
+              ],
+              [
+                35.804992464866324,
+                31.92684025698306
+              ],
+              [
+                35.80499257177854,
+                31.92684043683695
+              ],
+              [
+                35.80499267869073,
+                31.926840616690814
+              ],
+              [
+                35.80499278560294,
+                31.92684079654469
+              ],
+              [
+                35.804992893100945,
+                31.926841066575307
+              ],
+              [
+                35.804993000013155,
+                31.92684124642919
+              ],
+              [
+                35.804993106925366,
+                31.926841426283048
+              ],
+              [
+                35.80499321383756,
+                31.926841606136932
+              ],
+              [
+                35.80499332074976,
+                31.926841785990792
+              ],
+              [
+                35.80499353340254,
+                31.926841965345037
+              ],
+              [
+                35.804993640314734,
+                31.926842145198908
+              ],
+              [
+                35.804993747226945,
+                31.926842325052775
+              ],
+              [
+                35.80499385413915,
+                31.92684250490665
+              ],
+              [
+                35.80499396105136,
+                31.926842684760533
+              ],
+              [
+                35.80499406796356,
+                31.92684286461438
+              ],
+              [
+                35.80500397213592,
+                31.926853639358427
+              ],
+              [
+                35.805114195444425,
+                31.926943824655716
+              ],
+              [
+                35.80512884696745,
+                31.926955812412917
+              ],
+              [
+                35.805424882613195,
+                31.926922494828702
+              ],
+              [
+                35.80541820059402,
+                31.92690963526255
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "properties": {
+          "area": 820.1994340150001,
+          "block_id": 9,
+          "block_name": "المعلقة",
+          "department_id": 2,
+          "department_name": "اراضي غرب عمان",
+          "district_id": 1,
+          "district_name": "العاصمة",
+          "dls_key": "006400900000771",
+          "perimeter": 114.85050441053401,
+          "plot_id": 771,
+          "prices": [
+            [
+              "سكني",
+              "أ",
+              "مميز",
+              130
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي سقي",
+              "مشاع",
+              20
+            ],
+            [
+              "سكني",
+              "أ",
+              "ضعيف",
+              70
+            ],
+            [
+              "سكني",
+              "أ",
+              "مشاع",
+              50
+            ],
+            [
+              "سكني",
+              "ب",
+              "مميز",
+              130
+            ],
+            [
+              "سكني",
+              "ب",
+              "جيد",
+              110
+            ],
+            [
+              "سكني",
+              "ب",
+              "ضعيف",
+              70
+            ],
+            [
+              "سكني",
+              "ب",
+              "مشاع",
+              50
+            ],
+            [
+              "سكني",
+              "ج",
+              "مميز",
+              130
+            ],
+            [
+              "سكني",
+              "ج",
+              "جيد",
+              110
+            ],
+            [
+              "سكني",
+              "ج",
+              "ضعيف",
+              70
+            ],
+            [
+              "سكني",
+              "ج",
+              "مشاع",
+              50
+            ],
+            [
+              "سكني",
+              "د",
+              "ضعيف",
+              70
+            ],
+            [
+              "سكني",
+              "سكن خاص",
+              "مميز",
+              130
+            ],
+            [
+              "سكني",
+              "سكن خاص",
+              "جيد",
+              110
+            ],
+            [
+              "سكني",
+              "سكن خاص",
+              "ضعيف",
+              70
+            ],
+            [
+              "سكني",
+              "سكن خاص",
+              "مشاع",
+              50
+            ],
+            [
+              "تجاري",
+              "معارض",
+              "جيد",
+              150
+            ],
+            [
+              "تجاري",
+              "عادي سكن ب",
+              "جيد",
+              150
+            ],
+            [
+              "تجاري",
+              "محلي سكن أ",
+              "جيد",
+              150
+            ],
+            [
+              "تجاري",
+              "محلي سكن ب",
+              "جيد",
+              150
+            ],
+            [
+              "تجاري",
+              "محلي سكن ب",
+              "ضعيف",
+              120
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ملك",
+              "مميز",
+              90
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ملك",
+              "جيد",
+              60
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ملك",
+              "ضعيف",
+              40
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ملك",
+              "مشاع",
+              20
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ميري",
+              "مميز",
+              90
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ميري",
+              "جيد",
+              60
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ميري",
+              "ضعيف",
+              40
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ميري",
+              "مشاع",
+              20
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي سقي",
+              "مميز",
+              90
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي سقي",
+              "جيد",
+              60
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي سقي",
+              "ضعيف",
+              40
+            ],
+            [
+              "سكني",
+              "أ",
+              "جيد",
+              110
+            ]
+          ],
+          "type": "plot",
+          "village_id": 64,
+          "village_name": "البصه"
+        }
+      }
+    },
+    {
+      "id": 45430,
+      "caseId": 14366223,
+      "category": "أرض/ مجمع",
+      "header": "رقم المزاد :34-11-1074-2024-سجل عام أرض/ مجمع - 2026/07/09 تنفيذ الكرك",
+      "court": "تنفيذ الكرك",
+      "caseNumber": "ا 34-11-1074-2024-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "الاعلان الثاني",
+      "announcementStart": "09/07/2026 00:00:00",
+      "announcementEnd": "07/08/2026 15:00:00",
+      "startingAmount": "31470",
+      "estimatedValue": "62940",
+      "currentAmount": "0",
+      "minIncrement": "200 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الدستور",
+      "newspaperIssue": "2026,21145",
+      "publishedAt": "08/07/2026",
+      "endDate": "2026-08-07 15:00:00",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=45430",
+      "details": {
+        "المحافظة": "محافظة الكرك",
+        "المديرية": "اراضي الكرك",
+        "القرية": "الثنيه",
+        "الحوض": "011/زحوم",
+        "الحي": "جدول الأحياء",
+        "رقم القطعة": "371",
+        "نوع القطعة": "ملك",
+        "مساحة القطعة": "588",
+        "المحكمة / الدائرة": "تنفيذ الكرك",
+        "رقم الدعوى": "ا 34-11-1074-2024-سجل عام",
+        "الإعلان": "الاعلان الثاني",
+        "تاريخ بداية الاعلان": "09/07/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "07/08/2026 15:00:00",
+        "القيمة الابتدائية للمزاد": "31470 دينار اردني",
+        "القيمة التقديرية": "62940 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "200 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الدستور",
+        "العدد": "2026,21145",
+        "تاريخ النشر": "08/07/2026"
+      },
+      "firstSeenAt": "2026-07-31T04:27:31Z",
+      "lastSeenInListingAt": "2026-07-31T04:27:31Z",
+      "image": "images/45430.jpg",
+      "aradiPlot": {
+        "status": "ok",
+        "village": 502,
+        "block": 11,
+        "plot": 371,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                35.75916836110773,
+                31.16965728172257
+              ],
+              [
+                35.759210438442395,
+                31.169640262816724
+              ],
+              [
+                35.759128061596,
+                31.16936566035661
+              ],
+              [
+                35.75892852594638,
+                31.169447421354963
+              ],
+              [
+                35.7590460073516,
+                31.169705891925965
+              ],
+              [
+                35.75916836110773,
+                31.16965728172257
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "properties": {
+          "area": 590.77488037,
+          "block_id": 11,
+          "block_name": "زحوم",
+          "department_id": 27,
+          "department_name": "اراضي الكرك",
+          "district_id": 6,
+          "district_name": "الكرك",
+          "dls_key": "050201100000371",
+          "perimeter": 100.569070300125,
+          "plot_id": 371,
+          "prices": [
+            [
+              "سكني",
+              "أ",
+              "جيد",
+              18
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ميري",
+              "جيد",
+              3
+            ],
+            [
+              "تجاري",
+              "مركزي",
+              "جيد",
+              25
+            ]
+          ],
+          "type": "plot",
+          "village_id": 502,
+          "village_name": "الثنيه"
+        }
+      }
+    },
+    {
+      "id": 45444,
+      "caseId": 15123092,
+      "category": "أرض/ مجمع",
+      "header": "رقم المزاد :14-11-8-2025-سجل انابات أرض/ مجمع - 2026/07/10 تنفيذ الشونة الجنوبية",
+      "court": "تنفيذ الشونة الجنوبية",
+      "caseNumber": "ا 14-11-8-2025-سجل انابات",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان 30 يوم",
+      "announcementStart": "10/07/2026 08:00:00",
+      "announcementEnd": "08/08/2026 15:00:00",
+      "startingAmount": "6020",
+      "estimatedValue": "12040",
+      "currentAmount": "0",
+      "minIncrement": "50 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "20225",
+      "publishedAt": "09/07/2026",
+      "endDate": "2026-08-08 15:00:00",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=45444",
+      "details": {
+        "المحافظة": "محافظة البلقاء",
+        "المديرية": "اراضي الشونة الجنوبية",
+        "القرية": "الكرامة",
+        "الحوض": "001/البلد الشرقي",
+        "الحي": "جدول الاحياء",
+        "رقم القطعة": "1494",
+        "نوع القطعة": "سكني",
+        "مساحة القطعة": "602",
+        "المحكمة / الدائرة": "تنفيذ الشونة الجنوبية",
+        "رقم الدعوى": "ا 14-11-8-2025-سجل انابات",
+        "الإعلان": "اعلان 30 يوم",
+        "تاريخ بداية الاعلان": "10/07/2026 08:00:00",
+        "تاريخ انتهاء الاعلان": "08/08/2026 15:00:00",
+        "القيمة الابتدائية للمزاد": "6020 دينار اردني",
+        "القيمة التقديرية": "12040 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "50 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "20225",
+        "تاريخ النشر": "09/07/2026"
+      },
+      "firstSeenAt": "2026-07-31T04:27:31Z",
+      "lastSeenInListingAt": "2026-07-31T04:27:31Z",
+      "image": "images/45444.jpg",
+      "aradiPlot": {
+        "status": "ok",
+        "village": 756,
+        "block": 1,
+        "plot": 1494,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                35.591186037072525,
+                31.949295547975687
+              ],
+              [
+                35.59099560199966,
+                31.949220263022678
+              ],
+              [
+                35.59069290557373,
+                31.949299279614976
+              ],
+              [
+                35.59079086349918,
+                31.949338061569954
+              ],
+              [
+                35.59093535619419,
+                31.949395215088046
+              ],
+              [
+                35.59107985012992,
+                31.949452369338406
+              ],
+              [
+                35.591186037072525,
+                31.949295547975687
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "properties": {
+          "area": 601.70716712,
+          "block_id": 1,
+          "block_name": "البلد الشرقي",
+          "department_id": 23,
+          "department_name": "اراضي الشونة الجنوبية",
+          "district_id": 4,
+          "district_name": "البلقاء",
+          "dls_key": "075600100001494",
+          "perimeter": 110.187401445917,
+          "plot_id": 1494,
+          "prices": [
+            [
+              "سكني",
+              "ج",
+              "مميز",
+              13
+            ],
+            [
+              "سكني",
+              "ج",
+              "جيد",
+              11
+            ],
+            [
+              "سكني",
+              "ج",
+              "ضعيف",
+              9
+            ],
+            [
+              "سكني",
+              "ج",
+              "مشاع",
+              10
+            ],
+            [
+              "سكني",
+              "د",
+              "مميز",
+              13
+            ],
+            [
+              "تجاري",
+              "محلي سكن د",
+              "مشاع",
+              18
+            ],
+            [
+              "سكني",
+              "د",
+              "ضعيف",
+              11
+            ],
+            [
+              "سكني",
+              "د",
+              "مشاع",
+              10
+            ],
+            [
+              "تجاري",
+              "محلي سكن د",
+              "مميز",
+              25
+            ],
+            [
+              "تجاري",
+              "محلي سكن د",
+              "جيد",
+              25
+            ],
+            [
+              "تجاري",
+              "محلي سكن د",
+              "ضعيف",
+              20
+            ],
+            [
+              "سكني",
+              "د",
+              "جيد",
+              10
+            ]
+          ],
+          "type": "plot",
+          "village_id": 756,
+          "village_name": "الكرامة"
+        }
+      }
+    },
+    {
+      "id": 39710,
+      "caseId": 12420582,
+      "category": "أرض/ مجمع",
+      "header": "رقم المزاد :4-11-82-2022-سجل الإنابات أرض/ مجمع - 2026/07/10 تنفيذ عمان / قسم غرب عمان",
+      "court": "تنفيذ عمان / قسم غرب عمان",
+      "caseNumber": "ا 4-11-82-2022-سجل الإنابات",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان 30 يوم",
+      "announcementStart": "10/07/2026 00:00:00",
+      "announcementEnd": "09/08/2026 15:00:00",
+      "startingAmount": "54892.14",
+      "estimatedValue": "109784",
+      "currentAmount": "0",
+      "minIncrement": "200 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الدستور",
+      "newspaperIssue": "21146",
+      "publishedAt": "09/07/2026",
+      "endDate": "2026-08-09 15:00:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=39710",
+      "details": {
+        "المحافظة": "محافظة العاصمة",
+        "المديرية": "اراضي ناعور",
+        "القرية": "ناعور",
+        "الحوض": "006/المدورة",
+        "الحي": "جدول الأحياء",
+        "رقم القطعة": "567",
+        "نوع القطعة": "سكني",
+        "مساحة القطعة": "506",
+        "المحكمة / الدائرة": "تنفيذ عمان / قسم غرب عمان",
+        "رقم الدعوى": "ا 4-11-82-2022-سجل الإنابات",
+        "الإعلان": "اعلان 30 يوم",
+        "تاريخ بداية الاعلان": "10/07/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "09/08/2026 15:00:00",
+        "القيمة الابتدائية للمزاد": "54892.14 دينار اردني",
+        "القيمة التقديرية": "109784 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "200 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الدستور",
+        "العدد": "21146",
+        "تاريخ النشر": "09/07/2026"
+      },
+      "firstSeenAt": "2026-07-31T04:27:31Z",
+      "lastSeenInListingAt": "2026-07-31T04:27:31Z",
+      "aradiPlot": {
+        "status": "ok",
+        "village": 162,
+        "block": 6,
+        "plot": 567,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                35.84075394101409,
+                31.897129940588453
+              ],
+              [
+                35.84088176729729,
+                31.896888388585875
+              ],
+              [
+                35.84080562369252,
+                31.89679525063917
+              ],
+              [
+                35.84076300039509,
+                31.896743113735027
+              ],
+              [
+                35.840630078043944,
+                31.896984866069232
+              ],
+              [
+                35.84075394101409,
+                31.897129940588453
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "properties": {
+          "area": 506.087638555,
+          "block_id": 6,
+          "block_name": "المدورة",
+          "department_id": 7,
+          "department_name": "اراضي ناعور",
+          "district_id": 1,
+          "district_name": "العاصمة",
+          "dls_key": "016200600000567",
+          "perimeter": 98.5431937951616,
+          "plot_id": 567,
+          "prices": [
+            [
+              "سكني",
+              "أ",
+              "مميز",
+              180
+            ],
+            [
+              "تجاري",
+              "محلي سكن أ",
+              "مشاع",
+              260
+            ],
+            [
+              "سكني",
+              "أ",
+              "ضعيف",
+              250
+            ],
+            [
+              "سكني",
+              "أ",
+              "مشاع",
+              250
+            ],
+            [
+              "سكني",
+              "ب",
+              "مميز",
+              180
+            ],
+            [
+              "سكني",
+              "ب",
+              "جيد",
+              250
+            ],
+            [
+              "سكني",
+              "ب",
+              "ضعيف",
+              250
+            ],
+            [
+              "سكني",
+              "ب",
+              "مشاع",
+              250
+            ],
+            [
+              "سكني",
+              "ج",
+              "مميز",
+              180
+            ],
+            [
+              "سكني",
+              "ج",
+              "جيد",
+              250
+            ],
+            [
+              "سكني",
+              "ج",
+              "ضعيف",
+              250
+            ],
+            [
+              "سكني",
+              "ج",
+              "مشاع",
+              250
+            ],
+            [
+              "تجاري",
+              "مركزي",
+              "مميز",
+              380
+            ],
+            [
+              "تجاري",
+              "مركزي",
+              "جيد",
+              400
+            ],
+            [
+              "تجاري",
+              "مركزي",
+              "ضعيف",
+              400
+            ],
+            [
+              "تجاري",
+              "مركزي",
+              "مشاع",
+              400
+            ],
+            [
+              "تجاري",
+              "عادي سكن أ",
+              "مميز",
+              380
+            ],
+            [
+              "تجاري",
+              "عادي سكن أ",
+              "جيد",
+              180
+            ],
+            [
+              "تجاري",
+              "محلي سكن أ",
+              "مميز",
+              260
+            ],
+            [
+              "تجاري",
+              "محلي سكن أ",
+              "جيد",
+              260
+            ],
+            [
+              "تجاري",
+              "محلي سكن أ",
+              "ضعيف",
+              260
+            ],
+            [
+              "سكني",
+              "أ",
+              "جيد",
+              250
+            ]
+          ],
+          "type": "plot",
+          "village_id": 162,
+          "village_name": "ناعور"
+        }
+      }
+    },
+    {
+      "id": 52309,
+      "caseId": 15641144,
+      "category": "أرض/ مجمع",
+      "header": "رقم المزاد :2-11-140-2026-سجل عام أرض/ مجمع - 2026/07/09 تنفيذ عمان / قسم جنوب عمان",
+      "court": "تنفيذ عمان / قسم جنوب عمان",
+      "caseNumber": "ا 2-11-140-2026-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان 30 يوم",
+      "announcementStart": "09/07/2026 00:00:00",
+      "announcementEnd": "09/08/2026 15:00:00",
+      "startingAmount": "116888.30",
+      "estimatedValue": "233777",
+      "currentAmount": "0",
+      "minIncrement": "500 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "20224",
+      "publishedAt": "08/07/2026",
+      "endDate": "2026-08-09 15:00:00",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52309",
+      "details": {
+        "المحافظة": "محافظة العاصمة",
+        "المديرية": "اراضي جنوب عمان",
+        "القرية": "ابو علندا",
+        "الحوض": "018/الطبقة الشرقية",
+        "الحي": "جدول الأحياء",
+        "رقم القطعة": "501",
+        "نوع القطعة": "ملك",
+        "مساحة القطعة": "500.96",
+        "المحكمة / الدائرة": "تنفيذ عمان / قسم جنوب عمان",
+        "رقم الدعوى": "ا 2-11-140-2026-سجل عام",
+        "الإعلان": "اعلان 30 يوم",
+        "تاريخ بداية الاعلان": "09/07/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "09/08/2026 15:00:00",
+        "القيمة الابتدائية للمزاد": "116888.30 دينار اردني",
+        "القيمة التقديرية": "233777 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "500 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "20224",
+        "تاريخ النشر": "08/07/2026"
+      },
+      "firstSeenAt": "2026-07-31T04:27:31Z",
+      "lastSeenInListingAt": "2026-07-31T04:27:31Z",
+      "image": "images/52309.jpg",
+      "aradiPlot": {
+        "status": "ok",
+        "village": 131,
+        "block": 18,
+        "plot": 501,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                35.98843374911457,
+                31.90513447647248
+              ],
+              [
+                35.988400440086316,
+                31.90489522424198
+              ],
+              [
+                35.988203606568966,
+                31.904915179654903
+              ],
+              [
+                35.98823691293619,
+                31.90515442654684
+              ],
+              [
+                35.98843374911457,
+                31.90513447647248
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "properties": {
+          "area": 500.95958215,
+          "block_id": 18,
+          "block_name": "الطبقة الشرقية",
+          "department_id": 6,
+          "department_name": "اراضي جنوب عمان",
+          "district_id": 1,
+          "district_name": "العاصمة",
+          "dls_key": "013101800000501",
+          "perimeter": 90.93568501024029,
+          "plot_id": 501,
+          "prices": [
+            [
+              "سكني",
+              "أ",
+              "مميز",
+              50
+            ],
+            [
+              "سكني",
+              "ب",
+              "جيد",
+              40
+            ],
+            [
+              "تجاري",
+              "معارض",
+              "مميز",
+              60
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ملك",
+              "مميز",
+              20
+            ],
+            [
+              "صناعي",
+              "صناعات",
+              "مميز",
+              60
+            ],
+            [
+              "صناعي",
+              "صناعات",
+              "ضعيف",
+              50
+            ],
+            [
+              "تجاري",
+              "مركزي",
+              "ضعيف",
+              40
+            ]
+          ],
+          "type": "plot",
+          "village_id": 131,
+          "village_name": "ابو علندا"
+        }
+      }
+    },
+    {
+      "id": 52314,
+      "caseId": 15774422,
+      "category": "أرض/ مجمع",
+      "header": "رقم المزاد :1-11-105-2026-سجل الانابات أرض/ مجمع - 2026/07/10 تنفيذ عمان / قسم شمال عمان",
+      "court": "تنفيذ عمان / قسم شمال عمان",
+      "caseNumber": "ا 1-11-105-2026-سجل الانابات",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان 30 يوم",
+      "announcementStart": "10/07/2026 00:00:00",
+      "announcementEnd": "09/08/2026 15:00:00",
+      "startingAmount": "23205",
+      "estimatedValue": "46410",
+      "currentAmount": "0",
+      "minIncrement": "200 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الدستور",
+      "newspaperIssue": "21146",
+      "publishedAt": "09/07/2026",
+      "endDate": "2026-08-09 15:00:00",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52314",
+      "details": {
+        "المحافظة": "محافظة العاصمة",
+        "المديرية": "اراضي شمال عمان",
+        "القرية": "بدران",
+        "الحوض": "005/ابو القرام",
+        "الحي": "جدول الأحياء",
+        "رقم القطعة": "650",
+        "نوع القطعة": "ملك",
+        "مساحة القطعة": "0",
+        "المحكمة / الدائرة": "تنفيذ عمان / قسم شمال عمان",
+        "رقم الدعوى": "ا 1-11-105-2026-سجل الانابات",
+        "الإعلان": "اعلان 30 يوم",
+        "تاريخ بداية الاعلان": "10/07/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "09/08/2026 15:00:00",
+        "القيمة الابتدائية للمزاد": "23205 دينار اردني",
+        "القيمة التقديرية": "46410 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "200 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الدستور",
+        "العدد": "21146",
+        "تاريخ النشر": "09/07/2026"
+      },
+      "firstSeenAt": "2026-07-31T04:27:31Z",
+      "lastSeenInListingAt": "2026-07-31T04:27:31Z",
+      "image": "images/52314.jpg",
+      "aradiPlot": {
+        "status": "ok",
+        "village": 118,
+        "block": 5,
+        "plot": 650,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                35.911739478944725,
+                32.06204856860188
+              ],
+              [
+                35.911894524081326,
+                32.06199082826679
+              ],
+              [
+                35.91178523768691,
+                32.06177839439928
+              ],
+              [
+                35.911450055306446,
+                32.06190990457262
+              ],
+              [
+                35.91155640073298,
+                32.062116755152516
+              ],
+              [
+                35.911739478944725,
+                32.06204856860188
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "properties": {
+          "area": 884.40258934,
+          "block_id": 5,
+          "block_name": "ابو القرام",
+          "department_id": 4,
+          "department_name": "اراضي شمال عمان",
+          "district_id": 1,
+          "district_name": "العاصمة",
+          "dls_key": "011800500000650",
+          "perimeter": 120.45958548363501,
+          "plot_id": 650,
+          "prices": [
+            [
+              "سكني",
+              "ب",
+              "مميز",
+              150
+            ],
+            [
+              "سكني",
+              "ب",
+              "جيد",
+              100
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ملك",
+              "مشاع",
+              50
+            ],
+            [
+              "تجاري",
+              "محلي سكن ب",
+              "مميز",
+              270
+            ],
+            [
+              "تجاري",
+              "محلي سكن شعبي",
+              "مميز",
+              270
+            ],
+            [
+              "سكني",
+              "ب",
+              "ضعيف",
+              70
+            ]
+          ],
+          "type": "plot",
+          "village_id": 118,
+          "village_name": "بدران"
+        }
+      }
+    },
+    {
+      "id": 52315,
+      "caseId": 15774422,
+      "category": "أرض/ مجمع",
+      "header": "رقم المزاد :1-11-105-2026-سجل الانابات أرض/ مجمع - 2026/07/10 تنفيذ عمان / قسم شمال عمان",
+      "court": "تنفيذ عمان / قسم شمال عمان",
+      "caseNumber": "ا 1-11-105-2026-سجل الانابات",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان 30 يوم",
+      "announcementStart": "10/07/2026 00:00:00",
+      "announcementEnd": "09/08/2026 15:00:00",
+      "startingAmount": "20475",
+      "estimatedValue": "40950",
+      "currentAmount": "0",
+      "minIncrement": "200 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الدستور",
+      "newspaperIssue": "21146",
+      "publishedAt": "09/07/2026",
+      "endDate": "2026-08-09 15:00:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52315",
+      "details": {
+        "المحافظة": "محافظة العاصمة",
+        "المديرية": "اراضي شمال عمان",
+        "القرية": "بدران",
+        "الحوض": "005/ابو القرام",
+        "الحي": "جدول الأحياء",
+        "رقم القطعة": "651",
+        "نوع القطعة": "ملك",
+        "مساحة القطعة": "0",
+        "المحكمة / الدائرة": "تنفيذ عمان / قسم شمال عمان",
+        "رقم الدعوى": "ا 1-11-105-2026-سجل الانابات",
+        "الإعلان": "اعلان 30 يوم",
+        "تاريخ بداية الاعلان": "10/07/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "09/08/2026 15:00:00",
+        "القيمة الابتدائية للمزاد": "20475 دينار اردني",
+        "القيمة التقديرية": "40950 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "200 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الدستور",
+        "العدد": "21146",
+        "تاريخ النشر": "09/07/2026"
+      },
+      "firstSeenAt": "2026-07-31T04:27:31Z",
+      "lastSeenInListingAt": "2026-07-31T04:27:31Z",
+      "aradiPlot": {
+        "status": "ok",
+        "village": 118,
+        "block": 5,
+        "plot": 651,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                35.91129792336898,
+                32.06221300637263
+              ],
+              [
+                35.9114969219574,
+                32.0621389078039
+              ],
+              [
+                35.91155640073298,
+                32.062116755152516
+              ],
+              [
+                35.911450055306446,
+                32.06190990457262
+              ],
+              [
+                35.911144591008515,
+                32.06202975430704
+              ],
+              [
+                35.91125289170587,
+                32.06222997166215
+              ],
+              [
+                35.91129792336898,
+                32.06221300637263
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "properties": {
+          "area": 779.69354112,
+          "block_id": 5,
+          "block_name": "ابو القرام",
+          "department_id": 4,
+          "department_name": "اراضي شمال عمان",
+          "district_id": 1,
+          "district_name": "العاصمة",
+          "dls_key": "011800500000651",
+          "perimeter": 112.536103901941,
+          "plot_id": 651,
+          "prices": [
+            [
+              "سكني",
+              "ب",
+              "مميز",
+              150
+            ],
+            [
+              "سكني",
+              "ب",
+              "جيد",
+              100
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ملك",
+              "مشاع",
+              50
+            ],
+            [
+              "تجاري",
+              "محلي سكن ب",
+              "مميز",
+              270
+            ],
+            [
+              "تجاري",
+              "محلي سكن شعبي",
+              "مميز",
+              270
+            ],
+            [
+              "سكني",
+              "ب",
+              "ضعيف",
+              70
+            ]
+          ],
+          "type": "plot",
+          "village_id": 118,
+          "village_name": "بدران"
+        }
+      }
+    },
+    {
+      "id": 52358,
+      "caseId": 15296833,
+      "category": "أرض/ مجمع",
+      "header": "رقم المزاد :22-11-3416-2025-سجل عام أرض/ مجمع - 2026/07/10 تنفيذ جرش",
+      "court": "تنفيذ جرش",
+      "caseNumber": "ا 22-11-3416-2025-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "الاعلان الاول",
+      "announcementStart": "10/07/2026 00:00:00",
+      "announcementEnd": "09/08/2026 15:00:00",
+      "startingAmount": "4825",
+      "estimatedValue": "9650",
+      "currentAmount": "0",
+      "minIncrement": "50 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الدستور",
+      "newspaperIssue": "21146",
+      "publishedAt": "09/07/2026",
+      "endDate": "2026-08-09 15:00:00",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52358",
+      "details": {
+        "المحافظة": "محافظة جرش",
+        "المديرية": "اراضي جرش",
+        "القرية": "سوف",
+        "الحوض": "049/البلد",
+        "الحي": "جدول الأحياء",
+        "رقم القطعة": "680",
+        "نوع القطعة": "ملك",
+        "مساحة القطعة": "1213",
+        "المحكمة / الدائرة": "تنفيذ جرش",
+        "رقم الدعوى": "ا 22-11-3416-2025-سجل عام",
+        "الإعلان": "الاعلان الاول",
+        "تاريخ بداية الاعلان": "10/07/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "09/08/2026 15:00:00",
+        "القيمة الابتدائية للمزاد": "4825 دينار اردني",
+        "القيمة التقديرية": "9650 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "50 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الدستور",
+        "العدد": "21146",
+        "تاريخ النشر": "09/07/2026"
+      },
+      "firstSeenAt": "2026-07-31T04:27:31Z",
+      "lastSeenInListingAt": "2026-07-31T04:27:31Z",
+      "image": "images/52358.jpg",
+      "aradiPlot": {
+        "status": "ok",
+        "village": 252,
+        "block": 49,
+        "plot": 680,
+        "geometry": {
+          "coordinates": [
+            [
+              [
+                35.831594012175984,
+                32.3153447764601
+              ],
+              [
+                35.83184195231857,
+                32.31535877796794
+              ],
+              [
+                35.831828472104206,
+                32.31530867041088
+              ],
+              [
+                35.83191711025894,
+                32.315314682862265
+              ],
+              [
+                35.8318927576293,
+                32.315182374559335
+              ],
+              [
+                35.83188405648345,
+                32.31513509906738
+              ],
+              [
+                35.831845332691394,
+                32.315154429053706
+              ],
+              [
+                35.83183343225214,
+                32.315160370216134
+              ],
+              [
+                35.83169856030182,
+                32.3148885952524
+              ],
+              [
+                35.831698023570944,
+                32.314889145273575
+              ],
+              [
+                35.831697678762104,
+                32.314889499565965
+              ],
+              [
+                35.831697332897576,
+                32.31488985476535
+              ],
+              [
+                35.831696988088716,
+                32.314890209057744
+              ],
+              [
+                35.83169664222418,
+                32.31489056425711
+              ],
+              [
+                35.83169629742153,
+                32.31489091945123
+              ],
+              [
+                35.83169595261267,
+                32.3148912737436
+              ],
+              [
+                35.83169560781003,
+                32.31489162893772
+              ],
+              [
+                35.831695263007376,
+                32.31489198413181
+              ],
+              [
+                35.83169491820472,
+                32.3148923393259
+              ],
+              [
+                35.83169457340205,
+                32.31489269452
+              ],
+              [
+                35.83169422859939,
+                32.31489304971407
+              ],
+              [
+                35.83169388485862,
+                32.31489340490292
+              ],
+              [
+                35.83169354006216,
+                32.31489376099872
+              ],
+              [
+                35.831693196321375,
+                32.31489411618755
+              ],
+              [
+                35.83169285151869,
+                32.314894471381635
+              ],
+              [
+                35.83169250778412,
+                32.31489482747214
+              ],
+              [
+                35.831692164049535,
+                32.31489518356267
+              ],
+              [
+                35.83169182030874,
+                32.31489553875147
+              ],
+              [
+                35.83169147657415,
+                32.314895894842
+              ],
+              [
+                35.83169113283956,
+                32.31489625093252
+              ],
+              [
+                35.83169078910497,
+                32.314896607023044
+              ],
+              [
+                35.831690445370384,
+                32.31489696311356
+              ],
+              [
+                35.83169010269767,
+                32.31489731919879
+              ],
+              [
+                35.83168975896307,
+                32.31489767528932
+              ],
+              [
+                35.83168941629036,
+                32.314898031374575
+              ],
+              [
+                35.831689072555754,
+                32.31489838746508
+              ],
+              [
+                35.83168872988924,
+                32.31489874445204
+              ],
+              [
+                35.83168838721652,
+                32.31489910053725
+              ],
+              [
+                35.831688044550006,
+                32.31489945752419
+              ],
+              [
+                35.83168770187728,
+                32.314899813609415
+              ],
+              [
+                35.83168735921077,
+                32.314900170596374
+              ],
+              [
+                35.83168701654425,
+                32.31490052758332
+              ],
+              [
+                35.8316866738715,
+                32.31490088366858
+              ],
+              [
+                35.83168633226685,
+                32.314901240650244
+              ],
+              [
+                35.83168598960033,
+                32.31490159763717
+              ],
+              [
+                35.83168564799569,
+                32.31490195461884
+              ],
+              [
+                35.83168530532916,
+                32.31490231160577
+              ],
+              [
+                35.831684963730716,
+                32.31490266948914
+              ],
+              [
+                35.831684622126055,
+                32.314903026470816
+              ],
+              [
+                35.83168428052141,
+                32.31490338345245
+              ],
+              [
+                35.83168393892294,
+                32.31490374133584
+              ],
+              [
+                35.8316835973183,
+                32.314904098317484
+              ],
+              [
+                35.83168325571984,
+                32.31490445620084
+              ],
+              [
+                35.83168291517706,
+                32.31490481317723
+              ],
+              [
+                35.83168257357861,
+                32.314905171060595
+              ],
+              [
+                35.83168223304204,
+                32.31490552893869
+              ],
+              [
+                35.831681891443566,
+                32.31490588682205
+              ],
+              [
+                35.83168155090698,
+                32.314906244700126
+              ],
+              [
+                35.8316812103704,
+                32.31490660257822
+              ],
+              [
+                35.83168086877193,
+                32.314906960461585
+              ],
+              [
+                35.83168052823535,
+                32.31490731833967
+              ],
+              [
+                35.83168018876065,
+                32.31490767621247
+              ],
+              [
+                35.83167984823029,
+                32.314908034992264
+              ],
+              [
+                35.83167950769367,
+                32.31490839287034
+              ],
+              [
+                35.83167916716329,
+                32.31490875165014
+              ],
+              [
+                35.83167882768857,
+                32.31490910952293
+              ],
+              [
+                35.83167848715818,
+                32.314909468302716
+              ],
+              [
+                35.83167814768968,
+                32.31490982707721
+              ],
+              [
+                35.831677808214955,
+                32.31491018495001
+              ],
+              [
+                35.83167746768455,
+                32.3149105437298
+              ],
+              [
+                35.83167712821604,
+                32.3149109025043
+              ],
+              [
+                35.831676788747515,
+                32.31491126127883
+              ],
+              [
+                35.83167644927901,
+                32.314911620053344
+              ],
+              [
+                35.831676109810495,
+                32.31491197882784
+              ],
+              [
+                35.831675771410055,
+                32.314912338498786
+              ],
+              [
+                35.83167543194153,
+                32.314912697273286
+              ],
+              [
+                35.83167509353489,
+                32.314913056042506
+              ],
+              [
+                35.83167475407255,
+                32.3149134157187
+              ],
+              [
+                35.831674415665915,
+                32.31491377448795
+              ],
+              [
+                35.831674076203576,
+                32.314914134164155
+              ],
+              [
+                35.83167373780314,
+                32.31491449383507
+              ],
+              [
+                35.831673399396486,
+                32.3149148526043
+              ],
+              [
+                35.83167306099604,
+                32.31491521227524
+              ],
+              [
+                35.83167272259559,
+                32.31491557194615
+              ],
+              [
+                35.83167238525702,
+                32.314915931611836
+              ],
+              [
+                35.83167204685657,
+                32.31491629128275
+              ],
+              [
+                35.83167170845611,
+                32.31491665095368
+              ],
+              [
+                35.83167137112375,
+                32.31491701152102
+              ],
+              [
+                35.831671032723285,
+                32.31491737119197
+              ],
+              [
+                35.8316706953847,
+                32.314917730857616
+              ],
+              [
+                35.83167035805235,
+                32.31491809142497
+              ],
+              [
+                35.831670020713744,
+                32.314918451090605
+              ],
+              [
+                35.8316696823195,
+                32.314918811663254
+              ],
+              [
+                35.831669346049,
+                32.31491917222533
+              ],
+              [
+                35.8316690087104,
+                32.31491953189098
+              ],
+              [
+                35.83166867137802,
+                32.31491989245832
+              ],
+              [
+                35.83166833404563,
+                32.31492025302568
+              ],
+              [
+                35.83166799777514,
+                32.314920613587766
+              ],
+              [
+                35.83166766044274,
+                32.3149209741551
+              ],
+              [
+                35.83166732417223,
+                32.314921334717205
+              ],
+              [
+                35.831666986846045,
+                32.31492169618624
+              ],
+              [
+                35.831666650575535,
+                32.31492205674831
+              ],
+              [
+                35.83166631430503,
+                32.31492241731039
+              ],
+              [
+                35.83166597804072,
+                32.31492277877416
+              ],
+              [
+                35.83166564177019,
+                32.31492313933622
+              ],
+              [
+                35.83166530550588,
+                32.31492350080003
+              ],
+              [
+                35.83166497029724,
+                32.31492386135681
+              ],
+              [
+                35.83166463403293,
+                32.31492422282057
+              ],
+              [
+                35.83166429776861,
+                32.31492458428437
+              ],
+              [
+                35.831663962566175,
+                32.31492494574285
+              ],
+              [
+                35.83166362736373,
+                32.31492530720135
+              ],
+              [
+                35.83166329109942,
+                32.31492566866513
+              ],
+              [
+                35.831662955896974,
+                32.3149260301236
+              ],
+              [
+                35.83166262069452,
+                32.31492639158211
+              ],
+              [
+                35.83166228549208,
+                32.31492675304061
+              ],
+              [
+                35.83166195029584,
+                32.31492711540082
+              ],
+              [
+                35.83166161509339,
+                32.31492747685931
+              ],
+              [
+                35.83166128095282,
+                32.314927838312535
+              ],
+              [
+                35.83166094575658,
+                32.314928200672725
+              ],
+              [
+                35.83166061056033,
+                32.314928563032936
+              ],
+              [
+                35.83166027641974,
+                32.314928924486146
+              ],
+              [
+                35.83165994228537,
+                32.314929286841064
+              ],
+              [
+                35.83165960708912,
+                32.31492964920127
+              ],
+              [
+                35.831659272954745,
+                32.31493001155617
+              ],
+              [
+                35.831658938820375,
+                32.31493037391111
+              ],
+              [
+                35.831658604686,
+                32.31493073626605
+              ],
+              [
+                35.831658270551614,
+                32.31493109862096
+              ],
+              [
+                35.831657937479115,
+                32.314931460970584
+              ],
+              [
+                35.83165760335095,
+                32.31493182422723
+              ],
+              [
+                35.83165726921656,
+                32.314932186582126
+              ],
+              [
+                35.83165693615026,
+                32.31493254983348
+              ],
+              [
+                35.83165660307776,
+                32.314932912183124
+              ],
+              [
+                35.83165626894959,
+                32.31493327543975
+              ],
+              [
+                35.831655935877066,
+                32.31493363778939
+              ],
+              [
+                35.831655602810756,
+                32.31493400104071
+              ],
+              [
+                35.83165526974446,
+                32.31493436429205
+              ],
+              [
+                35.83165493667815,
+                32.31493472754343
+              ],
+              [
+                35.83165460361183,
+                32.314935090794734
+              ],
+              [
+                35.83165427054551,
+                32.3149354540461
+              ],
+              [
+                35.83165393854108,
+                32.31493581729215
+              ],
+              [
+                35.83165360547478,
+                32.31493618054349
+              ],
+              [
+                35.83165327347033,
+                32.314936543789564
+              ],
+              [
+                35.83165294041022,
+                32.31493690794262
+              ],
+              [
+                35.83165260840579,
+                32.31493727118866
+              ],
+              [
+                35.83165227640755,
+                32.314937635336435
+              ],
+              [
+                35.8316519444031,
+                32.314937998582515
+              ],
+              [
+                35.83165161240489,
+                32.31493836273027
+              ],
+              [
+                35.83165128040664,
+                32.314938726878054
+              ],
+              [
+                35.831650948402185,
+                32.314939090124085
+              ],
+              [
+                35.83165061746583,
+                32.31493945426658
+              ],
+              [
+                35.83165028546759,
+                32.31493981841434
+              ],
+              [
+                35.83164995453123,
+                32.31494018255684
+              ],
+              [
+                35.83164962253297,
+                32.314940546704605
+              ],
+              [
+                35.8316492915966,
+                32.31494091084709
+              ],
+              [
+                35.83164896066644,
+                32.314941275891286
+              ],
+              [
+                35.83164862866818,
+                32.31494164003905
+              ],
+              [
+                35.83164829773181,
+                32.314942004181546
+              ],
+              [
+                35.83164796680165,
+                32.31494236922573
+              ],
+              [
+                35.83164763692716,
+                32.31494273336293
+              ],
+              [
+                35.831647305996995,
+                32.314943098407134
+              ],
+              [
+                35.8316469750668,
+                32.31494346345131
+              ],
+              [
+                35.831646645192315,
+                32.31494382758852
+              ],
+              [
+                35.83164631426213,
+                32.31494419263271
+              ],
+              [
+                35.83164598439383,
+                32.31494455767165
+              ],
+              [
+                35.83164565452554,
+                32.31494492271054
+              ],
+              [
+                35.831645323595346,
+                32.314945287754725
+              ],
+              [
+                35.831644993727046,
+                32.31494565279365
+              ],
+              [
+                35.83164466385874,
+                32.314946017832554
+              ],
+              [
+                35.83164433399665,
+                32.314946383773155
+              ],
+              [
+                35.83164400519022,
+                32.3149467488068
+              ],
+              [
+                35.831643675321914,
+                32.314947113845705
+              ],
+              [
+                35.83164334545981,
+                32.314947479786326
+              ],
+              [
+                35.83164301665337,
+                32.31494784481995
+              ],
+              [
+                35.83164268679126,
+                32.31494821076055
+              ],
+              [
+                35.83164235799104,
+                32.31494857669592
+              ],
+              [
+                35.831642029184614,
+                32.31494894172953
+              ],
+              [
+                35.83164170038439,
+                32.31494930766486
+              ],
+              [
+                35.83164137158414,
+                32.31494967360021
+              ],
+              [
+                35.831641042783914,
+                32.31495003953556
+              ],
+              [
+                35.831640713983674,
+                32.31495040547087
+              ],
+              [
+                35.83164038518344,
+                32.3149507714062
+              ],
+              [
+                35.83164005638942,
+                32.31495113824325
+              ],
+              [
+                35.83163972865105,
+                32.31495150417331
+              ],
+              [
+                35.8316393998508,
+                32.31495187010863
+              ],
+              [
+                35.83163907211864,
+                32.31495223694039
+              ],
+              [
+                35.83163874438029,
+                32.314952602870456
+              ],
+              [
+                35.83163841664814,
+                32.314952969702226
+              ],
+              [
+                35.83163808784787,
+                32.31495333563753
+              ],
+              [
+                35.831637760115704,
+                32.3149537024693
+              ],
+              [
+                35.83163743344543,
+                32.31495406929577
+              ],
+              [
+                35.83163710571326,
+                32.314954436127536
+              ],
+              [
+                35.831636777981096,
+                32.31495480295929
+              ],
+              [
+                35.83163645024893,
+                32.314955169791055
+              ],
+              [
+                35.83163612357863,
+                32.31495553661754
+              ],
+              [
+                35.83163579690836,
+                32.31495590344403
+              ],
+              [
+                35.83163546917615,
+                32.314956270275765
+              ],
+              [
+                35.83163514251208,
+                32.31495663800397
+              ],
+              [
+                35.83163481584179,
+                32.31495700483043
+              ],
+              [
+                35.83163448917769,
+                32.31495737255863
+              ],
+              [
+                35.8316341625074,
+                32.31495773938509
+              ],
+              [
+                35.83163383584329,
+                32.314958107113284
+              ],
+              [
+                35.831633509173,
+                32.314958473939754
+              ],
+              [
+                35.831633183570766,
+                32.314958841662666
+              ],
+              [
+                35.83163285690668,
+                32.31495920939085
+              ],
+              [
+                35.83163253130446,
+                32.314959577113754
+              ],
+              [
+                35.83163220464034,
+                32.31495994484193
+              ],
+              [
+                35.83163187903812,
+                32.31496031256485
+              ],
+              [
+                35.8316315534359,
+                32.31496068028773
+              ],
+              [
+                35.831631227833675,
+                32.31496104801064
+              ],
+              [
+                35.83163090223144,
+                32.314961415733535
+              ],
+              [
+                35.83163057663542,
+                32.31496178435815
+              ],
+              [
+                35.83163025103319,
+                32.31496215208105
+              ],
+              [
+                35.83162992543716,
+                32.31496252070566
+              ],
+              [
+                35.83162960089681,
+                32.314962888423295
+              ],
+              [
+                35.83162927530077,
+                32.31496325704789
+              ],
+              [
+                35.83162895076042,
+                32.314963624765504
+              ],
+              [
+                35.831628625164385,
+                32.31496399339013
+              ],
+              [
+                35.83162830063023,
+                32.31496436200946
+              ],
+              [
+                35.83162797609608,
+                32.31496473062878
+              ],
+              [
+                35.83162765156192,
+                32.31496509924811
+              ],
+              [
+                35.83162732702775,
+                32.31496546786743
+              ],
+              [
+                35.83162700249358,
+                32.31496583648675
+              ],
+              [
+                35.83162667795942,
+                32.31496620510606
+              ],
+              [
+                35.83162635449335,
+                32.31496657462183
+              ],
+              [
+                35.83162602995919,
+                32.31496694324118
+              ],
+              [
+                35.8316257064869,
+                32.31496731185521
+              ],
+              [
+                35.83162538195894,
+                32.31496768137625
+              ],
+              [
+                35.83162505848666,
+                32.3149680499903
+              ],
+              [
+                35.83162473502057,
+                32.314968419506044
+              ],
+              [
+                35.83162441155448,
+                32.314968789021805
+              ],
+              [
+                35.8316240880884,
+                32.314969158537544
+              ],
+              [
+                35.83162376461609,
+                32.3149695271516
+              ],
+              [
+                35.83162344115,
+                32.314969896667336
+              ],
+              [
+                35.83162311874581,
+                32.314970266177816
+              ],
+              [
+                35.83162279527969,
+                32.31497063569357
+              ],
+              [
+                35.831622471819806,
+                32.314971006111044
+              ],
+              [
+                35.8316221494156,
+                32.314971375621504
+              ],
+              [
+                35.83162182701136,
+                32.31497174513197
+              ],
+              [
+                35.83162150460715,
+                32.314972114642444
+              ],
+              [
+                35.831621181147256,
+                32.314972485059904
+              ],
+              [
+                35.83162085874304,
+                32.31497285457038
+              ],
+              [
+                35.831620537406906,
+                32.314973224977265
+              ],
+              [
+                35.83162021500888,
+                32.314973595389446
+              ],
+              [
+                35.83161989260465,
+                32.314973964899934
+              ],
+              [
+                35.831619570206634,
+                32.3149743353121
+              ],
+              [
+                35.83161924887049,
+                32.314974705718974
+              ],
+              [
+                35.83161892647245,
+                32.31497507613117
+              ],
+              [
+                35.831618605136306,
+                32.31497544653807
+              ],
+              [
+                35.83161828380016,
+                32.31497581694495
+              ],
+              [
+                35.83161796246402,
+                32.31497618735187
+              ],
+              [
+                35.83161764112787,
+                32.31497655775876
+              ],
+              [
+                35.83161731979793,
+                32.31497692906737
+              ],
+              [
+                35.83161699846176,
+                32.314977299474236
+              ],
+              [
+                35.83161667712561,
+                32.314977669881166
+              ],
+              [
+                35.83161635579566,
+                32.31497804118974
+              ],
+              [
+                35.83161603552758,
+                32.31497841249307
+              ],
+              [
+                35.83161571419141,
+                32.31497878289997
+              ],
+              [
+                35.83161539392336,
+                32.31497915420329
+              ],
+              [
+                35.83161507365528,
+                32.3149795255066
+              ],
+              [
+                35.8316147523253,
+                32.3149798968152
+              ],
+              [
+                35.83161443205723,
+                32.314980268118525
+              ],
+              [
+                35.83161411178916,
+                32.31498063942186
+              ],
+              [
+                35.83161379152105,
+                32.31498101072518
+              ],
+              [
+                35.831613472314864,
+                32.31498138202323
+              ],
+              [
+                35.83161315204677,
+                32.31498175332654
+              ],
+              [
+                35.83161283177867,
+                32.31498212462986
+              ],
+              [
+                35.831612512578694,
+                32.314982496829614
+              ],
+              [
+                35.83161219231059,
+                32.31498286813293
+              ],
+              [
+                35.83161187311059,
+                32.314983240332694
+              ],
+              [
+                35.831611553904374,
+                32.31498361163073
+              ],
+              [
+                35.83161123470437,
+                32.31498398383048
+              ],
+              [
+                35.83161091550437,
+                32.31498435603023
+              ],
+              [
+                35.831610596298134,
+                32.31498472732829
+              ],
+              [
+                35.83161027709812,
+                32.314985099528
+              ],
+              [
+                35.8316099578981,
+                32.31498547172775
+              ],
+              [
+                35.83160963869808,
+                32.31498584392751
+              ],
+              [
+                35.831609320559956,
+                32.314986216121945
+              ],
+              [
+                35.831609001359936,
+                32.31498658832171
+              ],
+              [
+                35.83160868322801,
+                32.31498696141788
+              ],
+              [
+                35.83160836508987,
+                32.31498733361236
+              ],
+              [
+                35.83160804695171,
+                32.31498770580682
+              ],
+              [
+                35.83160772881979,
+                32.314988078903
+              ],
+              [
+                35.83160741068164,
+                32.31498845109747
+              ],
+              [
+                35.83160709254969,
+                32.314988824193634
+              ],
+              [
+                35.83160677441154,
+                32.3149891963881
+              ],
+              [
+                35.831606456279594,
+                32.31498956948427
+              ],
+              [
+                35.83160613920953,
+                32.314989942575146
+              ],
+              [
+                35.83160582107758,
+                32.314990315671324
+              ],
+              [
+                35.83160550400751,
+                32.314990688762215
+              ],
+              [
+                35.83160518587555,
+                32.314991061858386
+              ],
+              [
+                35.831604868805485,
+                32.31499143494928
+              ],
+              [
+                35.83160455173542,
+                32.314991808040176
+              ],
+              [
+                35.831604234665335,
+                32.31499218113106
+              ],
+              [
+                35.83160391760147,
+                32.31499255512367
+              ],
+              [
+                35.831603600531395,
+                32.31499292821455
+              ],
+              [
+                35.831603284523204,
+                32.31499330130018
+              ],
+              [
+                35.831602967459325,
+                32.31499367529277
+              ],
+              [
+                35.83160265145113,
+                32.31499404837836
+              ],
+              [
+                35.83160233438723,
+                32.31499442237098
+              ],
+              [
+                35.83160201838525,
+                32.31499479635832
+              ],
+              [
+                35.83160170237705,
+                32.314995169443904
+              ],
+              [
+                35.83160138637505,
+                32.31499554343122
+              ],
+              [
+                35.83160107037304,
+                32.31499591741854
+              ],
+              [
+                35.83160075437103,
+                32.31499629140587
+              ],
+              [
+                35.83160043836903,
+                32.314996665393174
+              ],
+              [
+                35.831600122367014,
+                32.31499703938049
+              ],
+              [
+                35.83159980637121,
+                32.314997414269506
+              ],
+              [
+                35.83159949143109,
+                32.314997788251546
+              ],
+              [
+                35.83159917542906,
+                32.31499816223887
+              ],
+              [
+                35.831598860495156,
+                32.3149985371226
+              ],
+              [
+                35.83159854555502,
+                32.314998911104645
+              ],
+              [
+                35.831598230621076,
+                32.314999285988414
+              ],
+              [
+                35.831597915680945,
+                32.31499965997041
+              ],
+              [
+                35.83159760074702,
+                32.31500003485416
+              ],
+              [
+                35.831597285813075,
+                32.31500040973793
+              ],
+              [
+                35.831596970879154,
+                32.31500078462167
+              ],
+              [
+                35.831596655945205,
+                32.31500115950539
+              ],
+              [
+                35.831596342073155,
+                32.31500153438386
+              ],
+              [
+                35.8315960271392,
+                32.31500190926761
+              ],
+              [
+                35.831595713267156,
+                32.31500228414609
+              ],
+              [
+                35.831595399395084,
+                32.31500265902452
+              ],
+              [
+                35.831595084461135,
+                32.315003033908276
+              ],
+              [
+                35.83159477059529,
+                32.315003409688444
+              ],
+              [
+                35.83159445672321,
+                32.31500378456689
+              ],
+              [
+                35.83159414285114,
+                32.315004159445365
+              ],
+              [
+                35.831593830047176,
+                32.31500453522027
+              ],
+              [
+                35.83159351618129,
+                32.31500491100042
+              ],
+              [
+                35.83159320230922,
+                32.31500528587888
+              ],
+              [
+                35.83159288950523,
+                32.31500566165378
+              ],
+              [
+                35.83159257563936,
+                32.315006037433946
+              ],
+              [
+                35.83159226283537,
+                32.315006413208835
+              ],
+              [
+                35.83159195003138,
+                32.315006788983716
+              ],
+              [
+                35.83159163722739,
+                32.31500716475861
+              ],
+              [
+                35.8315913244234,
+                32.31500754053351
+              ],
+              [
+                35.83159101161941,
+                32.31500791630838
+              ],
+              [
+                35.83159069881539,
+                32.31500829208328
+              ],
+              [
+                35.83159038601139,
+                32.31500866785817
+              ],
+              [
+                35.83159007427548,
+                32.315009044529475
+              ],
+              [
+                35.83158976147147,
+                32.31500942030435
+              ],
+              [
+                35.83158944973557,
+                32.31500979697569
+              ],
+              [
+                35.83158913799344,
+                32.315010172745296
+              ],
+              [
+                35.83158882519564,
+                32.315010549421864
+              ],
+              [
+                35.831588513459714,
+                32.31501092609321
+              ],
+              [
+                35.831588201723804,
+                32.31501130276451
+              ],
+              [
+                35.83158788998167,
+                32.31501167853412
+              ],
+              [
+                35.831587578245724,
+                32.31501205520543
+              ],
+              [
+                35.831587267571685,
+                32.31501243187146
+              ],
+              [
+                35.83158695583576,
+                32.31501280854279
+              ],
+              [
+                35.831586644106046,
+                32.31501318611581
+              ],
+              [
+                35.83158633343199,
+                32.31501356278185
+              ],
+              [
+                35.83158602275793,
+                32.315013939447894
+              ],
+              [
+                35.831585711021994,
+                32.31501431611919
+              ],
+              [
+                35.83158540035414,
+                32.31501469368692
+              ],
+              [
+                35.83158508968009,
+                32.31501507035298
+              ],
+              [
+                35.83158477901223,
+                32.3150154479207
+              ],
+              [
+                35.83158446834439,
+                32.31501582548844
+              ],
+              [
+                35.831584158732205,
+                32.31501620214921
+              ],
+              [
+                35.83158384806435,
+                32.31501657971693
+              ],
+              [
+                35.83158353739648,
+                32.31501695728467
+              ],
+              [
+                35.83158322779051,
+                32.31501733484715
+              ],
+              [
+                35.83158291818454,
+                32.315017712409606
+              ],
+              [
+                35.831582607516665,
+                32.31501808997733
+              ],
+              [
+                35.83158229791067,
+                32.315018467539794
+              ],
+              [
+                35.83158198830469,
+                32.315018845102266
+              ],
+              [
+                35.83158167869871,
+                32.31501922266472
+              ],
+              [
+                35.83158136909892,
+                32.31501960112889
+              ],
+              [
+                35.83158105949293,
+                32.31501997869132
+              ],
+              [
+                35.83158075095505,
+                32.315020357150225
+              ],
+              [
+                35.831580441349054,
+                32.3150207347127
+              ],
+              [
+                35.83158013281114,
+                32.31502111317158
+              ],
+              [
+                35.83157982320514,
+                32.31502149073403
+              ],
+              [
+                35.83157951466724,
+                32.31502186919292
+              ],
+              [
+                35.831579206129334,
+                32.315022247651804
+              ],
+              [
+                35.831578897591406,
+                32.31502262611069
+              ],
+              [
+                35.831578589053485,
+                32.31502300456959
+              ],
+              [
+                35.831578280515565,
+                32.315023383028475
+              ],
+              [
+                35.83157797197765,
+                32.31502376148735
+              ],
+              [
+                35.83157766343973,
+                32.315024139946246
+              ],
+              [
+                35.8315773559637,
+                32.315024518399845
+              ],
+              [
+                35.831577047425775,
+                32.31502489685873
+              ],
+              [
+                35.83157673995595,
+                32.31502527621405
+              ],
+              [
+                35.831576431418014,
+                32.31502565467294
+              ],
+              [
+                35.831576123948174,
+                32.31502603402824
+              ],
+              [
+                35.831575816472146,
+                32.31502641248185
+              ],
+              [
+                35.83157550900228,
+                32.31502679183716
+              ],
+              [
+                35.83157520153244,
+                32.31502717119246
+              ],
+              [
+                35.831574894056395,
+                32.31502754964609
+              ],
+              [
+                35.83157458764843,
+                32.31502792899612
+              ],
+              [
+                35.83157428017857,
+                32.31502830835143
+              ],
+              [
+                35.83157397377061,
+                32.31502868770145
+              ],
+              [
+                35.831573666300756,
+                32.31502906705676
+              ],
+              [
+                35.8315733598928,
+                32.31502944640681
+              ],
+              [
+                35.83157305348482,
+                32.31502982575683
+              ],
+              [
+                35.83157274602117,
+                32.315030206013844
+              ],
+              [
+                35.83157243961319,
+                32.31503058536389
+              ],
+              [
+                35.83157213426709,
+                32.31503096470865
+              ],
+              [
+                35.831571827865325,
+                32.31503134496039
+              ],
+              [
+                35.83157152145735,
+                32.31503172431042
+              ],
+              [
+                35.83157121505557,
+                32.31503210456215
+              ],
+              [
+                35.83157090971568,
+                32.31503248480862
+              ],
+              [
+                35.831570603307675,
+                32.31503286415865
+              ],
+              [
+                35.83157029796778,
+                32.3150332444051
+              ],
+              [
+                35.831569992627884,
+                32.31503362465157
+              ],
+              [
+                35.83156968728798,
+                32.31503400489804
+              ],
+              [
+                35.831569381948086,
+                32.315034385144486
+              ],
+              [
+                35.831569076608176,
+                32.31503476539092
+              ],
+              [
+                35.83156877126827,
+                32.3150351456374
+              ],
+              [
+                35.831568465928356,
+                32.31503552588386
+              ],
+              [
+                35.83156816059465,
+                32.31503590703202
+              ],
+              [
+                35.83156785631663,
+                32.3150362872732
+              ],
+              [
+                35.83156755097671,
+                32.315036667519664
+              ],
+              [
+                35.831567246704886,
+                32.31503704866255
+              ],
+              [
+                35.831566942426846,
+                32.31503742890374
+              ],
+              [
+                35.831566638155024,
+                32.315037810046626
+              ],
+              [
+                35.8315663338832,
+                32.31503819118953
+              ],
+              [
+                35.83156602960515,
+                32.3150385714307
+              ],
+              [
+                35.83156572533332,
+                32.315038952573566
+              ],
+              [
+                35.831565421061484,
+                32.315039333716456
+              ],
+              [
+                35.83156511678963,
+                32.31503971485933
+              ],
+              [
+                35.8315648135797,
+                32.31504009599694
+              ],
+              [
+                35.83156450930786,
+                32.315040477139824
+              ],
+              [
+                35.831564206097894,
+                32.31504085827744
+              ],
+              [
+                35.83156390289414,
+                32.315041240316766
+              ],
+              [
+                35.83156359968418,
+                32.31504162145435
+              ],
+              [
+                35.83156329647421,
+                32.315042002591944
+              ],
+              [
+                35.83156299327045,
+                32.31504238463127
+              ],
+              [
+                35.83156269006049,
+                32.31504276576888
+              ],
+              [
+                35.83156238685672,
+                32.315043147808204
+              ],
+              [
+                35.831562083646745,
+                32.3150435289458
+              ],
+              [
+                35.83156178150485,
+                32.31504391097986
+              ],
+              [
+                35.8315614783011,
+                32.31504429301914
+              ],
+              [
+                35.83156117615921,
+                32.3150446750532
+              ],
+              [
+                35.83156087401733,
+                32.31504505708722
+              ],
+              [
+                35.83156057187544,
+                32.31504543912124
+              ],
+              [
+                35.83156026973354,
+                32.31504582115528
+              ],
+              [
+                35.831559967591645,
+                32.31504620318935
+              ],
+              [
+                35.83155966544975,
+                32.315046585223335
+              ],
+              [
+                35.83155936330785,
+                32.315046967257366
+              ],
+              [
+                35.83155906116595,
+                32.3150473492914
+              ],
+              [
+                35.83155876009215,
+                32.31504773222189
+              ],
+              [
+                35.83155845795024,
+                32.315048114255895
+              ],
+              [
+                35.831558156876426,
+                32.31504849718638
+              ],
+              [
+                35.83155785579641,
+                32.3150488792151
+              ],
+              [
+                35.831557553660716,
+                32.31504926215086
+              ],
+              [
+                35.8315572525869,
+                32.31504964508131
+              ],
+              [
+                35.831556951506855,
+                32.31505002711006
+              ],
+              [
+                35.83155665043304,
+                32.31505041004052
+              ],
+              [
+                35.831556350421096,
+                32.3150507929657
+              ],
+              [
+                35.83155604934728,
+                32.315051175896194
+              ],
+              [
+                35.831555748273445,
+                32.315051558826625
+              ],
+              [
+                35.8315554482615,
+                32.31505194175182
+              ],
+              [
+                35.831555148255774,
+                32.31505232557869
+              ],
+              [
+                35.83155484718193,
+                32.31505270850916
+              ],
+              [
+                35.83155454716998,
+                32.31505309143433
+              ],
+              [
+                35.831554247164235,
+                32.31505347526122
+              ],
+              [
+                35.83155394715227,
+                32.31505385818642
+              ],
+              [
+                35.831553647140325,
+                32.315054241111575
+              ],
+              [
+                35.83155334713457,
+                32.31505462493847
+              ],
+              [
+                35.831553048190706,
+                32.31505500876008
+              ],
+              [
+                35.83155274817873,
+                32.31505539168525
+              ],
+              [
+                35.83155244923487,
+                32.315055775506885
+              ],
+              [
+                35.831552149229104,
+                32.31505615933375
+              ],
+              [
+                35.83155185028524,
+                32.31505654315536
+              ],
+              [
+                35.83155554045094,
+                32.31532008133485
+              ],
+              [
+                35.831594012175984,
+                32.3153447764601
+              ]
+            ]
+          ],
+          "type": "Polygon"
+        },
+        "properties": {
+          "area": 1149.81533399,
+          "block_id": 49,
+          "block_name": "البلد",
+          "department_id": 11,
+          "department_name": "اراضي جرش",
+          "district_id": 10,
+          "district_name": "جرش",
+          "dls_key": "025204900000680",
+          "perimeter": 152.838123650881,
+          "plot_id": 680,
+          "prices": [
+            [
+              "سكني",
+              "شعبي",
+              "مميز",
+              15
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ميري",
+              "مشاع",
+              4
+            ],
+            [
+              "سكني",
+              "شعبي",
+              "ضعيف",
+              13
+            ],
+            [
+              "سكني",
+              "شعبي",
+              "مشاع",
+              12
+            ],
+            [
+              "تجاري",
+              "معارض",
+              "مميز",
+              20
+            ],
+            [
+              "تجاري",
+              "معارض",
+              "ضعيف",
+              18
+            ],
+            [
+              "تجاري",
+              "معارض",
+              "مشاع",
+              17
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ملك",
+              "مميز",
+              11
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ملك",
+              "جيد",
+              10
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ملك",
+              "ضعيف",
+              9
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ملك",
+              "مشاع",
+              8
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ميري",
+              "مميز",
+              7
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ميري",
+              "جيد",
+              6
+            ],
+            [
+              "خارج التنظيم",
+              "زراعي ميري",
+              "ضعيف",
+              5
+            ],
+            [
+              "سكني",
+              "شعبي",
+              "جيد",
+              14
+            ]
+          ],
+          "type": "plot",
+          "village_id": 252,
+          "village_name": "سوف"
+        }
+      }
+    },
+    {
+      "id": 52389,
+      "caseId": 15970350,
+      "category": "أرض/ مجمع",
+      "header": "رقم المزاد :35-11-1165-2017-سجل عام أرض/ مجمع - 2026/07/10 تنفيذ العقبة",
+      "court": "تنفيذ العقبة",
+      "caseNumber": "ا 35-11-1165-2017-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "الاعلان الاول",
+      "announcementStart": "10/07/2026 08:00:00",
+      "announcementEnd": "09/08/2026 15:00:00",
+      "startingAmount": "486960",
+      "estimatedValue": "973920",
+      "currentAmount": "0",
+      "minIncrement": "500 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الغد",
+      "newspaperIssue": "7838",
+      "publishedAt": "09/07/2026",
+      "endDate": "2026-08-09 15:00:00",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52389",
+      "details": {
+        "المحافظة": "محافظة العقبة",
+        "المديرية": "اراضي العقبه",
+        "القرية": "العقبة",
+        "الحوض": "009/الجامع",
+        "الحي": "جدول الأحياء",
+        "رقم القطعة": "465",
+        "نوع القطعة": "ملك",
+        "مساحة القطعة": "800",
+        "المحكمة / الدائرة": "تنفيذ العقبة",
+        "رقم الدعوى": "ا 35-11-1165-2017-سجل عام",
+        "الإعلان": "الاعلان الاول",
+        "تاريخ بداية الاعلان": "10/07/2026 08:00:00",
+        "تاريخ انتهاء الاعلان": "09/08/2026 15:00:00",
+        "القيمة الابتدائية للمزاد": "486960 دينار اردني",
+        "القيمة التقديرية": "973920 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "500 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الغد",
+        "العدد": "7838",
+        "تاريخ النشر": "09/07/2026"
+      },
+      "firstSeenAt": "2026-07-31T04:27:31Z",
+      "lastSeenInListingAt": "2026-07-31T04:27:31Z",
+      "image": "images/52389.jpg",
+      "aradiPlot": {
+        "status": "no-plot",
+        "village": 637,
+        "block": 9,
+        "plot": 465
+      }
+    },
+    {
+      "id": 52808,
+      "caseId": 15371180,
+      "category": "أُخرى",
+      "header": "رقم المزاد :7-11-33-2025-سجل انابات أُخرى - 2026/08/02 تنفيذ سحاب",
+      "court": "تنفيذ سحاب",
+      "caseNumber": "ا 7-11-33-2025-سجل انابات",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementStart": "02/08/2026 00:00:00",
+      "announcementEnd": "02/08/2026 15:00:00",
+      "startingAmount": "13037.50",
+      "estimatedValue": "26075",
+      "currentAmount": "0",
+      "minIncrement": "50 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "20245",
+      "publishedAt": "19/07/2026",
+      "endDate": "2026-08-02 15:00:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY&auction=52808",
+      "details": {
+        "الإسم": "اجهزة الكترونية أو كهربائية",
+        "النوع": "",
+        "المحكمة / الدائرة": "تنفيذ سحاب",
+        "رقم الدعوى": "ا 7-11-33-2025-سجل انابات",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "02/08/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "02/08/2026 15:00:00",
+        "القيمة الابتدائية للمزاد": "13037.50 دينار اردني",
+        "القيمة التقديرية": "26075 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "50 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "20245",
+        "تاريخ النشر": "19/07/2026"
+      },
+      "firstSeenAt": "2026-07-31T04:42:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:18Z"
+    },
+    {
+      "id": 52806,
+      "caseId": 15794188,
+      "category": "أُخرى",
+      "header": "رقم المزاد :21-11-30-2026-سجل انابات أُخرى - 2026/07/29 تنفيذ المفرق",
+      "court": "تنفيذ المفرق",
+      "caseNumber": "ا 21-11-30-2026-سجل انابات",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementStart": "29/07/2026 00:00:00",
+      "announcementEnd": "10/08/2026 15:00:00",
+      "startingAmount": "125270",
+      "estimatedValue": "250540",
+      "currentAmount": "0",
+      "minIncrement": "500 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "20244",
+      "publishedAt": "28/07/2026",
+      "endDate": "2026-08-10 15:00:00",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY&auction=52806",
+      "details": {
+        "الإسم": "ماكينات او معدات صناعية",
+        "النوع": "",
+        "المحكمة / الدائرة": "تنفيذ المفرق",
+        "رقم الدعوى": "ا 21-11-30-2026-سجل انابات",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "29/07/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "10/08/2026 15:00:00",
+        "القيمة الابتدائية للمزاد": "125270 دينار اردني",
+        "القيمة التقديرية": "250540 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "500 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "20244",
+        "تاريخ النشر": "28/07/2026"
+      },
+      "firstSeenAt": "2026-07-31T04:42:18Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:18Z",
+      "image": "images/52806.jpg"
+    },
+    {
+      "id": 52765,
+      "caseId": 15772171,
+      "category": "مركبة",
+      "header": "رقم المزاد :1-11-1959-2026-سجل عام مركبة - 2026/07/24 تنفيذ عمان / قسم شمال عمان",
+      "court": "تنفيذ عمان / قسم شمال عمان",
+      "caseNumber": "ا 1-11-1959-2026-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementStart": "24/07/2026 00:00:00",
+      "announcementEnd": "02/08/2026 14:00:00",
+      "startingAmount": "1400",
+      "estimatedValue": "2800",
+      "currentAmount": "0",
+      "minIncrement": "10 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "20239",
+      "publishedAt": "23/07/2026",
+      "endDate": "2026-08-02 14:00:00",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52765",
+      "details": {
+        "نوع المركبة": "كيا",
+        "سنة الصنع": "2002",
+        "اللون": "أزرق غامق",
+        "رقم الشاصي": "kn3hap53e2k876584",
+        "رقم اللوحة": "41 - 68234",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "jt/478316",
+        "نوع الوقود": "ديزل",
+        "ناقل الحركة": "عادي",
+        "مكان الحجز": "ساحة حجز البتراوي (الزرقاء - بجانب ترخيص الزرقاء)",
+        "سعة المحرك": "3000",
+        "المحكمة / الدائرة": "تنفيذ عمان / قسم شمال عمان",
+        "رقم الدعوى": "ا 1-11-1959-2026-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "24/07/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "02/08/2026 14:00:00",
+        "القيمة الابتدائية للمزاد": "1400 دينار اردني",
+        "القيمة التقديرية": "2800 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "10 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "20239",
+        "تاريخ النشر": "23/07/2026"
+      },
+      "firstSeenAt": "2026-07-31T04:42:22Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:22Z",
+      "image": "images/52765.jpg"
+    },
+    {
+      "id": 52831,
+      "caseId": 15741811,
+      "category": "مركبة",
+      "header": "رقم المزاد :8-11-84-2026-سجل عام مركبة - 2026/07/31 تنفيذ الموقر",
+      "court": "تنفيذ الموقر",
+      "caseNumber": "ا 8-11-84-2026-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementStart": "31/07/2026 00:00:00",
+      "announcementEnd": "02/08/2026 15:00:00",
+      "startingAmount": "3000",
+      "estimatedValue": "6000",
+      "currentAmount": "0",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الغد",
+      "newspaperIssue": "1111",
+      "publishedAt": "30/07/2026",
+      "endDate": "2026-08-02 15:00:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52831",
+      "details": {
+        "نوع المركبة": "هونداي",
+        "سنة الصنع": "2012",
+        "اللون": "غير معروف",
+        "رقم الشاصي": "************",
+        "رقم اللوحة": "21 - 87260",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "",
+        "نوع الوقود": "بنزين",
+        "ناقل الحركة": "عادي",
+        "مكان الحجز": "ساحة حجز الموقر (عمان- الموقر- بجانب مستودعات الأمن العام)",
+        "سعة المحرك": "",
+        "المحكمة / الدائرة": "تنفيذ الموقر",
+        "رقم الدعوى": "ا 8-11-84-2026-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "31/07/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "02/08/2026 15:00:00",
+        "القيمة الابتدائية للمزاد": "3000 دينار اردني",
+        "القيمة التقديرية": "6000 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الغد",
+        "العدد": "1111",
+        "تاريخ النشر": "30/07/2026"
+      },
+      "firstSeenAt": "2026-07-31T04:42:22Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:22Z"
+    },
+    {
+      "id": 52794,
+      "caseId": 15936811,
+      "category": "مركبة",
+      "header": "رقم المزاد :8-11-34-2026-سجل الانابات مركبة - 2026/07/23 تنفيذ الموقر",
+      "court": "تنفيذ الموقر",
+      "caseNumber": "ا 8-11-34-2026-سجل الانابات",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementStart": "23/07/2026 00:00:00",
+      "announcementEnd": "02/08/2026 15:00:00",
+      "startingAmount": "3750",
+      "estimatedValue": "7500",
+      "currentAmount": "0",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "20238",
+      "publishedAt": "22/07/2026",
+      "endDate": "2026-08-02 15:00:00",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52794",
+      "details": {
+        "نوع المركبة": "فورد فيوجن",
+        "سنة الصنع": "0",
+        "اللون": "غير معروف",
+        "رقم الشاصي": "*********",
+        "رقم اللوحة": "15 - 99535",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "",
+        "نوع الوقود": "هجينية (هايبرد)",
+        "ناقل الحركة": "اوتوماتيك",
+        "مكان الحجز": "ساحة حجز الموقر (عمان- الموقر- بجانب مستودعات الأمن العام)",
+        "سعة المحرك": "",
+        "المحكمة / الدائرة": "تنفيذ الموقر",
+        "رقم الدعوى": "ا 8-11-34-2026-سجل الانابات",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "23/07/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "02/08/2026 15:00:00",
+        "القيمة الابتدائية للمزاد": "3750 دينار اردني",
+        "القيمة التقديرية": "7500 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "20238",
+        "تاريخ النشر": "22/07/2026"
+      },
+      "firstSeenAt": "2026-07-31T04:42:22Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:22Z",
+      "image": "images/52794.jpg"
+    },
+    {
+      "id": 52750,
+      "caseId": 15659828,
+      "category": "مركبة",
+      "header": "رقم المزاد :10-11-719-2026-سجل عام مركبة - 2026/07/27 تنفيذ الزرقاء",
+      "court": "تنفيذ الزرقاء",
+      "caseNumber": "ا 10-11-719-2026-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementStart": "27/07/2026 00:00:00",
+      "announcementEnd": "02/08/2026 15:00:00",
+      "startingAmount": "850",
+      "estimatedValue": "1700",
+      "currentAmount": "0",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "20242",
+      "publishedAt": "26/07/2026",
+      "endDate": "2026-08-02 15:00:00",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52750",
+      "details": {
+        "نوع المركبة": "كيا",
+        "سنة الصنع": "2003",
+        "اللون": "أزرق",
+        "رقم الشاصي": "**",
+        "رقم اللوحة": "42 - 11520",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "0",
+        "نوع الوقود": "ديزل",
+        "ناقل الحركة": "عادي",
+        "مكان الحجز": "ساحة حجز ماركا الثانية (عمان- ماركا - شمال درك المهام)",
+        "سعة المحرك": "3000",
+        "المحكمة / الدائرة": "تنفيذ الزرقاء",
+        "رقم الدعوى": "ا 10-11-719-2026-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "27/07/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "02/08/2026 15:00:00",
+        "القيمة الابتدائية للمزاد": "850 دينار اردني",
+        "القيمة التقديرية": "1700 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "20242",
+        "تاريخ النشر": "26/07/2026"
+      },
+      "firstSeenAt": "2026-07-31T04:42:22Z",
+      "lastSeenInListingAt": "2026-07-31T04:42:22Z",
+      "image": "images/52750.jpg"
     }
   ],
-  "lastRunAt": "2026-07-30 23:05:01"
+  "lastRunAt": "2026-07-31 04:50:17"
 };
