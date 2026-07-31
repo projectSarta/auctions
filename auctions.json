@@ -72414,7 +72414,6 @@
       "newspaperIssue": "20143",
       "publishedAt": "12/04/2026",
       "endDate": "2026-08-09 13:03:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=50255",
       "details": {
@@ -72446,7 +72445,8 @@
         "village": 640,
         "block": 2,
         "plot": 723
-      }
+      },
+      "image": "images/50255.jpg"
     },
     {
       "id": 50378,
@@ -280338,7 +280338,6 @@
       "newspaperIssue": "20224",
       "publishedAt": "08/07/2026",
       "endDate": "2026-08-09 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc&auction=52607",
       "details": {
@@ -281937,7 +281936,8 @@
           "village_id": 64,
           "village_name": "البصه"
         }
-      }
+      },
+      "image": "images/52607.jpg"
     },
     {
       "id": 45430,
@@ -282257,7 +282257,6 @@
       "newspaperIssue": "21146",
       "publishedAt": "09/07/2026",
       "endDate": "2026-08-09 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=39710",
       "details": {
@@ -282469,7 +282468,8 @@
           "village_id": 162,
           "village_name": "ناعور"
         }
-      }
+      },
+      "image": "images/39710.png"
     },
     {
       "id": 52309,
@@ -282769,7 +282769,6 @@
       "newspaperIssue": "21146",
       "publishedAt": "09/07/2026",
       "endDate": "2026-08-09 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52315",
       "details": {
@@ -282889,7 +282888,8 @@
           "village_id": 118,
           "village_name": "بدران"
         }
-      }
+      },
+      "image": "images/52315.jpg"
     },
     {
       "id": 52358,
@@ -284993,7 +284993,6 @@
       "newspaperIssue": "20245",
       "publishedAt": "19/07/2026",
       "endDate": "2026-08-02 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY&auction=52808",
       "details": {
@@ -285013,7 +285012,8 @@
         "تاريخ النشر": "19/07/2026"
       },
       "firstSeenAt": "2026-07-31T04:42:18Z",
-      "lastSeenInListingAt": "2026-07-31T04:42:18Z"
+      "lastSeenInListingAt": "2026-07-31T04:42:18Z",
+      "image": "images/52808.jpg"
     },
     {
       "id": 52806,
@@ -285128,7 +285128,6 @@
       "newspaperIssue": "1111",
       "publishedAt": "30/07/2026",
       "endDate": "2026-08-02 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52831",
       "details": {
@@ -285157,7 +285156,8 @@
         "تاريخ النشر": "30/07/2026"
       },
       "firstSeenAt": "2026-07-31T04:42:22Z",
-      "lastSeenInListingAt": "2026-07-31T04:42:22Z"
+      "lastSeenInListingAt": "2026-07-31T04:42:22Z",
+      "image": "images/52831.jpg"
     },
     {
       "id": 52794,
@@ -285262,5 +285262,5 @@
       "image": "images/52750.jpg"
     }
   ],
-  "lastRunAt": "2026-07-31 04:50:17"
+  "lastRunAt": "2026-07-31 09:41:46"
 }
