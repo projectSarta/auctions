@@ -2954,7 +2954,9 @@
           "village_id": 1,
           "village_name": "عمان"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4XfV-ciZHVkZ-6eYNIEW4RI32yAys-PTookwOsx9-HoA",
+      "pdfPath": "reports/48378.pdf"
     },
     {
       "id": 48379,
@@ -314062,7 +314064,6 @@
       "newspaperIssue": "7835",
       "publishedAt": "06/07/2026",
       "endDate": "2026-08-05 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52240",
       "details": {
@@ -316028,7 +316029,8 @@
           "village_id": 365,
           "village_name": "الهاشمية"
         }
-      }
+      },
+      "image": "images/52240.jpg"
     },
     {
       "id": 52248,
@@ -316326,7 +316328,6 @@
       "newspaperIssue": "21143",
       "publishedAt": "06/07/2026",
       "endDate": "2026-08-05 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52253",
       "details": {
@@ -316456,7 +316457,8 @@
           "village_id": 174,
           "village_name": "البارحه"
         }
-      }
+      },
+      "image": "images/52253.jpg"
     },
     {
       "id": 52263,
@@ -317074,7 +317076,6 @@
       "newspaperIssue": "7835",
       "publishedAt": "06/07/2026",
       "endDate": "2026-08-05 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52228",
       "details": {
@@ -317232,7 +317233,8 @@
           "village_id": 365,
           "village_name": "الهاشمية"
         }
-      }
+      },
+      "image": "images/52228.jpg"
     },
     {
       "id": 52229,
@@ -319430,7 +319432,6 @@
       "newspaperIssue": "7835",
       "publishedAt": "06/07/2026",
       "endDate": "2026-08-05 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52231",
       "details": {
@@ -323216,7 +323217,8 @@
           "village_id": 365,
           "village_name": "الهاشمية"
         }
-      }
+      },
+      "image": "images/52231.jpg"
     },
     {
       "id": 52232,
@@ -350575,5 +350577,5 @@
       "lastSeenInListingAt": "2026-08-02T16:56:29Z"
     }
   ],
-  "lastRunAt": "2026-08-02 17:13:42"
+  "lastRunAt": "2026-08-02 20:14:07"
 }
