@@ -285329,7 +285329,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "0",
       "publishedAt": "26/07/2026",
       "endDate": "2026-08-04 10:10:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52838",
       "details": {
@@ -285358,7 +285357,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "26/07/2026"
       },
       "firstSeenAt": "2026-08-01T22:47:32Z",
-      "lastSeenInListingAt": "2026-08-01T22:47:32Z"
+      "lastSeenInListingAt": "2026-08-01T22:47:32Z",
+      "image": "images/52838.jpg"
     },
     {
       "id": 52839,
@@ -285482,7 +285482,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "0",
       "publishedAt": "07/07/2026",
       "endDate": "2026-08-04 11:10:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52841",
       "details": {
@@ -285511,7 +285510,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "07/07/2026"
       },
       "firstSeenAt": "2026-08-01T22:47:32Z",
-      "lastSeenInListingAt": "2026-08-01T22:47:32Z"
+      "lastSeenInListingAt": "2026-08-01T22:47:32Z",
+      "image": "images/52841.jpg"
     },
     {
       "id": 52842,
@@ -285635,7 +285635,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "0",
       "publishedAt": "09/07/2026",
       "endDate": "2026-08-04 12:30:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52845",
       "details": {
@@ -285664,7 +285663,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "09/07/2026"
       },
       "firstSeenAt": "2026-08-01T22:47:32Z",
-      "lastSeenInListingAt": "2026-08-01T22:47:32Z"
+      "lastSeenInListingAt": "2026-08-01T22:47:32Z",
+      "image": "images/52845.jpg"
     },
     {
       "id": 52844,
@@ -285820,5 +285820,5 @@ window.AUCTION_DATA = {
       "lastSeenInListingAt": "2026-08-01T22:47:32Z"
     }
   ],
-  "lastRunAt": "2026-08-01 23:02:12"
+  "lastRunAt": "2026-08-02 04:25:11"
 };
