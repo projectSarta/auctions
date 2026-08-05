@@ -367687,7 +367687,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "20223",
       "publishedAt": "07/07/2026",
       "endDate": "2026-08-06 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52518",
       "details": {
@@ -367893,7 +367892,8 @@ window.AUCTION_DATA = {
           "village_id": 234,
           "village_name": "جرش"
         }
-      }
+      },
+      "image": "images/52518.jpg"
     },
     {
       "id": 52346,
@@ -368898,5 +368898,5 @@ window.AUCTION_DATA = {
       "lastSeenInListingAt": "2026-08-05T09:33:47Z"
     }
   ],
-  "lastRunAt": "2026-08-05 09:50:39"
+  "lastRunAt": "2026-08-05 17:26:52"
 };
