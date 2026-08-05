@@ -367915,7 +367915,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "7836",
       "publishedAt": "07/07/2026",
       "endDate": "2026-08-06 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52346",
       "details": {
@@ -367947,7 +367946,8 @@ window.AUCTION_DATA = {
         "village": 423,
         "block": 7,
         "plot": 62
-      }
+      },
+      "image": "images/52346.jpg"
     },
     {
       "id": 51436,
@@ -367969,7 +367969,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "21144",
       "publishedAt": "07/07/2026",
       "endDate": "2026-08-06 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=51436",
       "details": {
@@ -368121,7 +368120,8 @@ window.AUCTION_DATA = {
           "village_id": 171,
           "village_name": "اربد"
         }
-      }
+      },
+      "image": "images/51436.jpg"
     },
     {
       "id": 52320,
@@ -368143,7 +368143,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "21144",
       "publishedAt": "07/07/2026",
       "endDate": "2026-08-06 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52320",
       "details": {
@@ -368261,7 +368260,8 @@ window.AUCTION_DATA = {
           "village_id": 736,
           "village_name": "معدي"
         }
-      }
+      },
+      "image": "images/52320.jpg"
     },
     {
       "id": 52313,
@@ -368898,5 +368898,5 @@ window.AUCTION_DATA = {
       "lastSeenInListingAt": "2026-08-05T09:33:47Z"
     }
   ],
-  "lastRunAt": "2026-08-05 17:26:52"
+  "lastRunAt": "2026-08-05 20:30:34"
 };
