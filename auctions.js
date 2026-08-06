@@ -368283,7 +368283,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "20223",
       "publishedAt": "07/07/2026",
       "endDate": "2026-08-06 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52313",
       "details": {
@@ -368425,7 +368424,8 @@ window.AUCTION_DATA = {
           "village_id": 567,
           "village_name": "مجدولين"
         }
-      }
+      },
+      "image": "images/52313.jpg"
     },
     {
       "id": 52432,
@@ -368447,7 +368447,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "2026,20223",
       "publishedAt": "07/07/2026",
       "endDate": "2026-08-06 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52432",
       "details": {
@@ -368593,7 +368592,8 @@ window.AUCTION_DATA = {
           "village_id": 595,
           "village_name": "مؤته"
         }
-      }
+      },
+      "image": "images/52432.jpg"
     },
     {
       "id": 52288,
@@ -368898,5 +368898,5 @@ window.AUCTION_DATA = {
       "lastSeenInListingAt": "2026-08-05T09:33:47Z"
     }
   ],
-  "lastRunAt": "2026-08-05 22:56:16"
+  "lastRunAt": "2026-08-06 04:05:31"
 };
