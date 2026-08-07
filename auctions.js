@@ -180554,7 +180554,9 @@ window.AUCTION_DATA = {
           "village_id": 135,
           "village_name": "الخشافيه"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7x9z09XLEn7sIEwfCNF8LPxGKHP0fonvqKOjX946LDQA",
+      "pdfPath": "reports/47815.pdf"
     },
     {
       "id": 48278,
@@ -397242,5 +397244,5 @@ window.AUCTION_DATA = {
       "image": "images/52918.jpg"
     }
   ],
-  "lastRunAt": "2026-08-07 19:48:12"
+  "lastRunAt": "2026-08-07 22:29:18"
 };
