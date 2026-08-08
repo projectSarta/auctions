@@ -397244,5 +397244,5 @@ window.AUCTION_DATA = {
       "image": "images/52918.jpg"
     }
   ],
-  "lastRunAt": "2026-08-07 22:29:18"
+  "lastRunAt": "2026-08-08 02:54:08"
 };
