@@ -89218,7 +89218,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "20980",
       "publishedAt": "12/01/2026",
       "endDate": "2026-08-23 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc&auction=48500",
       "details": {
@@ -89348,7 +89347,8 @@ window.AUCTION_DATA = {
           "village_id": 119,
           "village_name": "تلاع العلي"
         }
-      }
+      },
+      "image": "images/48500.jpg"
     },
     {
       "id": 47445,
@@ -444179,5 +444179,5 @@ window.AUCTION_DATA = {
       }
     }
   ],
-  "lastRunAt": "2026-08-09 16:40:36"
+  "lastRunAt": "2026-08-09 19:34:22"
 };
