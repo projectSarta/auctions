@@ -300,6 +300,10 @@
           <select class="form-select" id="vehicleTypeFilter"><option value="">الكل</option></select>
         </div>
         <div class="col-md">
+          <label class="form-label small mb-1">نوع القطعة</label>
+          <select class="form-select" id="plotTypeFilter"><option value="">الكل</option></select>
+        </div>
+        <div class="col-md">
           <label class="form-label small mb-1">القيمة التقديرية (د.أ)</label>
           <select class="form-select" id="estValueFilter">
             <option value="">الكل</option>
@@ -819,6 +823,7 @@
   fillSelect('basinFilter',        auctions.map(a => a.basin));
   fillSelect('announcementFilter', auctions.map(a => a.announcement));
   fillSelect('vehicleTypeFilter',  auctions.map(a => a.vehicleType));
+  fillSelect('plotTypeFilter',     auctions.map(a => (a.details || {})['نوع القطعة']));
 
   // ---- Cascading location filters ----
   // When the user picks a governorate, the directorate dropdown should only show
@@ -900,6 +905,7 @@
     const bsns    = selectedSet('basinFilter');
     const anns    = selectedSet('announcementFilter');
     const vtypes  = selectedSet('vehicleTypeFilter');
+    const ptypes  = selectedSet('plotTypeFilter');
     const estRanges = getVals('estValueFilter');     // multi-range OR
 
     // Show/hide the "نوع المركبة" column + filter based on whether any vehicle
@@ -956,6 +962,7 @@
       selectedHas(bsns, a.basin) &&
       selectedHas(anns, a.announcement) &&
       selectedHas(vtypes, a.vehicleType) &&
+      selectedHas(ptypes, (a.details || {})['نوع القطعة']) &&
       (!estRanges.length || inAnyRange(a.estimatedValueNum)) &&
       matches(a, terms)
     );
@@ -1838,7 +1845,7 @@
     return widget;
   }
 
-  const multiIds = ['categoryFilter','courtFilter','govFilter','dirFilter','villageFilter','basinFilter','announcementFilter','vehicleTypeFilter','estValueFilter'];
+  const multiIds = ['categoryFilter','courtFilter','govFilter','dirFilter','villageFilter','basinFilter','announcementFilter','vehicleTypeFilter','plotTypeFilter','estValueFilter'];
   multiIds.forEach(id => setupMultiSelect(id, 'الكل'));
 
   // Filter inputs (search is plain text; the rest fire `change` from the widget)
@@ -1910,7 +1917,7 @@
   };
   const clearAllFilters = () => {
     document.getElementById('searchInput').value = '';
-    ['categoryFilter','courtFilter','govFilter','dirFilter','villageFilter','basinFilter','announcementFilter','vehicleTypeFilter','estValueFilter']
+    ['categoryFilter','courtFilter','govFilter','dirFilter','villageFilter','basinFilter','announcementFilter','vehicleTypeFilter','plotTypeFilter','estValueFilter']
       .forEach(id => {
         const sel = document.getElementById(id);
         if (sel) [...sel.options].forEach(o => { o.selected = false; });
