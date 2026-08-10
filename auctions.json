@@ -444154,7 +444154,6 @@
       "newspaperIssue": "20228",
       "publishedAt": "12/07/2026",
       "endDate": "2026-08-11 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=53017",
       "details": {
@@ -444294,8 +444293,9 @@
           "village_id": 261,
           "village_name": "الرمثا"
         }
-      }
+      },
+      "image": "images/53017.jpg"
     }
   ],
-  "lastRunAt": "2026-08-10 16:48:06"
+  "lastRunAt": "2026-08-10 19:50:06"
 }
