@@ -128,6 +128,19 @@ function Save-Data($data) {
   [System.IO.File]::WriteAllText($JsPath,   "window.AUCTION_DATA = $json;", [System.Text.UTF8Encoding]::new($false))
 }
 
+# Content-body hash: MD5 of the PDF minus its last 2KB. MoJ generates each
+# download fresh, embedding unique /ID + timestamps in the trailer — so two
+# downloads of the SAME report differ in bytes but share this body hash.
+# A report legally belongs to ONE court case; if the same body hash shows up
+# under two different caseIds, the second one is a mis-attributed download
+# (2026-08-10 incident: 297 PDFs across 6 clusters were copies of a handful
+# of documents because the AuctionsList postback returned another row's token).
+function Get-PdfBodyHash([byte[]]$bytes) {
+  $len = [Math]::Max(0, $bytes.Length - 2048)
+  $md5 = [System.Security.Cryptography.MD5]::Create()
+  return [BitConverter]::ToString($md5.ComputeHash($bytes, 0, $len))
+}
+
 Write-Host "Loading auctions.json..." -ForegroundColor Cyan
 $data = Get-Content $JsonPath -Raw -Encoding UTF8 | ConvertFrom-Json
 
@@ -162,10 +175,25 @@ if ($candidates.Count -eq 0) {
   exit 0
 }
 
+# Build the body-hash → caseId map from every PDF already on disk, so a fresh
+# download that duplicates another case's report gets rejected on the spot.
+Write-Host "Indexing existing report content hashes..." -ForegroundColor Cyan
+$hashToCase = @{}
+$caseById = @{}
+foreach ($x in $data.auctions) { if ($x.caseId -gt 0) { $caseById[[string]$x.id] = [string]$x.caseId } }
+foreach ($f in Get-ChildItem (Join-Path $Root 'reports') -Filter '*.pdf' -ErrorAction SilentlyContinue) {
+  try {
+    $h = Get-PdfBodyHash ([System.IO.File]::ReadAllBytes($f.FullName))
+    $ownerCase = $caseById[$f.BaseName]
+    if ($ownerCase -and -not $hashToCase.ContainsKey($h)) { $hashToCase[$h] = $ownerCase }
+  } catch {}
+}
+Write-Host ("  indexed {0} unique report bodies" -f $hashToCase.Count)
+
 # Warm session
 [void](Curl-Get "$Base/index.aspx")
 
-$tried = 0; $withUrl = 0; $noUrl = 0; $errStreak = 0
+$tried = 0; $withUrl = 0; $noUrl = 0; $dupRejected = 0; $errStreak = 0
 foreach ($a in $candidates) {
   if ($tried -ge $MaxItems) { break }
   $tried++
@@ -223,15 +251,15 @@ foreach ($a in $candidates) {
   $reportToken = $m.Groups[1].Value
   $reportUrl   = "$Base/Forms/Auctions/frmDownloadReports.aspx?token=$reportToken"
 
-  $a | Add-Member -MemberType NoteProperty -Name 'reportUrl' -Value $reportUrl -Force
-
-  # Also pull the PDF bytes locally so GitHub Pages can serve them inline
-  # (the MoJ origin sends Content-Disposition: attachment which forces a
-  # download; static files on GitHub Pages don't, so we get in-tab viewing).
+  # Download FIRST, validate, and only then commit reportUrl + pdfPath.
+  # The AuctionsList postback sometimes returns another row's token (it
+  # always "clicks" the first repeater item); committing the URL before
+  # validating is how 297 wrong PDFs got attributed to the wrong auctions.
   $reportsDir = Join-Path $Root 'reports'
   if (-not (Test-Path $reportsDir)) { New-Item -ItemType Directory -Path $reportsDir | Out-Null }
   $pdfFile = Join-Path $reportsDir ("$($a.id).pdf")
   $tmpPdf  = [System.IO.Path]::GetTempFileName()
+  $accepted = $false
   try {
     & $CurlExe --silent --insecure --location --compressed --user-agent $UserAgent `
       --cookie-jar $CookieJar --cookie $CookieJar `
@@ -240,24 +268,40 @@ foreach ($a in $candidates) {
       $bytes = [System.IO.File]::ReadAllBytes($tmpPdf)
       # quick sanity: PDFs start with "%PDF-"
       if ($bytes.Length -gt 4 -and [System.Text.Encoding]::ASCII.GetString($bytes, 0, 4) -eq '%PDF') {
-        [System.IO.File]::WriteAllBytes($pdfFile, $bytes)
-        $a | Add-Member -MemberType NoteProperty -Name 'pdfPath' -Value ("reports/$($a.id).pdf") -Force
+        $bodyHash = Get-PdfBodyHash $bytes
+        $myCase = [string]$a.caseId
+        if ($hashToCase.ContainsKey($bodyHash) -and $hashToCase[$bodyHash] -ne $myCase) {
+          # Same document already belongs to a different court case → the
+          # token gave us someone else's report. Reject; leave this auction
+          # un-enriched so a future (fixed/lucky) run can retry.
+          $dupRejected++
+          Write-Host ("REJECTED: content duplicates case " + $hashToCase[$bodyHash]) -ForegroundColor Red
+        } else {
+          [System.IO.File]::WriteAllBytes($pdfFile, $bytes)
+          if (-not $hashToCase.ContainsKey($bodyHash)) { $hashToCase[$bodyHash] = $myCase }
+          $a | Add-Member -MemberType NoteProperty -Name 'reportUrl' -Value $reportUrl -Force
+          $a | Add-Member -MemberType NoteProperty -Name 'pdfPath' -Value ("reports/$($a.id).pdf") -Force
+          $accepted = $true
+        }
       }
     }
   } catch {} finally {
     if (Test-Path $tmpPdf) { Remove-Item $tmpPdf -Force }
   }
 
-  Save-Data $data
-  $withUrl++
-  Write-Host ("OK token=" + $reportToken.Substring(0, [Math]::Min(12, $reportToken.Length)) + "..." + $(if (Test-Path $pdfFile) { " +pdf" } else { "" })) -ForegroundColor Green
+  if ($accepted) {
+    Save-Data $data
+    $withUrl++
+    Write-Host ("OK token=" + $reportToken.Substring(0, [Math]::Min(12, $reportToken.Length)) + "... +pdf") -ForegroundColor Green
+  }
 
   Start-Sleep -Milliseconds $DelayMs
 }
 
 ""
 "--- Summary ---"
-"  attempted:   $tried"
-"  got report:  $withUrl"
-"  no report:   $noUrl"
-"  remaining:   $($candidates.Count - $tried)"
+"  attempted:    $tried"
+"  got report:   $withUrl"
+"  no report:    $noUrl"
+"  dup-rejected: $dupRejected"
+"  remaining:    $($candidates.Count - $tried)"
