@@ -435,6 +435,7 @@
           </ul>
         </div>
         <button class="btn btn-outline-primary btn-sm" id="loadDetailsBtn">⤓ صور + تقرير الخبرة</button>
+        <button class="btn btn-outline-dark btn-sm" id="shareBtn" title="مشاركة رابط هذا المزاد">🔗 مشاركة</button>
         <button class="btn btn-outline-success btn-sm" id="dlsMapBtn" title="ينسخ بيانات القطعة ويفتح خرائط دائرة الأراضي">📍 دائرة الأراضي</button>
         <a class="btn btn-outline-secondary btn-sm" id="gmapsBtn" target="_blank" rel="noopener">🌍 Google Maps</a>
         <button class="btn btn-secondary btn-sm ms-auto" data-bs-dismiss="modal">إغلاق</button>
@@ -1301,8 +1302,53 @@
       clearMapLayer();
     }
 
+    // Deep link: reflect the open auction in the URL so the page can be
+    // shared / reloaded straight into this modal. replaceState (not hash
+    // assignment) avoids polluting history and avoids scroll jumps.
+    try { history.replaceState(null, '', '#auction=' + a.id); } catch {}
+
     new bootstrap.Modal(document.getElementById('detailModal')).show();
   }
+
+  // Clear the deep-link hash when the modal closes (so a copied URL is only
+  // "sticky" while the modal is actually open).
+  document.getElementById('detailModal').addEventListener('hidden.bs.modal', () => {
+    try { history.replaceState(null, '', location.pathname + location.search); } catch {}
+  });
+
+  // ---- Share button: Web Share API on mobile, clipboard fallback on desktop ----
+  document.getElementById('shareBtn').addEventListener('click', async (ev) => {
+    const a = modalCurrentAuction;
+    if (!a) return;
+    const url = location.origin + location.pathname + location.search + '#auction=' + a.id;
+    const title = a.header || ('مزاد رقم ' + a.id);
+    const btn = ev.currentTarget;
+    if (navigator.share) {
+      try { await navigator.share({ title, url }); return; } catch (e) {
+        if (e && e.name === 'AbortError') return;  // user cancelled the share sheet
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(url);
+      const old = btn.textContent;
+      btn.textContent = '✓ تم نسخ الرابط';
+      btn.classList.replace('btn-outline-dark', 'btn-success');
+      setTimeout(() => { btn.textContent = old; btn.classList.replace('btn-success', 'btn-outline-dark'); }, 1800);
+    } catch {
+      // last resort: prompt() so the user can copy manually
+      window.prompt('انسخ الرابط:', url);
+    }
+  });
+
+  // ---- Deep-link entry: #auction=<id> opens that auction's modal on load ----
+  // Deferred with setTimeout so the whole script has evaluated first —
+  // openAuctionModal touches state declared further down the file.
+  setTimeout(() => {
+    const m = (location.hash || '').match(/^#auction=(\d+)$/);
+    if (!m) return;
+    const a = auctionById.get(Number(m[1]));
+    if (a) openAuctionModal(a);
+  }, 0);
 
   // ==== Map (Leaflet + aradi.io exact-parcel lookup) ====
   let _leafletMap = null;
