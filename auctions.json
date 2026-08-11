@@ -444818,7 +444818,6 @@
       "newspaperIssue": "21151",
       "publishedAt": "14/07/2026",
       "endDate": "2026-08-13 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52437",
       "details": {
@@ -444850,7 +444849,8 @@
         "village": 189,
         "block": 26,
         "plot": 85
-      }
+      },
+      "image": "images/52437.jpg"
     },
     {
       "id": 52440,
@@ -445070,7 +445070,6 @@
       "newspaperIssue": "21151",
       "publishedAt": "14/07/2026",
       "endDate": "2026-08-13 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52452",
       "details": {
@@ -445186,7 +445185,8 @@
           "village_id": 171,
           "village_name": "اربد"
         }
-      }
+      },
+      "image": "images/52452.jpg"
     },
     {
       "id": 52462,
@@ -445828,7 +445828,6 @@
       "newspaperIssue": "7843",
       "publishedAt": "14/07/2026",
       "endDate": "2026-08-13 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52486",
       "details": {
@@ -446316,7 +446315,8 @@
           "village_id": 118,
           "village_name": "بدران"
         }
-      }
+      },
+      "image": "images/52486.jpg"
     },
     {
       "id": 52580,
@@ -447432,7 +447432,6 @@
       "newspaperIssue": "7844",
       "publishedAt": "15/07/2026",
       "endDate": "2026-08-16 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=46215",
       "details": {
@@ -447556,7 +447555,8 @@
           "village_id": 119,
           "village_name": "تلاع العلي"
         }
-      }
+      },
+      "image": "images/46215.jpg"
     },
     {
       "id": 47902,
@@ -447727,5 +447727,5 @@
       }
     }
   ],
-  "lastRunAt": "2026-08-10 22:39:18"
+  "lastRunAt": "2026-08-11 03:02:58"
 }
