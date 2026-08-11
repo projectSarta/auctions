@@ -46602,7 +46602,9 @@ window.AUCTION_DATA = {
           "village_id": 162,
           "village_name": "ناعور"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da75vQEu66rA5fYb3qhCqTQxSx8xgD49RKs25O0P7YqXeg",
+      "pdfPath": "reports/48249.pdf"
     },
     {
       "id": 48861,
@@ -448857,5 +448859,5 @@ window.AUCTION_DATA = {
       "image": "images/52949.jpg"
     }
   ],
-  "lastRunAt": "2026-08-11 08:18:09"
+  "lastRunAt": "2026-08-11 16:49:13"
 };
