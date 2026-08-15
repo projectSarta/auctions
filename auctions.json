@@ -244942,7 +244942,9 @@
         "village": 350,
         "block": 2,
         "plot": 713
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6GaXxhwitsGGLaTHr_7n1nImk7Wsiq1MiC6XaUYESIQg",
+      "pdfPath": "reports/51604.pdf"
     },
     {
       "id": 51571,
@@ -473476,5 +473478,5 @@
       "image": "images/53099.jpg"
     }
   ],
-  "lastRunAt": "2026-08-15 02:11:46"
+  "lastRunAt": "2026-08-15 04:24:04"
 }
