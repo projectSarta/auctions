@@ -454144,7 +454144,9 @@
           "village_id": 501,
           "village_name": "ادر"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6RKbS7VGmYsYNuR3tqOpupYrH7g6ntTMxbVfqPXHwlYg",
+      "pdfPath": "reports/47902.pdf"
     },
     {
       "id": 53022,
@@ -454186,7 +454188,9 @@
       },
       "firstSeenAt": "2026-08-11T05:00:35Z",
       "lastSeenInListingAt": "2026-08-14T16:44:16Z",
-      "image": "images/53022.png"
+      "image": "images/53022.png",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5LD0qzExTEIBWb2NaMRSPhIrBOt8aCqM9oT_EcDCmfvA",
+      "pdfPath": "reports/53022.pdf"
     },
     {
       "id": 52951,
@@ -473478,5 +473482,5 @@
       "image": "images/53099.jpg"
     }
   ],
-  "lastRunAt": "2026-08-15 04:24:04"
+  "lastRunAt": "2026-08-15 07:26:13"
 }
