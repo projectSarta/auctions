@@ -461105,7 +461105,9 @@
           "village_id": 171,
           "village_name": "اربد"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4zsO6t9IcA5xzeL-GLva7DqLyPwpsfIaL2zLk-4RjTSw",
+      "pdfPath": "reports/52781.pdf"
     },
     {
       "id": 52818,
@@ -464008,7 +464010,9 @@
       },
       "firstSeenAt": "2026-08-12T05:27:14Z",
       "lastSeenInListingAt": "2026-08-14T08:11:00Z",
-      "image": "images/53052.png"
+      "image": "images/53052.png",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da651iLOSsCH-WenuuaoDTZifOBYGlcdg4bWhEAIA3X2PQ",
+      "pdfPath": "reports/53052.pdf"
     },
     {
       "id": 53048,
@@ -474476,5 +474480,5 @@
       "image": "images/52571.png"
     }
   ],
-  "lastRunAt": "2026-08-15 22:18:25"
+  "lastRunAt": "2026-08-16 02:20:10"
 }
