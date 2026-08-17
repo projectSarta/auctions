@@ -488006,7 +488006,6 @@
       "newspaperIssue": "20235",
       "publishedAt": "19/07/2026",
       "endDate": "2026-08-18 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=46498",
       "details": {
@@ -488168,7 +488167,8 @@
           "village_id": 595,
           "village_name": "مؤته"
         }
-      }
+      },
+      "image": "images/46498.jpg"
     },
     {
       "id": 52667,
@@ -488531,5 +488531,5 @@
       }
     }
   ],
-  "lastRunAt": "2026-08-17 19:39:42"
+  "lastRunAt": "2026-08-17 22:16:47"
 }
