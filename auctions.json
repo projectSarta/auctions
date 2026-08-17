@@ -478901,7 +478901,6 @@
       "newspaperIssue": "0",
       "publishedAt": "12/08/2026",
       "endDate": "2026-08-18 10:05:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=53107",
       "details": {
@@ -478932,7 +478931,8 @@
       "firstSeenAt": "2026-08-16T16:14:19Z",
       "lastSeenInListingAt": "2026-08-16T16:14:19Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6zt5dJQ3NvXsk0RWH-ODiWprWx7PZPXjDwb2Mp98jzfg",
-      "pdfPath": "reports/53107.pdf"
+      "pdfPath": "reports/53107.pdf",
+      "image": "images/53107.jpg"
     },
     {
       "id": 53108,
@@ -482354,7 +482354,6 @@
       "newspaperIssue": "20235",
       "publishedAt": "19/07/2026",
       "endDate": "2026-08-18 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52720",
       "details": {
@@ -482644,7 +482643,8 @@
           "village_id": 127,
           "village_name": "ماركا"
         }
-      }
+      },
+      "image": "images/52720.jpg"
     },
     {
       "id": 52772,
@@ -482906,7 +482906,6 @@
       "newspaperIssue": "20235",
       "publishedAt": "19/07/2026",
       "endDate": "2026-08-18 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52774",
       "details": {
@@ -483016,7 +483015,8 @@
           "village_id": 36,
           "village_name": "ام رمانه"
         }
-      }
+      },
+      "image": "images/52774.jpg"
     },
     {
       "id": 52822,
@@ -483460,7 +483460,6 @@
       "newspaperIssue": "7848",
       "publishedAt": "19/07/2026",
       "endDate": "2026-08-18 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52575",
       "details": {
@@ -485460,7 +485459,8 @@
           "village_id": 164,
           "village_name": "زبود و سيل حسبان"
         }
-      }
+      },
+      "image": "images/52575.jpg"
     },
     {
       "id": 53082,
@@ -485584,7 +485584,6 @@
       "newspaperIssue": "21178",
       "publishedAt": "10/08/2026",
       "endDate": "2026-08-20 14:43:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=53081",
       "details": {
@@ -485613,7 +485612,8 @@
         "تاريخ النشر": "10/08/2026"
       },
       "firstSeenAt": "2026-08-17T02:20:12Z",
-      "lastSeenInListingAt": "2026-08-17T02:20:12Z"
+      "lastSeenInListingAt": "2026-08-17T02:20:12Z",
+      "image": "images/53081.jpg"
     },
     {
       "id": 53030,
@@ -485874,5 +485874,5 @@
       }
     }
   ],
-  "lastRunAt": "2026-08-17 02:32:31"
+  "lastRunAt": "2026-08-17 04:37:34"
 }
