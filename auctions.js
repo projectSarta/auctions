@@ -512123,7 +512123,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "7852",
       "publishedAt": "23/07/2026",
       "endDate": "2026-08-22 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52756",
       "details": {
@@ -512381,7 +512380,8 @@ window.AUCTION_DATA = {
           "village_id": 412,
           "village_name": "غور الكفرين"
         }
-      }
+      },
+      "image": "images/52756.jpg"
     },
     {
       "id": 52757,
@@ -522173,5 +522173,5 @@ window.AUCTION_DATA = {
       }
     }
   ],
-  "lastRunAt": "2026-08-19 22:32:17"
+  "lastRunAt": "2026-08-20 02:18:34"
 };
