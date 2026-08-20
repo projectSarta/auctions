@@ -92907,7 +92907,9 @@ window.AUCTION_DATA = {
           "village_id": 117,
           "village_name": "ام زويتينه"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da66b6uimQRSkgaETAugKGA86e0hGPnvJ-xv9N-LWMu8xw",
+      "pdfPath": "reports/25740.pdf"
     },
     {
       "id": 29916,
@@ -105240,7 +105242,9 @@ window.AUCTION_DATA = {
         "village": 376,
         "block": 11,
         "plot": 716
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5TUXRpxzXIY_ArM3-RrkjelAL89ZcUX-QD2xd8oCtTmQ",
+      "pdfPath": "reports/47821.pdf"
     },
     {
       "id": 50845,
@@ -123336,7 +123340,9 @@ window.AUCTION_DATA = {
           "village_id": 118,
           "village_name": "بدران"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5R1yb804hHMJyCmfpMqBCLjR-GaIBhYXQKu8cojv1fhA",
+      "pdfPath": "reports/49803.pdf"
     },
     {
       "id": 47567,
@@ -129734,7 +129740,9 @@ window.AUCTION_DATA = {
           "village_id": 270,
           "village_name": "الاشرفية"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7fOsW1T62w_GQk5ed32lbxCh8qH2DZADfVvocRjcYpAg",
+      "pdfPath": "reports/50509.pdf"
     },
     {
       "id": 48802,
@@ -557185,5 +557193,5 @@ window.AUCTION_DATA = {
       "image": "images/53213.jpg"
     }
   ],
-  "lastRunAt": "2026-08-20 16:47:56"
+  "lastRunAt": "2026-08-20 19:34:58"
 };
