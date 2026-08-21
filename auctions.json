@@ -64350,7 +64350,9 @@
           "village_id": 355,
           "village_name": "البتراوي"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4yljjSFRwwBQo8Z4Gt7JTBqVsmiiIAh-HbJ7dr040qow",
+      "pdfPath": "reports/40002.pdf"
     },
     {
       "id": 50575,
@@ -162446,7 +162448,9 @@
       },
       "caseId": 15061041,
       "image": "images/45707.jpg",
-      "lastSeenInListingAt": "2026-08-20T22:21:11Z"
+      "lastSeenInListingAt": "2026-08-20T22:21:11Z",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da76LGFAazZLfdTyOgCzJ8pq72lZuf4A9mXFypbPO-Zkzg",
+      "pdfPath": "reports/45707.pdf"
     },
     {
       "id": 48443,
@@ -557453,5 +557457,5 @@
       "image": "images/53210.jpg"
     }
   ],
-  "lastRunAt": "2026-08-21 19:25:23"
+  "lastRunAt": "2026-08-21 22:18:52"
 }
