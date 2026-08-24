@@ -123105,7 +123105,9 @@ window.AUCTION_DATA = {
         "village": 376,
         "block": 8,
         "plot": 708
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da492BWcr4uzeJ72y9tJ8wY_oNQdRVmZdcLyFtJ7bnTw0g",
+      "pdfPath": "reports/50650.pdf"
     },
     {
       "id": 49859,
@@ -136997,7 +136999,9 @@ window.AUCTION_DATA = {
           "village_id": 368,
           "village_name": "بيرين"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7-HNzxi3BVPIdSSXZvQeQFYrePj4a6trFtUNq18lv9Lw",
+      "pdfPath": "reports/50717.pdf"
     },
     {
       "id": 50589,
@@ -139854,7 +139858,9 @@ window.AUCTION_DATA = {
         "village": 171,
         "block": 12,
         "plot": 53
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7fGOxkXEWUwfJJNGtiXPlUCg81gptBhBpWGAsx3upiEg",
+      "pdfPath": "reports/50731.pdf"
     },
     {
       "id": 49537,
@@ -565114,7 +565120,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "21187",
       "publishedAt": "19/08/2026",
       "endDate": "2026-08-26 14:15:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY&auction=53281",
       "details": {
@@ -565134,7 +565139,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "19/08/2026"
       },
       "firstSeenAt": "2026-08-23T22:12:52Z",
-      "lastSeenInListingAt": "2026-08-23T22:12:52Z"
+      "lastSeenInListingAt": "2026-08-23T22:12:52Z",
+      "image": "images/53281.png"
     },
     {
       "id": 53282,
@@ -565188,5 +565194,5 @@ window.AUCTION_DATA = {
       "image": "images/53282.jpg"
     }
   ],
-  "lastRunAt": "2026-08-23 22:22:19"
+  "lastRunAt": "2026-08-24 02:22:26"
 };
