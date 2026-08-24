@@ -275896,7 +275896,9 @@
           "village_id": 322,
           "village_name": "حرثا"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4a7fAHNiT23dRIoVcZ45Rpx_FhTVU-4itmaD4baLMDxw",
+      "pdfPath": "reports/51600.pdf"
     },
     {
       "id": 47773,
@@ -565194,5 +565196,5 @@
       "image": "images/53282.jpg"
     }
   ],
-  "lastRunAt": "2026-08-24 02:22:26"
+  "lastRunAt": "2026-08-24 04:51:43"
 }
