@@ -545402,7 +545402,9 @@
           "village_name": "المرد"
         }
       },
-      "image": "images/52835.jpg"
+      "image": "images/52835.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7PWZt8ve1D8zKIqKC7FL--iUfpaM2pGWW9D8zA3au5BA",
+      "pdfPath": "reports/52835.pdf"
     },
     {
       "id": 52958,
@@ -545646,7 +545648,9 @@
           "village_name": "عمان"
         }
       },
-      "image": "images/52858.jpg"
+      "image": "images/52858.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7zDM25HlSTU5u7TbD8dJS8WiQo-6gNXxj8fRpwOR6DHg",
+      "pdfPath": "reports/52858.pdf"
     },
     {
       "id": 52799,
@@ -558539,7 +558543,9 @@
           "village_name": "تلاع العلي"
         }
       },
-      "image": "images/53104.jpg"
+      "image": "images/53104.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4qrmSEWdc65qDehREkvgu63bN7nlui_aN-eEiMUHs6YA",
+      "pdfPath": "reports/53104.pdf"
     },
     {
       "id": 52925,
@@ -559186,7 +559192,9 @@
       },
       "firstSeenAt": "2026-08-20T22:21:11Z",
       "lastSeenInListingAt": "2026-08-24T19:34:46Z",
-      "image": "images/53224.jpg"
+      "image": "images/53224.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6_Ue4KuhAAnyviNkyFJDoRC9EGflEH1Ev36mcEGX3tcQ",
+      "pdfPath": "reports/53224.pdf"
     },
     {
       "id": 53198,
@@ -559657,7 +559665,9 @@
       },
       "firstSeenAt": "2026-08-22T19:16:20Z",
       "lastSeenInListingAt": "2026-08-22T19:16:20Z",
-      "image": "images/53248.jpg"
+      "image": "images/53248.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7oBJHQiYVEMVBmrTfeAONyCPpFFYDYOf2xZJ_W4vv6YQ",
+      "pdfPath": "reports/53248.pdf"
     },
     {
       "id": 53249,
@@ -559861,7 +559871,9 @@
       },
       "firstSeenAt": "2026-08-22T19:16:20Z",
       "lastSeenInListingAt": "2026-08-22T19:16:20Z",
-      "image": "images/53252.jpg"
+      "image": "images/53252.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4QONu_12huSWKJaLFvW52n27VVTLi8gGwoCq_W-u9GEA",
+      "pdfPath": "reports/53252.pdf"
     },
     {
       "id": 53253,
@@ -565424,5 +565436,5 @@
       "image": "images/53305.jpg"
     }
   ],
-  "lastRunAt": "2026-08-26 07:41:47"
+  "lastRunAt": "2026-08-26 16:59:03"
 }
