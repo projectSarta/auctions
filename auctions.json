@@ -537071,7 +537071,9 @@
       },
       "firstSeenAt": "2026-08-19T22:19:38Z",
       "lastSeenInListingAt": "2026-08-19T22:19:38Z",
-      "image": "images/53211.jpg"
+      "image": "images/53211.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6eyMlAvU_0s0iGeCh_VDhcKnyBJHb1OP0glHqY0d_KRg",
+      "pdfPath": "reports/53211.pdf"
     },
     {
       "id": 53163,
@@ -545461,7 +545463,9 @@
         "block": 14,
         "plot": 22
       },
-      "image": "images/52958.jpg"
+      "image": "images/52958.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6R1ocAL-RF3vM0-Zmi5NXgiwmxb34I8Oeks-7az4DqWw",
+      "pdfPath": "reports/52958.pdf"
     },
     {
       "id": 52858,
@@ -554744,7 +554748,9 @@
           "village_id": 117,
           "village_name": "ام زويتينه"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da74cbivegCrZUuM35JJgalyBmQTwdbsGkaD262ahN0Qjw",
+      "pdfPath": "reports/52924.pdf"
     },
     {
       "id": 53044,
@@ -554897,7 +554903,9 @@
           "village_id": 126,
           "village_name": "ياجوز"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5HDF2BkuM4bk58OSeYkTwc251NVdbT4xHahqkkt0PUSA",
+      "pdfPath": "reports/53044.pdf"
     },
     {
       "id": 53088,
@@ -555162,7 +555170,9 @@
           "village_name": "الشونة الشمالية"
         }
       },
-      "image": "images/53088.jpg"
+      "image": "images/53088.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da51I8Zy5vUpzrPBpzkyN1XFEiEx_9IWjMx1HbiWyIDoIQ",
+      "pdfPath": "reports/53088.pdf"
     },
     {
       "id": 45889,
@@ -555817,7 +555827,9 @@
           "village_id": 1,
           "village_name": "عمان"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4EC9G1KJ0TUPcxZhdOfkUj0wu2evjjPrUXQsf5Pk1qGg",
+      "pdfPath": "reports/45889.pdf"
     },
     {
       "id": 46416,
@@ -556306,7 +556318,9 @@
           "village_name": "تلاع العلي"
         }
       },
-      "image": "images/46416.jpg"
+      "image": "images/46416.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7v9mGP1QYeOngp_6O7xgC6Dq9EDeqRwoHuoA0P-o_BFQ",
+      "pdfPath": "reports/46416.pdf"
     },
     {
       "id": 53089,
@@ -558271,7 +558285,9 @@
           "village_id": 126,
           "village_name": "ياجوز"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6h3fk_9fvpYvno3SlCQrmVuyEdI-D--Hs8dShV0BSmDg",
+      "pdfPath": "reports/53089.pdf"
     },
     {
       "id": 53096,
@@ -565436,5 +565452,5 @@
       "image": "images/53305.jpg"
     }
   ],
-  "lastRunAt": "2026-08-26 16:59:03"
+  "lastRunAt": "2026-08-26 21:42:43"
 }
