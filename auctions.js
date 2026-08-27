@@ -531030,7 +531030,9 @@ window.AUCTION_DATA = {
         "village": 211,
         "block": 1,
         "plot": 720
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6zuX2q6xHvULTivT2e0wXawh-cfwBNEE0QnOZLg81hrg",
+      "pdfPath": "reports/52882.pdf"
     },
     {
       "id": 53151,
@@ -545198,7 +545200,9 @@ window.AUCTION_DATA = {
           "village_name": "ناعور"
         }
       },
-      "image": "images/44902.jpg"
+      "image": "images/44902.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da53T_2sAH1CysCGLROv-j6ajwx8esVFq1L2qiHgVcFpyw",
+      "pdfPath": "reports/44902.pdf"
     },
     {
       "id": 52836,
@@ -554625,7 +554629,9 @@ window.AUCTION_DATA = {
           "village_name": "اربد"
         }
       },
-      "image": "images/52906.jpg"
+      "image": "images/52906.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5msaRt7OL7ljB5uxI1uSY8KV753AOZIwV6Wplx6pZsAg",
+      "pdfPath": "reports/52906.pdf"
     },
     {
       "id": 52924,
@@ -559477,7 +559483,9 @@ window.AUCTION_DATA = {
       },
       "firstSeenAt": "2026-08-22T07:38:55Z",
       "lastSeenInListingAt": "2026-08-24T19:34:46Z",
-      "image": "images/53245.jpg"
+      "image": "images/53245.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da48TI2f4T62bLPALAzvuOyzOX74SZCFsqIACNUOPY5XZA",
+      "pdfPath": "reports/53245.pdf"
     },
     {
       "id": 53244,
@@ -564651,7 +564659,9 @@ window.AUCTION_DATA = {
       },
       "firstSeenAt": "2026-08-23T19:20:38Z",
       "lastSeenInListingAt": "2026-08-23T19:20:38Z",
-      "image": "images/53256.jpg"
+      "image": "images/53256.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6UkaBASQXADw8M7J3C_GzpXNkAkQLrxgmM9qe_dpcZzg",
+      "pdfPath": "reports/53256.pdf"
     },
     {
       "id": 53257,
@@ -565452,5 +565462,5 @@ window.AUCTION_DATA = {
       "image": "images/53305.jpg"
     }
   ],
-  "lastRunAt": "2026-08-26 21:42:43"
+  "lastRunAt": "2026-08-27 02:39:51"
 };
