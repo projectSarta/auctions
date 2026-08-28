@@ -569464,7 +569464,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "21166",
       "publishedAt": "29/07/2026",
       "endDate": "2026-08-30 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52904",
       "details": {
@@ -569572,7 +569571,8 @@ window.AUCTION_DATA = {
           "village_id": 374,
           "village_name": "غريسه"
         }
-      }
+      },
+      "image": "images/52904.jpg"
     },
     {
       "id": 52984,
@@ -577608,5 +577608,5 @@ window.AUCTION_DATA = {
       "image": "images/53013.jpg"
     }
   ],
-  "lastRunAt": "2026-08-28 01:01:38"
+  "lastRunAt": "2026-08-28 12:27:45"
 };
