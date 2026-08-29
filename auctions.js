@@ -291044,7 +291044,9 @@ window.AUCTION_DATA = {
           "village_id": 1,
           "village_name": "عمان"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7oso_g2vXHxnvsWH02ry6HGBNBnNhc95ROZo4l-B9URA",
+      "pdfPath": "reports/49090.pdf"
     },
     {
       "id": 49106,
@@ -577608,5 +577610,5 @@ window.AUCTION_DATA = {
       "image": "images/53013.jpg"
     }
   ],
-  "lastRunAt": "2026-08-29 07:49:02"
+  "lastRunAt": "2026-08-29 19:15:23"
 };
