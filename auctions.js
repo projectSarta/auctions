@@ -325393,7 +325393,9 @@ window.AUCTION_DATA = {
           "village_id": 423,
           "village_name": "المفرق"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5jGtx0sbmfAnuD-LveaXwNuL8qcTA0Sw580_2eF_xyug",
+      "pdfPath": "reports/52510.pdf"
     },
     {
       "id": 52517,
@@ -528488,7 +528490,9 @@ window.AUCTION_DATA = {
       },
       "firstSeenAt": "2026-08-18T04:27:48Z",
       "lastSeenInListingAt": "2026-08-27T14:56:34Z",
-      "image": "images/53094.jpg"
+      "image": "images/53094.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4e1x12m8ydteQ6LGR2S1VDnpXbHxruzI9vRzB6t_HYfg",
+      "pdfPath": "reports/53094.pdf"
     },
     {
       "id": 52812,
@@ -533891,7 +533895,9 @@ window.AUCTION_DATA = {
           "village_name": "اربد"
         }
       },
-      "image": "images/38723.jpg"
+      "image": "images/38723.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5hbeW-fL6E_bJRtyOqQGg9F6VNBtCOg9d-lhE35dPVKQ",
+      "pdfPath": "reports/38723.pdf"
     },
     {
       "id": 52961,
@@ -556667,7 +556673,9 @@ window.AUCTION_DATA = {
           "village_id": 174,
           "village_name": "البارحه"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4L-qMnK7h7AXh4j4BpJnL8qh7V6Nsf5s5WW8K_q588cQ",
+      "pdfPath": "reports/52899.pdf"
     },
     {
       "id": 52906,
@@ -577612,5 +577620,5 @@ window.AUCTION_DATA = {
       "image": "images/53013.jpg"
     }
   ],
-  "lastRunAt": "2026-08-30 12:40:22"
+  "lastRunAt": "2026-08-30 19:08:06"
 };
