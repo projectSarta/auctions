@@ -142348,7 +142348,9 @@ window.AUCTION_DATA = {
           "village_id": 131,
           "village_name": "ابو علندا"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4R51ZHuBFUhvA3impqai1imSgkGmAI_t80WMXqOmCYOA",
+      "pdfPath": "reports/50804.pdf"
     },
     {
       "id": 50808,
@@ -577610,5 +577612,5 @@ window.AUCTION_DATA = {
       "image": "images/53013.jpg"
     }
   ],
-  "lastRunAt": "2026-08-30 06:05:28"
+  "lastRunAt": "2026-08-30 12:40:22"
 };
