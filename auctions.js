@@ -561910,7 +561910,9 @@ window.AUCTION_DATA = {
           "village_id": 62,
           "village_name": "وادي السير"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5JDRUDr2Tv2RjTyAPyBmgehFnQVhqE7d_j9PavgD00_g",
+      "pdfPath": "reports/45389.pdf"
     },
     {
       "id": 53178,
@@ -577634,5 +577636,5 @@ window.AUCTION_DATA = {
       "image": "images/53013.jpg"
     }
   ],
-  "lastRunAt": "2026-08-31 14:36:49"
+  "lastRunAt": "2026-08-31 21:18:54"
 };
