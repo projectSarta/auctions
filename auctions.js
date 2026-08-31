@@ -138267,7 +138267,9 @@ window.AUCTION_DATA = {
           "village_id": 383,
           "village_name": "عطل الرصيفه"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4ZMdT2mxvsRUQ_6WC1hpvccbH8Fl9cD3Eehsk2PYXiCw",
+      "pdfPath": "reports/50663.pdf"
     },
     {
       "id": 50664,
@@ -577632,5 +577634,5 @@ window.AUCTION_DATA = {
       "image": "images/53013.jpg"
     }
   ],
-  "lastRunAt": "2026-08-31 06:27:41"
+  "lastRunAt": "2026-08-31 14:36:49"
 };
