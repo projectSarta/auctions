@@ -584514,7 +584514,6 @@
       "newspaperIssue": "21171",
       "publishedAt": "03/08/2026",
       "endDate": "2026-09-02 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=47989",
       "details": {
@@ -584630,7 +584629,8 @@
           "village_id": 183,
           "village_name": "بيت راس"
         }
-      }
+      },
+      "image": "images/47989.jpg"
     },
     {
       "id": 52909,
@@ -604972,5 +604972,5 @@
       "image": "images/53342.jpg"
     }
   ],
-  "lastRunAt": "2026-09-01 19:24:58"
+  "lastRunAt": "2026-09-01 21:39:07"
 }
