@@ -592092,7 +592092,6 @@
       "newspaperIssue": "20071",
       "publishedAt": "03/08/2026",
       "endDate": "2026-09-02 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52928",
       "details": {
@@ -592332,7 +592331,8 @@
           "village_id": 341,
           "village_name": "ارحابا"
         }
-      }
+      },
+      "image": "images/52928.jpg"
     },
     {
       "id": 52960,
@@ -592712,7 +592712,6 @@
       "newspaperIssue": "20250",
       "publishedAt": "03/08/2026",
       "endDate": "2026-09-02 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=53273",
       "details": {
@@ -592836,7 +592835,8 @@
           "village_id": 261,
           "village_name": "الرمثا"
         }
-      }
+      },
+      "image": "images/53273.jpg"
     },
     {
       "id": 43706,
@@ -593182,7 +593182,6 @@
       "newspaperIssue": "20251",
       "publishedAt": "04/08/2026",
       "endDate": "2026-09-03 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=53046",
       "details": {
@@ -593388,7 +593387,8 @@
           "village_id": 111,
           "village_name": "ابو نصير"
         }
-      }
+      },
+      "image": "images/53046.jpg"
     },
     {
       "id": 53144,
@@ -593604,7 +593604,6 @@
       "newspaperIssue": "7865",
       "publishedAt": "05/08/2026",
       "endDate": "2026-09-04 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52962",
       "details": {
@@ -595522,7 +595521,8 @@
           "village_id": 139,
           "village_name": "المناخر"
         }
-      }
+      },
+      "image": "images/52962.jpg"
     },
     {
       "id": 53065,
@@ -595912,7 +595912,6 @@
       "newspaperIssue": "7865",
       "publishedAt": "05/08/2026",
       "endDate": "2026-09-06 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=53288",
       "details": {
@@ -595944,7 +595943,8 @@
         "village": 637,
         "block": 19,
         "plot": 53
-      }
+      },
+      "image": "images/53288.jpg"
     },
     {
       "id": 53179,
@@ -597973,7 +597973,6 @@
       "newspaperIssue": "20253",
       "publishedAt": "06/08/2026",
       "endDate": "2026-09-06 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc&auction=53049",
       "details": {
@@ -598362,7 +598361,8 @@
           "village_id": 62,
           "village_name": "وادي السير"
         }
-      }
+      },
+      "image": "images/53049.jpg"
     },
     {
       "id": 53160,
@@ -598726,7 +598726,6 @@
       "newspaperIssue": "7865",
       "publishedAt": "05/08/2026",
       "endDate": "2026-09-06 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc&auction=53228",
       "details": {
@@ -599077,7 +599076,8 @@
           "village_id": 62,
           "village_name": "وادي السير"
         }
-      }
+      },
+      "image": "images/53228.jpg"
     },
     {
       "id": 53010,
@@ -599311,7 +599311,6 @@
       "newspaperIssue": "20256",
       "publishedAt": "09/08/2026",
       "endDate": "2026-09-08 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc&auction=53038",
       "details": {
@@ -599438,7 +599437,8 @@
           "village_id": 126,
           "village_name": "ياجوز"
         }
-      }
+      },
+      "image": "images/53038.jpg"
     },
     {
       "id": 53040,
@@ -601988,7 +601988,6 @@
       "newspaperIssue": "7869",
       "publishedAt": "09/08/2026",
       "endDate": "2026-09-08 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc&auction=53064",
       "details": {
@@ -602287,7 +602286,8 @@
           "village_id": 92,
           "village_name": "خربة حنينا"
         }
-      }
+      },
+      "image": "images/53064.jpg"
     },
     {
       "id": 53087,
@@ -602753,7 +602753,6 @@
       "newspaperIssue": "7869",
       "publishedAt": "09/08/2026",
       "endDate": "2026-09-08 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc&auction=35839",
       "details": {
@@ -602788,7 +602787,8 @@
         "village": 109,
         "block": 13,
         "plot": 800
-      }
+      },
+      "image": "images/35839.jpg"
     },
     {
       "id": 26721,
@@ -603053,7 +603053,6 @@
       "newspaperIssue": "21194",
       "publishedAt": "26/08/2026",
       "endDate": "2026-09-08 14:40:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY&auction=53408",
       "details": {
@@ -603073,7 +603072,8 @@
         "تاريخ النشر": "26/08/2026"
       },
       "firstSeenAt": "2026-09-01T18:59:47Z",
-      "lastSeenInListingAt": "2026-09-01T18:59:47Z"
+      "lastSeenInListingAt": "2026-09-01T18:59:47Z",
+      "image": "images/53408.jpg"
     },
     {
       "id": 53403,
@@ -604972,5 +604972,5 @@
       "image": "images/53342.jpg"
     }
   ],
-  "lastRunAt": "2026-09-01 21:39:07"
+  "lastRunAt": "2026-09-01 23:51:32"
 }
