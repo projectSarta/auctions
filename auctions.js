@@ -554714,7 +554714,9 @@ window.AUCTION_DATA = {
         "village": 193,
         "block": 7,
         "plot": 769
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7Pvua-TSY-20IgzTf4ojrAVpLwjDGNvfTalLmSorkDFw",
+      "pdfPath": "reports/52893.pdf"
     },
     {
       "id": 52899,
@@ -561617,7 +561619,9 @@ window.AUCTION_DATA = {
         "village": 1,
         "block": 33,
         "plot": 2530
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5aojaRlbahiWnyaR_5O4_E_ONveISB4yUB5oJhMRBBzg",
+      "pdfPath": "reports/52925.pdf"
     },
     {
       "id": 45389,
@@ -562337,7 +562341,9 @@ window.AUCTION_DATA = {
       },
       "firstSeenAt": "2026-08-21T02:18:38Z",
       "lastSeenInListingAt": "2026-08-27T14:56:34Z",
-      "image": "images/53210.jpg"
+      "image": "images/53210.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6U55CCp6_MRD8cityvn0FsqtMbogJ2fM8KnI7vxspUwA",
+      "pdfPath": "reports/53210.pdf"
     },
     {
       "id": 53235,
@@ -574716,7 +574722,9 @@ window.AUCTION_DATA = {
           "village_name": "الدامخي"
         }
       },
-      "image": "images/52927.jpg"
+      "image": "images/52927.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5mV0WJTg3vb682SViTOB_GsX78UqENVgzpfUAtXvu0Mw",
+      "pdfPath": "reports/52927.pdf"
     },
     {
       "id": 52930,
@@ -577636,5 +577644,5 @@ window.AUCTION_DATA = {
       "image": "images/53013.jpg"
     }
   ],
-  "lastRunAt": "2026-08-31 21:18:54"
+  "lastRunAt": "2026-09-01 01:06:43"
 };
