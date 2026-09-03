@@ -610393,7 +610393,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "7865",
       "publishedAt": "05/08/2026",
       "endDate": "2026-09-06 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52952",
       "details": {
@@ -610603,7 +610602,8 @@ window.AUCTION_DATA = {
           "village_id": 1,
           "village_name": "عمان"
         }
-      }
+      },
+      "image": "images/52952.jpg"
     },
     {
       "id": 52988,
@@ -611359,5 +611359,5 @@ window.AUCTION_DATA = {
       "lastSeenInListingAt": "2026-09-03T12:01:58Z"
     }
   ],
-  "lastRunAt": "2026-09-03 12:23:58"
+  "lastRunAt": "2026-09-03 19:04:52"
 };
