@@ -134764,7 +134764,9 @@ window.AUCTION_DATA = {
           "village_id": 104,
           "village_name": "ماعين"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da68s5mU_UdiOyvDNPVY_TtKbv8W7X1DOw_FrjzbmOByQg",
+      "pdfPath": "reports/47975.pdf"
     },
     {
       "id": 47970,
@@ -604980,5 +604982,5 @@ window.AUCTION_DATA = {
       "image": "images/53342.jpg"
     }
   ],
-  "lastRunAt": "2026-09-02 23:44:11"
+  "lastRunAt": "2026-09-03 05:34:36"
 };
