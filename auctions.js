@@ -610679,7 +610679,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "7866",
       "publishedAt": "06/08/2026",
       "endDate": "2026-09-06 15:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE&auction=52981",
       "details": {
@@ -610839,7 +610838,8 @@ window.AUCTION_DATA = {
           "village_id": 239,
           "village_name": "الكفير"
         }
-      }
+      },
+      "image": "images/52981.jpg"
     },
     {
       "id": 52982,
@@ -611039,7 +611039,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "21181",
       "publishedAt": "13/08/2026",
       "endDate": "2026-09-06 14:00:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu05vlj_v_JwN7CVz9XmLAnSY&auction=53479",
       "details": {
@@ -611059,7 +611058,8 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "13/08/2026"
       },
       "firstSeenAt": "2026-09-03T12:01:58Z",
-      "lastSeenInListingAt": "2026-09-03T12:01:58Z"
+      "lastSeenInListingAt": "2026-09-03T12:01:58Z",
+      "image": "images/53479.jpg"
     },
     {
       "id": 53465,
@@ -611327,7 +611327,6 @@ window.AUCTION_DATA = {
       "newspaperIssue": "7891",
       "publishedAt": "31/08/2026",
       "endDate": "2026-09-07 12:30:00",
-      "image": "",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=53461",
       "details": {
@@ -611356,8 +611355,9 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "31/08/2026"
       },
       "firstSeenAt": "2026-09-03T12:01:58Z",
-      "lastSeenInListingAt": "2026-09-03T12:01:58Z"
+      "lastSeenInListingAt": "2026-09-03T12:01:58Z",
+      "image": "images/53461.jpg"
     }
   ],
-  "lastRunAt": "2026-09-03 19:04:52"
+  "lastRunAt": "2026-09-03 21:36:08"
 };
