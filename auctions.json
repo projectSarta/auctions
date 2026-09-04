@@ -263560,7 +263560,9 @@
           "village_id": 215,
           "village_name": "الهاشمية"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da68zIuw4jl0nODLEcv0O9VdTFSNh4LOgf-2MJVqopw5vQ",
+      "pdfPath": "reports/51497.pdf"
     },
     {
       "id": 51509,
@@ -586923,7 +586925,9 @@
       },
       "firstSeenAt": "2026-08-27T14:56:34Z",
       "lastSeenInListingAt": "2026-09-03T12:01:58Z",
-      "image": "images/52091.jpg"
+      "image": "images/52091.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4GQf1K4cSqBctsYbbPb4whoTg1ffNRP2e1xyeEboHxHw",
+      "pdfPath": "reports/52091.pdf"
     },
     {
       "id": 53188,
@@ -587027,7 +587031,9 @@
       },
       "firstSeenAt": "2026-08-27T14:56:34Z",
       "lastSeenInListingAt": "2026-09-03T12:01:58Z",
-      "image": "images/53320.jpg"
+      "image": "images/53320.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4SjNIvJTUcuJe2rePqX9q1mnnNAgjaG_QRmlWiKcj4lQ",
+      "pdfPath": "reports/53320.pdf"
     },
     {
       "id": 53306,
@@ -587865,7 +587871,9 @@
       },
       "firstSeenAt": "2026-08-27T14:56:34Z",
       "lastSeenInListingAt": "2026-08-27T14:56:34Z",
-      "image": "images/53197.jpg"
+      "image": "images/53197.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4TrjByAWMGeSxOH6mMgNgPy4_PYmz9lSWGqqTS3Vf5zQ",
+      "pdfPath": "reports/53197.pdf"
     },
     {
       "id": 53195,
@@ -611365,5 +611373,5 @@
       "image": "images/53461.jpg"
     }
   ],
-  "lastRunAt": "2026-09-04 05:29:19"
+  "lastRunAt": "2026-09-04 11:56:04"
 }
