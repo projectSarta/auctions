@@ -135886,7 +135886,9 @@ window.AUCTION_DATA = {
           "village_id": 162,
           "village_name": "ناعور"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da52tmRqPTZR-lf_w_M4uAtfS7B3q_qTvPi4865F-9Y61Q",
+      "pdfPath": "reports/45128.pdf"
     },
     {
       "id": 45294,
@@ -142966,7 +142968,9 @@ window.AUCTION_DATA = {
           "village_id": 482,
           "village_name": "مغير السرحان"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da52rQD9bBPKmWzJ0eXCxGNRakN9s-uYI88_y8zKGA3d9g",
+      "pdfPath": "reports/50707.pdf"
     },
     {
       "id": 50622,
@@ -611361,5 +611365,5 @@ window.AUCTION_DATA = {
       "image": "images/53461.jpg"
     }
   ],
-  "lastRunAt": "2026-09-03 23:54:15"
+  "lastRunAt": "2026-09-04 05:29:19"
 };
