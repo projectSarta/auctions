@@ -601088,7 +601088,9 @@
           "village_id": 365,
           "village_name": "الهاشمية"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da40ps0Pk_Lw9MF97BzfI176hy4cvudb3sx7T3YscNGeag",
+      "pdfPath": "reports/53065.pdf"
     },
     {
       "id": 53208,
@@ -607701,7 +607703,9 @@
           "village_name": "خربة حنينا"
         }
       },
-      "image": "images/53064.jpg"
+      "image": "images/53064.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7MB103e8T6ub6gqGnWwPjGesj_8zHcsUir6dHw94uOJA",
+      "pdfPath": "reports/53064.pdf"
     },
     {
       "id": 53087,
@@ -607848,7 +607852,9 @@
           "village_id": 142,
           "village_name": "اليادودة"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da48PV5n_uSI2utyrBldFvoH_zxMu2wg9KtiGQ0iT_OQbA",
+      "pdfPath": "reports/53087.pdf"
     },
     {
       "id": 53075,
@@ -611373,5 +611379,5 @@
       "image": "images/53461.jpg"
     }
   ],
-  "lastRunAt": "2026-09-04 11:56:04"
+  "lastRunAt": "2026-09-04 18:54:33"
 }
