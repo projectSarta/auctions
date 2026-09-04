@@ -603780,7 +603780,9 @@ window.AUCTION_DATA = {
           "village_name": "وادي السير"
         }
       },
-      "image": "images/53049.jpg"
+      "image": "images/53049.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da49Dn6PtijoFjmJFLdLmqMLYBM0tkIygx9oPfrTd_psEw",
+      "pdfPath": "reports/53049.pdf"
     },
     {
       "id": 53160,
@@ -604707,7 +604709,9 @@ window.AUCTION_DATA = {
           "village_id": 174,
           "village_name": "البارحه"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6rzuypqp-_BQlgycpQUwBrz3CQ5o7XsCPR35ENxgykPA",
+      "pdfPath": "reports/53015.pdf"
     },
     {
       "id": 53038,
@@ -611381,5 +611385,5 @@ window.AUCTION_DATA = {
       "image": "images/53461.jpg"
     }
   ],
-  "lastRunAt": "2026-09-04 21:12:29"
+  "lastRunAt": "2026-09-04 23:45:52"
 };
