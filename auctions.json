@@ -601306,7 +601306,9 @@
           "village_id": 395,
           "village_name": "الفحيص"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4XIZvYozSRYXLaE4Mr5dwGpuzV-_3pNpvWr3lSMclKlw",
+      "pdfPath": "reports/53208.pdf"
     },
     {
       "id": 53288,
@@ -611379,5 +611381,5 @@
       "image": "images/53461.jpg"
     }
   ],
-  "lastRunAt": "2026-09-04 18:54:33"
+  "lastRunAt": "2026-09-04 21:12:29"
 }
