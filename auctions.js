@@ -601362,7 +601362,9 @@ window.AUCTION_DATA = {
         "block": 19,
         "plot": 53
       },
-      "image": "images/53288.jpg"
+      "image": "images/53288.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6hMy_j0BxpmgFgMKAX9UsY2oty7gaUtD5DDVCShtZJHg",
+      "pdfPath": "reports/53288.pdf"
     },
     {
       "id": 53179,
@@ -611385,5 +611387,5 @@ window.AUCTION_DATA = {
       "image": "images/53461.jpg"
     }
   ],
-  "lastRunAt": "2026-09-05 05:15:54"
+  "lastRunAt": "2026-09-05 11:19:01"
 };
