@@ -603314,7 +603314,9 @@ window.AUCTION_DATA = {
           "village_id": 350,
           "village_name": "ابو الزيغان"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7qJZtEk8aeEcSiYXw7zk_ApCGaTuLMyrQUqTN67lp2Dw",
+      "pdfPath": "reports/53179.pdf"
     },
     {
       "id": 52946,
@@ -604499,7 +604501,9 @@ window.AUCTION_DATA = {
           "village_name": "وادي السير"
         }
       },
-      "image": "images/53228.jpg"
+      "image": "images/53228.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5CqvmyKxvAfnN4EDI3YreTRrDDgEEHEDDwO_QWD-KhTQ",
+      "pdfPath": "reports/53228.pdf"
     },
     {
       "id": 53010,
@@ -604556,7 +604560,9 @@ window.AUCTION_DATA = {
         "village": 112,
         "block": 9,
         "plot": 264
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6ixD3pp_YTiEBcIvQSQjju-E9ByRWX0MCrdQZBO2eWxg",
+      "pdfPath": "reports/53010.pdf"
     },
     {
       "id": 53015,
@@ -604862,7 +604868,9 @@ window.AUCTION_DATA = {
           "village_name": "ياجوز"
         }
       },
-      "image": "images/53038.jpg"
+      "image": "images/53038.jpg",
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5fs5YfiLWO03ZyR7_VgdIiyazdNGpfyJZvfztGQ7c38Q",
+      "pdfPath": "reports/53038.pdf"
     },
     {
       "id": 53040,
@@ -607217,7 +607225,9 @@ window.AUCTION_DATA = {
           "village_id": 118,
           "village_name": "بدران"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5sru4k7FswE7xqqBwB6Vw6HHa42vP6k_paiDmidKC_Mg",
+      "pdfPath": "reports/53040.pdf"
     },
     {
       "id": 53043,
@@ -607390,7 +607400,9 @@ window.AUCTION_DATA = {
           "village_id": 118,
           "village_name": "بدران"
         }
-      }
+      },
+      "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da59GoMxehVQ2LgmhX83CwPMb74g65LgD1V5Yy45N-LmcQ",
+      "pdfPath": "reports/53043.pdf"
     },
     {
       "id": 53064,
@@ -611387,5 +611399,5 @@ window.AUCTION_DATA = {
       "image": "images/53461.jpg"
     }
   ],
-  "lastRunAt": "2026-09-05 11:19:01"
+  "lastRunAt": "2026-09-05 18:04:12"
 };
