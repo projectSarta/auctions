@@ -1088,9 +1088,12 @@
     // Build the link at display time from the category token — scrape.ps1
     // refreshes categories[].token on every run, so this heals itself when
     // MoJ rotates tokens again.
+    // Fragment is case-sensitive and MoJ's lot elements are id="Auction_<id>"
+    // (capital A). Scrolling only happens when the lot is on the rendered
+    // page (MoJ paginates 10/page via postback — no per-auction GET URL exists).
     const catTok = tokenByCategory[a.category];
     document.getElementById('detailSourceLink').href = catTok
-      ? `https://auctions.moj.gov.jo/AuctionsList.aspx?token=${encodeURIComponent(catTok)}#auction_${a.id}`
+      ? `https://auctions.moj.gov.jo/AuctionsList.aspx?token=${encodeURIComponent(catTok)}#Auction_${a.id}`
       : (a.sourceUrl || data.source);
 
     // Expert-report PDF link. Three modes, picked in this order:
