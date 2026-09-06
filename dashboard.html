@@ -1083,7 +1083,15 @@
   function openAuctionModal(a) {
     modalCurrentAuction = a;
     document.getElementById('detailTitle').textContent = a.header || `مزاد رقم ${a.id}`;
-    document.getElementById('detailSourceLink').href = a.sourceUrl || data.source;
+    // MoJ change (2026-09): AuctionsList.aspx without ?token= now 302s to
+    // index.aspx, so the stored token-less sourceUrl bounces to the homepage.
+    // Build the link at display time from the category token — scrape.ps1
+    // refreshes categories[].token on every run, so this heals itself when
+    // MoJ rotates tokens again.
+    const catTok = tokenByCategory[a.category];
+    document.getElementById('detailSourceLink').href = catTok
+      ? `https://auctions.moj.gov.jo/AuctionsList.aspx?token=${encodeURIComponent(catTok)}#auction_${a.id}`
+      : (a.sourceUrl || data.source);
 
     // Expert-report PDF link. Three modes, picked in this order:
     //   1) a.pdfPath is set  → we've downloaded the PDF and committed it to
