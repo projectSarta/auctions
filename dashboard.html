@@ -1022,7 +1022,7 @@
         <td class="col-vehicle-type">${escapeHtml(a.vehicleType || '')}</td>
         <td class="header-cell"><div class="header-text">${escapeHtml(a.header)}</div></td>
         <td>${escapeHtml(a.court || '-')}</td>
-        <td>${escapeHtml(a.announcement || '-')}</td>
+        <td>${escapeHtml(a.announcement || '-')}${(a.announcementSerial > 1) ? ` <span class="badge rounded-pill text-bg-warning" title="أُعلن عن هذا المزاد ${a.announcementSerial} مرات — إعادة الإعلان عادةً تعني بيعاً متعثراً">×${a.announcementSerial}</span>` : ''}</td>
         <td>${escapeHtml(a.village || '-')}</td>
         <td class="num">${escapeHtml(a.endDate || '-')}</td>
         <td>${fmtDays(a._endDateMs ? new Date(a._endDateMs) : null)}</td>
@@ -1261,6 +1261,12 @@
     rowsHtml.push(`<table class="table modal-detail-table mb-0">`);
     rowsHtml.push(`<tr><th>الفئة</th><td>${escapeHtml(a.category)}</td></tr>`);
     rowsHtml.push(`<tr><th>رقم المزاد</th><td class="num">${escapeHtml(String(a.id))}</td></tr>`);
+    if (a.announcementSerial > 0) {
+      const serNote = a.announcementSerial > 1
+        ? ` <span class="text-danger">(أُعيد الإعلان ${a.announcementSerial - 1} ${a.announcementSerial === 2 ? 'مرة' : 'مرات'})</span>`
+        : ' (الإعلان الأول)';
+      rowsHtml.push(`<tr><th>جولة الإعلان</th><td class="num">${a.announcementSerial}${serNote}</td></tr>`);
+    }
     Object.entries(a.details || {}).forEach(([k, v]) => {
       rowsHtml.push(`<tr><th>${escapeHtml(k)}</th><td>${escapeHtml(v)}</td></tr>`);
     });

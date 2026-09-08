@@ -229,6 +229,15 @@ function Parse-Auctions([string]$html, [string]$category) {
     $cm = [regex]::Match($blk, 'SetCurrentAuctionID\(' + $id + '\)\s*;\s*SetAuctionData\((\d+)')
     if ($cm.Success) { $caseId = [int]$cm.Groups[1].Value }
 
+    # Announcement round number (hidden input CurrentAnnouncementSerial_<id>).
+    # 1 = first announcement; higher = the lot has been re-announced that many
+    # times (failed sales / extensions) — a useful bargain signal the site has
+    # always carried but we never harvested.
+    $annSerial = 0
+    $asm = [regex]::Match($blk, 'id="CurrentAnnouncementSerial_' + $id + '"[^>]*value="(\d+)"')
+    if (-not $asm.Success) { $asm = [regex]::Match($blk, 'value="(\d+)"[^>]*id="CurrentAnnouncementSerial_' + $id + '"') }
+    if ($asm.Success) { $annSerial = [int]$asm.Groups[1].Value }
+
     $details = [ordered]@{}
     $rows = [regex]::Split($blk, '<div class="row div-seperator">')
     for ($r = 1; $r -lt $rows.Count; $r++) {
@@ -251,6 +260,7 @@ function Parse-Auctions([string]$html, [string]$category) {
       caseNumber      = $details['رقم الدعوى']
       status          = $details['حالة المزاد']
       announcement    = $details['الإعلان']
+      announcementSerial = $annSerial
       announcementStart = $details['تاريخ بداية الاعلان']
       announcementEnd = $details['تاريخ انتهاء الاعلان']
       startingAmount  = $startAmt
@@ -576,6 +586,18 @@ foreach ($cat in $categories) {
             if ($it.announcementEnd -and $existing.announcementEnd -ne $it.announcementEnd) {
               $existing.announcementEnd = $it.announcementEnd
               $changed = $true
+            }
+            # announcementSerial: rounds count from CurrentAnnouncementSerial_<id>.
+            # Older rows don't have the property yet, so Add-Member (not plain
+            # assignment, which throws under ErrorActionPreference=Stop).
+            $newSer = $it.announcementSerial
+            if ($null -ne $newSer -and $newSer -gt 0) {
+              $hasSer = $existing.PSObject.Properties.Match('announcementSerial').Count -gt 0
+              if (-not $hasSer -or $existing.announcementSerial -ne $newSer) {
+                if ($hasSer) { $existing.announcementSerial = $newSer }
+                else { $existing | Add-Member -MemberType NoteProperty -Name 'announcementSerial' -Value $newSer -Force }
+                $changed = $true
+              }
             }
             if ($changed) { $updatedCount++ }
           }
