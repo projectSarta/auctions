@@ -1267,6 +1267,18 @@
         : ' (الإعلان الأول)';
       rowsHtml.push(`<tr><th>جولة الإعلان</th><td class="num">${a.announcementSerial}${serNote}</td></tr>`);
     }
+    if (a._liveCancelled) {
+      rowsHtml.push(`<tr><th class="text-danger">⛔ ملغى (مباشر)</th><td class="text-danger">${escapeHtml(a._liveCancelReason || 'أُلغي هذا المزاد أثناء البث المباشر')}</td></tr>`);
+    }
+    const liveHist = (typeof liveBidHistory !== 'undefined') ? liveBidHistory.get(Number(a.id)) : null;
+    if (liveHist && liveHist.length) {
+      const items = liveHist.slice(-8).reverse().map(b => {
+        const t = new Date(b.at);
+        const hh = String(t.getHours()).padStart(2, '0'), mm = String(t.getMinutes()).padStart(2, '0');
+        return `${fmtNum(b.amount)} <span class="text-muted">(${hh}:${mm})</span>`;
+      }).join('<br>');
+      rowsHtml.push(`<tr><th>🔴 مزايدات مباشرة</th><td class="num">${items}</td></tr>`);
+    }
     Object.entries(a.details || {}).forEach(([k, v]) => {
       rowsHtml.push(`<tr><th>${escapeHtml(k)}</th><td>${escapeHtml(v)}</td></tr>`);
     });
@@ -2202,6 +2214,52 @@
   renderTeamUi();
   // If a session is already active (page reload), pull fresh data quietly.
   if (isTeamLoggedIn()) pullSharedFavorites().then(() => apply());
+
+  // ===== Live overlay from live_bids.json (SignalR tracker sidecar) =====
+  // live_bids.ps1 subscribes to MoJ's SignalR biddingHub and pushes state to
+  // live_bids.json every few minutes. Same-origin on GitHub Pages — no CORS,
+  // no proxy. Entries carry live bids, anti-snipe end-date extensions, and
+  // cancellations (with reason) that plain scrapes never see.
+  const LIVE_FEED_FRESH_MS = 30 * 60 * 1000;   // ignore a feed older than 30 min
+  const liveBidHistory = new Map();            // id -> [{at, amount}]
+  const applyLiveFeed = (doc) => {
+    if (!doc || !doc.updatedAt) return;
+    if (!(Date.now() - Date.parse(doc.updatedAt) < LIVE_FEED_FRESH_MS)) return;
+    let needRerender = 0;
+    (doc.auctions || []).forEach(e => {
+      const id = Number(e.id);
+      const a = auctionById.get(id);
+      if (!a) return;
+      if (Array.isArray(e.bids) && e.bids.length) liveBidHistory.set(id, e.bids);
+      if (e.lastEventAt) a._liveAt = Date.parse(e.lastEventAt);
+      if (e.currentAmount != null) applyBidUpdate(id, +e.currentAmount, NaN);
+      if (e.endDate) {
+        const ms = Date.parse(String(e.endDate).replace(' ', 'T'));
+        if (Number.isFinite(ms) && ms !== a._endDateMs) {
+          a.endDate = String(e.endDate);
+          a._endDateMs = ms;
+          a._daysLeftMs = ms - Date.now();
+          needRerender++;
+        }
+      }
+      if (e.cancelled && !a._liveCancelled) {
+        a._liveCancelled = true;
+        a._liveCancelReason = e.cancelReason || '';
+        needRerender++;
+      }
+    });
+    if (needRerender) apply();
+  };
+  const refreshLiveFeed = async () => {
+    if (document.hidden) return;
+    try {
+      const r = await fetch('live_bids.json?_=' + Date.now(), { cache: 'no-store' });
+      if (!r.ok) return;
+      applyLiveFeed(await r.json());
+    } catch {}
+  };
+  setTimeout(refreshLiveFeed, 1500);
+  setInterval(refreshLiveFeed, 60000);
 
   // ===== Live bid polling (Option B1) =====
   // Polls WORKER_URL/api/bids?token=<cat> every ~25s for each category that

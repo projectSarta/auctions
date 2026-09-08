@@ -1,0 +1,52 @@
+name: Live Bid Tracker
+
+# MoJ auctions close at 15:00 Amman (12:00 UTC), with anti-snipe extensions
+# pushing some lots past that. Bidding activity concentrates in the final
+# hours, so three sessions cover 13:20 -> ~15:35 Amman:
+#   10:20 UTC (13:20 Amman, 55 min)
+#   11:20 UTC (14:20 Amman, 55 min)
+#   12:20 UTC (15:20 Amman, 40 min — extension overtime)
+# Each session subscribes to lots ending within 30h via MoJ's SignalR
+# biddingHub and pushes live_bids.json every 5 minutes; the dashboard
+# overlays it (live bids, end-date extensions, cancellations + reasons).
+#
+# MoJ's anti-bot may block GitHub runner IPs (as it does for scrapes) —
+# a blocked session fails fast and cheap; local runs of live_bids.ps1
+# remain the reliable path.
+on:
+  schedule:
+    - cron: '20 10 * * *'
+    - cron: '20 11 * * *'
+    - cron: '20 12 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  track:
+    runs-on: windows-latest
+    timeout-minutes: 70
+    concurrency:
+      group: live-bids
+      cancel-in-progress: false
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure git identity
+        shell: pwsh
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+      - name: Run live bid tracker
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Continue'
+          $minutes = if ('${{ github.event.schedule }}' -eq '20 12 * * *') { 40 } else { 55 }
+          .\live_bids.ps1 -Minutes $minutes -WindowHours 30 -PushEveryMin 5
+        continue-on-error: true
