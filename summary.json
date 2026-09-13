@@ -1,6 +1,6 @@
 {
-    "generatedAt":  "2026-09-13T15:30:41Z",
-    "dataScrapedAt":  "2026-09-13 17:34:29",
+    "generatedAt":  "2026-09-13T18:36:32Z",
+    "dataScrapedAt":  "2026-09-13 18:34:31",
     "totals":  {
                    "all":  4500,
                    "active":  359
@@ -9,7 +9,7 @@
     "endingInWeek":  272,
     "reAnnounced":  31,
     "withReport":  304,
-    "withMap":  105,
+    "withMap":  183,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -155,7 +155,7 @@
                          "numBids":  0,
                          "serial":  6,
                          "hasReport":  true,
-                         "hasMap":  false
+                         "hasMap":  true
                      },
                      {
                          "id":  49090,
