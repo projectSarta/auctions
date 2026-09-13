@@ -1,14 +1,14 @@
 {
-    "generatedAt":  "2026-09-13T21:22:52Z",
-    "dataScrapedAt":  "2026-09-13 21:22:16",
+    "generatedAt":  "2026-09-13T23:46:08Z",
+    "dataScrapedAt":  "2026-09-13 23:45:32",
     "totals":  {
                    "all":  4500,
-                   "active":  356
+                   "active":  355
                },
-    "endingIn24h":  22,
-    "endingInWeek":  269,
+    "endingIn24h":  23,
+    "endingInWeek":  268,
     "reAnnounced":  31,
-    "withReport":  301,
+    "withReport":  300,
     "withMap":  183,
     "categories":  [
                        {
@@ -28,7 +28,7 @@
                        },
                        {
                            "name":  "أُخرى",
-                           "active":  19,
+                           "active":  18,
                            "total":  294
                        },
                        {
@@ -38,19 +38,6 @@
                        }
                    ],
     "closingSoon":  [
-                        {
-                            "id":  53411,
-                            "category":  "أُخرى",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-09-13 22:00:00",
-                            "estimatedValue":  220,
-                            "currentAmount":  120,
-                            "numBids":  1,
-                            "serial":  1,
-                            "hasReport":  true,
-                            "hasMap":  false
-                        },
                         {
                             "id":  53622,
                             "category":  "مركبة",
@@ -115,6 +102,19 @@
                             "serial":  1,
                             "hasReport":  true,
                             "hasMap":  false
+                        },
+                        {
+                            "id":  52598,
+                            "category":  "شقة/ مكتب",
+                            "court":  "تنفيذ الكرك",
+                            "place":  "الثنيه · اراضي الكرك",
+                            "endDate":  "2026-09-14 15:00:00",
+                            "estimatedValue":  61015,
+                            "currentAmount":  31600,
+                            "numBids":  1,
+                            "serial":  2,
+                            "hasReport":  true,
+                            "hasMap":  true
                         }
                     ],
     "bargains":  [
