@@ -1,5 +1,5 @@
 {
-    "generatedAt":  "2026-09-13T15:08:58Z",
+    "generatedAt":  "2026-09-13T15:30:41Z",
     "dataScrapedAt":  "2026-09-13 17:34:29",
     "totals":  {
                    "all":  4500,
@@ -8,7 +8,7 @@
     "endingIn24h":  24,
     "endingInWeek":  272,
     "reAnnounced":  31,
-    "withReport":  200,
+    "withReport":  304,
     "withMap":  105,
     "categories":  [
                        {
@@ -100,7 +100,7 @@
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  1,
-                            "hasReport":  false,
+                            "hasReport":  true,
                             "hasMap":  false
                         },
                         {
@@ -154,7 +154,7 @@
                          "currentAmount":  0,
                          "numBids":  0,
                          "serial":  6,
-                         "hasReport":  false,
+                         "hasReport":  true,
                          "hasMap":  false
                      },
                      {
