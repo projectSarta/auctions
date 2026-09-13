@@ -172,8 +172,6 @@
   .thumb { width: 56px; height: 42px; object-fit: cover; border-radius: 4px; display: inline-block; vertical-align: middle; margin-left: .35rem; background: var(--color-primary-soft); }
   .ending-soon { color: var(--color-red); font-weight: 700; }
   .ending-week { color: var(--color-gold-deep); font-weight: 600; }
-  .header-cell { max-width: 360px; }
-  .header-cell .header-text { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
   .modal-detail-table th { width: 40%; background: var(--color-primary-soft); color: var(--text-primary); font-weight: 600; }
   .modal-detail-table td, .modal-detail-table th { padding: .5rem .75rem; }
   /* Serif tabular figures instead of monospace — matches the landing page and
@@ -437,10 +435,11 @@
           <th data-sort="isFav" title="المفضلة">⭐<span class="sort-ind"></span></th>
           <th data-sort="category">الفئة<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="category" title="تصفية">▼</button></th>
           <th data-sort="vehicleType" class="col-vehicle-type">نوع المركبة<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="vehicleType" title="تصفية">▼</button></th>
-          <th data-sort="header">عنوان المزاد<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="header" title="تصفية">▼</button></th>
           <th data-sort="court">المحكمة<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="court" title="تصفية">▼</button></th>
           <th data-sort="announcement">الإعلان<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="announcement" title="تصفية">▼</button></th>
+          <th data-sort="directorate">المديرية<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="directorate" title="تصفية">▼</button></th>
           <th data-sort="village">القرية<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="village" title="تصفية">▼</button></th>
+          <th data-sort="basin">الحوض<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="basin" title="تصفية">▼</button></th>
           <th data-sort="endDate">تاريخ الانتهاء<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="endDate" title="تصفية">▼</button></th>
           <th data-sort="daysLeft">باقي<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="daysLeft" title="تصفية">▼</button></th>
           <th data-sort="startingAmount">السعر الابتدائي<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="startingAmount" title="تصفية">▼</button></th>
@@ -1006,8 +1005,9 @@
     vehicleType:    { label: 'نوع المركبة',      type: 'select', sel: 'vehicleTypeFilter', get: a => a.vehicleType },
     court:          { label: 'المحكمة',          type: 'select', sel: 'courtFilter',       get: a => a.court },
     announcement:   { label: 'الإعلان',          type: 'select', sel: 'announcementFilter',get: a => a.announcement },
+    directorate:    { label: 'المديرية',         type: 'select', sel: 'dirFilter',         get: a => a.directorate },
     village:        { label: 'القرية',           type: 'select', sel: 'villageFilter',     get: a => a.village },
-    header:         { label: 'عنوان المزاد',     type: 'text',   get: a => a.header || '' },
+    basin:          { label: 'الحوض',            type: 'select', sel: 'basinFilter',       get: a => a.basin },
     endDate:        { label: 'تاريخ الانتهاء',   type: 'date',   get: a => a._endDateMs },
     daysLeft:       { label: 'باقي (أيام)',      type: 'range',  get: a => (a._daysLeftMs == null ? null : a._daysLeftMs / 86400000) },
     startingAmount: { label: 'السعر الابتدائي',  type: 'range',  get: a => a.startingAmountNum },
@@ -1200,10 +1200,11 @@
           ${a.image ? `<img src="${escapeHtml(a.image)}" class="thumb" loading="lazy" alt="">` : ''}
         </td>
         <td class="col-vehicle-type">${escapeHtml(a.vehicleType || '')}</td>
-        <td class="header-cell"><div class="header-text">${escapeHtml(a.header)}</div></td>
         <td>${escapeHtml(a.court || '-')}</td>
         <td>${escapeHtml(a.announcement || '-')}${(a.announcementSerial > 1) ? ` <span class="badge rounded-pill text-bg-warning" title="أُعلن عن هذا المزاد ${a.announcementSerial} مرات — إعادة الإعلان عادةً تعني بيعاً متعثراً">×${a.announcementSerial}</span>` : ''}</td>
+        <td>${escapeHtml(a.directorate || '-')}</td>
         <td>${escapeHtml(a.village || '-')}</td>
+        <td>${escapeHtml(a.basin || '-')}</td>
         <td class="num">${escapeHtml(a.endDate || '-')}</td>
         <td>${fmtDays(a._endDateMs ? new Date(a._endDateMs) : null)}</td>
         <td class="num">${fmtNum(a.startingAmount)}</td>
@@ -2420,8 +2421,11 @@
   // CSV export
   document.getElementById('exportCsv').addEventListener('click', () => {
     const rows = window._currentRows || auctions;
-    const headers = ['id','category','vehicleType','header','court','caseNumber','status','endDate','startingAmount','estimatedValue','currentAmount','numBids','newspaper','newspaperIssue','publishedAt','announcementStart','announcementEnd','minIncrement','notes','isFavorite'];
-    const arabicHeaders = ['الرقم','الفئة','نوع المركبة','عنوان المزاد','المحكمة','رقم الدعوى','الحالة','تاريخ الانتهاء','السعر الابتدائي','القيمة التقديرية','العرض الحالي','عدد المزاودات','الصحيفة','العدد','تاريخ النشر','بداية الإعلان','نهاية الإعلان','الحد الأدنى للزيادة','المشروحات','مفضلة'];
+    // Location fields added alongside the new المديرية / الحوض table columns.
+    // عنوان المزاد stays in the export even though it left the table — it was
+    // dropped there for width, and it is the most identifying field in a dump.
+    const headers = ['id','category','vehicleType','header','court','governorate','directorate','village','basin','caseNumber','status','endDate','startingAmount','estimatedValue','currentAmount','numBids','newspaper','newspaperIssue','publishedAt','announcementStart','announcementEnd','minIncrement','notes','isFavorite'];
+    const arabicHeaders = ['الرقم','الفئة','نوع المركبة','عنوان المزاد','المحكمة','المحافظة','المديرية','القرية','الحوض','رقم الدعوى','الحالة','تاريخ الانتهاء','السعر الابتدائي','القيمة التقديرية','العرض الحالي','عدد المزاودات','الصحيفة','العدد','تاريخ النشر','بداية الإعلان','نهاية الإعلان','الحد الأدنى للزيادة','المشروحات','مفضلة'];
     const esc = (v) => {
       if (v === null || v === undefined) return '';
       const s = String(v);
