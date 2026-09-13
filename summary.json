@@ -1,14 +1,14 @@
 {
-    "generatedAt":  "2026-09-13T14:35:10Z",
+    "generatedAt":  "2026-09-13T15:08:58Z",
     "dataScrapedAt":  "2026-09-13 17:34:29",
     "totals":  {
                    "all":  4500,
                    "active":  359
                },
-    "endingIn24h":  22,
+    "endingIn24h":  24,
     "endingInWeek":  272,
     "reAnnounced":  31,
-    "withReport":  118,
+    "withReport":  200,
     "withMap":  105,
     "categories":  [
                        {
@@ -61,7 +61,7 @@
                             "currentAmount":  11650,
                             "numBids":  4,
                             "serial":  1,
-                            "hasReport":  false,
+                            "hasReport":  true,
                             "hasMap":  false
                         },
                         {
@@ -113,7 +113,7 @@
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  1,
-                            "hasReport":  false,
+                            "hasReport":  true,
                             "hasMap":  false
                         }
                     ],
@@ -128,7 +128,7 @@
                          "currentAmount":  0,
                          "numBids":  0,
                          "serial":  13,
-                         "hasReport":  false,
+                         "hasReport":  true,
                          "hasMap":  false
                      },
                      {
