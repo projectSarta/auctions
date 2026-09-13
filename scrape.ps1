@@ -368,14 +368,19 @@ function Save-All([bool]$inProgress = $true) {
 # the last 48h, so stale rows naturally fall out without a separate cleanup.
 
 # ============================================================================
-# PASS A: Breadth-first page-1..7 sweep. Visit each category, walk up to 7
+# PASS A: Breadth-first page-1..12 sweep. Visit each category, walk up to 12
 # pages, upsert items (which eagerly stamps lastSeenInListingAt + firstSeenAt).
-# 7 pages × 10 items × 5 categories = ~350 items stamped even before PASS B
+# 12 pages × 10 items × 5 categories = ~600 items stamped even before PASS B
 # starts. Uses the same paginate-via-postback flow as PASS B, but limited to
-# 7 pages per category, so we bail early if MoJ blocks pagination on any one
+# 12 pages per category, so we bail early if MoJ blocks pagination on any one
 # category and still move on to the next.
+#
+# Raised 7 -> 12 on 2026-09-13: the tail past page 7 was only being reached by
+# PASS B's deep walk, which is the part MoJ's anti-bot most often cuts short —
+# so those rows went unstamped on a blocked run. Costs ~25 extra page requests
+# per sweep (35 -> 60), each behind the usual jittered delay.
 # ============================================================================
-$SweepMaxPages = 7
+$SweepMaxPages = 12
 Write-Host ""
 Write-Host ("==== PASS A: breadth-first sweep (up to {0} pages/category) ====" -f $SweepMaxPages) -ForegroundColor Magenta
 $sweepNowIso = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
