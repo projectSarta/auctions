@@ -394,7 +394,8 @@ footer a { color: var(--navy); font-weight: 600; }
   // always writing "N ساعة", which reads wrong for 2 and for 3–10.
   function ago(ms) {
     var m = Math.floor(ms / 60000);
-    if (m < 60) return m <= 1 ? 'قبل أقل من ساعة' : 'قبل ' + m + ' دقيقة';
+    if (m < 1) return 'الآن';
+    if (m < 60) return m === 1 ? 'قبل دقيقة' : m === 2 ? 'قبل دقيقتين' : m <= 10 ? 'قبل ' + m + ' دقائق' : 'قبل ' + m + ' دقيقة';
     var h = Math.floor(m / 60);
     if (h < 24) return h === 1 ? 'قبل ساعة' : h === 2 ? 'قبل ساعتين' : h <= 10 ? 'قبل ' + h + ' ساعات' : 'قبل ' + h + ' ساعة';
     var d = Math.floor(h / 24);
