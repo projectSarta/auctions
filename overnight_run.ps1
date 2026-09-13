@@ -64,6 +64,12 @@ Step 'Phase 5b: enrich aradi polygons (active land rows)' {
   & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_aradi.ps1') -MaxItems 400 -DelayMs 250
 }
 
+# Phase 5c: rebuild summary.json — the landing page (index.html) reads this
+# few-KB digest instead of the ~17 MB auctions.json.
+Step 'Phase 5c: build landing-page summary' {
+  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'build_summary.ps1')
+}
+
 # Phase 6: resize all images to thumbnails to stay under GitHub Pages limits
 Step 'Phase 6: resize images' {
   & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'resize_images.ps1')
@@ -90,7 +96,7 @@ Step 'Phase 7: commit + push' {
   } catch { Write-Host "lastRunAt stamp note: $($_.Exception.Message)" }
 
   try {
-    & git add auctions.js auctions.json images reports dashboard.html enrich_images.ps1 enrich_reports.ps1 enrich_aradi.ps1 resize_images.ps1 overnight_run.ps1 probe_report.ps1 2>&1 | Out-String | Write-Host
+    & git add auctions.js auctions.json summary.json images reports dashboard.html index.html enrich_images.ps1 enrich_reports.ps1 enrich_aradi.ps1 build_summary.ps1 resize_images.ps1 overnight_run.ps1 probe_report.ps1 2>&1 | Out-String | Write-Host
   } catch { Write-Host "git add note: $($_.Exception.Message)" }
   $status = (& git status --porcelain 2>$null) -join "`n"
   if (-not $status) { Write-Host "nothing to commit"; return }

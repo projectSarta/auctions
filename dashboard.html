@@ -1369,15 +1369,46 @@
     }
   });
 
-  // ---- Deep-link entry: #auction=<id> opens that auction's modal on load ----
-  // Deferred with setTimeout so the whole script has evaluated first —
-  // openAuctionModal touches state declared further down the file.
-  setTimeout(() => {
-    const m = (location.hash || '').match(/^#auction=(\d+)$/);
-    if (!m) return;
-    const a = auctionById.get(Number(m[1]));
-    if (a) openAuctionModal(a);
-  }, 0);
+  // ---- Deep-link entry ----
+  //   #auction=<id>   open that lot's modal
+  //   #cat=<name>     show only that category (landing-page tiles)
+  //   #view=ending24  | #view=week   turn on the matching time filter
+  // Deferred with setTimeout so the whole script has evaluated first — these
+  // handlers touch state (setCategorySole, toggles) declared further down.
+  const applyDeepLink = () => {
+    const hash = location.hash || '';
+    const mAuction = hash.match(/^#auction=(\d+)$/);
+    if (mAuction) {
+      const a = auctionById.get(Number(mAuction[1]));
+      if (a) openAuctionModal(a);
+      return;
+    }
+    const mCat = hash.match(/^#cat=(.+)$/);
+    if (mCat) {
+      let name = '';
+      try { name = decodeURIComponent(mCat[1]); } catch { name = mCat[1]; }
+      // Only act on a category we actually have, so a stale link can't blank the table.
+      if (allCategoryNames.includes(name)) setCategorySole(name);
+      return;
+    }
+    const mView = hash.match(/^#view=(ending24|week)$/);
+    if (mView) {
+      const cls = mView[1] === 'ending24' ? 'filter-endsIn24h' : 'filter-endsInWeek';
+      if (!document.body.classList.contains(cls)) {
+        document.body.classList.add(cls);
+        try { localStorage.setItem(mView[1] === 'ending24' ? ENDS_IN_24H_KEY : ENDS_IN_WEEK_KEY, '1'); } catch {}
+        apply();
+      }
+    }
+  };
+  // setTimeout(0) for the initial pass: this runs before the consts it calls
+  // (setCategorySole, the filter keys) are initialised further down the file.
+  setTimeout(applyDeepLink, 0);
+  // Re-apply when only the fragment changes — arriving at a #cat= link while
+  // already on the dashboard is a same-document navigation, so without this
+  // the link would silently do nothing. Neither of our own replaceState calls
+  // (modal open/close) fires hashchange, so there is no feedback loop.
+  window.addEventListener('hashchange', applyDeepLink);
 
   // ==== Map (Leaflet + aradi.io exact-parcel lookup) ====
   let _leafletMap = null;
