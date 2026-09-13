@@ -257,6 +257,10 @@ footer a { color: var(--navy); font-weight: 600; }
   .stat { padding: 18px 16px 16px; }
   .stat .value { font-size: 2rem; }
   .stat .arrow { display: none; }
+  /* Content-width buttons stack ragged on a phone — go full-width so the
+     two CTAs share one edge instead of stepping in and out. */
+  .cta-row { flex-direction: column; align-items: stretch; }
+  .cta-row .btn { width: 100%; justify-content: center; }
 }
 </style>
 </head>
@@ -470,12 +474,17 @@ footer a { color: var(--navy); font-weight: 600; }
              '</a>';
     }).join('') : '<div class="empty">لا توجد فئات.</div>';
 
-    var cs = d.closingSoon || [];
+    // Both lists are frozen at scrape time, but the page is read minutes or
+    // hours later — lots expire in between. Drop anything already closed so
+    // "يغلق قريباً" never shows a lot marked انتهى.
+    function live(x) { var e = pd(x.endDate); return e === null || e > Date.now(); }
+
+    var cs = (d.closingSoon || []).filter(live);
     $('closing').innerHTML = cs.length
       ? cs.map(function (x) { return lotHtml(x, 'closing'); }).join('')
       : '<div class="empty">لا توجد مزادات نشطة قريبة الانتهاء.</div>';
 
-    var bg = d.bargains || [];
+    var bg = (d.bargains || []).filter(live);
     $('bargains').innerHTML = bg.length
       ? bg.map(function (x) { return lotHtml(x, 'bargain'); }).join('')
       : '<div class="empty">لا توجد قطع مُعاد إعلانها ضمن المعروض الحالي.</div>';
