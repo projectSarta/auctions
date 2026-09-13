@@ -112,6 +112,45 @@
     border-bottom: 2px solid var(--color-gold);
   }
   table.dash th .sort-ind { opacity: .5; font-size: .75rem; }
+  /* ── Per-column filters ────────────────────────────────────────────────
+     The funnel sits inside the <th>; the popover is appended to <body> and
+     positioned fixed, NOT nested in the cell — .table-responsive scrolls
+     (overflow-x: auto) and would otherwise clip it, the same trap that bit
+     the filter-card dropdowns. */
+  table.dash th { position: relative; }
+  .col-filter-btn {
+    background: none; border: 0; padding: 0 4px; margin-inline-start: 4px;
+    color: rgba(255,255,255,.55); cursor: pointer; font-size: .8rem; line-height: 1;
+    border-radius: 4px; vertical-align: middle;
+  }
+  .col-filter-btn:hover { color: #fff; background: rgba(255,255,255,.12); }
+  .col-filter-btn:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 1px; }
+  .col-filter-btn.is-active { color: var(--color-gold); background: rgba(201,169,97,.18); }
+  table.dash th.has-filter { box-shadow: inset 0 -3px 0 var(--color-gold); }
+
+  .col-pop {
+    position: fixed; z-index: 1090; width: 268px; max-width: 94vw;
+    background: var(--color-surface); border: 1px solid var(--color-border);
+    border-radius: 10px; box-shadow: 0 12px 32px -10px rgba(14,36,56,.35);
+    padding: 10px; display: none;
+  }
+  .col-pop.show { display: block; }
+  .col-pop .cp-title { font-size: .78rem; color: var(--text-muted); margin-bottom: 7px; font-weight: 600; }
+  .col-pop input[type="text"], .col-pop input[type="number"], .col-pop input[type="date"] {
+    width: 100%; font-size: .85rem; padding: .3rem .45rem;
+    border: 1px solid var(--color-border); border-radius: 6px; background: #fff; color: var(--text-primary);
+  }
+  .col-pop .cp-range { display: flex; gap: 6px; align-items: center; }
+  .col-pop .cp-range span { color: var(--text-muted); font-size: .78rem; }
+  .col-pop .cp-list { max-height: 220px; overflow-y: auto; margin-top: 7px; border-top: 1px solid var(--color-border); padding-top: 6px; }
+  .col-pop .cp-opt { display: flex; align-items: center; gap: 7px; padding: 3px 2px; font-size: .85rem; cursor: pointer; }
+  .col-pop .cp-opt:hover { background: var(--color-primary-soft); border-radius: 4px; }
+  .col-pop .cp-opt .cnt { margin-inline-start: auto; color: var(--text-tertiary); font-size: .75rem; }
+  .col-pop .cp-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 9px; gap: 8px; }
+  .col-pop .cp-foot button { font-size: .8rem; padding: .25rem .6rem; border-radius: 6px; cursor: pointer; }
+  .col-pop .cp-clear { background: none; border: 0; color: var(--color-red); }
+  .col-pop .cp-apply { background: var(--color-primary); border: 1px solid var(--color-primary); color: #fff; font-weight: 600; }
+  .col-pop .cp-empty { color: var(--text-tertiary); font-size: .82rem; padding: 8px 2px; }
   table.dash td { vertical-align: middle; color: var(--text-body); border-color: var(--color-border); }
   /* The table is the page's main surface — give it the same card shape as the
      stat and filter cards rather than letting it run edge-to-edge. */
@@ -396,18 +435,18 @@
       <thead>
         <tr>
           <th data-sort="isFav" title="المفضلة">⭐<span class="sort-ind"></span></th>
-          <th data-sort="category">الفئة<span class="sort-ind"></span></th>
-          <th data-sort="vehicleType" class="col-vehicle-type">نوع المركبة<span class="sort-ind"></span></th>
-          <th data-sort="header">عنوان المزاد<span class="sort-ind"></span></th>
-          <th data-sort="court">المحكمة<span class="sort-ind"></span></th>
-          <th data-sort="announcement">الإعلان<span class="sort-ind"></span></th>
-          <th data-sort="village">القرية<span class="sort-ind"></span></th>
-          <th data-sort="endDate">تاريخ الانتهاء<span class="sort-ind"></span></th>
-          <th data-sort="daysLeft">باقي<span class="sort-ind"></span></th>
-          <th data-sort="startingAmount">السعر الابتدائي<span class="sort-ind"></span></th>
-          <th data-sort="estimatedValue">القيمة التقديرية<span class="sort-ind"></span></th>
-          <th data-sort="currentAmount">العرض الحالي<span class="sort-ind"></span></th>
-          <th data-sort="numBids">المزاودات<span class="sort-ind"></span></th>
+          <th data-sort="category">الفئة<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="category" title="تصفية">▼</button></th>
+          <th data-sort="vehicleType" class="col-vehicle-type">نوع المركبة<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="vehicleType" title="تصفية">▼</button></th>
+          <th data-sort="header">عنوان المزاد<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="header" title="تصفية">▼</button></th>
+          <th data-sort="court">المحكمة<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="court" title="تصفية">▼</button></th>
+          <th data-sort="announcement">الإعلان<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="announcement" title="تصفية">▼</button></th>
+          <th data-sort="village">القرية<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="village" title="تصفية">▼</button></th>
+          <th data-sort="endDate">تاريخ الانتهاء<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="endDate" title="تصفية">▼</button></th>
+          <th data-sort="daysLeft">باقي<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="daysLeft" title="تصفية">▼</button></th>
+          <th data-sort="startingAmount">السعر الابتدائي<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="startingAmount" title="تصفية">▼</button></th>
+          <th data-sort="estimatedValue">القيمة التقديرية<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="estimatedValue" title="تصفية">▼</button></th>
+          <th data-sort="currentAmount">العرض الحالي<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="currentAmount" title="تصفية">▼</button></th>
+          <th data-sort="numBids">المزاودات<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="numBids" title="تصفية">▼</button></th>
         </tr>
       </thead>
       <tbody id="auctionBody"></tbody>
@@ -952,6 +991,79 @@
     return vals.length ? new Set(vals) : null;
   };
   const selectedHas = (set, value) => !set || set.has(value || '');
+
+  // ==== Per-column header filters ==========================================
+  // Columns that already have a control in the filters card drive that SAME
+  // <select> ('select' type) rather than keeping a second, competing copy of
+  // the state — two sources of truth for "category" would silently disagree.
+  // Columns with no card equivalent get their own state in colState.
+  // `get` is the source of truth for what a column *contains*: the faceted
+  // value lists are built from the rows themselves, so the popover always
+  // offers exactly the values present in that column (with live counts),
+  // rather than whatever a pre-populated <select> happened to hold.
+  const COL_DEFS = {
+    category:       { label: 'الفئة',            type: 'select', sel: 'categoryFilter',    get: a => a.category },
+    vehicleType:    { label: 'نوع المركبة',      type: 'select', sel: 'vehicleTypeFilter', get: a => a.vehicleType },
+    court:          { label: 'المحكمة',          type: 'select', sel: 'courtFilter',       get: a => a.court },
+    announcement:   { label: 'الإعلان',          type: 'select', sel: 'announcementFilter',get: a => a.announcement },
+    village:        { label: 'القرية',           type: 'select', sel: 'villageFilter',     get: a => a.village },
+    header:         { label: 'عنوان المزاد',     type: 'text',   get: a => a.header || '' },
+    endDate:        { label: 'تاريخ الانتهاء',   type: 'date',   get: a => a._endDateMs },
+    daysLeft:       { label: 'باقي (أيام)',      type: 'range',  get: a => (a._daysLeftMs == null ? null : a._daysLeftMs / 86400000) },
+    startingAmount: { label: 'السعر الابتدائي',  type: 'range',  get: a => a.startingAmountNum },
+    estimatedValue: { label: 'القيمة التقديرية', type: 'range',  get: a => a.estimatedValueNum },
+    currentAmount:  { label: 'العرض الحالي',     type: 'range',  get: a => a.currentAmountNum },
+    numBids:        { label: 'المزاودات',        type: 'range',  get: a => a.numBidsNum },
+  };
+  const colState = {};   // col -> {min,max} | {q} | {from,to}
+
+  const colIsActive = (col) => {
+    const d = COL_DEFS[col];
+    if (!d) return false;
+    if (d.type === 'select') {
+      return [...document.getElementById(d.sel).selectedOptions].some(o => o.value !== '');
+    }
+    const s = colState[col];
+    if (!s) return false;
+    if (d.type === 'text')  return !!s.q;
+    return s.min != null || s.max != null || s.from != null || s.to != null;
+  };
+
+  function passesColFilters(a) {
+    for (const col in colState) {
+      const d = COL_DEFS[col], s = colState[col];
+      if (!d || !s) continue;
+      if (d.type === 'text') {
+        if (s.q && String(d.get(a) || '').toLowerCase().indexOf(s.q.toLowerCase()) < 0) return false;
+      } else if (d.type === 'range') {
+        const v = d.get(a);
+        // A row with no value can't satisfy a bound — exclude it, otherwise
+        // "min 5000" would keep rows whose amount is simply unknown.
+        if (s.min != null || s.max != null) {
+          if (v == null || !Number.isFinite(v)) return false;
+          if (s.min != null && v < s.min) return false;
+          if (s.max != null && v > s.max) return false;
+        }
+      } else if (d.type === 'date') {
+        const v = d.get(a);
+        if (s.from != null || s.to != null) {
+          if (v == null || !Number.isFinite(v)) return false;
+          if (s.from != null && v < s.from) return false;
+          if (s.to != null && v > s.to) return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  // Repaint the funnel + underline on every header after any filter change.
+  function refreshColIndicators() {
+    document.querySelectorAll('.col-filter-btn').forEach(btn => {
+      const on = colIsActive(btn.dataset.col);
+      btn.classList.toggle('is-active', on);
+      btn.closest('th')?.classList.toggle('has-filter', on);
+    });
+  }
   const searchTerms = (q) => q.trim().toLowerCase().split(/\s+/).filter(Boolean);
   const matches = (a, terms) => terms.length === 0 || terms.every(t => a._searchText.includes(t));
 
@@ -1029,6 +1141,7 @@
       selectedHas(vtypes, a.vehicleType) &&
       selectedHas(ptypes, (a.details || {})['نوع القطعة']) &&
       (!estRanges.length || inAnyRange(a.estimatedValueNum)) &&
+      passesColFilters(a) &&
       matches(a, terms)
     );
 
@@ -1055,6 +1168,9 @@
     renderTable(rows);
     document.getElementById('resultCount').textContent = `عرض ${rows.length} من أصل ${auctions.length} مزاد`;
     window._currentRows = rows;
+    // Keep the header funnels in sync however the filter changed — column
+    // popover, the filters card, a #cat= deep link, or the clear-all tile.
+    refreshColIndicators();
   };
 
   let applyQueued = false;
@@ -2018,6 +2134,155 @@
   const multiIds = ['categoryFilter','courtFilter','govFilter','dirFilter','villageFilter','basinFilter','announcementFilter','vehicleTypeFilter','plotTypeFilter','estValueFilter'];
   multiIds.forEach(id => setupMultiSelect(id, 'الكل'));
 
+  // ---- Column-filter popover -------------------------------------------
+  const colPop = document.createElement('div');
+  colPop.className = 'col-pop';
+  document.body.appendChild(colPop);   // body, not the cell: the table scrolls
+  let colPopFor = null;
+
+  const closeColPop = () => { colPop.classList.remove('show'); colPopFor = null; };
+
+  const fmtNumIn = (v) => (v == null ? '' : String(v));
+  const toNum = (s) => { const t = String(s).trim(); if (!t) return null; const n = +t; return Number.isFinite(n) ? n : null; };
+
+  function buildColPop(col) {
+    const d = COL_DEFS[col];
+    const s = colState[col] || {};
+    let body = '';
+    if (d.type === 'select') {
+      const sel = document.getElementById(d.sel);
+      const chosen = new Set([...sel.selectedOptions].map(o => o.value).filter(Boolean));
+      // Distinct values straight out of the column, with counts.
+      // Count base: the rows CURRENTLY ON SCREEN, so "تنفيذ الازرق 4" means
+      // four rows you can actually see — counting the whole 4,500-row archive
+      // promised 4 and delivered 1, because the table was showing active rows
+      // only. Exception: once this column is filtered, screen rows are already
+      // narrowed by it, so fall back to the full set or the other values
+      // (the ones you'd widen to) would vanish from the list.
+      const base = colIsActive(col) ? auctions : (window._currentRows || auctions);
+      const counts = {};
+      base.forEach(a => {
+        const v = d.get(a);
+        if (v == null || v === '') return;
+        counts[v] = (counts[v] || 0) + 1;
+      });
+      const values = Object.keys(counts).sort((x, y) => x.localeCompare(y, 'ar'));
+      body =
+        `<input type="text" class="cp-search" placeholder="بحث…">
+         <div class="cp-list">` +
+        (values.length ? values.map(v =>
+          `<label class="cp-opt"><input type="checkbox" value="${escapeHtml(v)}"${chosen.has(v) ? ' checked' : ''}>` +
+          `<span>${escapeHtml(v)}</span><span class="cnt">${counts[v]}</span></label>`
+        ).join('') : '<div class="cp-empty">لا توجد قيم في هذا العمود</div>') +
+        `</div>`;
+    } else if (d.type === 'text') {
+      body = `<input type="text" class="cp-q" placeholder="يحتوي على…" value="${escapeHtml(s.q || '')}">`;
+    } else if (d.type === 'range') {
+      body = `<div class="cp-range">
+                <input type="number" class="cp-min" placeholder="من" value="${fmtNumIn(s.min)}">
+                <span>—</span>
+                <input type="number" class="cp-max" placeholder="إلى" value="${fmtNumIn(s.max)}">
+              </div>`;
+    } else if (d.type === 'date') {
+      const iso = (ms) => { if (ms == null) return ''; const dt = new Date(ms); return dt.toISOString().slice(0, 10); };
+      body = `<div class="cp-range">
+                <input type="date" class="cp-from" value="${iso(s.from)}">
+                <span>—</span>
+                <input type="date" class="cp-to" value="${iso(s.to)}">
+              </div>`;
+    }
+    colPop.innerHTML =
+      `<div class="cp-title">${escapeHtml(d.label)}</div>${body}
+       <div class="cp-foot">
+         <button type="button" class="cp-clear">مسح</button>
+         <button type="button" class="cp-apply">تطبيق</button>
+       </div>`;
+
+    if (d.type === 'select') {
+      const search = colPop.querySelector('.cp-search');
+      search.addEventListener('input', () => {
+        const q = search.value.trim().toLowerCase();
+        colPop.querySelectorAll('.cp-opt').forEach(el => {
+          el.style.display = !q || el.textContent.toLowerCase().includes(q) ? '' : 'none';
+        });
+      });
+    }
+
+    const commit = () => {
+      if (d.type === 'select') {
+        const picked = new Set([...colPop.querySelectorAll('.cp-opt input:checked')].map(i => i.value));
+        const sel = document.getElementById(d.sel);
+        [...sel.options].forEach(o => { o.selected = picked.has(o.value); });
+        window._msWidgets?.[d.sel]?.refresh();
+      } else if (d.type === 'text') {
+        const q = colPop.querySelector('.cp-q').value.trim();
+        if (q) colState[col] = { q }; else delete colState[col];
+      } else if (d.type === 'range') {
+        const min = toNum(colPop.querySelector('.cp-min').value);
+        const max = toNum(colPop.querySelector('.cp-max').value);
+        if (min == null && max == null) delete colState[col]; else colState[col] = { min, max };
+      } else if (d.type === 'date') {
+        const f = colPop.querySelector('.cp-from').value;
+        const t = colPop.querySelector('.cp-to').value;
+        const from = f ? Date.parse(f + 'T00:00:00') : null;
+        // inclusive end-of-day, else picking the same day for both excludes everything
+        const to = t ? Date.parse(t + 'T23:59:59') : null;
+        if (from == null && to == null) delete colState[col]; else colState[col] = { from, to };
+      }
+      closeColPop();
+      apply();
+    };
+
+    colPop.querySelector('.cp-apply').addEventListener('click', commit);
+    colPop.querySelector('.cp-clear').addEventListener('click', () => {
+      if (d.type === 'select') {
+        const sel = document.getElementById(d.sel);
+        [...sel.options].forEach(o => { o.selected = false; });
+        window._msWidgets?.[d.sel]?.refresh();
+      } else {
+        delete colState[col];
+      }
+      closeColPop();
+      apply();
+    });
+    colPop.addEventListener('keydown', (e) => { if (e.key === 'Enter') commit(); });
+  }
+
+  function openColPop(btn) {
+    const col = btn.dataset.col;
+    if (colPopFor === col) { closeColPop(); return; }   // toggle
+    buildColPop(col);
+    colPopFor = col;
+    colPop.classList.add('show');
+    // Position under the funnel, clamped into the viewport (RTL-safe).
+    const r = btn.getBoundingClientRect();
+    const w = colPop.offsetWidth, h = colPop.offsetHeight;
+    let left = Math.min(Math.max(8, r.right - w), window.innerWidth - w - 8);
+    let top = r.bottom + 6;
+    if (top + h > window.innerHeight - 8) top = r.top - h - 6;   // flip above
+    // Hard clamp: position:fixed is viewport-relative, so if the anchoring
+    // header is itself off-screen (long page, not yet scrolled to the table)
+    // both candidate positions land outside the viewport and the popover
+    // would open invisibly.
+    top  = Math.min(Math.max(8, top),  Math.max(8, window.innerHeight - h - 8));
+    left = Math.min(Math.max(8, left), Math.max(8, window.innerWidth  - w - 8));
+    colPop.style.left = left + 'px';
+    colPop.style.top = top + 'px';
+    colPop.querySelector('input')?.focus();
+  }
+
+  document.querySelectorAll('.col-filter-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();          // don't trigger the column's sort handler
+      openColPop(btn);
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (colPop.classList.contains('show') && !colPop.contains(e.target) && !e.target.closest('.col-filter-btn')) closeColPop();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeColPop(); });
+  window.addEventListener('resize', closeColPop);
+
   // Filter inputs (search is plain text; the rest fire `change` from the widget)
   document.getElementById('searchInput').addEventListener('input', scheduleApply);
   multiIds.forEach(id => {
@@ -2103,6 +2368,9 @@
       localStorage.setItem('mojAuctions.endingToday', '0');
       localStorage.setItem('mojAuctions.favOnly', '0');
     } catch {}
+    // Per-column header filters (the ones with their own state; the
+    // 'select' columns are already cleared by the multi-select loop above)
+    Object.keys(colState).forEach(k => delete colState[k]);
     // Body-class filters (24h / week stat tiles)
     document.body.classList.remove('filter-endsIn24h', 'filter-endsInWeek');
     try {
