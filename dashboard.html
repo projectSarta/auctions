@@ -526,7 +526,7 @@
         <div id="detailReports" class="reports-list mb-2"></div>
       </div>
       <div class="modal-footer flex-wrap gap-1">
-        <a class="btn btn-primary btn-sm" id="detailSourceLink" target="_blank" rel="noopener">↗ الصفحة الأصلية</a>
+        <a class="btn btn-primary btn-sm" id="detailSourceLink" target="_blank" rel="noopener">↗ قائمة الفئة في الموقع</a>
         <a class="btn btn-danger btn-sm" id="detailReportBtn" target="_blank" rel="noopener" style="display:none">📄 تقرير الخبرة</a>
         <div class="btn-group" id="detailCalGroup" style="display:none">
           <button type="button" class="btn btn-outline-warning btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">📅 إضافة إلى التقويم</button>
@@ -1269,13 +1269,21 @@
     // Build the link at display time from the category token — scrape.ps1
     // refreshes categories[].token on every run, so this heals itself when
     // MoJ rotates tokens again.
-    // Fragment is case-sensitive and MoJ's lot elements are id="Auction_<id>"
-    // (capital A). Scrolling only happens when the lot is on the rendered
-    // page (MoJ paginates 10/page via postback — no per-auction GET URL exists).
+    // MoJ has NO per-auction URL: the listing form is method="post", pagination
+    // runs through __doPostBack, and Search/frmSearch/AuctionSearch.aspx all 302
+    // to the homepage. So this can only ever open the lot's CATEGORY listing.
+    // The #Auction_<id> fragment (capital A, matching MoJ's element ids) scrolls
+    // to the lot on the rare occasion it is on page 1, and is inert otherwise —
+    // worth keeping, not worth promising. The label and tooltip say what the
+    // link actually does, and carry the auction number to look for.
     const catTok = tokenByCategory[a.category];
-    document.getElementById('detailSourceLink').href = catTok
+    const srcLink = document.getElementById('detailSourceLink');
+    srcLink.href = catTok
       ? `https://auctions.moj.gov.jo/AuctionsList.aspx?token=${encodeURIComponent(catTok)}#Auction_${a.id}`
       : (a.sourceUrl || data.source);
+    srcLink.title = catTok
+      ? `يفتح قائمة "${a.category}" على موقع الوزارة — الموقع لا يوفّر رابطاً مباشراً لمزاد بعينه، ابحث عن رقم المزاد ${a.id}`
+      : 'يفتح موقع الوزارة';
 
     // Expert-report PDF link. Three modes, picked in this order:
     //   1) a.pdfPath is set  → we've downloaded the PDF and committed it to
