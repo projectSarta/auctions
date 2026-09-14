@@ -1,12 +1,12 @@
 {
-    "generatedAt":  "2026-09-14T15:14:50Z",
-    "dataScrapedAt":  "2026-09-14 18:14:18",
+    "generatedAt":  "2026-09-14T21:13:36Z",
+    "dataScrapedAt":  "2026-09-14 21:12:56",
     "totals":  {
                    "all":  4522,
-                   "active":  369
+                   "active":  368
                },
-    "endingIn24h":  75,
-    "endingInWeek":  278,
+    "endingIn24h":  74,
+    "endingInWeek":  277,
     "reAnnounced":  35,
     "withReport":  286,
     "withMap":  182,
@@ -33,24 +33,11 @@
                        },
                        {
                            "name":  "مركبة",
-                           "active":  106,
+                           "active":  105,
                            "total":  1463
                        }
                    ],
     "closingSoon":  [
-                        {
-                            "id":  53576,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-09-14 21:00:00",
-                            "estimatedValue":  22000,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  true,
-                            "hasMap":  false
-                        },
                         {
                             "id":  52949,
                             "category":  "مركبة",
@@ -114,6 +101,19 @@
                             "numBids":  0,
                             "serial":  1,
                             "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  53719,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان",
+                            "place":  "",
+                            "endDate":  "2026-09-15 10:10:00",
+                            "estimatedValue":  15000,
+                            "currentAmount":  9654,
+                            "numBids":  2,
+                            "serial":  1,
+                            "hasReport":  false,
                             "hasMap":  false
                         }
                     ],
