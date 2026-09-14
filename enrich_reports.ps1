@@ -267,7 +267,15 @@ foreach ($a in $candidates) {
     if ((Test-Path $tmpPdf) -and ((Get-Item $tmpPdf).Length -gt 200)) {
       $bytes = [System.IO.File]::ReadAllBytes($tmpPdf)
       # quick sanity: PDFs start with "%PDF-"
-      if ($bytes.Length -gt 4 -and [System.Text.Encoding]::ASCII.GetString($bytes, 0, 4) -eq '%PDF') {
+      # Cloudflare Pages refuses any asset over 25 MiB, so a bigger PDF could
+      # never be served from the site. Keep reportUrl (the dashboard falls back
+      # to the MoJ link) but don't store a pdfPath that would only 404.
+      if ($bytes.Length -gt 25MB) {
+        Write-Host ("TOO BIG ({0:N1} MB) - leaving MoJ link only" -f ($bytes.Length / 1MB)) -ForegroundColor DarkYellow
+        $a | Add-Member -MemberType NoteProperty -Name 'reportUrl' -Value $reportUrl -Force
+        Save-Data $data
+      }
+      elseif ($bytes.Length -gt 4 -and [System.Text.Encoding]::ASCII.GetString($bytes, 0, 4) -eq '%PDF') {
         $bodyHash = Get-PdfBodyHash $bytes
         $myCase = [string]$a.caseId
         if ($hashToCase.ContainsKey($bodyHash) -and $hashToCase[$bodyHash] -ne $myCase) {
