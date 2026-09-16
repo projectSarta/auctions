@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-09-16T05:31:03Z",
-    "dataScrapedAt":  "2026-09-16 00:10:03",
+    "generatedAt":  "2026-09-16T12:37:35Z",
+    "dataScrapedAt":  "2026-09-16 12:33:41",
     "totals":  {
-                   "all":  4529,
-                   "active":  304
+                   "all":  4534,
+                   "active":  310
                },
-    "endingIn24h":  72,
-    "endingInWeek":  235,
-    "reAnnounced":  23,
-    "withReport":  226,
-    "withMap":  154,
+    "endingIn24h":  77,
+    "endingInWeek":  241,
+    "reAnnounced":  31,
+    "withReport":  227,
+    "withMap":  157,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -18,12 +18,12 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  106,
-                           "total":  1702
+                           "active":  108,
+                           "total":  1704
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  106,
+                           "active":  107,
                            "total":  1032
                        },
                        {
@@ -33,8 +33,8 @@
                        },
                        {
                            "name":  "مركبة",
-                           "active":  72,
-                           "total":  1468
+                           "active":  75,
+                           "total":  1471
                        }
                    ],
     "closingSoon":  [
@@ -52,19 +52,6 @@
                             "hasMap":  false
                         },
                         {
-                            "id":  53444,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ عمان / قسم شرق عمان",
-                            "place":  "",
-                            "endDate":  "2026-09-16 14:00:00",
-                            "estimatedValue":  5000,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  true,
-                            "hasMap":  false
-                        },
-                        {
                             "id":  53463,
                             "category":  "أُخرى",
                             "court":  "تنفيذ عمان / قسم جنوب عمان",
@@ -73,6 +60,19 @@
                             "estimatedValue":  3800,
                             "currentAmount":  1900,
                             "numBids":  1,
+                            "serial":  1,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  53444,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان / قسم شرق عمان",
+                            "place":  "",
+                            "endDate":  "2026-09-16 14:00:00",
+                            "estimatedValue":  5000,
+                            "currentAmount":  0,
+                            "numBids":  0,
                             "serial":  1,
                             "hasReport":  true,
                             "hasMap":  false
@@ -118,6 +118,19 @@
                         }
                     ],
     "bargains":  [
+                     {
+                         "id":  44839,
+                         "category":  "أرض/ مجمع",
+                         "court":  "تنفيذ ناعور",
+                         "place":  "ناعور · اراضي ناعور",
+                         "endDate":  "2026-09-17 15:00:00",
+                         "estimatedValue":  189100,
+                         "currentAmount":  0,
+                         "numBids":  0,
+                         "serial":  9,
+                         "hasReport":  true,
+                         "hasMap":  true
+                     },
                      {
                          "id":  43751,
                          "category":  "أرض/ مجمع",
@@ -181,19 +194,6 @@
                          "numBids":  20,
                          "serial":  5,
                          "hasReport":  false,
-                         "hasMap":  true
-                     },
-                     {
-                         "id":  49116,
-                         "category":  "أرض/ مجمع",
-                         "court":  "تنفيذ المزار الجنوبي",
-                         "place":  "الحسينيه · اراضي المزار الجنوبي",
-                         "endDate":  "2026-09-16 15:00:00",
-                         "estimatedValue":  51875,
-                         "currentAmount":  26000,
-                         "numBids":  1,
-                         "serial":  5,
-                         "hasReport":  true,
                          "hasMap":  true
                      }
                  ]
