@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-09-15T19:24:51Z",
-    "dataScrapedAt":  "2026-09-15 12:23:06",
+    "generatedAt":  "2026-09-16T00:09:50Z",
+    "dataScrapedAt":  "2026-09-16 00:02:47",
     "totals":  {
-                   "all":  4522,
-                   "active":  294
+                   "all":  4529,
+                   "active":  304
                },
-    "endingIn24h":  69,
-    "endingInWeek":  225,
-    "reAnnounced":  16,
-    "withReport":  224,
-    "withMap":  152,
+    "endingIn24h":  72,
+    "endingInWeek":  235,
+    "reAnnounced":  23,
+    "withReport":  226,
+    "withMap":  154,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -18,7 +18,7 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  103,
+                           "active":  106,
                            "total":  1702
                        },
                        {
@@ -28,13 +28,13 @@
                        },
                        {
                            "name":  "أُخرى",
-                           "active":  18,
-                           "total":  295
+                           "active":  20,
+                           "total":  297
                        },
                        {
                            "name":  "مركبة",
-                           "active":  67,
-                           "total":  1463
+                           "active":  72,
+                           "total":  1468
                        }
                    ],
     "closingSoon":  [
@@ -132,69 +132,69 @@
                          "hasMap":  true
                      },
                      {
-                         "id":  49264,
-                         "category":  "أُخرى",
-                         "court":  "تنفيذ عمان / قسم شرق عمان",
-                         "place":  "",
-                         "endDate":  "2026-09-22 14:20:00",
-                         "estimatedValue":  20098,
-                         "currentAmount":  4600,
+                         "id":  26864,
+                         "category":  "أرض/ مجمع",
+                         "court":  "تنفيذ الزرقاء",
+                         "place":  "بيرين · اراضي محافظة الزرقاء",
+                         "endDate":  "2026-09-16 15:00:00",
+                         "estimatedValue":  115084,
+                         "currentAmount":  57542,
                          "numBids":  1,
+                         "serial":  6,
+                         "hasReport":  true,
+                         "hasMap":  true
+                     },
+                     {
+                         "id":  47363,
+                         "category":  "أرض/ مجمع",
+                         "court":  "تنفيذ عمان / قسم شمال عمان",
+                         "place":  "ابو نصير · اراضي شمال عمان",
+                         "endDate":  "2026-09-16 15:00:00",
+                         "estimatedValue":  93900,
+                         "currentAmount":  59000,
+                         "numBids":  7,
+                         "serial":  6,
+                         "hasReport":  false,
+                         "hasMap":  false
+                     },
+                     {
+                         "id":  44567,
+                         "category":  "أرض/ مجمع",
+                         "court":  "تنفيذ ناعور",
+                         "place":  "ام البساتين · اراضي ناعور",
+                         "endDate":  "2026-09-16 15:00:00",
+                         "estimatedValue":  36100,
+                         "currentAmount":  37400,
+                         "numBids":  6,
+                         "serial":  6,
+                         "hasReport":  true,
+                         "hasMap":  true
+                     },
+                     {
+                         "id":  50121,
+                         "category":  "أرض/ مجمع",
+                         "court":  "تنفيذ عمان / قسم شمال عمان",
+                         "place":  "ابو نصير · اراضي شمال عمان",
+                         "endDate":  "2026-09-16 15:00:00",
+                         "estimatedValue":  78250,
+                         "currentAmount":  58150,
+                         "numBids":  20,
                          "serial":  5,
                          "hasReport":  false,
-                         "hasMap":  false
+                         "hasMap":  true
                      },
                      {
-                         "id":  33286,
+                         "id":  49116,
                          "category":  "أرض/ مجمع",
-                         "court":  "تنفيذ عمان / قسم جنوب عمان",
-                         "place":  "ابو علندا · اراضي جنوب عمان",
-                         "endDate":  "2026-09-17 15:00:00",
-                         "estimatedValue":  181938,
-                         "currentAmount":  0,
-                         "numBids":  0,
-                         "serial":  4,
+                         "court":  "تنفيذ المزار الجنوبي",
+                         "place":  "الحسينيه · اراضي المزار الجنوبي",
+                         "endDate":  "2026-09-16 15:00:00",
+                         "estimatedValue":  51875,
+                         "currentAmount":  26000,
+                         "numBids":  1,
+                         "serial":  5,
                          "hasReport":  true,
                          "hasMap":  true
-                     },
-                     {
-                         "id":  26721,
-                         "category":  "شقة/ مكتب",
-                         "court":  "تنفيذ عمان / قسم غرب عمان",
-                         "place":  "ناعور · اراضي ناعور",
-                         "endDate":  "2026-09-23 15:00:00",
-                         "estimatedValue":  65600,
-                         "currentAmount":  46500,
-                         "numBids":  2,
-                         "serial":  4,
-                         "hasReport":  false,
-                         "hasMap":  true
-                     },
-                     {
-                         "id":  30367,
-                         "category":  "أُخرى",
-                         "court":  "تنفيذ الجيزة",
-                         "place":  "",
-                         "endDate":  "2026-09-20 15:00:00",
-                         "estimatedValue":  55452,
-                         "currentAmount":  0,
-                         "numBids":  0,
-                         "serial":  4,
-                         "hasReport":  true,
-                         "hasMap":  false
-                     },
-                     {
-                         "id":  30367,
-                         "category":  "أُخرى",
-                         "court":  "تنفيذ الجيزة",
-                         "place":  "",
-                         "endDate":  "2026-09-20 15:00:00",
-                         "estimatedValue":  55452,
-                         "currentAmount":  0,
-                         "numBids":  0,
-                         "serial":  4,
-                         "hasReport":  true,
-                         "hasMap":  false
                      }
                  ]
 }
