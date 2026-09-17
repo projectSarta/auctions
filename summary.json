@@ -1,14 +1,14 @@
 {
-    "generatedAt":  "2026-09-16T19:15:05Z",
-    "dataScrapedAt":  "2026-09-16 12:37:47",
+    "generatedAt":  "2026-09-17T00:02:44Z",
+    "dataScrapedAt":  "2026-09-16 19:15:11",
     "totals":  {
                    "all":  4534,
                    "active":  238
                },
-    "endingIn24h":  56,
+    "endingIn24h":  57,
     "endingInWeek":  197,
     "reAnnounced":  18,
-    "withReport":  167,
+    "withReport":  169,
     "withMap":  124,
     "categories":  [
                        {
