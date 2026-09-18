@@ -1,14 +1,14 @@
 {
-    "generatedAt":  "2026-09-18T05:29:54Z",
-    "dataScrapedAt":  "2026-09-18 05:26:53",
+    "generatedAt":  "2026-09-18T12:10:12Z",
+    "dataScrapedAt":  "2026-09-18 12:03:24",
     "totals":  {
-                   "all":  4537,
-                   "active":  188
+                   "all":  4542,
+                   "active":  194
                },
     "endingIn24h":  12,
-    "endingInWeek":  154,
-    "reAnnounced":  16,
-    "withReport":  145,
+    "endingInWeek":  157,
+    "reAnnounced":  31,
+    "withReport":  148,
     "withMap":  102,
     "categories":  [
                        {
@@ -28,23 +28,23 @@
                        },
                        {
                            "name":  "أُخرى",
-                           "active":  16,
-                           "total":  297
+                           "active":  21,
+                           "total":  301
                        },
                        {
                            "name":  "مركبة",
-                           "active":  42,
-                           "total":  1473
+                           "active":  43,
+                           "total":  1474
                        }
                    ],
     "closingSoon":  [
                         {
-                            "id":  53197,
+                            "id":  53195,
                             "category":  "مركبة",
                             "court":  "تنفيذ معان",
                             "place":  "",
                             "endDate":  "2026-09-18 15:00:00",
-                            "estimatedValue":  4700,
+                            "estimatedValue":  500,
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  0,
@@ -63,19 +63,6 @@
                             "serial":  4,
                             "hasReport":  true,
                             "hasMap":  true
-                        },
-                        {
-                            "id":  53195,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ معان",
-                            "place":  "",
-                            "endDate":  "2026-09-18 15:00:00",
-                            "estimatedValue":  500,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  0,
-                            "hasReport":  true,
-                            "hasMap":  false
                         },
                         {
                             "id":  40198,
@@ -104,6 +91,19 @@
                             "hasMap":  true
                         },
                         {
+                            "id":  49270,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ اربد",
+                            "place":  "حواره · اراضي اربد",
+                            "endDate":  "2026-09-18 15:00:00",
+                            "estimatedValue":  506574,
+                            "currentAmount":  253300,
+                            "numBids":  1,
+                            "serial":  7,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
                             "id":  51696,
                             "category":  "أرض/ مجمع",
                             "court":  "تنفيذ الشونة الجنوبية",
@@ -123,10 +123,10 @@
                          "category":  "أرض/ مجمع",
                          "court":  "تنفيذ مادبا",
                          "place":  "مادبا · اراضي مادبا",
-                         "endDate":  "2026-09-18 15:00:00",
+                         "endDate":  "2026-09-18 15:03:46",
                          "estimatedValue":  982312,
-                         "currentAmount":  494000,
-                         "numBids":  5,
+                         "currentAmount":  511000,
+                         "numBids":  7,
                          "serial":  7,
                          "hasReport":  true,
                          "hasMap":  true
@@ -145,11 +145,24 @@
                          "hasMap":  false
                      },
                      {
+                         "id":  50801,
+                         "category":  "شقة/ مكتب",
+                         "court":  "تنفيذ عمان / قسم شرق عمان",
+                         "place":  "القويسمه · اراضي جنوب عمان",
+                         "endDate":  "2026-09-20 15:00:00",
+                         "estimatedValue":  26400,
+                         "currentAmount":  14740,
+                         "numBids":  2,
+                         "serial":  6,
+                         "hasReport":  true,
+                         "hasMap":  true
+                     },
+                     {
                          "id":  46366,
                          "category":  "أرض/ مجمع",
                          "court":  "تنفيذ ذيبان",
                          "place":  "مقعد بن نصر الله · اراضي ذيبان",
-                         "endDate":  "2026-09-18 15:00:00",
+                         "endDate":  "2026-09-18 15:01:22",
                          "estimatedValue":  68708,
                          "currentAmount":  45200,
                          "numBids":  4,
@@ -179,19 +192,6 @@
                          "estimatedValue":  138415,
                          "currentAmount":  69208,
                          "numBids":  1,
-                         "serial":  4,
-                         "hasReport":  true,
-                         "hasMap":  true
-                     },
-                     {
-                         "id":  26721,
-                         "category":  "شقة/ مكتب",
-                         "court":  "تنفيذ عمان / قسم غرب عمان",
-                         "place":  "ناعور · اراضي ناعور",
-                         "endDate":  "2026-09-23 15:00:00",
-                         "estimatedValue":  65600,
-                         "currentAmount":  46500,
-                         "numBids":  2,
                          "serial":  4,
                          "hasReport":  true,
                          "hasMap":  true
