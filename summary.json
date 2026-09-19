@@ -1,6 +1,6 @@
 {
-    "generatedAt":  "2026-09-18T23:48:03Z",
-    "dataScrapedAt":  "2026-09-18 21:39:32",
+    "generatedAt":  "2026-09-19T05:20:12Z",
+    "dataScrapedAt":  "2026-09-18 23:48:11",
     "totals":  {
                    "all":  4549,
                    "active":  190
@@ -8,7 +8,7 @@
     "endingIn24h":  4,
     "endingInWeek":  153,
     "reAnnounced":  24,
-    "withReport":  142,
+    "withReport":  146,
     "withMap":  94,
     "categories":  [
                        {
