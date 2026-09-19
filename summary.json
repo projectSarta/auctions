@@ -1,14 +1,14 @@
 {
-    "generatedAt":  "2026-09-19T05:20:12Z",
-    "dataScrapedAt":  "2026-09-18 23:48:11",
+    "generatedAt":  "2026-09-19T11:52:49Z",
+    "dataScrapedAt":  "2026-09-19 11:49:43",
     "totals":  {
-                   "all":  4549,
-                   "active":  190
+                   "all":  4550,
+                   "active":  191
                },
     "endingIn24h":  4,
-    "endingInWeek":  153,
+    "endingInWeek":  154,
     "reAnnounced":  24,
-    "withReport":  146,
+    "withReport":  150,
     "withMap":  94,
     "categories":  [
                        {
@@ -33,11 +33,24 @@
                        },
                        {
                            "name":  "مركبة",
-                           "active":  48,
-                           "total":  1481
+                           "active":  49,
+                           "total":  1482
                        }
                    ],
     "closingSoon":  [
+                        {
+                            "id":  50788,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ بني كنانة",
+                            "place":  "يبلا · اراضي بني كنانة",
+                            "endDate":  "2026-09-19 15:00:00",
+                            "estimatedValue":  98755,
+                            "currentAmount":  49377.5,
+                            "numBids":  1,
+                            "serial":  3,
+                            "hasReport":  true,
+                            "hasMap":  true
+                        },
                         {
                             "id":  38002,
                             "category":  "أرض/ مجمع",
@@ -52,16 +65,16 @@
                             "hasMap":  true
                         },
                         {
-                            "id":  50788,
+                            "id":  51544,
                             "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ بني كنانة",
-                            "place":  "يبلا · اراضي بني كنانة",
+                            "court":  "تنفيذ مادبا",
+                            "place":  "مادبا · اراضي مادبا",
                             "endDate":  "2026-09-19 15:00:00",
-                            "estimatedValue":  98755,
-                            "currentAmount":  49377.5,
-                            "numBids":  1,
+                            "estimatedValue":  65195,
+                            "currentAmount":  36058,
+                            "numBids":  3,
                             "serial":  3,
-                            "hasReport":  true,
+                            "hasReport":  false,
                             "hasMap":  true
                         },
                         {
@@ -78,19 +91,6 @@
                             "hasMap":  true
                         },
                         {
-                            "id":  51544,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ مادبا",
-                            "place":  "مادبا · اراضي مادبا",
-                            "endDate":  "2026-09-19 15:00:00",
-                            "estimatedValue":  65195,
-                            "currentAmount":  35858,
-                            "numBids":  2,
-                            "serial":  3,
-                            "hasReport":  false,
-                            "hasMap":  true
-                        },
-                        {
                             "id":  53803,
                             "category":  "مركبة",
                             "court":  "تنفيذ بني كنانة",
@@ -104,14 +104,14 @@
                             "hasMap":  false
                         },
                         {
-                            "id":  53737,
+                            "id":  53456,
                             "category":  "أُخرى",
-                            "court":  "تنفيذ عمان / قسم جنوب عمان",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
                             "place":  "",
                             "endDate":  "2026-09-20 14:00:00",
-                            "estimatedValue":  2534,
-                            "currentAmount":  0,
-                            "numBids":  0,
+                            "estimatedValue":  1355,
+                            "currentAmount":  710,
+                            "numBids":  1,
                             "serial":  1,
                             "hasReport":  true,
                             "hasMap":  false
