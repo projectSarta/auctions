@@ -1,14 +1,14 @@
 {
-    "generatedAt":  "2026-09-19T11:52:49Z",
-    "dataScrapedAt":  "2026-09-19 11:49:43",
+    "generatedAt":  "2026-09-19T18:22:21Z",
+    "dataScrapedAt":  "2026-09-19 18:20:07",
     "totals":  {
                    "all":  4550,
                    "active":  191
                },
-    "endingIn24h":  4,
+    "endingIn24h":  63,
     "endingInWeek":  154,
-    "reAnnounced":  24,
-    "withReport":  150,
+    "reAnnounced":  30,
+    "withReport":  152,
     "withMap":  94,
     "categories":  [
                        {
@@ -39,58 +39,6 @@
                    ],
     "closingSoon":  [
                         {
-                            "id":  50788,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ بني كنانة",
-                            "place":  "يبلا · اراضي بني كنانة",
-                            "endDate":  "2026-09-19 15:00:00",
-                            "estimatedValue":  98755,
-                            "currentAmount":  49377.5,
-                            "numBids":  1,
-                            "serial":  3,
-                            "hasReport":  true,
-                            "hasMap":  true
-                        },
-                        {
-                            "id":  38002,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ الشونة الجنوبية",
-                            "place":  "غور نمرين · اراضي الشونة الجنوبية",
-                            "endDate":  "2026-09-19 15:00:00",
-                            "estimatedValue":  16155,
-                            "currentAmount":  8078,
-                            "numBids":  1,
-                            "serial":  2,
-                            "hasReport":  true,
-                            "hasMap":  true
-                        },
-                        {
-                            "id":  51544,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ مادبا",
-                            "place":  "مادبا · اراضي مادبا",
-                            "endDate":  "2026-09-19 15:00:00",
-                            "estimatedValue":  65195,
-                            "currentAmount":  36058,
-                            "numBids":  3,
-                            "serial":  3,
-                            "hasReport":  false,
-                            "hasMap":  true
-                        },
-                        {
-                            "id":  37961,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ الشونة الجنوبية",
-                            "place":  "غور نمرين · اراضي الشونة الجنوبية",
-                            "endDate":  "2026-09-19 15:00:00",
-                            "estimatedValue":  19125,
-                            "currentAmount":  9570,
-                            "numBids":  1,
-                            "serial":  2,
-                            "hasReport":  true,
-                            "hasMap":  true
-                        },
-                        {
                             "id":  53803,
                             "category":  "مركبة",
                             "court":  "تنفيذ بني كنانة",
@@ -104,6 +52,19 @@
                             "hasMap":  false
                         },
                         {
+                            "id":  51741,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-09-20 14:00:00",
+                            "estimatedValue":  3500,
+                            "currentAmount":  1750,
+                            "numBids":  1,
+                            "serial":  0,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
                             "id":  53456,
                             "category":  "أُخرى",
                             "court":  "تنفيذ عمان / قسم شمال عمان",
@@ -112,6 +73,45 @@
                             "estimatedValue":  1355,
                             "currentAmount":  710,
                             "numBids":  1,
+                            "serial":  1,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  51188,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-09-20 14:00:00",
+                            "estimatedValue":  1300,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  0,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  53432,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-09-20 14:00:00",
+                            "estimatedValue":  4000,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  53737,
+                            "category":  "أُخرى",
+                            "court":  "تنفيذ عمان / قسم جنوب عمان",
+                            "place":  "",
+                            "endDate":  "2026-09-20 14:00:00",
+                            "estimatedValue":  2534,
+                            "currentAmount":  0,
+                            "numBids":  0,
                             "serial":  1,
                             "hasReport":  true,
                             "hasMap":  false
@@ -132,6 +132,32 @@
                          "hasMap":  true
                      },
                      {
+                         "id":  50795,
+                         "category":  "أرض/ مجمع",
+                         "court":  "تنفيذ عمان / قسم شرق عمان",
+                         "place":  "ماركا · اراضي شرق عمان",
+                         "endDate":  "2026-09-20 15:00:00",
+                         "estimatedValue":  92350,
+                         "currentAmount":  52700,
+                         "numBids":  12,
+                         "serial":  5,
+                         "hasReport":  true,
+                         "hasMap":  true
+                     },
+                     {
+                         "id":  50870,
+                         "category":  "أرض/ مجمع",
+                         "court":  "تنفيذ مادبا",
+                         "place":  "ماعين · اراضي مادبا",
+                         "endDate":  "2026-09-20 15:00:00",
+                         "estimatedValue":  36340,
+                         "currentAmount":  25800,
+                         "numBids":  5,
+                         "serial":  5,
+                         "hasReport":  true,
+                         "hasMap":  true
+                     },
+                     {
                          "id":  49264,
                          "category":  "أُخرى",
                          "court":  "تنفيذ عمان / قسم شرق عمان",
@@ -145,17 +171,17 @@
                          "hasMap":  false
                      },
                      {
-                         "id":  50795,
+                         "id":  48352,
                          "category":  "أرض/ مجمع",
-                         "court":  "تنفيذ عمان / قسم شرق عمان",
-                         "place":  "ماركا · اراضي شرق عمان",
+                         "court":  "تنفيذ عمان",
+                         "place":  "عمان · اراضي عمان",
                          "endDate":  "2026-09-20 15:00:00",
-                         "estimatedValue":  92350,
-                         "currentAmount":  52700,
-                         "numBids":  12,
+                         "estimatedValue":  132295,
+                         "currentAmount":  66148,
+                         "numBids":  1,
                          "serial":  4,
                          "hasReport":  true,
-                         "hasMap":  true
+                         "hasMap":  false
                      },
                      {
                          "id":  26721,
@@ -169,32 +195,6 @@
                          "serial":  4,
                          "hasReport":  true,
                          "hasMap":  true
-                     },
-                     {
-                         "id":  30367,
-                         "category":  "أُخرى",
-                         "court":  "تنفيذ الجيزة",
-                         "place":  "",
-                         "endDate":  "2026-09-20 15:00:00",
-                         "estimatedValue":  55452,
-                         "currentAmount":  0,
-                         "numBids":  0,
-                         "serial":  4,
-                         "hasReport":  true,
-                         "hasMap":  false
-                     },
-                     {
-                         "id":  30367,
-                         "category":  "أُخرى",
-                         "court":  "تنفيذ الجيزة",
-                         "place":  "",
-                         "endDate":  "2026-09-20 15:00:00",
-                         "estimatedValue":  55452,
-                         "currentAmount":  0,
-                         "numBids":  0,
-                         "serial":  4,
-                         "hasReport":  true,
-                         "hasMap":  false
                      }
                  ]
 }
