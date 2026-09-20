@@ -1,14 +1,14 @@
 {
-    "generatedAt":  "2026-09-20T21:13:08Z",
-    "dataScrapedAt":  "2026-09-20 19:31:50",
+    "generatedAt":  "2026-09-20T23:56:21Z",
+    "dataScrapedAt":  "2026-09-20 21:13:21",
     "totals":  {
                    "all":  4446,
-                   "active":  206
+                   "active":  205
                },
-    "endingIn24h":  30,
+    "endingIn24h":  29,
     "endingInWeek":  185,
     "reAnnounced":  19,
-    "withReport":  138,
+    "withReport":  140,
     "withMap":  122,
     "categories":  [
                        {
@@ -33,24 +33,11 @@
                        },
                        {
                            "name":  "مركبة",
-                           "active":  44,
+                           "active":  43,
                            "total":  1460
                        }
                    ],
     "closingSoon":  [
-                        {
-                            "id":  53818,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-09-20 22:00:00",
-                            "estimatedValue":  600,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  true,
-                            "hasMap":  false
-                        },
                         {
                             "id":  53766,
                             "category":  "مركبة",
@@ -110,6 +97,19 @@
                             "place":  "",
                             "endDate":  "2026-09-21 14:00:00",
                             "estimatedValue":  1200,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  53609,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ الزرقاء",
+                            "place":  "",
+                            "endDate":  "2026-09-21 15:00:00",
+                            "estimatedValue":  10000,
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  1,
