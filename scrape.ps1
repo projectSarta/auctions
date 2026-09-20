@@ -32,7 +32,8 @@ param(
   [int]$MaxMinutes = 0,              # global time budget (0 = unlimited)
   [switch]$Fresh,                    # ignore existing auctions.json (don't merge)
   [string]$OnlyCategory = '',        # if set, only scrape categories matching this regex (e.g. 'مركبة')
-  [switch]$Refresh                   # don't early-exit when already-complete; keep walking to refresh bids/numBids/endDate
+  [switch]$Refresh,                  # don't early-exit when already-complete; keep walking to refresh bids/numBids/endDate
+  [switch]$DedupeOnly                # collapse duplicate rows in auctions.json and exit; no network calls
 )
 
 if ($Full) { $MaxPagesPerCategory = 0 }
@@ -287,9 +288,21 @@ function Save-Progress($path, $jsPath, $payload) {
   [System.IO.File]::WriteAllText($jsPath, "window.AUCTION_DATA = $json;", [System.Text.UTF8Encoding]::new($false))
 }
 
+# Output paths. Assigned BEFORE the index fetch because the captcha fallback
+# below reads $jsonPath to recover cached categories — it used to run against
+# an unassigned variable, so that recovery path threw instead of working.
+$jsonPath = Join-Path $PSScriptRoot 'auctions.json'
+$jsPath   = Join-Path $PSScriptRoot 'auctions.js'
+
 # --- 1. Index → categories ---
-Write-Host "Fetching index page..."
-$idxHtml = Curl-Get "$Base/index.aspx"
+# -DedupeOnly rewrites the existing file in place and never scrapes, so skip
+# the index fetch entirely: a captcha here would abort the cleanup for no
+# reason, and the categories block is carried over from the file untouched.
+$idxHtml = ''
+if (-not $DedupeOnly) {
+  Write-Host "Fetching index page..."
+  $idxHtml = Curl-Get "$Base/index.aspx"
+}
 
 $catRe = '<a href="AuctionsList\.aspx\?token=([^"]+)">[\s\S]*?<span>([^<]+)</span>\s*<br\s*/?>\s*<span>\s*\(\s*(\d+)\s*\)'
 $catMatches = [regex]::Matches($idxHtml, $catRe)
@@ -301,8 +314,10 @@ foreach ($m in $catMatches) {
     totalCount = [int]$m.Groups[3].Value
   }
 }
-Write-Host ("Found {0} categories:" -f $categories.Count)
-$categories | ForEach-Object { Write-Host ("  - {0} ({1})" -f $_.name, $_.totalCount) }
+if (-not $DedupeOnly) {
+  Write-Host ("Found {0} categories:" -f $categories.Count)
+  $categories | ForEach-Object { Write-Host ("  - {0} ({1})" -f $_.name, $_.totalCount) }
+}
 
 # Captcha-failed index parse → preserve previously known categories so we don't
 # corrupt the saved file (the dashboard depends on this metadata for tokens, stats,
@@ -312,19 +327,55 @@ if ($categories.Count -eq 0 -and -not $Fresh -and (Test-Path $jsonPath)) {
     $prev = Get-Content $jsonPath -Raw -Encoding UTF8 | ConvertFrom-Json
     if ($prev.categories -and $prev.categories.Count -gt 0) {
       $categories = $prev.categories
-      Write-Host ("Index returned captcha; reusing {0} categories from existing auctions.json" -f $categories.Count) -ForegroundColor Yellow
+      if ($DedupeOnly) {
+        Write-Host ("Reusing {0} categories from auctions.json (no index fetch in -DedupeOnly)" -f $categories.Count) -ForegroundColor DarkGray
+      } else {
+        Write-Host ("Index returned captcha; reusing {0} categories from existing auctions.json" -f $categories.Count) -ForegroundColor Yellow
+      }
     }
   } catch { }
 }
-if ($categories.Count -eq 0) {
+if ($categories.Count -eq 0 -and -not $DedupeOnly) {
   Write-Host "ERROR: no categories available (captcha + no cached metadata). Aborting before save." -ForegroundColor Red
   exit 2
 }
 
 # --- 2. Scrape each category ---
+# Fold a duplicate row into the one we are keeping. Neither side is discarded
+# wholesale: the row with the newer lastSeenInListingAt wins on mutable fields
+# (bid, countdown, status), but any field the keeper is missing is taken from
+# the other — otherwise enrichment that only ever landed on one of the two
+# copies (detailUrl, reportUrl, pdfPath, image, aradiPlot) would be lost.
+function Merge-AuctionRow($keep, $other) {
+  $kSeen = ''; $oSeen = ''
+  if ($keep.PSObject.Properties.Match('lastSeenInListingAt').Count)  { $kSeen = [string]$keep.lastSeenInListingAt }
+  if ($other.PSObject.Properties.Match('lastSeenInListingAt').Count) { $oSeen = [string]$other.lastSeenInListingAt }
+  $otherIsNewer = ($oSeen -gt $kSeen)
+
+  foreach ($p in $other.PSObject.Properties) {
+    $name = $p.Name
+    $oVal = $p.Value
+    if ($null -eq $oVal -or $oVal -eq '') { continue }
+    $has = $keep.PSObject.Properties.Match($name).Count -gt 0
+    $kVal = if ($has) { $keep.$name } else { $null }
+    $kEmpty = ($null -eq $kVal -or $kVal -eq '')
+    # Take the other side's value when ours is missing/blank, or when the other
+    # row is the fresher observation and this is a field that moves.
+    $mutable = $name -in 'currentAmount','numBids','endDate','status','header','announcement','announcementStart','lastSeenInListingAt'
+    if ($kEmpty -or ($otherIsNewer -and $mutable)) {
+      if ($has) { $keep.$name = $oVal } else { $keep | Add-Member -MemberType NoteProperty -Name $name -Value $oVal -Force }
+    }
+  }
+  # firstSeenAt is "when WE first saw it" — always the earlier of the two.
+  if ($other.PSObject.Properties.Match('firstSeenAt').Count -and $other.firstSeenAt) {
+    if (-not $keep.PSObject.Properties.Match('firstSeenAt').Count -or -not $keep.firstSeenAt -or
+        ([string]$other.firstSeenAt -lt [string]$keep.firstSeenAt)) {
+      $keep | Add-Member -MemberType NoteProperty -Name 'firstSeenAt' -Value $other.firstSeenAt -Force
+    }
+  }
+}
+
 $all = New-Object System.Collections.ArrayList
-$jsonPath = Join-Path $PSScriptRoot 'auctions.json'
-$jsPath   = Join-Path $PSScriptRoot 'auctions.js'
 
 # Pre-seed from existing data so reruns only ADD new auctions and never lose what we already have.
 $existingByCat = @{}
@@ -332,15 +383,27 @@ $allById = @{}            # id -> record (for fast in-place updates of currentAm
 if (-not $Fresh -and (Test-Path $jsonPath)) {
   try {
     $prev = Get-Content $jsonPath -Raw -Encoding UTF8 | ConvertFrom-Json
+    $dupMerged = 0
     foreach ($a in $prev.auctions) {
+      $aid = [int]$a.id
+      if ($allById.ContainsKey($aid)) {
+        # A duplicate already in the file. Collapse it on load so the invariant
+        # "one row per auction id" is enforced rather than merely assumed.
+        Merge-AuctionRow $allById[$aid] $a
+        $dupMerged++
+        continue
+      }
       [void]$all.Add($a)
-      $allById[[int]$a.id] = $a
+      $allById[$aid] = $a
       if (-not $existingByCat.ContainsKey($a.category)) {
         $existingByCat[$a.category] = New-Object 'System.Collections.Generic.HashSet[int]'
       }
-      [void]$existingByCat[$a.category].Add([int]$a.id)
+      [void]$existingByCat[$a.category].Add($aid)
     }
     Write-Host ("Pre-seeded with {0} existing auctions from auctions.json" -f $all.Count) -ForegroundColor DarkGray
+    if ($dupMerged -gt 0) {
+      Write-Host ("  merged {0} duplicate row(s) found in auctions.json" -f $dupMerged) -ForegroundColor Yellow
+    }
   } catch {
     Write-Host ("Could not load existing auctions.json: {0}" -f $_.Exception.Message) -ForegroundColor Yellow
   }
@@ -357,6 +420,27 @@ function Save-All([bool]$inProgress = $true) {
     auctions     = $all
   }
   Save-Progress $jsonPath $jsPath $payload
+}
+
+# -DedupeOnly: collapse duplicate rows and exit. Runs the SAME pre-seed merge
+# the scraper uses, so a cleanup can never drift from the live behaviour, and
+# touches no network. Categories are carried over from the file as-is.
+if ($DedupeOnly) {
+  if ($null -eq $prev) { throw "-DedupeOnly needs an existing auctions.json to read" }
+  $before = $prev.auctions.Count
+  # Write $prev back verbatim except for the auction list. Going through
+  # Save-All would restamp scrapedAt to "now" — which would claim the data is
+  # fresh when nothing was actually fetched — and would drop lastRunAt and any
+  # other top-level key added outside this script.
+  $prev.auctions = $all.ToArray()
+  if ($prev.PSObject.Properties.Match('totalScraped').Count) { $prev.totalScraped = $all.Count }
+  if ($prev.PSObject.Properties.Match('inProgress').Count)   { $prev.inProgress = $false }
+  Save-Progress $jsonPath $jsPath $prev
+  Write-Host ""
+  Write-Host ("Dedupe: {0} rows -> {1} rows ({2} duplicate row(s) merged)" -f $before, $all.Count, ($before - $all.Count)) -ForegroundColor Green
+  $distinctIds = ($all | ForEach-Object { [int]$_.id } | Sort-Object -Unique).Count
+  Write-Host ("distinct ids now: {0} (rows {1})" -f $distinctIds, $all.Count) -ForegroundColor DarkGray
+  return
 }
 
 # We stamp `lastSeenInListingAt` (ISO-8601 UTC) on every auction we see on
@@ -403,6 +487,16 @@ $stampItems = {
       $it | Add-Member -MemberType NoteProperty -Name 'lastSeenInListingAt' -Value $sweepNowIso -Force
       [void]$all.Add($it)
       $allById[$itId] = $it
+      # Register the id against its category too. PASS B seeds its per-category
+      # $seen set from $existingByCat, and inserts anything NOT in $seen — so
+      # without this line every auction PASS A discovers first gets appended a
+      # SECOND time by PASS B in the same run. That is exactly how 139
+      # duplicate rows accumulated. It also keeps $seen.Count honest, which is
+      # what PASS B compares against $cat.totalCount to decide it is done.
+      if (-not $existingByCat.ContainsKey($it.category)) {
+        $existingByCat[$it.category] = New-Object 'System.Collections.Generic.HashSet[int]'
+      }
+      [void]$existingByCat[$it.category].Add($itId)
       $count++
     }
   }
@@ -543,7 +637,12 @@ foreach ($cat in $categories) {
       $nowIso = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
       foreach ($it in $items) {
         $itId = [int]$it.id
-        if (-not $seen.Contains($itId)) {
+        # Gate the INSERT on $allById (global), never on $seen (per-category).
+        # $seen only knows this category, so a row we already hold — because
+        # PASS A found it, or because it is filed under another category —
+        # would otherwise be appended a second time. $seen is still kept up to
+        # date below, because the walk's progress heuristics count on it.
+        if (-not $allById.ContainsKey($itId)) {
           # Stamp the moment WE first saw this auction (ISO-8601 UTC). Drives
           # the "🆕 جديد" badge in the dashboard. Set on creation only; never
           # overwritten by later refreshes.
@@ -557,6 +656,9 @@ foreach ($cat in $categories) {
           $allById[$itId] = $it
           $newCount++
         } else {
+          # Known row. Make sure it counts toward this category's progress —
+          # $seen.Count is what decides "collected all" against totalCount.
+          [void]$seen.Add($itId)
           # Refresh mutable fields on already-known records (live bid + countdown + status).
           $existing = $allById[$itId]
           if ($null -ne $existing) {
@@ -763,5 +865,16 @@ foreach ($cat in $categories) {
 Save-All $false
 Write-Host ""
 Write-Host ("TOTAL: {0} auctions" -f $all.Count) -ForegroundColor Green
+
+# Invariant: exactly one row per auction id. This silently broke for a long
+# time (PASS A inserted, PASS B inserted again) and only surfaced by accident,
+# so check it out loud rather than trusting the fix to hold.
+$distinctIds = ($all | ForEach-Object { [int]$_.id } | Sort-Object -Unique).Count
+if ($distinctIds -ne $all.Count) {
+  Write-Host ("WARNING: {0} rows but only {1} distinct ids — {2} duplicate row(s) written." -f $all.Count, $distinctIds, ($all.Count - $distinctIds)) -ForegroundColor Red
+} else {
+  Write-Host ("id invariant OK: {0} rows, {0} distinct ids" -f $all.Count) -ForegroundColor DarkGray
+}
+
 Write-Host ("Wrote {0}" -f $jsonPath)
 Write-Host ("Wrote {0}" -f $jsPath)
