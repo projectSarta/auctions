@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
   Overnight orchestration: enrich active listings (images + reports), fetch
   new listings via a fresh scrape, then re-enrich newly-discovered active
@@ -64,6 +64,15 @@ Step 'Phase 5b: enrich aradi polygons (active land rows)' {
   & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_aradi.ps1') -MaxItems 400 -DelayMs 250
 }
 
+# Phase 5b2: per-lot permalinks. MoJ's AuctionInfo.aspx?token=<perLotToken> is
+# a real single-auction page, reachable only by replaying the listing's
+# LinkButton2 postback. The token is deterministic, so one harvest per lot is
+# enough and repeat runs only pay for lots added since. Runs after the scrape
+# so newly-listed lots are included.
+Step 'Phase 5b2: harvest per-lot MoJ permalinks (active)' {
+  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_links.ps1') -MaxLots 500 -DelayMs 900 -MaxMinutes 25
+}
+
 # Phase 5c: rebuild summary.json — the landing page (index.html) reads this
 # few-KB digest instead of the ~17 MB auctions.json.
 Step 'Phase 5c: build landing-page summary' {
@@ -96,7 +105,7 @@ Step 'Phase 7: commit + push' {
   } catch { Write-Host "lastRunAt stamp note: $($_.Exception.Message)" }
 
   try {
-    & git add auctions.js auctions.json summary.json images reports dashboard.html index.html enrich_images.ps1 enrich_reports.ps1 enrich_aradi.ps1 build_summary.ps1 resize_images.ps1 overnight_run.ps1 probe_report.ps1 2>&1 | Out-String | Write-Host
+    & git add auctions.js auctions.json summary.json images reports dashboard.html index.html enrich_images.ps1 enrich_reports.ps1 enrich_aradi.ps1 enrich_links.ps1 build_summary.ps1 resize_images.ps1 overnight_run.ps1 probe_report.ps1 2>&1 | Out-String | Write-Host
   } catch { Write-Host "git add note: $($_.Exception.Message)" }
   $status = (& git status --porcelain 2>$null) -join "`n"
   if (-not $status) { Write-Host "nothing to commit"; return }

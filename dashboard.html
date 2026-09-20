@@ -1261,29 +1261,44 @@
     if (sa) openAuctionModal(sa);
   });
 
+  // Best available MoJ link for one lot.
+  //
+  // MoJ DOES have a per-auction page — AuctionInfo.aspx?token=<perLotToken> —
+  // it just never renders it as an <a href>. The green button on the listing is
+  // an ASP.NET postback whose response carries window.open('/AuctionInfo.aspx…').
+  // The token is server-encrypted (we can't forge it) but deterministic, so
+  // enrich_links.ps1 harvests it once per lot and caches it as a.detailUrl.
+  //
+  // Lots we haven't harvested yet fall back to the category listing, which is
+  // all we had before. The label says which of the two you're getting so the
+  // fallback never masquerades as a direct link.
+  function mojLink(a) {
+    if (a.detailUrl) {
+      return { href: a.detailUrl, exact: true,
+               label: '↗ صفحة المزاد في الموقع',
+               title: `يفتح صفحة المزاد رقم ${a.id} مباشرة على موقع الوزارة` };
+    }
+    const catTok = tokenByCategory[a.category];
+    if (catTok) {
+      return { href: `https://auctions.moj.gov.jo/AuctionsList.aspx?token=${encodeURIComponent(catTok)}#Auction_${a.id}`,
+               exact: false,
+               label: '↗ قائمة الفئة في الموقع',
+               title: `لم نلتقط بعد رابط هذا المزاد المباشر — يفتح قائمة "${a.category}"، ابحث عن رقم المزاد ${a.id}` };
+    }
+    return { href: a.sourceUrl || data.source, exact: false,
+             label: '↗ موقع الوزارة', title: 'يفتح موقع الوزارة' };
+  }
+
   function openAuctionModal(a) {
     modalCurrentAuction = a;
     document.getElementById('detailTitle').textContent = a.header || `مزاد رقم ${a.id}`;
-    // MoJ change (2026-09): AuctionsList.aspx without ?token= now 302s to
-    // index.aspx, so the stored token-less sourceUrl bounces to the homepage.
-    // Build the link at display time from the category token — scrape.ps1
-    // refreshes categories[].token on every run, so this heals itself when
-    // MoJ rotates tokens again.
-    // MoJ has NO per-auction URL: the listing form is method="post", pagination
-    // runs through __doPostBack, and Search/frmSearch/AuctionSearch.aspx all 302
-    // to the homepage. So this can only ever open the lot's CATEGORY listing.
-    // The #Auction_<id> fragment (capital A, matching MoJ's element ids) scrolls
-    // to the lot on the rare occasion it is on page 1, and is inert otherwise —
-    // worth keeping, not worth promising. The label and tooltip say what the
-    // link actually does, and carry the auction number to look for.
-    const catTok = tokenByCategory[a.category];
+    const link = mojLink(a);
     const srcLink = document.getElementById('detailSourceLink');
-    srcLink.href = catTok
-      ? `https://auctions.moj.gov.jo/AuctionsList.aspx?token=${encodeURIComponent(catTok)}#Auction_${a.id}`
-      : (a.sourceUrl || data.source);
-    srcLink.title = catTok
-      ? `يفتح قائمة "${a.category}" على موقع الوزارة — الموقع لا يوفّر رابطاً مباشراً لمزاد بعينه، ابحث عن رقم المزاد ${a.id}`
-      : 'يفتح موقع الوزارة';
+    srcLink.href = link.href;
+    srcLink.textContent = link.label;
+    srcLink.title = link.title;
+    srcLink.classList.toggle('btn-primary', link.exact);
+    srcLink.classList.toggle('btn-outline-secondary', !link.exact);
 
     // Expert-report PDF link. Three modes, picked in this order:
     //   1) a.pdfPath is set  → we've downloaded the PDF and committed it to
@@ -1344,7 +1359,7 @@
         `القيمة التقديرية: ${estVal} د.أ`,
         a.notes ? `ملاحظات: ${a.notes}` : '',
         ``,
-        `الرابط: ${a.sourceUrl || ''}`,
+        `رابط الوزارة: ${mojLink(a).href}`,
       ].filter(Boolean);
       const description = lines.join('\\n');
       const title = `مزاد #${a.id} - ${a.category}`;
@@ -1364,7 +1379,7 @@
         `SUMMARY:${title}`,
         `DESCRIPTION:${description}`,
         location ? `LOCATION:${location}` : '',
-        a.sourceUrl ? `URL:${a.sourceUrl}` : '',
+        `URL:${mojLink(a).href}`,
         'BEGIN:VALARM',
         'ACTION:DISPLAY',
         'TRIGGER:-P1D',
