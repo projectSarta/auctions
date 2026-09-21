@@ -1,6 +1,6 @@
 {
-    "generatedAt":  "2026-09-20T23:56:21Z",
-    "dataScrapedAt":  "2026-09-20 21:13:21",
+    "generatedAt":  "2026-09-21T05:55:42Z",
+    "dataScrapedAt":  "2026-09-20 23:56:31",
     "totals":  {
                    "all":  4446,
                    "active":  205
@@ -8,7 +8,7 @@
     "endingIn24h":  29,
     "endingInWeek":  185,
     "reAnnounced":  19,
-    "withReport":  140,
+    "withReport":  152,
     "withMap":  122,
     "categories":  [
                        {
@@ -154,7 +154,7 @@
                          "currentAmount":  360000,
                          "numBids":  1,
                          "serial":  5,
-                         "hasReport":  false,
+                         "hasReport":  true,
                          "hasMap":  true
                      },
                      {
