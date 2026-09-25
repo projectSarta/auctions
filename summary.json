@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-09-24T19:39:50Z",
-    "dataScrapedAt":  "2026-09-24 13:33:36",
+    "generatedAt":  "2026-09-25T00:27:20Z",
+    "dataScrapedAt":  "2026-09-25 00:22:04",
     "totals":  {
-                   "all":  4500,
-                   "active":  102
+                   "all":  4504,
+                   "active":  114
                },
     "endingIn24h":  4,
-    "endingInWeek":  96,
-    "reAnnounced":  7,
-    "withReport":  60,
-    "withMap":  70,
+    "endingInWeek":  108,
+    "reAnnounced":  8,
+    "withReport":  72,
+    "withMap":  71,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -23,7 +23,7 @@
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  10,
+                           "active":  12,
                            "total":  1027
                        },
                        {
@@ -33,8 +33,8 @@
                        },
                        {
                            "name":  "مركبة",
-                           "active":  0,
-                           "total":  1484
+                           "active":  10,
+                           "total":  1488
                        }
                    ],
     "closingSoon":  [
@@ -65,6 +65,19 @@
                             "hasMap":  false
                         },
                         {
+                            "id":  52257,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ مادبا",
+                            "place":  "الفيحاء · اراضي مادبا",
+                            "endDate":  "2026-09-25 15:00:00",
+                            "estimatedValue":  51610,
+                            "currentAmount":  29000,
+                            "numBids":  6,
+                            "serial":  0,
+                            "hasReport":  true,
+                            "hasMap":  true
+                        },
+                        {
                             "id":  50142,
                             "category":  "أرض/ مجمع",
                             "court":  "تنفيذ اربد",
@@ -78,16 +91,16 @@
                             "hasMap":  true
                         },
                         {
-                            "id":  52257,
+                            "id":  51912,
                             "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ مادبا",
-                            "place":  "الفيحاء · اراضي مادبا",
-                            "endDate":  "2026-09-25 15:00:00",
-                            "estimatedValue":  51610,
-                            "currentAmount":  29000,
-                            "numBids":  6,
+                            "court":  "تنفيذ ذيبان",
+                            "place":  "لب · اراضي ذيبان",
+                            "endDate":  "2026-09-26 15:00:00",
+                            "estimatedValue":  115806,
+                            "currentAmount":  57950,
+                            "numBids":  1,
                             "serial":  0,
-                            "hasReport":  true,
+                            "hasReport":  false,
                             "hasMap":  true
                         },
                         {
@@ -102,19 +115,6 @@
                             "serial":  3,
                             "hasReport":  true,
                             "hasMap":  false
-                        },
-                        {
-                            "id":  53331,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ الشونة الجنوبية",
-                            "place":  "غور الكفرين · اراضي الشونة الجنوبية",
-                            "endDate":  "2026-09-26 15:00:00",
-                            "estimatedValue":  249292,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  true,
-                            "hasMap":  true
                         }
                     ],
     "bargains":  [
@@ -139,6 +139,19 @@
                          "endDate":  "2026-09-26 15:00:00",
                          "estimatedValue":  38061,
                          "currentAmount":  19031,
+                         "numBids":  1,
+                         "serial":  3,
+                         "hasReport":  true,
+                         "hasMap":  false
+                     },
+                     {
+                         "id":  51515,
+                         "category":  "شقة/ مكتب",
+                         "court":  "تنفيذ الزرقاء",
+                         "place":  "العبدلية · اراضي محافظة الزرقاء",
+                         "endDate":  "2026-09-27 15:00:00",
+                         "estimatedValue":  27140,
+                         "currentAmount":  14700,
                          "numBids":  1,
                          "serial":  3,
                          "hasReport":  true,
@@ -178,19 +191,6 @@
                          "endDate":  "2026-09-28 15:00:00",
                          "estimatedValue":  50552,
                          "currentAmount":  33841,
-                         "numBids":  1,
-                         "serial":  2,
-                         "hasReport":  false,
-                         "hasMap":  true
-                     },
-                     {
-                         "id":  53050,
-                         "category":  "أرض/ مجمع",
-                         "court":  "تنفيذ المفرق",
-                         "place":  "بريقة · اراضي المفرق",
-                         "endDate":  "2026-09-27 15:00:00",
-                         "estimatedValue":  4742,
-                         "currentAmount":  3999,
                          "numBids":  1,
                          "serial":  2,
                          "hasReport":  false,
