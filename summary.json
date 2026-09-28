@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-09-28T00:21:03Z",
-    "dataScrapedAt":  "2026-09-27 19:37:09",
+    "generatedAt":  "2026-09-28T06:22:44Z",
+    "dataScrapedAt":  "2026-09-28 06:15:31",
     "totals":  {
                    "all":  4527,
-                   "active":  73
+                   "active":  74
                },
-    "endingIn24h":  22,
-    "endingInWeek":  67,
-    "reAnnounced":  4,
-    "withReport":  46,
-    "withMap":  34,
+    "endingIn24h":  23,
+    "endingInWeek":  68,
+    "reAnnounced":  5,
+    "withReport":  56,
+    "withMap":  35,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -18,7 +18,7 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  30,
+                           "active":  31,
                            "total":  1666
                        },
                        {
@@ -48,7 +48,7 @@
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  1,
-                            "hasReport":  false,
+                            "hasReport":  true,
                             "hasMap":  false
                         },
                         {
@@ -61,7 +61,7 @@
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  1,
-                            "hasReport":  false,
+                            "hasReport":  true,
                             "hasMap":  false
                         },
                         {
@@ -91,19 +91,6 @@
                             "hasMap":  false
                         },
                         {
-                            "id":  53905,
-                            "category":  "أُخرى",
-                            "court":  "تنفيذ عمان / قسم جنوب عمان",
-                            "place":  "",
-                            "endDate":  "2026-09-28 14:00:00",
-                            "estimatedValue":  22790,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  true,
-                            "hasMap":  false
-                        },
-                        {
                             "id":  53403,
                             "category":  "أُخرى",
                             "court":  "تنفيذ عمان / قسم جنوب عمان",
@@ -115,9 +102,35 @@
                             "serial":  1,
                             "hasReport":  true,
                             "hasMap":  false
+                        },
+                        {
+                            "id":  53905,
+                            "category":  "أُخرى",
+                            "court":  "تنفيذ عمان / قسم جنوب عمان",
+                            "place":  "",
+                            "endDate":  "2026-09-28 14:00:00",
+                            "estimatedValue":  22790,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  true,
+                            "hasMap":  false
                         }
                     ],
     "bargains":  [
+                     {
+                         "id":  51692,
+                         "category":  "أرض/ مجمع",
+                         "court":  "تنفيذ الشونة الجنوبية",
+                         "place":  "غور الرامة · اراضي الشونة الجنوبية",
+                         "endDate":  "2026-09-28 15:00:00",
+                         "estimatedValue":  146544,
+                         "currentAmount":  87500,
+                         "numBids":  13,
+                         "serial":  4,
+                         "hasReport":  false,
+                         "hasMap":  true
+                     },
                      {
                          "id":  47344,
                          "category":  "أرض/ مجمع",
