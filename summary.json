@@ -1,14 +1,14 @@
 {
-    "generatedAt":  "2026-09-29T01:27:52Z",
-    "dataScrapedAt":  "2026-09-28 21:46:03",
+    "generatedAt":  "2026-09-29T10:23:56Z",
+    "dataScrapedAt":  "2026-09-29 01:28:01",
     "totals":  {
                    "all":  4538,
-                   "active":  80
+                   "active":  78
                },
-    "endingIn24h":  40,
-    "endingInWeek":  75,
-    "reAnnounced":  13,
-    "withReport":  53,
+    "endingIn24h":  38,
+    "endingInWeek":  73,
+    "reAnnounced":  12,
+    "withReport":  55,
     "withMap":  43,
     "categories":  [
                        {
@@ -33,37 +33,11 @@
                        },
                        {
                            "name":  "مركبة",
-                           "active":  9,
+                           "active":  7,
                            "total":  1511
                        }
                    ],
     "closingSoon":  [
-                        {
-                            "id":  54000,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ عمان",
-                            "place":  "",
-                            "endDate":  "2026-09-29 10:00:00",
-                            "estimatedValue":  12000,
-                            "currentAmount":  9000,
-                            "numBids":  1,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  48359,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ عمان",
-                            "place":  "",
-                            "endDate":  "2026-09-29 10:20:00",
-                            "estimatedValue":  10500,
-                            "currentAmount":  5299,
-                            "numBids":  1,
-                            "serial":  2,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
                         {
                             "id":  54055,
                             "category":  "مركبة",
@@ -100,7 +74,7 @@
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  0,
-                            "hasReport":  false,
+                            "hasReport":  true,
                             "hasMap":  false
                         },
                         {
@@ -112,6 +86,32 @@
                             "estimatedValue":  5000,
                             "currentAmount":  3500,
                             "numBids":  1,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54002,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان",
+                            "place":  "",
+                            "endDate":  "2026-09-29 11:25:00",
+                            "estimatedValue":  10000,
+                            "currentAmount":  5000,
+                            "numBids":  1,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54003,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان",
+                            "place":  "",
+                            "endDate":  "2026-09-29 11:40:00",
+                            "estimatedValue":  8000,
+                            "currentAmount":  0,
+                            "numBids":  0,
                             "serial":  1,
                             "hasReport":  false,
                             "hasMap":  false
