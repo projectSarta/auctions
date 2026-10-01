@@ -1,14 +1,14 @@
 {
-    "generatedAt":  "2026-10-01T15:11:24Z",
-    "dataScrapedAt":  "2026-10-01 15:10:44",
+    "generatedAt":  "2026-10-01T20:44:05Z",
+    "dataScrapedAt":  "2026-10-01 15:11:34",
     "totals":  {
                    "all":  4626,
-                   "active":  96
+                   "active":  94
                },
-    "endingIn24h":  7,
-    "endingInWeek":  93,
+    "endingIn24h":  5,
+    "endingInWeek":  91,
     "reAnnounced":  10,
-    "withReport":  43,
+    "withReport":  42,
     "withMap":  62,
     "categories":  [
                        {
@@ -33,37 +33,11 @@
                        },
                        {
                            "name":  "مركبة",
-                           "active":  7,
+                           "active":  5,
                            "total":  1548
                        }
                    ],
     "closingSoon":  [
-                        {
-                            "id":  54046,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-10-01 19:00:00",
-                            "estimatedValue":  9000,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  54048,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-10-01 20:00:00",
-                            "estimatedValue":  1750,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  true,
-                            "hasMap":  false
-                        },
                         {
                             "id":  49027,
                             "category":  "أرض/ مجمع",
@@ -76,19 +50,6 @@
                             "serial":  0,
                             "hasReport":  false,
                             "hasMap":  true
-                        },
-                        {
-                            "id":  51192,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ الرمثا",
-                            "place":  "الشجرة · اراضي الرمثا",
-                            "endDate":  "2026-10-02 15:00:00",
-                            "estimatedValue":  10097,
-                            "currentAmount":  5200,
-                            "numBids":  1,
-                            "serial":  0,
-                            "hasReport":  true,
-                            "hasMap":  false
                         },
                         {
                             "id":  42564,
@@ -115,6 +76,45 @@
                             "serial":  4,
                             "hasReport":  false,
                             "hasMap":  true
+                        },
+                        {
+                            "id":  51192,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ الرمثا",
+                            "place":  "الشجرة · اراضي الرمثا",
+                            "endDate":  "2026-10-02 15:00:00",
+                            "estimatedValue":  10097,
+                            "currentAmount":  5200,
+                            "numBids":  1,
+                            "serial":  0,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  43910,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ مادبا",
+                            "place":  "ماعين · اراضي مادبا",
+                            "endDate":  "2026-10-02 15:00:00",
+                            "estimatedValue":  762980,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  2,
+                            "hasReport":  false,
+                            "hasMap":  true
+                        },
+                        {
+                            "id":  50448,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ الطيبة",
+                            "place":  "الطيبة · اراضي الطيبه",
+                            "endDate":  "2026-10-03 15:00:00",
+                            "estimatedValue":  33474,
+                            "currentAmount":  16738,
+                            "numBids":  1,
+                            "serial":  0,
+                            "hasReport":  true,
+                            "hasMap":  false
                         }
                     ],
     "bargains":  [
