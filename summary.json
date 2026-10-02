@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-10-02T10:15:45Z",
-    "dataScrapedAt":  "2026-10-02 02:21:14",
+    "generatedAt":  "2026-10-02T20:29:17Z",
+    "dataScrapedAt":  "2026-10-02 10:15:54",
     "totals":  {
                    "all":  4626,
-                   "active":  94
+                   "active":  89
                },
-    "endingIn24h":  5,
-    "endingInWeek":  91,
-    "reAnnounced":  10,
-    "withReport":  47,
-    "withMap":  62,
+    "endingIn24h":  2,
+    "endingInWeek":  86,
+    "reAnnounced":  8,
+    "withReport":  61,
+    "withMap":  59,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -18,7 +18,7 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  78,
+                           "active":  73,
                            "total":  1717
                        },
                        {
@@ -39,71 +39,6 @@
                    ],
     "closingSoon":  [
                         {
-                            "id":  49027,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ مادبا",
-                            "place":  "خربة الهلالية · اراضي مادبا",
-                            "endDate":  "2026-10-02 15:00:00",
-                            "estimatedValue":  127806,
-                            "currentAmount":  63903,
-                            "numBids":  1,
-                            "serial":  0,
-                            "hasReport":  true,
-                            "hasMap":  true
-                        },
-                        {
-                            "id":  42564,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ الكورة",
-                            "place":  "دير ابي سعيد الغربي · اراضي دير ابي سعيد",
-                            "endDate":  "2026-10-02 15:00:00",
-                            "estimatedValue":  73660,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  0,
-                            "hasReport":  true,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  48220,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ بني كنانة",
-                            "place":  "المخيبه الفوقا · اراضي بني كنانة",
-                            "endDate":  "2026-10-02 15:00:00",
-                            "estimatedValue":  41920,
-                            "currentAmount":  27000,
-                            "numBids":  1,
-                            "serial":  4,
-                            "hasReport":  false,
-                            "hasMap":  true
-                        },
-                        {
-                            "id":  51192,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ الرمثا",
-                            "place":  "الشجرة · اراضي الرمثا",
-                            "endDate":  "2026-10-02 15:00:00",
-                            "estimatedValue":  10097,
-                            "currentAmount":  5200,
-                            "numBids":  1,
-                            "serial":  0,
-                            "hasReport":  true,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  43910,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ مادبا",
-                            "place":  "ماعين · اراضي مادبا",
-                            "endDate":  "2026-10-02 15:00:00",
-                            "estimatedValue":  762980,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  2,
-                            "hasReport":  false,
-                            "hasMap":  true
-                        },
-                        {
                             "id":  50448,
                             "category":  "أرض/ مجمع",
                             "court":  "تنفيذ الطيبة",
@@ -113,6 +48,71 @@
                             "currentAmount":  16738,
                             "numBids":  1,
                             "serial":  0,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  53503,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ الكرك",
+                            "place":  "الدامخي · اراضي الكرك",
+                            "endDate":  "2026-10-03 15:00:00",
+                            "estimatedValue":  5000,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  true
+                        },
+                        {
+                            "id":  53321,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-10-04 14:00:00",
+                            "estimatedValue":  3200,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  0,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  53992,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-10-04 14:00:00",
+                            "estimatedValue":  1500,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54019,
+                            "category":  "أُخرى",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-10-04 14:00:00",
+                            "estimatedValue":  23000,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  53990,
+                            "category":  "أُخرى",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-10-04 14:00:00",
+                            "estimatedValue":  1493,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
                             "hasReport":  true,
                             "hasMap":  false
                         }
@@ -128,19 +128,6 @@
                          "currentAmount":  9000,
                          "numBids":  1,
                          "serial":  5,
-                         "hasReport":  false,
-                         "hasMap":  true
-                     },
-                     {
-                         "id":  48220,
-                         "category":  "أرض/ مجمع",
-                         "court":  "تنفيذ بني كنانة",
-                         "place":  "المخيبه الفوقا · اراضي بني كنانة",
-                         "endDate":  "2026-10-02 15:00:00",
-                         "estimatedValue":  41920,
-                         "currentAmount":  27000,
-                         "numBids":  1,
-                         "serial":  4,
                          "hasReport":  false,
                          "hasMap":  true
                      },
@@ -171,19 +158,6 @@
                          "hasMap":  true
                      },
                      {
-                         "id":  43910,
-                         "category":  "أرض/ مجمع",
-                         "court":  "تنفيذ مادبا",
-                         "place":  "ماعين · اراضي مادبا",
-                         "endDate":  "2026-10-02 15:00:00",
-                         "estimatedValue":  762980,
-                         "currentAmount":  0,
-                         "numBids":  0,
-                         "serial":  2,
-                         "hasReport":  false,
-                         "hasMap":  true
-                     },
-                     {
                          "id":  51761,
                          "category":  "أرض/ مجمع",
                          "court":  "تنفيذ عمان / قسم شمال عمان",
@@ -192,6 +166,32 @@
                          "estimatedValue":  128098,
                          "currentAmount":  96000,
                          "numBids":  2,
+                         "serial":  2,
+                         "hasReport":  true,
+                         "hasMap":  true
+                     },
+                     {
+                         "id":  52770,
+                         "category":  "أرض/ مجمع",
+                         "court":  "تنفيذ الجيزة",
+                         "place":  "حواره · اراضي جنوب عمان",
+                         "endDate":  "2026-10-04 15:00:00",
+                         "estimatedValue":  78080,
+                         "currentAmount":  39040,
+                         "numBids":  1,
+                         "serial":  2,
+                         "hasReport":  true,
+                         "hasMap":  true
+                     },
+                     {
+                         "id":  52797,
+                         "category":  "أرض/ مجمع",
+                         "court":  "تنفيذ اربد",
+                         "place":  "البارحه · اراضي اربد",
+                         "endDate":  "2026-10-06 15:00:00",
+                         "estimatedValue":  75584,
+                         "currentAmount":  38000,
+                         "numBids":  1,
                          "serial":  2,
                          "hasReport":  true,
                          "hasMap":  true
