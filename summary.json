@@ -1,14 +1,14 @@
 {
-    "generatedAt":  "2026-10-04T19:10:25Z",
-    "dataScrapedAt":  "2026-10-04 19:08:43",
+    "generatedAt":  "2026-10-04T23:18:52Z",
+    "dataScrapedAt":  "2026-10-04 23:18:05",
     "totals":  {
                    "all":  4686,
-                   "active":  140
+                   "active":  139
                },
-    "endingIn24h":  23,
-    "endingInWeek":  137,
+    "endingIn24h":  22,
+    "endingInWeek":  136,
     "reAnnounced":  27,
-    "withReport":  64,
+    "withReport":  63,
     "withMap":  94,
     "categories":  [
                        {
@@ -33,24 +33,11 @@
                        },
                        {
                            "name":  "مركبة",
-                           "active":  17,
+                           "active":  16,
                            "total":  1563
                        }
                    ],
     "closingSoon":  [
-                        {
-                            "id":  54052,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-10-04 21:00:00",
-                            "estimatedValue":  400,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  true,
-                            "hasMap":  false
-                        },
                         {
                             "id":  54085,
                             "category":  "مركبة",
@@ -91,6 +78,19 @@
                             "hasMap":  false
                         },
                         {
+                            "id":  54126,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ اربد",
+                            "place":  "",
+                            "endDate":  "2026-10-05 14:30:00",
+                            "estimatedValue":  2500,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
                             "id":  54139,
                             "category":  "مركبة",
                             "court":  "تنفيذ عمان / قسم جنوب عمان",
@@ -104,17 +104,17 @@
                             "hasMap":  false
                         },
                         {
-                            "id":  54126,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-10-05 14:30:00",
-                            "estimatedValue":  2500,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
+                            "id":  53095,
+                            "category":  "شقة/ مكتب",
+                            "court":  "تنفيذ مادبا",
+                            "place":  "خربة حنينا · اراضي مادبا",
+                            "endDate":  "2026-10-05 15:00:00",
+                            "estimatedValue":  51000,
+                            "currentAmount":  25500,
+                            "numBids":  1,
+                            "serial":  2,
                             "hasReport":  false,
-                            "hasMap":  false
+                            "hasMap":  true
                         }
                     ],
     "bargains":  [
