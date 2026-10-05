@@ -33,7 +33,8 @@ param(
   [switch]$Fresh,                    # ignore existing auctions.json (don't merge)
   [string]$OnlyCategory = '',        # if set, only scrape categories matching this regex (e.g. 'مركبة')
   [switch]$Refresh,                  # don't early-exit when already-complete; keep walking to refresh bids/numBids/endDate
-  [switch]$DedupeOnly                # collapse duplicate rows in auctions.json and exit; no network calls
+  [switch]$DedupeOnly,               # collapse duplicate rows in auctions.json and exit; no network calls
+  [int]$ProactiveResetPages = 0      # reset the session every N pages; 0 = never (see note at the reset site)
 )
 
 if ($Full) { $MaxPagesPerCategory = 0 }
@@ -504,12 +505,10 @@ $stampItems = {
       $it | Add-Member -MemberType NoteProperty -Name 'lastSeenInListingAt' -Value $sweepNowIso -Force
       [void]$all.Add($it)
       $allById[$itId] = $it
-      # Register the id against its category too. PASS B seeds its per-category
-      # $seen set from $existingByCat, and inserts anything NOT in $seen — so
-      # without this line every auction PASS A discovers first gets appended a
-      # SECOND time by PASS B in the same run. That is exactly how 139
-      # duplicate rows accumulated. It also keeps $seen.Count honest, which is
-      # what PASS B compares against $cat.totalCount to decide it is done.
+      # Register the id against its category too, so $existingByCat stays an
+      # accurate picture of what we hold per category. (PASS B used to seed a
+      # per-category set from this and insert anything missing from it, which is
+      # how 139 duplicate rows accumulated; the insert now gates on $allById.)
       if (-not $existingByCat.ContainsKey($it.category)) {
         $existingByCat[$it.category] = New-Object 'System.Collections.Generic.HashSet[int]'
       }
@@ -622,10 +621,22 @@ foreach ($cat in $categories) {
   Write-Host ("Scraping category: {0}  (target: {1})" -f $cat.name, $cat.totalCount) -ForegroundColor Cyan
   $catUrl = "$Base/AuctionsList.aspx?token=$($cat.token)"
   $script:CurrentToken = $cat.token
-  $seen = New-Object 'System.Collections.Generic.HashSet[int]'
+  # Lots of THIS category we have actually met on MoJ's listing during THIS run.
+  #
+  # This used to be a $seen set pre-seeded with every id we had ever recorded in
+  # the category, and the walk stopped once $seen.Count reached $cat.totalCount.
+  # But totalCount is what MoJ lists RIGHT NOW, while the pre-seeded set counted
+  # years of history — vehicles read 1636 >= 308 and the deep walk exited on
+  # page 1. Only PASS A's 12-page sweep did real work, so refresh was capped at
+  # ~120 rows per category against the 1305 land lots MoJ actually publishes,
+  # which is why endDates went stale and the active count drained between runs.
+  #
+  # Counting only what we have visited this run makes "collected all" mean what
+  # it says, and makes the progress heuristics below measure real progress
+  # through the listing rather than discovery of brand-new ids.
+  $visited = New-Object 'System.Collections.Generic.HashSet[int]'
   if ($existingByCat.ContainsKey($cat.name)) {
-    foreach ($id in $existingByCat[$cat.name]) { [void]$seen.Add($id) }
-    Write-Host ("  pre-seeded {0} existing IDs for this category" -f $seen.Count) -ForegroundColor DarkGray
+    Write-Host ("  already hold {0} rows in this category (not a stop condition)" -f $existingByCat[$cat.name].Count) -ForegroundColor DarkGray
   }
   $resets = 0
   $zeroProgressWalks = 0
@@ -641,10 +652,10 @@ foreach ($cat in $categories) {
       }
     }
 
-    $countBeforeWalk = $seen.Count
+    $countBeforeWalk = $visited.Count
     $page = 1
     $stalePageStreak = 0
-    $seenNewThisWalk = $false
+    $madeProgressThisWalk = $false
     $lastPageIds = $null
     $maxPagesPerWalk = 250
     while ($true) {
@@ -654,14 +665,14 @@ foreach ($cat in $categories) {
 
       $newCount = 0
       $updatedCount = 0
+      $visitedBeforePage = $visited.Count
       $nowIso = (Get-Date).ToUniversalTime().ToString('yyyy-MM-ddTHH:mm:ssZ')
       foreach ($it in $items) {
         $itId = [int]$it.id
-        # Gate the INSERT on $allById (global), never on $seen (per-category).
-        # $seen only knows this category, so a row we already hold — because
-        # PASS A found it, or because it is filed under another category —
-        # would otherwise be appended a second time. $seen is still kept up to
-        # date below, because the walk's progress heuristics count on it.
+        # Gate the INSERT on $allById, which spans every category. A
+        # per-category test would append a second row for anything we already
+        # hold — whether PASS A found it this run, or it is filed under another
+        # category — which is exactly how 139 duplicate rows accumulated.
         if (-not $allById.ContainsKey($itId)) {
           # Stamp the moment WE first saw this auction (ISO-8601 UTC). Drives
           # the "🆕 جديد" badge in the dashboard. Set on creation only; never
@@ -671,14 +682,14 @@ foreach ($cat in $categories) {
           }
           # Stamp lastSeenInListingAt immediately on the new item.
           $it | Add-Member -MemberType NoteProperty -Name 'lastSeenInListingAt' -Value $nowIso -Force
-          [void]$seen.Add($itId)
+          [void]$visited.Add($itId)
           [void]$all.Add($it)
           $allById[$itId] = $it
           $newCount++
         } else {
-          # Known row. Make sure it counts toward this category's progress —
-          # $seen.Count is what decides "collected all" against totalCount.
-          [void]$seen.Add($itId)
+          # Known row, but we still MET it on the listing this run — that is what
+          # "collected all" and the progress heuristics are counting.
+          [void]$visited.Add($itId)
           # Refresh mutable fields on already-known records (live bid + countdown + status).
           $existing = $allById[$itId]
           if ($null -ne $existing) {
@@ -730,15 +741,23 @@ foreach ($cat in $categories) {
           }
         }
       }
-      if ($newCount -gt 0) { $seenNewThisWalk = $true }
-      Write-Host ("  Page {0}: {1} items ({2} new, {3} refreshed, total this category: {4}/{5}, all={6})" -f $page, $items.Count, $newCount, $updatedCount, $seen.Count, $cat.totalCount, $all.Count)
+      # Progress means "this page showed us lots we had not met yet THIS RUN" —
+      # not "this page contained ids we had never recorded". With the latter, a
+      # deep refresh walk (every lot already known, so $newCount is 0 on every
+      # page) counted as zero progress: the MaxKnownPages guard below would cut
+      # the walk at page 15, reset, and pagination would restart at page 1, so
+      # the walk could never reach page 16 and just re-fetched the same pages
+      # until the reset cap, 90 seconds of cooldown at a time.
+      $newlyVisited = $visited.Count - $visitedBeforePage
+      if ($newlyVisited -gt 0) { $madeProgressThisWalk = $true }
+      Write-Host ("  Page {0}: {1} items ({2} new, {3} refreshed, total this category: {4}/{5}, all={6})" -f $page, $items.Count, $newCount, $updatedCount, $visited.Count, $cat.totalCount, $all.Count)
 
       # Save after every page that processed at least one item — even pages
       # where nothing visibly "changed" still updated lastSeenInListingAt on
       # every row we saw, which the dashboard's "active" filter cares about.
       if ($items.Count -gt 0) { Save-All $true }
 
-      if (-not $Refresh -and $cat.totalCount -gt 0 -and $seen.Count -ge $cat.totalCount) {
+      if (-not $Refresh -and $cat.totalCount -gt 0 -and $visited.Count -ge $cat.totalCount) {
         Write-Host "  (collected all)" -ForegroundColor Green
         break catLoop
       }
@@ -754,10 +773,19 @@ foreach ($cat in $categories) {
         Write-Host "  (max pages per walk reached)" -ForegroundColor Yellow
         break
       }
-      # Cap how many pages we'll walk through already-known territory before giving up
-      # this walk. Without this we burn requests + risk hard IP-ban from rate limiter.
-      if (-not $seenNewThisWalk -and $page -ge $MaxKnownPages) {
-        Write-Host ("  (walked {0} pages of known territory without new items — reset)" -f $MaxKnownPages) -ForegroundColor DarkYellow
+      # Cap how many pages we'll walk through already-visited territory before
+      # giving up this walk — but only once there is nothing left to find.
+      #
+      # MoJ's pagination is sequential (lbNext only), so a walk interrupted at
+      # page 60 cannot resume at 61: the next walk restarts at page 1 and has to
+      # re-cross 60 visited pages before reaching new ground. Cutting it at page
+      # 15 for "no progress" would strand every category whose listing is longer
+      # than MaxKnownPages at ~150 lots, forever. While $visited is still short
+      # of what MoJ lists, paging on is purposeful, and the identical-page check
+      # below still catches genuinely blocked pagination.
+      $moreToFind = ($cat.totalCount -gt 0 -and $visited.Count -lt $cat.totalCount)
+      if (-not $madeProgressThisWalk -and $page -ge $MaxKnownPages -and -not $moreToFind) {
+        Write-Host ("  (walked {0} pages without reaching any unvisited lot — reset)" -f $MaxKnownPages) -ForegroundColor DarkYellow
         break
       }
       # Identical-page detection ALWAYS fires — if the next-page POST returns the same
@@ -768,11 +796,11 @@ foreach ($cat in $categories) {
         Write-Host "  (same IDs as previous page — pagination silently blocked, will reset)" -ForegroundColor Yellow
         break
       }
-      # The "0 new items for 3 pages in a row" stall is still gated on having seen new
-      # items in this walk — otherwise a refresh-only walk through known territory
-      # would bail immediately.
-      if ($seenNewThisWalk) {
-        if ($newCount -eq 0) {
+      # The "3 pages in a row with no progress" stall, gated on having made some
+      # progress in this walk first — otherwise a walk that opens on already
+      # visited pages would bail immediately.
+      if ($madeProgressThisWalk) {
+        if ($newlyVisited -eq 0) {
           $stalePageStreak++
           if ($stalePageStreak -ge 3) {
             Write-Host "  (stale pagination — needs reset)" -ForegroundColor Yellow
@@ -837,10 +865,26 @@ foreach ($cat in $categories) {
       $html = $next
       $page++
 
-      # Periodic preemptive session reset. MoJ's anti-bot typically trips
-      # after ~30-50 consecutive requests on the same session — refresh
-      # cookies + UA every 12 pages so we stay under the radar.
-      if (($page % 12) -eq 0) {
+      # Optional preemptive session reset, OFF by default.
+      #
+      # This used to fire unconditionally every 12 pages, justified by a comment
+      # claiming MoJ's anti-bot "typically trips after ~30-50 consecutive
+      # requests". Measured on 2026-10-05 against the land listing, one session
+      # with no reset: 96 consecutive requests succeeded, reaching 954 of 1305
+      # lots in 10.9 minutes, before a transport timeout. The stated figure was
+      # wrong by roughly 2x and the reset was firing eight times too early.
+      #
+      # It is off rather than merely raised because a reset re-fetches the
+      # category URL, and MoJ's pagination is sequential (lbNext only) — so the
+      # walk silently restarts at page 1 and loses its position. Resetting at
+      # page 80 would cap the 131-page land listing at 80 just as firmly as 12
+      # did. A reset only helps if it never fires before the wall, and at that
+      # point the existing captcha/timeout handling does the same job having got
+      # much further first.
+      #
+      # Request pacing ($DelayMs, jittered) and run frequency are the levers for
+      # staying under the radar; throwing away pagination position is not.
+      if ($ProactiveResetPages -gt 0 -and ($page % $ProactiveResetPages) -eq 0) {
         Write-Host "  [proactive] resetting session at page $page" -ForegroundColor DarkGray
         Reset-Session
         try {
@@ -850,20 +894,20 @@ foreach ($cat in $categories) {
       }
     }
 
-    if ($cat.totalCount -gt 0 -and $seen.Count -ge $cat.totalCount) { break }
+    if ($cat.totalCount -gt 0 -and $visited.Count -ge $cat.totalCount) { break }
     if (Test-Budget) { break catLoop }
     $resets++
     if ($resets -gt $MaxResetsPerCategory) {
-      Write-Host ("  Reset cap reached ({0}). Stopping at {1}/{2}." -f $MaxResetsPerCategory, $seen.Count, $cat.totalCount) -ForegroundColor Yellow
+      Write-Host ("  Reset cap reached ({0}). Stopping at {1}/{2}." -f $MaxResetsPerCategory, $visited.Count, $cat.totalCount) -ForegroundColor Yellow
       break
     }
-    $progressedThisWalk = ($seen.Count - $countBeforeWalk)
+    $progressedThisWalk = ($visited.Count - $countBeforeWalk)
     if ($progressedThisWalk -eq 0) {
       $zeroProgressWalks++
       # In -Refresh mode we expect 0-new walks (refreshing existing items, not discovering new)
       $abortAfter = if ($Refresh) { 6 } else { 3 }
       if ($zeroProgressWalks -ge $abortAfter) {
-        Write-Host ("  {0} consecutive walks added 0 new items. Aborting category at {1}/{2}." -f $abortAfter, $seen.Count, $cat.totalCount) -ForegroundColor Yellow
+        Write-Host ("  {0} consecutive walks visited 0 further lots. Aborting category at {1}/{2}." -f $abortAfter, $visited.Count, $cat.totalCount) -ForegroundColor Yellow
         break
       }
     } else {
