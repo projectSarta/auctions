@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-05T13:40:00Z",
+  "title": "Design System: MoJ Auctions Dashboard",
+  "extensions": {
+    "colorMeta": {
+      "court-navy": {
+        "role": "primary",
+        "displayName": "Court Navy",
+        "canonical": "#1B3A57",
+        "tonalRamp": ["#070F18", "#0E2438", "#143049", "#1B3A57", "#2E5578", "#5A82A5", "#9DB7CE", "#EEF2F6"]
+      },
+      "treasury-gold": {
+        "role": "secondary",
+        "displayName": "Treasury Gold",
+        "canonical": "#C9A961",
+        "tonalRamp": ["#2E2512", "#4D3F1F", "#6E5A2D", "#A88840", "#C9A961", "#DBC28C", "#EDDFBB", "#FBF6E8"]
+      },
+      "hammer-red": {
+        "role": "tertiary",
+        "displayName": "Hammer Red",
+        "canonical": "#B73E3E",
+        "tonalRamp": ["#2B0E0E", "#4A1818", "#6E2424", "#962E2E", "#B73E3E", "#D07878", "#E6B3B3", "#FBF2F2"]
+      },
+      "seal-green": {
+        "role": "tertiary",
+        "displayName": "Seal Green",
+        "canonical": "#3D7A6A",
+        "tonalRamp": ["#0D1E1A", "#17352E", "#245146", "#2F6559", "#3D7A6A", "#6DA396", "#A6C9BF", "#E6F0EC"]
+      },
+      "parchment": {
+        "role": "neutral",
+        "displayName": "Parchment",
+        "canonical": "#FAF8F4",
+        "tonalRamp": ["#1A1F2E", "#3D4859", "#7B8499", "#B8BEC9", "#D8D2C6", "#E5DFD3", "#F2EEE7", "#FAF8F4"]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule Tan",
+        "canonical": "#E5DFD3",
+        "tonalRamp": ["#2A2620", "#4A443A", "#6E6658", "#968C7A", "#BDB3A1", "#E5DFD3", "#F0ECE4", "#FAF8F4"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#1A1F2E",
+        "tonalRamp": ["#0A0D14", "#1A1F2E", "#2B3344", "#3D4859", "#5C6679", "#7B8499", "#B8BEC9", "#E8EBF0"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display Serif", "purpose": "Landing hero headline. Once per page; never in the dashboard." },
+      "title": { "displayName": "Title", "purpose": "Modal titles and section headings." },
+      "body": { "displayName": "Body Sans", "purpose": "Table cells, labels, controls. The dashboard lives here." },
+      "label": { "displayName": "Label", "purpose": "Pills, badges and column chips. Small and heavy." },
+      "numeric": { "displayName": "Tabular Serif", "purpose": "Every monetary value, count and countdown. Tabular figures so dinar columns align down the page." }
+    },
+    "shadows": [
+      { "name": "resting", "value": "0 2px 6px rgba(14,36,56,.06)", "purpose": "Near-invisible seat under cards, tiles and the table at rest." },
+      { "name": "lifted", "value": "0 1px 2px rgba(14,36,56,.06), 0 12px 28px -12px rgba(14,36,56,.22)", "purpose": "Hover on a card or stat tile, paired with translateY(-2px)." },
+      { "name": "floating", "value": "0 12px 32px -10px rgba(14,36,56,.35)", "purpose": "Popovers and the column filter panel, appended to body to escape table clipping." },
+      { "name": "focus-ring", "value": "0 0 0 2px var(--color-primary) inset, 0 2px 6px rgba(0,0,0,.06)", "purpose": "Inset navy ring so focus never changes an element's footprint." }
+    ],
+    "motion": [
+      { "name": "motion-fast", "value": "120ms", "purpose": "Chip and control state changes." },
+      { "name": "motion-base", "value": "220ms", "purpose": "Default transition for hover and colour changes." },
+      { "name": "motion-medium", "value": "360ms", "purpose": "Card lift, popover entry." },
+      { "name": "motion-large", "value": "520ms", "purpose": "Modal and panel transitions." },
+      { "name": "motion-xl", "value": "720ms", "purpose": "Page-level reveals on the landing surface." },
+      { "name": "ease-out-quart", "value": "cubic-bezier(0.25, 1, 0.5, 1)", "purpose": "Default easing for entry and lift." },
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Longer reveals that should settle hard." },
+      { "name": "ease-in-quart", "value": "cubic-bezier(0.5, 0, 0.75, 0)", "purpose": "Exits." },
+      { "name": "ease-standard", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Neutral two-way transitions." },
+      { "name": "ease-back-out", "value": "cubic-bezier(0.34, 1.56, 0.64, 1)", "purpose": "The single overshoot easing, used for the new-lot pulse." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "560px" },
+      { "name": "md", "value": "900px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Brand Seal",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "The scales-of-justice mark. The only illustrative element in the system; once per page in the brand lockup.",
+      "html": "<span class=\"ds-lockup\"><svg class=\"ds-seal\" viewBox=\"0 0 48 48\" aria-hidden=\"true\"><circle cx=\"24\" cy=\"24\" r=\"22\" fill=\"none\" stroke=\"#C9A961\" stroke-width=\"1.3\" opacity=\".55\"/><circle cx=\"24\" cy=\"24\" r=\"18\" fill=\"none\" stroke=\"#C9A961\" stroke-width=\".6\" opacity=\".35\"/><line x1=\"24\" y1=\"11\" x2=\"24\" y2=\"35\" stroke=\"#C9A961\" stroke-width=\"1.6\" stroke-linecap=\"round\"/><line x1=\"12\" y1=\"17\" x2=\"36\" y2=\"17\" stroke=\"#C9A961\" stroke-width=\"1.6\" stroke-linecap=\"round\"/><path d=\"M12 17 L7.5 26 h9 Z\" fill=\"none\" stroke=\"#C9A961\" stroke-width=\"1.3\" stroke-linejoin=\"round\"/><path d=\"M36 17 L31.5 26 h9 Z\" fill=\"none\" stroke=\"#C9A961\" stroke-width=\"1.3\" stroke-linejoin=\"round\"/><line x1=\"17\" y1=\"35\" x2=\"31\" y2=\"35\" stroke=\"#C9A961\" stroke-width=\"1.6\" stroke-linecap=\"round\"/></svg><span class=\"ds-wordmark\"><span class=\"ds-eyebrow\">وزارة العدل الأردنية</span><span class=\"ds-title\">لوحة المزادات</span></span></span>",
+      "css": ".ds-lockup { display: inline-flex; align-items: center; gap: 11px; direction: rtl; } .ds-seal { width: 42px; height: 42px; flex: none; } .ds-wordmark { display: flex; flex-direction: column; line-height: 1.1; } .ds-eyebrow { font-family: 'Segoe UI', Tahoma, sans-serif; font-size: .62rem; font-weight: 600; letter-spacing: .06em; color: #7B8499; } .ds-title { font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Cambria, Georgia, serif; font-size: 1.25rem; font-weight: 600; color: #1A1F2E; }"
+    },
+    {
+      "name": "Stat Tile",
+      "kind": "card",
+      "refersTo": "stat-card",
+      "description": "A card that is also a filter control. Click filters the table; the hover lift is the only affordance saying so.",
+      "html": "<button class=\"ds-stat\"><span class=\"ds-stat-value\">٣٢٩</span><span class=\"ds-stat-label\">مزاد نشط</span></button>",
+      "css": ".ds-stat { display: flex; flex-direction: column; gap: 2px; align-items: flex-start; background: #FFFFFF; border: 1px solid #E5DFD3; border-radius: 14px; box-shadow: 0 2px 6px rgba(14,36,56,.06); padding: 11px 14px; cursor: pointer; text-align: start; direction: rtl; transition: transform 360ms cubic-bezier(0.25,1,0.5,1), box-shadow 360ms cubic-bezier(0.25,1,0.5,1); } .ds-stat-value { font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; font-variant-numeric: tabular-nums; font-size: 1.45rem; color: #1A1F2E; } .ds-stat-label { font-family: 'Segoe UI', Tahoma, sans-serif; font-size: .75rem; color: #7B8499; } .ds-stat:hover { transform: translateY(-2px); box-shadow: 0 1px 2px rgba(14,36,56,.06), 0 12px 28px -12px rgba(14,36,56,.22); } .ds-stat:focus-visible { outline: none; box-shadow: 0 0 0 2px #1B3A57 inset, 0 2px 6px rgba(0,0,0,.06); }"
+    },
+    {
+      "name": "Status Pill",
+      "kind": "chip",
+      "refersTo": "pill",
+      "description": "Category badge and re-announcement marker. Fully round, gold-on-gold-soft.",
+      "html": "<span class=\"ds-pill\">إعادة إعلان · جولة ٣</span>",
+      "css": ".ds-pill { display: inline-block; font-family: 'Segoe UI', Tahoma, sans-serif; font-size: .7rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: #FBF6E8; color: #A88840; direction: rtl; }"
+    },
+    {
+      "name": "Freshness Indicator",
+      "kind": "chip",
+      "refersTo": null,
+      "description": "Landing-page data-age badge. Green under 24h, gold past 24h, red past 72h — the one place colour encodes a threshold.",
+      "html": "<span class=\"ds-fresh ds-fresh--stale\"><span class=\"ds-fresh-dot\"></span>آخر تحديث قبل ٣١ ساعة</span>",
+      "css": ".ds-fresh { display: inline-flex; align-items: center; gap: 9px; padding: 7px 15px 7px 13px; border-radius: 999px; font-family: 'Segoe UI', Tahoma, sans-serif; font-size: .84rem; direction: rtl; background: #E6F0EC; color: #3D7A6A; } .ds-fresh-dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; flex: none; } .ds-fresh--stale { background: #FBF6E8; color: #A88840; } .ds-fresh--old { background: #FBF2F2; color: #B73E3E; }"
+    },
+    {
+      "name": "Data Table Header",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Navy sticky header with a per-column filter chip. The dashboard's primary surface.",
+      "html": "<table class=\"ds-table\"><thead><tr><th>رقم المزاد<button class=\"ds-colfilter\" aria-label=\"تصفية\">▾</button></th><th>القيمة التقديرية</th></tr></thead><tbody><tr><td class=\"ds-num\">٥١٨٤٢</td><td class=\"ds-num\">٥١٬٨٠٠</td></tr></tbody></table>",
+      "css": ".ds-table { width: 100%; border-collapse: collapse; direction: rtl; background: #FFFFFF; border: 1px solid #E5DFD3; border-radius: 14px; overflow: hidden; font-family: 'Segoe UI', Tahoma, sans-serif; font-size: .85rem; } .ds-table thead th { background: #1B3A57; color: #FFFFFF; font-weight: 600; font-size: .78rem; padding: 9px 11px; text-align: start; white-space: nowrap; } .ds-table tbody td { padding: 9px 11px; border-top: 1px solid #E5DFD3; color: #3D4859; } .ds-table tbody tr:hover { background: #EEF2F6; } .ds-num { font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif; font-variant-numeric: tabular-nums; font-size: .98rem; color: #1A1F2E; } .ds-colfilter { background: none; border: 0; padding: 0 4px; margin-inline-start: 4px; color: rgba(255,255,255,.55); cursor: pointer; font-size: .8rem; } .ds-colfilter:hover { color: #C9A961; }"
+    },
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": null,
+      "description": "RECORDED DRIFT: Bootstrap's default shape with only --bs-primary remapped. Shown as built, not as intended. Note the 6px radius against the system's 14px card token.",
+      "html": "<button class=\"ds-btn-primary\">صفحة المزاد في الموقع</button>",
+      "css": ".ds-btn-primary { background: #1B3A57; color: #FFFFFF; border: 1px solid #1B3A57; border-radius: 6px; padding: 6px 12px; font-family: 'Segoe UI', Tahoma, sans-serif; font-size: .85rem; cursor: pointer; direction: rtl; transition: background 220ms cubic-bezier(0.4,0,0.2,1); } .ds-btn-primary:hover { background: #0E2438; border-color: #0E2438; } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 .25rem rgba(27,58,87,.35); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Court Record",
+    "overview": "This is a public register, not a product. It inherits its authority from the thing it documents — court-ordered auctions executed under Jordan's execution law — and its job is to be legible under scrutiny. The scales-of-justice seal, the serif display face, and the parchment ground all say the same thing: this is a record you can cite, not a dashboard trying to sell you something.\n\nBut it is a warm record, not a cold one. The ground is parchment (#FAF8F4), never white-grey; the accent is gold, never corporate blue; the rules between rows are a soft tan (#E5DFD3) rather than a hard grey line. That warmth is deliberate and load-bearing — it is what keeps a screen of 300 dense rows from reading as an enterprise data table. Density and warmth are not in tension here; the warmth is what makes the density bearable.\n\nPrecision is the other half. Every number is tabular-lined and set in the serif, so columns of dinars align down the page and a price can be compared at a glance without reading it. The interface is dense on purpose: filters on every column, stat tiles that are themselves filters, and as many lots per screen as legibility allows. A visitor is here to compare lots and catch a deadline, not to browse.",
+    "keyCharacteristics": [
+      "Parchment ground, never white — warmth is a system invariant",
+      "Serif for display and for every number; sans for body and controls",
+      "Gold is a seal, used sparingly; red means a deadline, never decoration",
+      "Flat at rest, lifting only on hover",
+      "Arabic RTL first, and the only language"
+    ],
+    "rules": [
+      { "name": "The Parchment Rule", "body": "The page ground is #FAF8F4 and never pure white. White is a surface that sits on the ground; if the two are ever the same value, cards stop existing.", "section": "colors" },
+      { "name": "The Gold Is A Seal Rule", "body": "Treasury Gold marks provenance and status — the seal, a re-announcement, a staleness warning. It is never a call to action and never a large fill. If gold covers more than a badge, it has stopped being a seal.", "section": "colors" },
+      { "name": "The Red Means Time Rule", "body": "Hammer Red is reserved for deadlines and newness. It is not an error colour, not a brand colour, and not available for emphasis. A red cell on this screen must always mean the clock.", "section": "colors" },
+      { "name": "The Tabular Serif Rule", "body": "Numbers are set in the display serif with font-variant-numeric: tabular-nums, not in the body sans. Columns of dinars must align on the decimal down a 300-row table; this is the reason the serif exists in the body of the page at all.", "section": "typography" },
+      { "name": "The No Webfont Rule", "body": "The type stack is system-local by design. Do not add a Google Font or any webfont — it would delay first paint on a mobile connection and would not improve the Arabic rendering, which is the only language here.", "section": "typography" },
+      { "name": "The Navy Shadow Rule", "body": "Shadows are rgba(14,36,56,…). A neutral-black shadow on #FAF8F4 reads as dirt, not depth.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the page ground on Parchment (#FAF8F4) and reserve white for surfaces that sit on it.",
+      "Do set every number in the serif with tabular-nums, so columns align.",
+      "Do tint shadows with rgba(14,36,56,…), never neutral black.",
+      "Do use logical properties (margin-inline-start, padding-inline) — the entire interface is RTL.",
+      "Do append popovers and dropdowns to <body> when they originate inside .table-responsive, which would otherwise clip them.",
+      "Do treat the 14px card radius as the signature shape."
+    ],
+    "donts": [
+      "Don't use Hammer Red for anything except deadlines and newness. It is not an error colour and not available for emphasis.",
+      "Don't let Treasury Gold grow beyond a badge, seal or marker. Gold at scale stops being a seal.",
+      "Don't add a webfont. The stack is system-local so Arabic resolves to the platform face and first paint is immediate.",
+      "Don't combine Bootstrap's .rounded / .shadow-sm / .bg-white utilities with a card — their !important silently overrides the radius token.",
+      "Don't set overflow: hidden on .table-responsive; it breaks horizontal scroll on mobile, where the table is read by scrolling across.",
+      "Don't treat the current button styling as the system's intent. Components inherit Bootstrap's shape with only the palette remapped — this is recorded drift, not a decision.",
+      "Don't define the same token twice under different names. The landing page calls it --navy and the dashboard calls it --color-primary for the same #1B3A57; converge on one, do not add a third."
+    ]
+  }
+}
