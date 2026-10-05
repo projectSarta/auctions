@@ -34,8 +34,11 @@ param(
   [string]$OnlyCategory = '',        # if set, only scrape categories matching this regex (e.g. 'مركبة')
   [switch]$Refresh,                  # don't early-exit when already-complete; keep walking to refresh bids/numBids/endDate
   [switch]$DedupeOnly,               # collapse duplicate rows in auctions.json and exit; no network calls
-  [int]$ProactiveResetPages = 0      # reset the session every N pages; 0 = never (see note at the reset site)
+  [int]$ProactiveResetPages = 0,     # reset the session every N pages; 0 = never (see note at the reset site)
+  [int]$SavePageInterval = 10        # checkpoint auctions.json every N pages (end of category always saves)
 )
+
+$script:PagesSinceSave = 0
 
 if ($Full) { $MaxPagesPerCategory = 0 }
 $ScriptStart = Get-Date
@@ -300,10 +303,41 @@ function Parse-Auctions([string]$html, [string]$category) {
   ,$out
 }
 
+# Write one file atomically: build a sibling .tmp, then rename over the target.
+# A rename cannot half-succeed, so a collision can never leave a truncated
+# auctions.json behind - which a direct WriteAllText to a 65 MB file genuinely
+# could, and twice nearly did.
+#
+# The retry is for transient Windows sharing failures. Two different ones have
+# already killed a run mid-scrape: OneDrive holding the file open mid-sync
+# ("being used by another process"), and an indexer or AV holding a mapped view
+# of it ("cannot be performed on a file with a user-mapped section open").
+# Both clear on their own within a second or two.
+function Write-FileAtomic([string]$path, [string]$text) {
+  $tmp = "$path.tmp"
+  $enc = [System.Text.UTF8Encoding]::new($false)
+  $lastErr = $null
+  for ($try = 1; $try -le 5; $try++) {
+    try {
+      [System.IO.File]::WriteAllText($tmp, $text, $enc)
+      Move-Item -LiteralPath $tmp -Destination $path -Force -ErrorAction Stop
+      return
+    } catch {
+      $lastErr = $_
+      if ($try -lt 5) {
+        Write-Host ("    [io] write to {0} failed (attempt {1}/5), retrying: {2}" -f (Split-Path $path -Leaf), $try, $_.Exception.Message.Split("`n")[0]) -ForegroundColor DarkYellow
+        Start-Sleep -Milliseconds (400 * $try)
+      }
+    }
+  }
+  if (Test-Path $tmp) { Remove-Item $tmp -Force -ErrorAction SilentlyContinue }
+  throw $lastErr
+}
+
 function Save-Progress($path, $jsPath, $payload) {
   $json = $payload | ConvertTo-Json -Depth 12
-  [System.IO.File]::WriteAllText($path, $json, [System.Text.UTF8Encoding]::new($false))
-  [System.IO.File]::WriteAllText($jsPath, "window.AUCTION_DATA = $json;", [System.Text.UTF8Encoding]::new($false))
+  Write-FileAtomic $path   $json
+  Write-FileAtomic $jsPath "window.AUCTION_DATA = $json;"
 }
 
 # Output paths. Assigned BEFORE the index fetch because the captcha fallback
@@ -607,6 +641,7 @@ foreach ($cat in $categories) {
 
   Write-Host ("    → category total stamped: {0}" -f $sweepCatStamped) -ForegroundColor Green
   Save-All $true    # save after each category so partial progress survives
+  $script:PagesSinceSave = 0
 }
 Write-Host ""
 Write-Host "==== PASS B: deep walk per category ====" -ForegroundColor Magenta
@@ -752,10 +787,23 @@ foreach ($cat in $categories) {
       if ($newlyVisited -gt 0) { $madeProgressThisWalk = $true }
       Write-Host ("  Page {0}: {1} items ({2} new, {3} refreshed, total this category: {4}/{5}, all={6})" -f $page, $items.Count, $newCount, $updatedCount, $visited.Count, $cat.totalCount, $all.Count)
 
-      # Save after every page that processed at least one item — even pages
-      # where nothing visibly "changed" still updated lastSeenInListingAt on
-      # every row we saw, which the dashboard's "active" filter cares about.
-      if ($items.Count -gt 0) { Save-All $true }
+      # Checkpoint periodically rather than after every page.
+      #
+      # This used to save on every page that returned items. Both files total
+      # ~130 MB, so at the old ~60-page depth that was ~8 GB of writes per run;
+      # once PASS B started walking the full ~237 pages it became ~38 GB, and
+      # every rewrite is another window for an indexer or AV to collide with.
+      # Saving every $SavePageInterval pages keeps the "a killed scrape still
+      # keeps its progress" property - the most we now lose is that many pages
+      # of lastSeenInListingAt stamps - while cutting the write volume ~10x.
+      # End-of-category and end-of-run saves below are unconditional.
+      if ($items.Count -gt 0) {
+        $script:PagesSinceSave++
+        if ($script:PagesSinceSave -ge $SavePageInterval) {
+          Save-All $true
+          $script:PagesSinceSave = 0
+        }
+      }
 
       if (-not $Refresh -and $cat.totalCount -gt 0 -and $visited.Count -ge $cat.totalCount) {
         Write-Host "  (collected all)" -ForegroundColor Green
@@ -918,6 +966,7 @@ foreach ($cat in $categories) {
   }
 
   Save-All $true
+  $script:PagesSinceSave = 0
   Write-Host ("  [saved] {0} auctions written so far" -f $all.Count) -ForegroundColor DarkGray
 }
 
