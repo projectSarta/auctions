@@ -67,18 +67,61 @@ function Get-FetchBudgetMinutes([datetime]$Now = [datetime]::MinValue) {
   return $mins
 }
 
-# A phase that talks to MoJ. Skipped entirely once the budget is gone, so a
-# long run degrades to "commit what we already have" instead of overrunning.
+# Is MoJ actually serving us right now? One cheap GET, using the same block
+# test scrape.ps1 uses: a truncated body or a 'Validation request' /
+# 'captcha_resp' marker means we are being refused.
+#
+# This exists because of what the 2026-10-05 06:20 run did. MoJ was already
+# serving captchas 90 seconds in, and the run then spent 76 of its 80 minutes
+# discovering that over and over - 21 minutes in report enrichment, 55 in the
+# scrape (56 captcha/retry events, six 90-second cooldowns per category) -
+# before giving up on every category and committing nothing. Every phase
+# reported success, so from the outside the pipeline looked healthy.
+# $Url is for testing only; left unset it probes MoJ's index page.
+function Test-MojServing([string]$Url = 'https://auctions.moj.gov.jo/index.aspx') {
+  $tmp = [System.IO.Path]::GetTempFileName()
+  try {
+    & curl.exe --silent --insecure --location --compressed --max-time 25 `
+      --user-agent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36' `
+      --output $tmp $Url | Out-Null
+    if ($LASTEXITCODE -ne 0) { return $false }          # timeout / connection reset
+    $h = [System.IO.File]::ReadAllText($tmp, [System.Text.UTF8Encoding]::new($false))
+    if ($h.Length -lt 5000) { return $false }
+    if ($h.Contains('Validation request') -or $h.Contains('captcha_resp')) { return $false }
+    return $true
+  } catch { return $false }
+  finally { if (Test-Path $tmp) { Remove-Item $tmp -Force -ErrorAction SilentlyContinue } }
+}
+
+$script:MojBlocked = $false
+
+function Skip-Phase([string]$name, [string]$why) {
+  $msg = "[skip] $name - $why"
+  Add-Content -Path $Log -Value $msg -Encoding UTF8
+  Write-Host $msg -ForegroundColor Yellow
+}
+
+# A phase that talks to MoJ. Skipped when the no-run budget is gone, and
+# skipped for the rest of the run once MoJ is found to be blocking, so a
+# blocked run degrades to "commit what we already have" in seconds instead of
+# grinding for over an hour.
 function FetchStep([string]$name, [scriptblock]$cmd) {
+  if ($script:MojBlocked) { Skip-Phase $name 'MoJ is blocking (detected earlier this run)'; return }
+
   $budget = Get-FetchBudgetMinutes
   if ($budget -lt 1) {
     $a = Get-AmmanNow
     $when = if ($null -eq $a) { 'Amman time unavailable' } else { $a.ToString('HH:mm') + ' Amman' }
-    $msg = "[skip] $name - no-run window ($when)"
-    Add-Content -Path $Log -Value $msg -Encoding UTF8
-    Write-Host $msg -ForegroundColor Yellow
+    Skip-Phase $name "no-run window ($when)"
     return
   }
+
+  if (-not (Test-MojServing)) {
+    $script:MojBlocked = $true
+    Skip-Phase $name 'MoJ is serving captchas - abandoning all remaining fetch phases'
+    return
+  }
+
   $script:PhaseBudgetMin = $budget
   Step $name $cmd
 }
@@ -87,62 +130,60 @@ function FetchStep([string]$name, [scriptblock]$cmd) {
 $start = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
 Set-Content -Path $Log -Value "===== Overnight run started $start =====" -Encoding UTF8
 
-# Phase 1: enrich images for active listings (any category)
-FetchStep 'Phase 1: enrich images (active, all categories)' {
-  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_images.ps1') -ActiveOnly -MaxItems 2000 -DelayMs 400
-}
+# Phase order note (changed 2026-10-05): the scrape used to run THIRD, behind
+# two enrichment passes. MoJ blocks us well before a run finishes, so whatever
+# requests we get before the wall went to image and report enrichment while the
+# scrape - the only phase that refreshes endDate, bids and new listings - got
+# whatever was left, usually nothing. The scrape now goes first.
+#
+# Running it first also removes the old double enrichment pass: the scrape
+# backfills caseId, which report enrichment needs, so a single pass afterwards
+# sees the fresh caseIds and there is nothing left for a second pass to catch.
 
-# Phase 2: enrich reports for active listings (whatever caseIds we have now)
-FetchStep 'Phase 2: enrich reports (active, current caseIds)' {
-  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_reports.ps1') -ActiveOnly -MaxItems 2000 -DelayMs 1200
-}
-
-# Phase 3: fresh full scrape — this fetches new listings AND backfills caseId
-# on existing rows that don't have one (so report enrichment can catch them next).
-FetchStep 'Phase 3: full scrape (new listings + backfill caseId)' {
+# Phase 1: fresh full scrape - new listings, refreshed endDate/bids, caseId backfill.
+FetchStep 'Phase 1: full scrape (new listings + backfill caseId)' {
   & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'scrape.ps1') -Full -MaxMinutes $script:PhaseBudgetMin
 }
 
-# Phase 4: re-enrich images for any newly-scraped active listings
-FetchStep 'Phase 4: enrich images for newly scraped (active)' {
+# Phase 2: images for active listings, including everything the scrape just found.
+FetchStep 'Phase 2: enrich images (active)' {
   & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_images.ps1') -ActiveOnly -MaxItems 2000 -DelayMs 400
 }
 
-# Phase 5: re-enrich reports — now with backfilled caseIds, many more candidates
-FetchStep 'Phase 5: enrich reports for newly scraped + backfilled (active)' {
+# Phase 3: expert reports, now with caseIds the scrape backfilled this run.
+FetchStep 'Phase 3: enrich reports (active)' {
   & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_reports.ps1') -ActiveOnly -MaxItems 2000 -DelayMs 1200
 }
 
-# Phase 5b: aradi.io parcel polygons (fetched server-side, embedded so the
+# Phase 4: aradi.io parcel polygons (fetched server-side, embedded so the
 # browser doesn't have to hit aradi's no-CORS /api/plot endpoint at all).
-FetchStep 'Phase 5b: enrich aradi polygons (active land rows)' {
+FetchStep 'Phase 4: enrich aradi polygons (active land rows)' {
   & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_aradi.ps1') -MaxItems 400 -DelayMs 250
 }
 
-# Phase 5b2: per-lot permalinks. MoJ's AuctionInfo.aspx?token=<perLotToken> is
-# a real single-auction page, reachable only by replaying the listing's
+# Phase 5: per-lot permalinks. MoJ's AuctionInfo.aspx?token=<perLotToken> is a
+# real single-auction page, reachable only by replaying the listing's
 # LinkButton2 postback. The token is deterministic, so one harvest per lot is
-# enough and repeat runs only pay for lots added since. Runs after the scrape
-# so newly-listed lots are included.
-FetchStep 'Phase 5b2: harvest per-lot MoJ permalinks (active)' {
+# enough and repeat runs only pay for lots added since.
+FetchStep 'Phase 5: harvest per-lot MoJ permalinks (active)' {
   & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_links.ps1') -MaxLots 500 -DelayMs 900 -MaxMinutes ([Math]::Min(25, $script:PhaseBudgetMin))
 }
 
-# Phase 5c: rebuild summary.json — the landing page (index.html) reads this
+# Phase 6: rebuild summary.json — the landing page (index.html) reads this
 # few-KB digest instead of the ~17 MB auctions.json.
-Step 'Phase 5c: build landing-page summary' {
+Step 'Phase 6: build landing-page summary' {
   & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'build_summary.ps1')
 }
 
-# Phase 6: resize all images to thumbnails to stay under GitHub Pages limits
-Step 'Phase 6: resize images' {
+# Phase 7: resize all images to thumbnails to stay under GitHub Pages limits
+Step 'Phase 7: resize images' {
   & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'resize_images.ps1')
 }
 
-# Phase 7: commit + push. Wrap git calls in try/catch so the harmless
+# Phase 8: commit + push. Wrap git calls in try/catch so the harmless
 # LF/CRLF warnings (which PowerShell promotes to fatal errors under
 # ErrorActionPreference=Stop) don't kill the publish.
-Step 'Phase 7: commit + push' {
+Step 'Phase 8: commit + push' {
   Set-Location $Root
   $ErrorActionPreference = 'Continue'
 

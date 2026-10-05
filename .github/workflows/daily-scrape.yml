@@ -42,7 +42,7 @@ jobs:
           fetch-depth: 1
           # actions/checkout configures the local git remote with a token that
           # has write access for the lifetime of this job — overnight_run.ps1's
-          # Phase 7 (`git push origin main`) will Just Work.
+          # Phase 8 (`git push origin main`) will Just Work.
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Configure git identity
@@ -120,7 +120,7 @@ jobs:
           .\overnight_run.ps1
         # Don't fail the whole workflow if one phase hits a captcha — the
         # script itself decides when to bail, and partial progress is still
-        # committed by Phase 7.
+        # committed by Phase 8.
         continue-on-error: true
 
       - name: Show ending state + last 3 commits
