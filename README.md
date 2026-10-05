@@ -18,7 +18,7 @@ The MoJ site is the official listings portal for court-ordered auctions (vehicle
 - [Setup from scratch](#setup-from-scratch)
 - [Running locally](#running-locally)
 - [Key technical findings](#key-technical-findings)
-- [Team login (Option C, multi-user)](#team-login-option-c-multi-user)
+- [Access model](#access-model)
 - [Color & motion system](#color--motion-system)
 - [What's NOT possible (and why)](#whats-not-possible-and-why)
 
@@ -33,7 +33,7 @@ The MoJ site is the official listings portal for court-ordered auctions (vehicle
 | Free-text search | None | Search across every field |
 | Cascading location filter | None | Picking *Amman* governorate auto-narrows directorate → village → basin to only options that exist in that governorate |
 | Vehicle make/model filter | None | The `نوع المركبة` column auto-appears when the مركبة category is in scope |
-| Favorites | Per-account on MoJ | Shared across the team via a single jsonblob — three of you can star/un-star and see each other's picks in real-time |
+| Favorites | Per-account on MoJ | Shared via a single jsonblob — signed-in users star/un-star and see each other's picks. Built for a 3-person group; see [Access model](#access-model) for where this is going |
 | Auction images | Lazy-loaded on scroll, kills the experience for browsing | Inline thumbnails (already enriched and cached locally, 1500+ images at 600 px JPEGs) |
 | Expert report PDF | Force-downloads with `Content-Disposition: attachment` (annoying) | Opens inline in a new tab — PDFs are pre-downloaded into `reports/` and served by GitHub Pages |
 | Calendar export | None | One click → `.ics` file (Outlook/Apple) or Google/Outlook.com deep link, with 1-day + 1-hour reminders pre-set |
@@ -50,7 +50,7 @@ The MoJ site is the official listings portal for court-ordered auctions (vehicle
 │ auctions.moj.gov.jo  (Jordan MoJ, ASP.NET WebForms with ViewState)  │
 └───────┬─────────────────────────────────────────────────────────────┘
         │
-        │ HTTP (scrape + enrich), every 04:00 + 22:00 Amman
+        │ HTTP (scrape + enrich), 6 slots/day, never 11:00-17:00 Amman
         │
 ┌───────▼────────────────────────┐
 │ GitHub Actions runner (Win)    │
@@ -96,21 +96,24 @@ The MoJ site is the official listings portal for court-ordered auctions (vehicle
 
 ## Daily pipeline
 
-`overnight_run.ps1` runs twice daily on `windows-latest` via GitHub Actions and goes through 7 phases:
+`overnight_run.ps1` runs 6× daily on `windows-latest` via GitHub Actions and goes through 8 phases.
 
-| Phase | What | ETA |
+**The scrape runs first.** MoJ blocks us well before a run finishes, so whatever requests we win before the wall must go to the one phase that refreshes `endDate`, bid counts and new listings — not to image or report enrichment. It used to run third, behind two enrichment passes, which is why so little data was arriving.
+
+| Phase | What | Touches MoJ |
 |---|---|---|
-| 1 | `enrich_images.ps1 -ActiveOnly` — POSTs `/AuctionsList.aspx/GetAuctionItemsImage` per auction, decodes base64 to `images/<id>.<ext>` | ~5 min |
-| 2 | `enrich_reports.ps1 -ActiveOnly` — `lbtnViewAllImages` postback per auction to scrape the per-lot report-PDF URL, then downloads the PDF to `reports/<id>.pdf` | ~10 min |
-| 3 | `scrape.ps1 -Full` — walks every category's paginated listing, parses each row's fields, upserts into `auctions.json`. Stamps `lastSeenInListingAt` on every row visited | ~20 min |
-| 4 | Re-runs Phase 1 to enrich any newly-discovered active rows | ~3 min |
-| 5 | Re-runs Phase 2 to enrich reports for newly-backfilled caseIds | ~5 min |
-| 6 | `resize_images.ps1` — recompresses any image > 80 KB at > 600 px wide down to 600 px JPEG @ q=75 | ~2 min |
-| 7 | Stamps `lastRunAt` on the JSON, `git add` everything (incl. `reports/`), commits, pushes to `main` — GitHub Pages auto-deploys | <1 min |
+| 1 | `scrape.ps1 -Full` — walks every category's paginated listing, upserts into `auctions.json`, stamps `lastSeenInListingAt`, backfills `caseId` | yes |
+| 2 | `enrich_images.ps1 -ActiveOnly` — POSTs `/AuctionsList.aspx/GetAuctionItemsImage` per auction, decodes base64 to `images/<id>.<ext>` | yes |
+| 3 | `enrich_reports.ps1 -ActiveOnly` — postback per auction for the report-PDF URL, downloads to `reports/<id>.pdf`, content-hashed so one case's report is not mis-attributed to another lot | yes |
+| 4 | `enrich_aradi.ps1` — pre-fetches parcel polygons server-side (aradi.io's `/api/plot` has no CORS headers, so the browser cannot do this) | no (aradi.io) |
+| 5 | `enrich_links.ps1` — harvests the per-lot `AuctionInfo.aspx?token=…` permalink via the listing's `LinkButton2` postback | yes |
+| 6 | `build_summary.ps1` — distils the multi-MB dataset into the few-KB `summary.json` the landing page reads | no |
+| 7 | `resize_images.ps1` — recompresses any image > 80 KB at > 600 px wide down to 600 px JPEG @ q=75 | no |
+| 8 | Stamps `lastRunAt`, `git add` everything (incl. `reports/`), commits, pushes to `main` — GitHub Pages auto-deploys | no |
 
-Total: 45–60 minutes per run.
+**Fail-fast.** Every MoJ-touching phase probes the site first. On the first refusal the run abandons all remaining fetch phases and goes straight to phases 6-8, so a blocked run still rebuilds the summary and commits what it has. Before this, a blocked run spent ~76 of its 80 minutes retrying a wall it had already found, while every step reported `success`.
 
-If the scrape phase hits anti-bot during the GitHub Actions run, the rest of the orchestrator still completes — newly-discovered auctions just wait for the next slot.
+**The no-run window is enforced, not scheduled.** Nothing may touch MoJ between 11:00 and 17:00 Amman. Cron alone cannot guarantee that — GitHub fires scheduled jobs hours late — so the workflow checks the wall clock before starting, and `overnight_run.ps1` re-checks before every fetch phase.
 
 ---
 
@@ -140,11 +143,14 @@ If the scrape phase hits anti-bot during the GitHub Actions run, the rest of the
 | `dashboard.html` | The single-file UI (~50 KB). Inline CSS + JS, Bootstrap 5.3 RTL + Leaflet from CDN. |
 | `worker.js` | Cloudflare Worker code. Deployed manually via the dashboard editor. |
 | `overnight.log` etc | Run logs from the orchestrator (gitignored). |
+| `summary.json` | ~9 KB digest of the dataset, read by the landing page (`index.html`) instead of the multi-MB `auctions.json`. |
+| `PRODUCT.md` | Durable product truth: who it is for, the jobs, the constraints future work must preserve. Authoritative where this README disagrees. |
+| `DESIGN.md` + `.impeccable/design.json` | The visual system — tokens, named rules, component specs. Read before changing anything visual. |
 
 ### Infrastructure
 | File | Role |
 |---|---|
-| `.github/workflows/daily-scrape.yml` | GitHub Actions: cron `0 1,19 * * *` (04:00 + 22:00 Amman), `windows-latest` runner, 90 min timeout. Uploads `overnight.log` as a 7-day artifact. |
+| `.github/workflows/daily-scrape.yml` | GitHub Actions: cron `0 1,4,16,19,22 * * *` + `30 14 * * *` (Amman 04:00, 07:00, 17:30, 19:00, 22:00, 01:00), `windows-latest`, 90 min timeout. A gate step skips the job when it would run inside 11:00-17:00 Amman. Uploads `overnight.log` as a 7-day artifact. |
 | `.gitignore` | Excludes cookie jars, logs, probe HTML files |
 
 ---
@@ -227,12 +233,29 @@ Even better: `lastSeenInListingAt` — eager timestamp stamped on every row duri
 ### 7. Date parsing pitfall
 `[DateTime]::Parse("12/05/2026")` in PowerShell with `en-US` culture returns **December 5**, not May 12. The dashboard uses ISO format (`yyyy-MM-dd HH:mm:ss`) to avoid this. Any PowerShell that parses `dd/MM/yyyy HH:mm:ss` needs `ParseExact`, not `Parse`.
 
-### 8. Bidder identities are confidential by design
+### 8. The opening price is the legal floor, not a bargain
+
+In ~93% of all lots the starting price is **exactly 50% of the expert estimate** —
+the minimum Article 84 permits. A lot opening at half its valuation is therefore
+the default, not a discount. The real signals are the announcement round number
+(`CurrentAnnouncementSerial`, a hidden field on MoJ's own page) and the bid count.
+
+### 9. Bidder identities are confidential by design
 The MoJ's public site only exposes `currentAmount` (highest bid) and `numBids` (count). No bidder names, no individual bid amounts, no timestamps. This is by court-policy (privacy protection + collusion prevention) and we don't try to circumvent it.
 
 ---
 
-## Team login (Option C, multi-user)
+## Access model
+
+**Intended audience: the public.** This is built to be useful to anyone in Jordan
+following MoJ court-ordered auctions. The three-person login below predates that
+decision and is an interim convenience, not the plan. See `PRODUCT.md`.
+
+**The access model itself is explicitly undecided.** A real self-registration
+build was started and reverted. Do not design new work as though either outcome
+is settled.
+
+### Current login (interim)
 
 The favorites star feature uses a shared jsonblob.com store gated by a **per-user password**, picked from a hardcoded user list in `dashboard.html`.
 
@@ -249,7 +272,7 @@ Login modal asks for password only (no username field). On submit, hash is compu
 
 Every star/un-star pushes the full favorites list (debounced ~700 ms) to the shared blob. Other team members see updates after their next page refresh (or with live polling on).
 
-**Honest security model:** the blob URL is in client-side code, so a technically-savvy outsider could find it. Acceptable for a small private team list. For real auth, swap the storage layer to Firebase — `pullSharedFavorites` and `schedulePushFavorites` are the only two functions that touch the network.
+**This is not access control.** The blob URL sits in client-side code, so anyone can find it. The gate *identifies* who starred what; it does not protect anything, and nothing about this site is private — it is a static GitHub Pages deployment, so `auctions.json` and every report PDF are publicly readable by design. If a real account model is ever wanted, `pullSharedFavorites` and `schedulePushFavorites` are the only two functions that touch the network.
 
 ---
 
@@ -301,4 +324,4 @@ First-paint entrance is orchestrated: navbar → stat cards (staggered 60 ms apa
 
 This project re-presents **public data**. No private data is collected, stored, or surfaced. The MoJ source URL is linked from every auction modal so users can verify against the official record.
 
-The dashboard is provided as-is for internal use. Not affiliated with the Jordan Ministry of Justice.
+The dashboard is provided as-is. Not affiliated with, endorsed by, or connected to the Jordan Ministry of Justice.
