@@ -39,6 +39,23 @@ param(
 if ($Full) { $MaxPagesPerCategory = 0 }
 $ScriptStart = Get-Date
 
+# Global time budget. -MaxMinutes used to be checked in exactly one place —
+# inside PASS B's per-category walk — where a plain `break` ended only THAT
+# category and the foreach moved straight on to the next one. With 5 categories
+# a "60 minute" budget could therefore run for ~5 hours. PASS A checked it
+# nowhere at all. This makes the budget stop the whole run, once.
+$script:BudgetStopped = $false
+function Test-Budget {
+  if ($MaxMinutes -le 0) { return $false }
+  if ($script:BudgetStopped) { return $true }
+  if (((Get-Date) - $ScriptStart).TotalMinutes -ge $MaxMinutes) {
+    $script:BudgetStopped = $true
+    Write-Host ("  [budget] {0} min reached - stopping all fetch work" -f $MaxMinutes) -ForegroundColor Yellow
+    return $true
+  }
+  return $false
+}
+
 $ErrorActionPreference = 'Stop'
 
 $CurlExe   = 'C:\Windows\System32\curl.exe'
@@ -504,6 +521,7 @@ $stampItems = {
 }
 
 foreach ($cat in $categories) {
+  if (Test-Budget) { break }
   if ($OnlyCategory -and ($cat.name -notmatch $OnlyCategory)) { continue }
   Write-Host ("  {0}" -f $cat.name)
   $script:CurrentToken = $cat.token
@@ -557,6 +575,7 @@ foreach ($cat in $categories) {
   # Pages 2..N: postback to lbNext
   $sweepPage = 1
   while ($sweepPage -lt $SweepMaxPages) {
+    if (Test-Budget) { break }
     if ($sweepHtml -notmatch 'id="cph_Base_lbNext"\s+class="page-link lnkPN"\s+href="javascript:__doPostBack') {
       Write-Host "    no more pages"; break
     }
@@ -594,6 +613,7 @@ Write-Host ""
 Write-Host "==== PASS B: deep walk per category ====" -ForegroundColor Magenta
 
 foreach ($cat in $categories) {
+  if (Test-Budget) { break }
   if ($OnlyCategory -and ($cat.name -notmatch $OnlyCategory)) {
     Write-Host ("Skipping category (filter): {0}" -f $cat.name) -ForegroundColor DarkGray
     continue
@@ -831,10 +851,7 @@ foreach ($cat in $categories) {
     }
 
     if ($cat.totalCount -gt 0 -and $seen.Count -ge $cat.totalCount) { break }
-    if ($MaxMinutes -gt 0 -and ((Get-Date) - $ScriptStart).TotalMinutes -ge $MaxMinutes) {
-      Write-Host ("  Time budget reached ({0} min). Stopping." -f $MaxMinutes) -ForegroundColor Yellow
-      break
-    }
+    if (Test-Budget) { break catLoop }
     $resets++
     if ($resets -gt $MaxResetsPerCategory) {
       Write-Host ("  Reset cap reached ({0}). Stopping at {1}/{2}." -f $MaxResetsPerCategory, $seen.Count, $cat.totalCount) -ForegroundColor Yellow

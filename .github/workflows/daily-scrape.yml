@@ -1,8 +1,18 @@
 name: Daily MoJ Auctions Scrape
 
-# Runs 6 slots/day: 01, 04, 07, 16, 19, 22 UTC.
-# In Amman time (UTC+3):        04, 07, 10, 19, 22, 01.
-# 13:00 and 16:00 Amman (= 10, 13 UTC) removed — the mid-day gap.
+# Runs 6 slots/day: 01, 04, 14:30, 16, 19, 22 UTC.
+# In Amman time (UTC+3):        04, 07, 17:30, 19, 22, 01.
+#
+# Nothing may touch MoJ between 11:00 and 17:00 Amman (= 08:00-14:00 UTC).
+# The old 07:00 UTC slot started at 10:00 Amman — one hour before the window —
+# and with timeout-minutes: 90 it could still be working at 11:30 Amman. It is
+# replaced by 14:30 UTC (17:30 Amman), just after the window closes, which also
+# fills what was otherwise a 12-hour afternoon gap.
+#
+# Cron alone cannot guarantee the window: GitHub fires scheduled jobs late
+# under load, so a slot that looks safe on paper can start inside it. The
+# "Enforce the no-run window" step below checks the real clock, and
+# overnight_run.ps1 re-checks before every phase that touches MoJ.
 #
 # MoJ's anti-bot blocks ~4 of 5 runs from GitHub's runner IPs. The "Skip if
 # fresh" step at the top of the job avoids doing work when a recent run
@@ -10,7 +20,8 @@ name: Daily MoJ Auctions Scrape
 # (fewer requests → less anti-bot pressure).
 on:
   schedule:
-    - cron: '0 1,4,7,16,19,22 * * *'
+    - cron: '0 1,4,16,19,22 * * *'
+    - cron: '30 14 * * *'
   workflow_dispatch: {}
 
 # Need write access to push the updated auctions.json + images + reports back to the repo.
@@ -40,13 +51,41 @@ jobs:
           git config user.name  'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
 
+      # Hard guard on the 11:00-17:00 Amman no-run window. This is deliberately
+      # a wall-clock check rather than cron arithmetic: a scheduled job can fire
+      # late, and timeout-minutes allows a run to keep working for 90 minutes
+      # after it starts, so BOTH ends of the run must clear the window.
+      - name: Enforce the 11:00-17:00 Amman no-run window
+        id: window
+        shell: pwsh
+        run: |
+          $tz = $null
+          foreach ($id in @('Jordan Standard Time','Asia/Amman')) {
+            try { $tz = [System.TimeZoneInfo]::FindSystemTimeZoneById($id); break } catch { }
+          }
+          if ($null -eq $tz) {
+            Write-Host '::warning::Cannot resolve the Amman timezone - refusing to run rather than guessing an offset.'
+            'blocked=true' >> $env:GITHUB_OUTPUT
+            exit 0
+          }
+          $now = [System.TimeZoneInfo]::ConvertTimeFromUtc([DateTime]::UtcNow, $tz)
+          $end = $now.AddMinutes(90)
+          $inWindow = { param($d) ($d.Hour -ge 11 -and $d.Hour -lt 17) }
+          Write-Host ("Amman now {0}; latest possible finish {1}" -f $now.ToString('ddd HH:mm'), $end.ToString('ddd HH:mm'))
+          if ((& $inWindow $now) -or (& $inWindow $end)) {
+            Write-Host 'Inside (or would run into) the 11:00-17:00 Amman no-run window - skipping this slot.'
+            'blocked=true' >> $env:GITHUB_OUTPUT
+          } else {
+            'blocked=false' >> $env:GITHUB_OUTPUT
+          }
+
       # Retry-on-block gate: we run every 3 hours, but if the PREVIOUS run
       # already stamped a healthy batch (30+ rows in the last 2 hours) then
       # nothing needs re-fetching — skip this slot to avoid pinging MoJ
       # unnecessarily. Only manual workflow_dispatch bypasses this check.
       - name: Skip if the last run already succeeded
         id: gate
-        if: github.event_name == 'schedule'
+        if: github.event_name == 'schedule' && steps.window.outputs.blocked != 'true'
         shell: pwsh
         run: |
           $data = Get-Content .\auctions.json -Raw -Encoding UTF8 | ConvertFrom-Json
@@ -65,7 +104,7 @@ jobs:
           }
 
       - name: Show starting state
-        if: steps.gate.outputs.skip != 'true'
+        if: steps.window.outputs.blocked != 'true' && steps.gate.outputs.skip != 'true'
         shell: pwsh
         run: |
           Write-Host "Runner: $env:RUNNER_NAME"
@@ -74,7 +113,7 @@ jobs:
           Get-Item .\auctions.json | Select-Object Name, Length, LastWriteTime
 
       - name: Run overnight orchestration
-        if: steps.gate.outputs.skip != 'true'
+        if: steps.window.outputs.blocked != 'true' && steps.gate.outputs.skip != 'true'
         shell: pwsh
         run: |
           $ErrorActionPreference = 'Continue'
@@ -85,7 +124,7 @@ jobs:
         continue-on-error: true
 
       - name: Show ending state + last 3 commits
-        if: steps.gate.outputs.skip != 'true'
+        if: steps.window.outputs.blocked != 'true' && steps.gate.outputs.skip != 'true'
         shell: pwsh
         run: |
           git log --oneline -3
@@ -94,7 +133,7 @@ jobs:
           if (Test-Path .\overnight.log) { Get-Content .\overnight.log -Tail 20 }
 
       - name: Upload run log as artifact
-        if: always() && steps.gate.outputs.skip != 'true'
+        if: always() && steps.window.outputs.blocked != 'true' && steps.gate.outputs.skip != 'true'
         uses: actions/upload-artifact@v4
         with:
           name: overnight-log-${{ github.run_id }}

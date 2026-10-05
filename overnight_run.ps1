@@ -28,39 +28,94 @@ function Step([string]$name, [scriptblock]$cmd) {
   }
 }
 
+# ---------------------------------------------------------------------------
+# No-run window: nothing may touch auctions.moj.gov.jo between 11:00 and 17:00
+# Amman. Cron alone cannot guarantee this — GitHub fires scheduled jobs late
+# under load, and a run that starts safely can still be mid-scrape when the
+# window opens. So the window is enforced here, per phase, against the clock.
+# ---------------------------------------------------------------------------
+$NoRunStartHour = 11
+$NoRunEndHour   = 17
+$StopMarginMin  = 10     # stop this many minutes BEFORE the window opens
+
+function Get-AmmanNow {
+  # Windows and Linux .NET use different ids for the same zone; try both rather
+  # than hardcoding a UTC offset (Jordan's DST rules have changed before).
+  foreach ($id in @('Jordan Standard Time','Asia/Amman')) {
+    try {
+      return [System.TimeZoneInfo]::ConvertTimeFromUtc([DateTime]::UtcNow, [System.TimeZoneInfo]::FindSystemTimeZoneById($id))
+    } catch { }
+  }
+  return $null
+}
+
+# Minutes of fetching still permitted before the window opens.
+#   -1 = not allowed at all (inside the window, or Amman time unknowable).
+# $Now is for testing only; left unset it reads the real Amman clock. A guard
+# that enforces a hard rule should be checkable without waiting for the clock.
+function Get-FetchBudgetMinutes([datetime]$Now = [datetime]::MinValue) {
+  $a = if ($Now -eq [datetime]::MinValue) { Get-AmmanNow } else { $Now }
+  if ($null -eq $a) { return -1 }                     # can't verify => don't fetch
+  if ($a.Hour -ge $NoRunStartHour -and $a.Hour -lt $NoRunEndHour) { return -1 }
+  $next = $a.Date.AddHours($NoRunStartHour)
+  if ($a -ge $next) { $next = $next.AddDays(1) }
+  $mins = [int](($next - $a).TotalMinutes) - $StopMarginMin
+  # Clamp to the -1 sentinel. This matters: scrape.ps1 reads -MaxMinutes <= 0
+  # as "no limit", so handing it a small-or-negative number would remove the
+  # ceiling at exactly the moment the least time is left.
+  if ($mins -lt 1) { return -1 }
+  return $mins
+}
+
+# A phase that talks to MoJ. Skipped entirely once the budget is gone, so a
+# long run degrades to "commit what we already have" instead of overrunning.
+function FetchStep([string]$name, [scriptblock]$cmd) {
+  $budget = Get-FetchBudgetMinutes
+  if ($budget -lt 1) {
+    $a = Get-AmmanNow
+    $when = if ($null -eq $a) { 'Amman time unavailable' } else { $a.ToString('HH:mm') + ' Amman' }
+    $msg = "[skip] $name - no-run window ($when)"
+    Add-Content -Path $Log -Value $msg -Encoding UTF8
+    Write-Host $msg -ForegroundColor Yellow
+    return
+  }
+  $script:PhaseBudgetMin = $budget
+  Step $name $cmd
+}
+
 # Start fresh log header
 $start = Get-Date -Format 'yyyy-MM-dd HH:mm:ss'
 Set-Content -Path $Log -Value "===== Overnight run started $start =====" -Encoding UTF8
 
 # Phase 1: enrich images for active listings (any category)
-Step 'Phase 1: enrich images (active, all categories)' {
+FetchStep 'Phase 1: enrich images (active, all categories)' {
   & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_images.ps1') -ActiveOnly -MaxItems 2000 -DelayMs 400
 }
 
 # Phase 2: enrich reports for active listings (whatever caseIds we have now)
-Step 'Phase 2: enrich reports (active, current caseIds)' {
+FetchStep 'Phase 2: enrich reports (active, current caseIds)' {
   & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_reports.ps1') -ActiveOnly -MaxItems 2000 -DelayMs 1200
 }
 
 # Phase 3: fresh full scrape — this fetches new listings AND backfills caseId
 # on existing rows that don't have one (so report enrichment can catch them next).
-Step 'Phase 3: full scrape (new listings + backfill caseId)' {
-  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'scrape.ps1') -Full
+FetchStep 'Phase 3: full scrape (new listings + backfill caseId)' {
+  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'scrape.ps1') -Full -MaxMinutes $script:PhaseBudgetMin
 }
 
 # Phase 4: re-enrich images for any newly-scraped active listings
-Step 'Phase 4: enrich images for newly scraped (active)' {
+FetchStep 'Phase 4: enrich images for newly scraped (active)' {
   & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_images.ps1') -ActiveOnly -MaxItems 2000 -DelayMs 400
 }
 
 # Phase 5: re-enrich reports — now with backfilled caseIds, many more candidates
-Step 'Phase 5: enrich reports for newly scraped + backfilled (active)' {
+FetchStep 'Phase 5: enrich reports for newly scraped + backfilled (active)' {
   & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_reports.ps1') -ActiveOnly -MaxItems 2000 -DelayMs 1200
 }
 
 # Phase 5b: aradi.io parcel polygons (fetched server-side, embedded so the
 # browser doesn't have to hit aradi's no-CORS /api/plot endpoint at all).
-Step 'Phase 5b: enrich aradi polygons (active land rows)' {
+FetchStep 'Phase 5b: enrich aradi polygons (active land rows)' {
   & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_aradi.ps1') -MaxItems 400 -DelayMs 250
 }
 
@@ -69,8 +124,8 @@ Step 'Phase 5b: enrich aradi polygons (active land rows)' {
 # LinkButton2 postback. The token is deterministic, so one harvest per lot is
 # enough and repeat runs only pay for lots added since. Runs after the scrape
 # so newly-listed lots are included.
-Step 'Phase 5b2: harvest per-lot MoJ permalinks (active)' {
-  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_links.ps1') -MaxLots 500 -DelayMs 900 -MaxMinutes 25
+FetchStep 'Phase 5b2: harvest per-lot MoJ permalinks (active)' {
+  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_links.ps1') -MaxLots 500 -DelayMs 900 -MaxMinutes ([Math]::Min(25, $script:PhaseBudgetMin))
 }
 
 # Phase 5c: rebuild summary.json — the landing page (index.html) reads this
