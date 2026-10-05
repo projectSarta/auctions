@@ -1,13 +1,13 @@
 {
-    "generatedAt":  "2026-10-05T09:42:19Z",
-    "dataScrapedAt":  "2026-10-05 12:38:46",
+    "generatedAt":  "2026-10-05T10:46:37Z",
+    "dataScrapedAt":  "2026-10-05 12:59:51",
     "totals":  {
                    "all":  4806,
                    "active":  348
                },
-    "endingIn24h":  37,
+    "endingIn24h":  42,
     "endingInWeek":  304,
-    "reAnnounced":  45,
+    "reAnnounced":  58,
     "withReport":  112,
     "withMap":  139,
     "categories":  [
@@ -119,6 +119,19 @@
                     ],
     "bargains":  [
                      {
+                         "id":  39317,
+                         "category":  "مركبة",
+                         "court":  "تنفيذ الرصيفة",
+                         "place":  "",
+                         "endDate":  "2026-10-18 14:40:00",
+                         "estimatedValue":  1000,
+                         "currentAmount":  0,
+                         "numBids":  0,
+                         "serial":  15,
+                         "hasReport":  false,
+                         "hasMap":  false
+                     },
+                     {
                          "id":  25201,
                          "category":  "أرض/ مجمع",
                          "court":  "تنفيذ اربد",
@@ -153,7 +166,20 @@
                          "estimatedValue":  400,
                          "currentAmount":  0,
                          "numBids":  0,
-                         "serial":  6,
+                         "serial":  7,
+                         "hasReport":  false,
+                         "hasMap":  false
+                     },
+                     {
+                         "id":  50115,
+                         "category":  "مركبة",
+                         "court":  "تنفيذ الرصيفة",
+                         "place":  "",
+                         "endDate":  "2026-10-16 14:40:00",
+                         "estimatedValue":  250,
+                         "currentAmount":  0,
+                         "numBids":  0,
+                         "serial":  7,
                          "hasReport":  false,
                          "hasMap":  false
                      },
@@ -168,32 +194,6 @@
                          "numBids":  1,
                          "serial":  5,
                          "hasReport":  true,
-                         "hasMap":  true
-                     },
-                     {
-                         "id":  50181,
-                         "category":  "أرض/ مجمع",
-                         "court":  "تنفيذ ذيبان",
-                         "place":  "فلحة · اراضي ذيبان",
-                         "endDate":  "2026-10-05 15:00:00",
-                         "estimatedValue":  14067,
-                         "currentAmount":  8011,
-                         "numBids":  6,
-                         "serial":  5,
-                         "hasReport":  false,
-                         "hasMap":  false
-                     },
-                     {
-                         "id":  51353,
-                         "category":  "أرض/ مجمع",
-                         "court":  "تنفيذ الاغوار الشمالية",
-                         "place":  "الريان · اراضي الشونة الشمالية",
-                         "endDate":  "2026-10-05 15:00:00",
-                         "estimatedValue":  16650,
-                         "currentAmount":  24000,
-                         "numBids":  7,
-                         "serial":  4,
-                         "hasReport":  false,
                          "hasMap":  true
                      }
                  ]
