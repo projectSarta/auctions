@@ -145,28 +145,43 @@ FetchStep 'Phase 1: full scrape (new listings + backfill caseId)' {
   & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'scrape.ps1') -Full -MaxMinutes $script:PhaseBudgetMin
 }
 
-# Phase 2: images for active listings, including everything the scrape just found.
-FetchStep 'Phase 2: enrich images (active)' {
-  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_images.ps1') -ActiveOnly -MaxItems 2000 -DelayMs 400
+# Phase 2: per-lot permalinks. MoJ's AuctionInfo.aspx?token=<perLotToken> is a
+# real single-auction page, reachable only by replaying the listing's
+# LinkButton2 postback. The token is deterministic, so one harvest per lot is
+# enough and repeat runs only pay for lots added since.
+#
+# Moved ahead of the other enrichment on 2026-10-06. It used to run last and was
+# therefore the first thing starved when MoJ blocked us mid-run: permalink
+# coverage on active lots had fallen to 5% (30 of 649) while the 280 tokens we
+# do hold mostly belong to lots that have since ended.
+#
+# The cap is deliberately TIGHT (150 lots, ~5 min) rather than the 500 it had
+# when it ran last. Going second means it now competes with reports for the
+# pre-block budget, and reports are not comfortable either - only 37% of active
+# lots have one. A small guaranteed slice each run accumulates across runs
+# without starving the phase below it; a big slice would just move the problem.
+FetchStep 'Phase 2: harvest per-lot MoJ permalinks (active)' {
+  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_links.ps1') -MaxLots 150 -DelayMs 900 -MaxMinutes ([Math]::Min(8, $script:PhaseBudgetMin))
 }
 
 # Phase 3: expert reports, now with caseIds the scrape backfilled this run.
+# Highest-value enrichment for the "spot undervalued lots" job, so it sits ahead
+# of images and maps.
 FetchStep 'Phase 3: enrich reports (active)' {
   & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_reports.ps1') -ActiveOnly -MaxItems 2000 -DelayMs 1200
 }
 
-# Phase 4: aradi.io parcel polygons (fetched server-side, embedded so the
-# browser doesn't have to hit aradi's no-CORS /api/plot endpoint at all).
-FetchStep 'Phase 4: enrich aradi polygons (active land rows)' {
-  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_aradi.ps1') -MaxItems 400 -DelayMs 250
+# Phase 4: images for active listings, including everything the scrape just found.
+FetchStep 'Phase 4: enrich images (active)' {
+  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_images.ps1') -ActiveOnly -MaxItems 2000 -DelayMs 400
 }
 
-# Phase 5: per-lot permalinks. MoJ's AuctionInfo.aspx?token=<perLotToken> is a
-# real single-auction page, reachable only by replaying the listing's
-# LinkButton2 postback. The token is deterministic, so one harvest per lot is
-# enough and repeat runs only pay for lots added since.
-FetchStep 'Phase 5: harvest per-lot MoJ permalinks (active)' {
-  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_links.ps1') -MaxLots 500 -DelayMs 900 -MaxMinutes ([Math]::Min(25, $script:PhaseBudgetMin))
+# Phase 5: aradi.io parcel polygons (fetched server-side, embedded so the
+# browser doesn't have to hit aradi's no-CORS /api/plot endpoint at all).
+# Last of the fetch phases because it is the only one that does not hit MoJ,
+# so it is the least affected by being starved.
+FetchStep 'Phase 5: enrich aradi polygons (active land rows)' {
+  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_aradi.ps1') -MaxItems 400 -DelayMs 250
 }
 
 # Phase 6: rebuild summary.json — the landing page (index.html) reads this

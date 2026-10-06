@@ -100,13 +100,15 @@ The MoJ site is the official listings portal for court-ordered auctions (vehicle
 
 **The scrape runs first.** MoJ blocks us well before a run finishes, so whatever requests we win before the wall must go to the one phase that refreshes `endDate`, bid counts and new listings — not to image or report enrichment. It used to run third, behind two enrichment passes, which is why so little data was arriving.
 
+**Order after that is by how starved each phase is**, because the later a phase sits the less likely it runs at all. The permalink harvest moved from last to second on 2026-10-06 after coverage on active lots fell to 5%; it carries a tight 150-lot cap so it accumulates across runs instead of starving reports, which are themselves only at 37% of active lots.
+
 | Phase | What | Touches MoJ |
 |---|---|---|
 | 1 | `scrape.ps1 -Full` — walks every category's paginated listing, upserts into `auctions.json`, stamps `lastSeenInListingAt`, backfills `caseId` | yes |
-| 2 | `enrich_images.ps1 -ActiveOnly` — POSTs `/AuctionsList.aspx/GetAuctionItemsImage` per auction, decodes base64 to `images/<id>.<ext>` | yes |
+| 2 | `enrich_links.ps1` — harvests the per-lot `AuctionInfo.aspx?token=…` permalink via the listing's `LinkButton2` postback. Capped at 150 lots so it cannot monopolise the pre-block budget | yes |
 | 3 | `enrich_reports.ps1 -ActiveOnly` — postback per auction for the report-PDF URL, downloads to `reports/<id>.pdf`, content-hashed so one case's report is not mis-attributed to another lot | yes |
-| 4 | `enrich_aradi.ps1` — pre-fetches parcel polygons server-side (aradi.io's `/api/plot` has no CORS headers, so the browser cannot do this) | no (aradi.io) |
-| 5 | `enrich_links.ps1` — harvests the per-lot `AuctionInfo.aspx?token=…` permalink via the listing's `LinkButton2` postback | yes |
+| 4 | `enrich_images.ps1 -ActiveOnly` — POSTs `/AuctionsList.aspx/GetAuctionItemsImage` per auction, decodes base64 to `images/<id>.<ext>` | yes |
+| 5 | `enrich_aradi.ps1` — pre-fetches parcel polygons server-side (aradi.io's `/api/plot` has no CORS headers, so the browser cannot do this) | no (aradi.io) |
 | 6 | `build_summary.ps1` — distils the multi-MB dataset into the few-KB `summary.json` the landing page reads | no |
 | 7 | `resize_images.ps1` — recompresses any image > 80 KB at > 600 px wide down to 600 px JPEG @ q=75 | no |
 | 8 | Stamps `lastRunAt`, `git add` everything (incl. `reports/`), commits, pushes to `main` — GitHub Pages auto-deploys | no |
