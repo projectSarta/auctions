@@ -154,6 +154,17 @@ if ($needById.Count -eq 0) { Write-Host "nothing to do"; return }
 $allById = @{}
 foreach ($a in $data.auctions) { $allById[[int]$a.id] = $a }
 
+# One place for the clock test. It used to be written inline in two spots, both
+# of which sat INSIDE the per-lot loop - and that loop does not execute at all on
+# a page with nothing to harvest, which is most pages. So a 1-minute budget
+# actually ran 4.5 minutes, paginating freely through 60 pages per category
+# while never reaching a check. The pagination loop needs it more than the lot
+# loop does.
+function Test-PastDeadline {
+  if ($MaxMinutes -le 0) { return $false }
+  return (((Get-Date) - $Start).TotalMinutes -ge $MaxMinutes)
+}
+
 $script:harvested = 0
 $script:failed    = 0
 
@@ -165,7 +176,7 @@ function Save-All {
 
 foreach ($cat in $data.categories) {
   if ($MaxLots -gt 0 -and $script:harvested -ge $MaxLots) { break }
-  if ($MaxMinutes -gt 0 -and ((Get-Date) - $Start).TotalMinutes -ge $MaxMinutes) { break }
+  if (Test-PastDeadline) { break }
 
   # How many lots in THIS category still need a token. Once we've found them
   # all we stop paging immediately — أرض/ مجمع alone is ~129 pages, so walking
@@ -191,7 +202,7 @@ foreach ($cat in $data.categories) {
 
     foreach ($i in $wanted) {
       if ($MaxLots -gt 0 -and $script:harvested -ge $MaxLots) { break }
-      if ($MaxMinutes -gt 0 -and ((Get-Date) - $Start).TotalMinutes -ge $MaxMinutes) { break }
+      if (Test-PastDeadline) { break }
       $lot = $lots[$i]
       # Replay the ORIGINAL page ViewState for every lot on this page - ASP.NET
       # accepts it, and it keeps server-side paging state untouched.
@@ -228,6 +239,7 @@ foreach ($cat in $data.categories) {
     }
 
     if ($wanted.Count -gt 0) { Save-All }
+    if (Test-PastDeadline) { Write-Host ("  [stop] time budget reached ({0} min)" -f $MaxMinutes) -ForegroundColor Yellow; break }
     if ($catNeed -le 0) { Write-Host "  all lots for this category found - moving on" -ForegroundColor DarkGray; break }
     if ($MaxLots -gt 0 -and $script:harvested -ge $MaxLots) { break }
     if ($page -ge $MaxPagesPerCategory) { break }

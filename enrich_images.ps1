@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
   Enrich auctions.json with thumbnail images via the site's own JSON web method.
 
@@ -31,12 +31,26 @@
 [CmdletBinding()]
 param(
   [int]$MaxItems = 200,
+  [int]$MaxMinutes = 0,            # wall-clock ceiling; 0 = unlimited
   [string]$OnlyCategory = '',
   [int]$DelayMs = 500,
   [int]$MaxConsecutiveErrors = 5,
-  # When set, only process auctions whose endDate is in the future (live listings).
+  # When set, only process auctions whose endDate is in the future (live listings)
   [switch]$ActiveOnly
 )
+
+# Wall-clock ceiling. -MaxItems alone cannot bound a run in TIME, and on
+# 2026-10-06 that mattered: an enrichment batch estimated at ~11 minutes took 63,
+# running 30 minutes into the 11:00-17:00 Amman no-run window. FetchStep in
+# overnight_run.ps1 only checks the clock BEFORE a phase, so a phase that starts
+# just inside its budget can still overrun it by an hour. The per-item cost here
+# is dominated by an image download, far more variable than an item count
+# suggests, so the only honest bound is time.
+$script:DeadlineAt = if ($MaxMinutes -gt 0) { (Get-Date).AddMinutes($MaxMinutes) } else { [DateTime]::MaxValue }
+function Test-PastDeadline {
+  if ((Get-Date) -lt $script:DeadlineAt) { return $false }
+  return $true
+}
 
 $ErrorActionPreference = 'Stop'
 $CurlExe   = 'C:\Windows\System32\curl.exe'
@@ -150,6 +164,7 @@ foreach ($a in ($candidates | Select-Object -First $MaxItems)) {
 $tried = 0; $withImg = 0; $noImg = 0; $errStreak = 0
 foreach ($a in $candidates) {
   if ($tried -ge $MaxItems) { break }
+  if (Test-PastDeadline) { Write-Host ("[stop] time budget reached ({0} min)." -f $MaxMinutes) -ForegroundColor Yellow; break }
   $tried++
 
   $tok = $tokenByCat[$a.category]

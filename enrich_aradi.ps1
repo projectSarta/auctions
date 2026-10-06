@@ -33,8 +33,23 @@
 param(
   [switch]$Force,
   [int]$MaxItems = 500,
+  [int]$MaxMinutes = 0,            # wall-clock ceiling; 0 = unlimited
   [int]$DelayMs = 400
 )
+
+# Wall-clock ceiling. -MaxItems alone cannot bound a run in TIME, and on
+# 2026-10-06 that mattered: this script was given a 200-item batch estimated at
+# ~11 minutes and took 63, running 30 minutes into the 11:00-17:00 Amman no-run
+# window. overnight_run.ps1's FetchStep only checks the clock BEFORE a phase, so
+# a phase that starts just inside its budget can still overrun it by an hour.
+# The per-item cost here is dominated by a PDF/image download, which is far more
+# variable than an item count suggests, so the only honest bound is time.
+$script:DeadlineAt = if ($MaxMinutes -gt 0) { (Get-Date).AddMinutes($MaxMinutes) } else { [DateTime]::MaxValue }
+function Test-PastDeadline {
+  if ((Get-Date) -lt $script:DeadlineAt) { return $false }
+  return $true
+}
+
 
 $ErrorActionPreference = 'Stop'
 $CurlExe   = 'C:\Windows\System32\curl.exe'
@@ -131,6 +146,7 @@ Write-Host ("Candidates: {0} (Force={1})" -f $candidates.Count, [bool]$Force)
 $enriched = 0; $noMatch = 0; $noPlot = 0; $errored = 0; $i = 0
 foreach ($a in $candidates) {
   if ($i -ge $MaxItems) { break }
+  if (Test-PastDeadline) { Write-Host ("[stop] time budget reached ({0} min)." -f $MaxMinutes) -ForegroundColor Yellow; break }
   $i++
   $codes = Resolve-Codes $a
   if (-not $codes) {

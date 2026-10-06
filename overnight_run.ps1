@@ -105,6 +105,13 @@ function Skip-Phase([string]$name, [string]$why) {
 # skipped for the rest of the run once MoJ is found to be blocking, so a
 # blocked run degrades to "commit what we already have" in seconds instead of
 # grinding for over an hour.
+#
+# This gate only decides whether a phase STARTS. It cannot interrupt one that is
+# already running, so every phase must also be able to stop itself: the budget
+# is handed to each via -MaxMinutes ($script:PhaseBudgetMin) and each honours it
+# between items. Without that the gate is much weaker than it looks - on
+# 2026-10-06 a reports batch started with 22 minutes of budget, took 63, and ran
+# 30 minutes into the protected window.
 function FetchStep([string]$name, [scriptblock]$cmd) {
   if ($script:MojBlocked) { Skip-Phase $name 'MoJ is blocking (detected earlier this run)'; return }
 
@@ -168,12 +175,12 @@ FetchStep 'Phase 2: harvest per-lot MoJ permalinks (active)' {
 # Highest-value enrichment for the "spot undervalued lots" job, so it sits ahead
 # of images and maps.
 FetchStep 'Phase 3: enrich reports (active)' {
-  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_reports.ps1') -ActiveOnly -MaxItems 2000 -DelayMs 1200
+  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_reports.ps1') -ActiveOnly -MaxItems 2000 -DelayMs 1200 -MaxMinutes $script:PhaseBudgetMin
 }
 
 # Phase 4: images for active listings, including everything the scrape just found.
 FetchStep 'Phase 4: enrich images (active)' {
-  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_images.ps1') -ActiveOnly -MaxItems 2000 -DelayMs 400
+  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_images.ps1') -ActiveOnly -MaxItems 2000 -DelayMs 400 -MaxMinutes $script:PhaseBudgetMin
 }
 
 # Phase 5: aradi.io parcel polygons (fetched server-side, embedded so the
@@ -181,7 +188,7 @@ FetchStep 'Phase 4: enrich images (active)' {
 # Last of the fetch phases because it is the only one that does not hit MoJ,
 # so it is the least affected by being starved.
 FetchStep 'Phase 5: enrich aradi polygons (active land rows)' {
-  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_aradi.ps1') -MaxItems 400 -DelayMs 250
+  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_aradi.ps1') -MaxItems 400 -DelayMs 250 -MaxMinutes $script:PhaseBudgetMin
 }
 
 # Phase 6: rebuild summary.json — the landing page (index.html) reads this
