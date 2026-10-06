@@ -150,7 +150,7 @@ The MoJ site is the official listings portal for court-ordered auctions (vehicle
 ### Infrastructure
 | File | Role |
 |---|---|
-| `.github/workflows/daily-scrape.yml` | GitHub Actions: cron `0 1,4,16,19,22 * * *` + `30 14 * * *` (Amman 04:00, 07:00, 17:30, 19:00, 22:00, 01:00), `windows-latest`, 90 min timeout. A gate step skips the job when it would run inside 11:00-17:00 Amman. Uploads `overnight.log` as a 7-day artifact. |
+| `.github/workflows/daily-scrape.yml` | GitHub Actions: cron `17 1,4,16,19,22 * * *` + `47 14 * * *` (Amman 04:17, 07:17, 17:47, 19:17, 22:17, 01:17 — minutes deliberately off the hour, see the workflow header), `windows-latest`, 90 min timeout. A gate step skips the job when it would run inside 11:00-17:00 Amman. Uploads `overnight.log` as a 7-day artifact. |
 | `.gitignore` | Excludes cookie jars, logs, probe HTML files |
 
 ---

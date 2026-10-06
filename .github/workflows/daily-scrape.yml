@@ -1,7 +1,20 @@
 name: Daily MoJ Auctions Scrape
 
-# Runs 6 slots/day: 01, 04, 14:30, 16, 19, 22 UTC.
-# In Amman time (UTC+3):        04, 07, 17:30, 19, 22, 01.
+# Runs 6 slots/day: 01:17, 04:17, 14:47, 16:17, 19:17, 22:17 UTC.
+# In Amman time (UTC+3):        04:17, 07:17, 17:47, 19:17, 22:17, 01:17.
+#
+# The odd minutes are deliberate. Every slot used to sit at :00, and measured
+# across 22 consecutive runs only ONE started within 5 minutes of its slot:
+# median lateness 156 minutes, worst 418. Runs were also dropped outright -
+# six slots a day was yielding three to five runs. GitHub documents that
+# scheduled workflows are delayed or dropped under load and names the start of
+# every hour as exactly that window, so every one of our slots was landing in
+# the most congested minute of the hour.
+#
+# Ruled out first: the workflow is active, and there are zero cancelled,
+# skipped or failed runs, so the concurrency group was not dropping them - they
+# were never created. If lateness stays at ~2.6h after a few days then this
+# hypothesis was wrong and the minutes can go back.
 #
 # Nothing may touch MoJ between 11:00 and 17:00 Amman (= 08:00-14:00 UTC).
 # The old 07:00 UTC slot started at 10:00 Amman — one hour before the window —
@@ -20,8 +33,8 @@ name: Daily MoJ Auctions Scrape
 # (fewer requests → less anti-bot pressure).
 on:
   schedule:
-    - cron: '0 1,4,16,19,22 * * *'
-    - cron: '30 14 * * *'
+    - cron: '17 1,4,16,19,22 * * *'
+    - cron: '47 14 * * *'
   workflow_dispatch: {}
 
 # Need write access to push the updated auctions.json + images + reports back to the repo.
