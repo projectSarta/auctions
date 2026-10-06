@@ -35,7 +35,8 @@ param(
   [switch]$Refresh,                  # don't early-exit when already-complete; keep walking to refresh bids/numBids/endDate
   [switch]$DedupeOnly,               # collapse duplicate rows in auctions.json and exit; no network calls
   [int]$ProactiveResetPages = 0,     # reset the session every N pages; 0 = never (see note at the reset site)
-  [int]$SavePageInterval = 10        # checkpoint auctions.json every N pages (end of category always saves)
+  [int]$SavePageInterval = 10,       # checkpoint auctions.json every N pages (end of category always saves)
+  [double]$CompleteAtFraction = 0.99 # a category counts as walked at this share of totalCount (see the reset decision)
 )
 
 $script:PagesSinceSave = 0
@@ -670,6 +671,16 @@ foreach ($cat in $categories) {
   # it says, and makes the progress heuristics below measure real progress
   # through the listing rather than discovery of brand-new ids.
   $visited = New-Object 'System.Collections.Generic.HashSet[int]'
+
+  # "Walked enough to stop starting new walks." MoJ's listing shifts under us
+  # while we page through it, so the last lot or two of a category routinely
+  # cannot be reached at all - the first deep walk of أرض/ مجمع ended at
+  # 1307 of 1309. Requiring the exact total then sent the walk back to page 1
+  # to re-cross all 131 pages hunting two lots that were no longer there,
+  # bounded only by the zero-progress abort at 3 walks: ~390 requests for
+  # nothing. The in-walk stop below still requires the exact total, so a
+  # genuinely complete walk is still reported as complete.
+  $catTarget = if ($cat.totalCount -gt 0) { [int][Math]::Ceiling($cat.totalCount * $CompleteAtFraction) } else { 0 }
   if ($existingByCat.ContainsKey($cat.name)) {
     Write-Host ("  already hold {0} rows in this category (not a stop condition)" -f $existingByCat[$cat.name].Count) -ForegroundColor DarkGray
   }
@@ -831,7 +842,7 @@ foreach ($cat in $categories) {
       # than MaxKnownPages at ~150 lots, forever. While $visited is still short
       # of what MoJ lists, paging on is purposeful, and the identical-page check
       # below still catches genuinely blocked pagination.
-      $moreToFind = ($cat.totalCount -gt 0 -and $visited.Count -lt $cat.totalCount)
+      $moreToFind = ($catTarget -gt 0 -and $visited.Count -lt $catTarget)
       if (-not $madeProgressThisWalk -and $page -ge $MaxKnownPages -and -not $moreToFind) {
         Write-Host ("  (walked {0} pages without reaching any unvisited lot — reset)" -f $MaxKnownPages) -ForegroundColor DarkYellow
         break
@@ -942,7 +953,12 @@ foreach ($cat in $categories) {
       }
     }
 
-    if ($cat.totalCount -gt 0 -and $visited.Count -ge $cat.totalCount) { break }
+    if ($catTarget -gt 0 -and $visited.Count -ge $catTarget) {
+      if ($visited.Count -lt $cat.totalCount) {
+        Write-Host ("  (walked {0}/{1} - within {2:P0}, not re-walking for the remainder)" -f $visited.Count, $cat.totalCount, (1 - $CompleteAtFraction)) -ForegroundColor Green
+      }
+      break
+    }
     if (Test-Budget) { break catLoop }
     $resets++
     if ($resets -gt $MaxResetsPerCategory) {
