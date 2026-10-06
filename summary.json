@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-10-06T06:41:56Z",
+    "generatedAt":  "2026-10-06T08:54:49Z",
     "dataScrapedAt":  "2026-10-05 21:48:57",
     "totals":  {
                    "all":  5007,
-                   "active":  649
+                   "active":  637
                },
-    "endingIn24h":  90,
-    "endingInWeek":  350,
+    "endingIn24h":  78,
+    "endingInWeek":  338,
     "reAnnounced":  254,
-    "withReport":  177,
-    "withMap":  221,
+    "withReport":  367,
+    "withMap":  277,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -33,18 +33,18 @@
                        },
                        {
                            "name":  "مركبة",
-                           "active":  104,
+                           "active":  92,
                            "total":  1648
                        }
                    ],
     "closingSoon":  [
                         {
-                            "id":  54145,
+                            "id":  54156,
                             "category":  "مركبة",
                             "court":  "تنفيذ عمان",
                             "place":  "",
-                            "endDate":  "2026-10-06 10:00:00",
-                            "estimatedValue":  5300,
+                            "endDate":  "2026-10-06 12:00:00",
+                            "estimatedValue":  1100,
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  1,
@@ -52,12 +52,12 @@
                             "hasMap":  false
                         },
                         {
-                            "id":  54146,
+                            "id":  54157,
                             "category":  "مركبة",
                             "court":  "تنفيذ عمان",
                             "place":  "",
-                            "endDate":  "2026-10-06 10:10:00",
-                            "estimatedValue":  12000,
+                            "endDate":  "2026-10-06 12:10:00",
+                            "estimatedValue":  6000,
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  1,
@@ -65,55 +65,55 @@
                             "hasMap":  false
                         },
                         {
-                            "id":  54147,
+                            "id":  54158,
                             "category":  "مركبة",
                             "court":  "تنفيذ عمان",
                             "place":  "",
-                            "endDate":  "2026-10-06 10:20:00",
-                            "estimatedValue":  17000,
+                            "endDate":  "2026-10-06 12:20:00",
+                            "estimatedValue":  8500,
+                            "currentAmount":  5052,
+                            "numBids":  41,
+                            "serial":  1,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  52131,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان",
+                            "place":  "",
+                            "endDate":  "2026-10-06 12:30:00",
+                            "estimatedValue":  2000,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  2,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54159,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان",
+                            "place":  "",
+                            "endDate":  "2026-10-06 12:40:00",
+                            "estimatedValue":  8000,
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  1,
-                            "hasReport":  false,
+                            "hasReport":  true,
                             "hasMap":  false
                         },
                         {
-                            "id":  54148,
+                            "id":  54160,
                             "category":  "مركبة",
                             "court":  "تنفيذ عمان",
                             "place":  "",
-                            "endDate":  "2026-10-06 10:30:00",
-                            "estimatedValue":  6000,
+                            "endDate":  "2026-10-06 12:50:00",
+                            "estimatedValue":  700,
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  54149,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ عمان",
-                            "place":  "",
-                            "endDate":  "2026-10-06 10:40:00",
-                            "estimatedValue":  6000,
-                            "currentAmount":  3400.021,
-                            "numBids":  7,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  54150,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ عمان",
-                            "place":  "",
-                            "endDate":  "2026-10-06 10:50:00",
-                            "estimatedValue":  3000,
-                            "currentAmount":  2350,
-                            "numBids":  1,
-                            "serial":  1,
-                            "hasReport":  false,
+                            "hasReport":  true,
                             "hasMap":  false
                         }
                     ],
@@ -141,8 +141,8 @@
                          "currentAmount":  0,
                          "numBids":  0,
                          "serial":  10,
-                         "hasReport":  false,
-                         "hasMap":  false
+                         "hasReport":  true,
+                         "hasMap":  true
                      },
                      {
                          "id":  44839,
@@ -167,7 +167,7 @@
                          "currentAmount":  0,
                          "numBids":  0,
                          "serial":  9,
-                         "hasReport":  false,
+                         "hasReport":  true,
                          "hasMap":  true
                      },
                      {
@@ -193,8 +193,8 @@
                          "currentAmount":  267355,
                          "numBids":  1,
                          "serial":  7,
-                         "hasReport":  false,
-                         "hasMap":  false
+                         "hasReport":  true,
+                         "hasMap":  true
                      }
                  ]
 }
