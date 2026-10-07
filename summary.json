@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-10-06T20:02:49Z",
-    "dataScrapedAt":  "2026-10-06 20:02:03",
+    "generatedAt":  "2026-10-07T01:47:08Z",
+    "dataScrapedAt":  "2026-10-07 01:46:20",
     "totals":  {
-                   "all":  5009,
-                   "active":  562
+                   "all":  5028,
+                   "active":  584
                },
     "endingIn24h":  75,
-    "endingInWeek":  296,
+    "endingInWeek":  309,
     "reAnnounced":  232,
-    "withReport":  308,
-    "withMap":  238,
+    "withReport":  309,
+    "withMap":  239,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -23,7 +23,7 @@
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  100,
+                           "active":  101,
                            "total":  1079
                        },
                        {
@@ -33,8 +33,8 @@
                        },
                        {
                            "name":  "مركبة",
-                           "active":  64,
-                           "total":  1648
+                           "active":  85,
+                           "total":  1667
                        }
                    ],
     "closingSoon":  [
