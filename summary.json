@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-10-07T20:26:42Z",
-    "dataScrapedAt":  "2026-10-07 20:25:55",
+    "generatedAt":  "2026-10-08T02:24:57Z",
+    "dataScrapedAt":  "2026-10-08 02:14:42",
     "totals":  {
-                   "all":  5035,
-                   "active":  519
+                   "all":  5036,
+                   "active":  521
                },
-    "endingIn24h":  95,
-    "endingInWeek":  283,
-    "reAnnounced":  215,
-    "withReport":  241,
-    "withMap":  192,
+    "endingIn24h":  97,
+    "endingInWeek":  284,
+    "reAnnounced":  261,
+    "withReport":  242,
+    "withMap":  193,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -23,8 +23,8 @@
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  90,
-                           "total":  1079
+                           "active":  92,
+                           "total":  1080
                        },
                        {
                            "name":  "أُخرى",
@@ -119,6 +119,45 @@
                     ],
     "bargains":  [
                      {
+                         "id":  14566,
+                         "category":  "شقة/ مكتب",
+                         "court":  "تنفيذ عمان / قسم شمال عمان",
+                         "place":  "الجبيهه · اراضي شمال عمان",
+                         "endDate":  "2026-10-11 15:00:00",
+                         "estimatedValue":  104000,
+                         "currentAmount":  0,
+                         "numBids":  0,
+                         "serial":  27,
+                         "hasReport":  true,
+                         "hasMap":  true
+                     },
+                     {
+                         "id":  16131,
+                         "category":  "شقة/ مكتب",
+                         "court":  "تنفيذ عمان / قسم شمال عمان",
+                         "place":  "صويلح · اراضي شمال عمان",
+                         "endDate":  "2026-10-11 15:00:00",
+                         "estimatedValue":  65910,
+                         "currentAmount":  0,
+                         "numBids":  0,
+                         "serial":  27,
+                         "hasReport":  false,
+                         "hasMap":  false
+                     },
+                     {
+                         "id":  16070,
+                         "category":  "شقة/ مكتب",
+                         "court":  "تنفيذ عمان / قسم شمال عمان",
+                         "place":  "تلاع العلي · اراضي شمال عمان",
+                         "endDate":  "2026-10-11 15:00:00",
+                         "estimatedValue":  112200,
+                         "currentAmount":  0,
+                         "numBids":  0,
+                         "serial":  22,
+                         "hasReport":  true,
+                         "hasMap":  true
+                     },
+                     {
                          "id":  39317,
                          "category":  "مركبة",
                          "court":  "تنفيذ الرصيفة",
@@ -154,45 +193,6 @@
                          "currentAmount":  0,
                          "numBids":  0,
                          "serial":  9,
-                         "hasReport":  true,
-                         "hasMap":  true
-                     },
-                     {
-                         "id":  44569,
-                         "category":  "أرض/ مجمع",
-                         "court":  "تنفيذ مادبا",
-                         "place":  "مادبا · اراضي مادبا",
-                         "endDate":  "2026-10-09 15:00:00",
-                         "estimatedValue":  982312,
-                         "currentAmount":  517500,
-                         "numBids":  10,
-                         "serial":  7,
-                         "hasReport":  true,
-                         "hasMap":  true
-                     },
-                     {
-                         "id":  43061,
-                         "category":  "أرض/ مجمع",
-                         "court":  "تنفيذ سحاب",
-                         "place":  "سحاب · اراضي جنوب عمان",
-                         "endDate":  "2026-10-09 15:00:00",
-                         "estimatedValue":  486100,
-                         "currentAmount":  267355,
-                         "numBids":  1,
-                         "serial":  7,
-                         "hasReport":  true,
-                         "hasMap":  true
-                     },
-                     {
-                         "id":  47975,
-                         "category":  "أرض/ مجمع",
-                         "court":  "تنفيذ مادبا",
-                         "place":  "ماعين · اراضي مادبا",
-                         "endDate":  "2026-10-31 15:00:00",
-                         "estimatedValue":  136600,
-                         "currentAmount":  0,
-                         "numBids":  0,
-                         "serial":  7,
                          "hasReport":  true,
                          "hasMap":  true
                      }
