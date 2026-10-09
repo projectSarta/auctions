@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-10-08T20:23:20Z",
-    "dataScrapedAt":  "2026-10-08 20:22:33",
+    "generatedAt":  "2026-10-09T03:15:15Z",
+    "dataScrapedAt":  "2026-10-09 03:15:10",
     "totals":  {
-                   "all":  5036,
-                   "active":  426
+                   "all":  5044,
+                   "active":  444
                },
-    "endingIn24h":  7,
-    "endingInWeek":  229,
-    "reAnnounced":  218,
-    "withReport":  179,
-    "withMap":  152,
+    "endingIn24h":  5,
+    "endingInWeek":  243,
+    "reAnnounced":  238,
+    "withReport":  185,
+    "withMap":  157,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -18,63 +18,50 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  300,
-                           "total":  1945
+                           "active":  303,
+                           "total":  1947
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  67,
-                           "total":  1080
+                           "active":  80,
+                           "total":  1084
                        },
                        {
                            "name":  "أُخرى",
-                           "active":  9,
-                           "total":  313
+                           "active":  13,
+                           "total":  315
                        },
                        {
                            "name":  "مركبة",
-                           "active":  48,
+                           "active":  46,
                            "total":  1671
                        }
                    ],
     "closingSoon":  [
                         {
-                            "id":  54196,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-10-08 22:00:00",
-                            "estimatedValue":  150,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  54187,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-10-08 23:00:00",
-                            "estimatedValue":  4000,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  50463,
-                            "category":  "شقة/ مكتب",
-                            "court":  "تنفيذ بني كنانة",
-                            "place":  "يبلا · اراضي بني كنانة",
+                            "id":  51696,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ الشونة الجنوبية",
+                            "place":  "غور الرامة · اراضي الشونة الجنوبية",
                             "endDate":  "2026-10-09 15:00:00",
-                            "estimatedValue":  13868,
-                            "currentAmount":  6934,
+                            "estimatedValue":  144016,
+                            "currentAmount":  72008,
                             "numBids":  1,
                             "serial":  4,
-                            "hasReport":  false,
+                            "hasReport":  true,
+                            "hasMap":  true
+                        },
+                        {
+                            "id":  43061,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ سحاب",
+                            "place":  "سحاب · اراضي جنوب عمان",
+                            "endDate":  "2026-10-09 15:00:00",
+                            "estimatedValue":  486100,
+                            "currentAmount":  267355,
+                            "numBids":  1,
+                            "serial":  7,
+                            "hasReport":  true,
                             "hasMap":  true
                         },
                         {
@@ -91,6 +78,19 @@
                             "hasMap":  true
                         },
                         {
+                            "id":  50463,
+                            "category":  "شقة/ مكتب",
+                            "court":  "تنفيذ بني كنانة",
+                            "place":  "يبلا · اراضي بني كنانة",
+                            "endDate":  "2026-10-09 15:00:00",
+                            "estimatedValue":  13868,
+                            "currentAmount":  6934,
+                            "numBids":  1,
+                            "serial":  4,
+                            "hasReport":  false,
+                            "hasMap":  true
+                        },
+                        {
                             "id":  44569,
                             "category":  "أرض/ مجمع",
                             "court":  "تنفيذ مادبا",
@@ -99,21 +99,21 @@
                             "estimatedValue":  982312,
                             "currentAmount":  517500,
                             "numBids":  10,
-                            "serial":  7,
+                            "serial":  8,
                             "hasReport":  true,
                             "hasMap":  true
                         },
                         {
-                            "id":  51696,
+                            "id":  52266,
                             "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ الشونة الجنوبية",
-                            "place":  "غور الرامة · اراضي الشونة الجنوبية",
-                            "endDate":  "2026-10-09 15:00:00",
-                            "estimatedValue":  144016,
-                            "currentAmount":  72008,
-                            "numBids":  1,
+                            "court":  "تنفيذ بصيرا",
+                            "place":  "بصيرا · اراضي بصيرا",
+                            "endDate":  "2026-10-10 15:00:00",
+                            "estimatedValue":  3531,
+                            "currentAmount":  0,
+                            "numBids":  0,
                             "serial":  3,
-                            "hasReport":  true,
+                            "hasReport":  false,
                             "hasMap":  true
                         }
                     ],
