@@ -1,20 +1,20 @@
 {
-    "generatedAt":  "2026-10-10T01:46:49Z",
-    "dataScrapedAt":  "2026-10-09 20:16:58",
+    "generatedAt":  "2026-10-10T19:08:44Z",
+    "dataScrapedAt":  "2026-10-10 19:07:58",
     "totals":  {
-                   "all":  5044,
+                   "all":  5045,
                    "active":  439
                },
-    "endingIn24h":  2,
+    "endingIn24h":  86,
     "endingInWeek":  241,
-    "reAnnounced":  233,
+    "reAnnounced":  232,
     "withReport":  181,
     "withMap":  152,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
-                           "active":  2,
-                           "total":  27
+                           "active":  3,
+                           "total":  28
                        },
                        {
                            "name":  "أرض/ مجمع",
@@ -23,7 +23,7 @@
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  79,
+                           "active":  78,
                            "total":  1084
                        },
                        {
@@ -39,38 +39,12 @@
                    ],
     "closingSoon":  [
                         {
-                            "id":  38905,
-                            "category":  "شقة/ مكتب",
-                            "court":  "تنفيذ الرمثا",
-                            "place":  "الرمثا · اراضي الرمثا",
-                            "endDate":  "2026-10-10 15:00:00",
-                            "estimatedValue":  16200,
-                            "currentAmount":  8200,
-                            "numBids":  1,
-                            "serial":  5,
-                            "hasReport":  true,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  52266,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ بصيرا",
-                            "place":  "بصيرا · اراضي بصيرا",
-                            "endDate":  "2026-10-10 15:00:00",
-                            "estimatedValue":  3531,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  3,
-                            "hasReport":  false,
-                            "hasMap":  true
-                        },
-                        {
-                            "id":  54038,
+                            "id":  54229,
                             "category":  "مركبة",
                             "court":  "تنفيذ عمان / قسم شمال عمان",
                             "place":  "",
                             "endDate":  "2026-10-11 14:00:00",
-                            "estimatedValue":  18000,
+                            "estimatedValue":  2200,
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  1,
@@ -78,7 +52,7 @@
                             "hasMap":  false
                         },
                         {
-                            "id":  54252,
+                            "id":  54230,
                             "category":  "مركبة",
                             "court":  "تنفيذ عمان / قسم شمال عمان",
                             "place":  "",
@@ -104,7 +78,7 @@
                             "hasMap":  false
                         },
                         {
-                            "id":  54230,
+                            "id":  54252,
                             "category":  "مركبة",
                             "court":  "تنفيذ عمان / قسم شمال عمان",
                             "place":  "",
@@ -114,6 +88,32 @@
                             "numBids":  0,
                             "serial":  1,
                             "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  51722,
+                            "category":  "أُخرى",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-10-11 14:00:00",
+                            "estimatedValue":  26800,
+                            "currentAmount":  19001.5,
+                            "numBids":  1,
+                            "serial":  2,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54017,
+                            "category":  "أُخرى",
+                            "court":  "تنفيذ عمان / قسم جنوب عمان",
+                            "place":  "",
+                            "endDate":  "2026-10-11 14:00:00",
+                            "estimatedValue":  2525,
+                            "currentAmount":  1700,
+                            "numBids":  2,
+                            "serial":  2,
+                            "hasReport":  true,
                             "hasMap":  false
                         }
                     ],
