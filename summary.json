@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-10-11T19:56:52Z",
-    "dataScrapedAt":  "2026-10-11 19:56:47",
+    "generatedAt":  "2026-10-12T01:30:11Z",
+    "dataScrapedAt":  "2026-10-12 01:26:53",
     "totals":  {
                    "all":  5078,
-                   "active":  399
+                   "active":  403
                },
-    "endingIn24h":  17,
-    "endingInWeek":  234,
-    "reAnnounced":  203,
-    "withReport":  149,
-    "withMap":  122,
+    "endingIn24h":  16,
+    "endingInWeek":  238,
+    "reAnnounced":  208,
+    "withReport":  155,
+    "withMap":  127,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -18,7 +18,7 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  270,
+                           "active":  276,
                            "total":  1949
                        },
                        {
@@ -33,37 +33,11 @@
                        },
                        {
                            "name":  "مركبة",
-                           "active":  65,
+                           "active":  63,
                            "total":  1699
                        }
                    ],
     "closingSoon":  [
-                        {
-                            "id":  54129,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-10-11 20:00:00",
-                            "estimatedValue":  3800,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  54206,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-10-11 23:00:00",
-                            "estimatedValue":  17000,
-                            "currentAmount":  16705,
-                            "numBids":  7,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
                         {
                             "id":  54316,
                             "category":  "مركبة",
@@ -78,17 +52,43 @@
                             "hasMap":  false
                         },
                         {
-                            "id":  50615,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ عمان / قسم شرق عمان",
-                            "place":  "ماركا · اراضي شرق عمان",
+                            "id":  53284,
+                            "category":  "شقة/ مكتب",
+                            "court":  "تنفيذ عمان / قسم جنوب عمان",
+                            "place":  "ام قصير و المقابلين · اراضي جنوب عمان",
                             "endDate":  "2026-10-12 15:00:00",
-                            "estimatedValue":  15084,
-                            "currentAmount":  7545,
+                            "estimatedValue":  91300,
+                            "currentAmount":  66000,
                             "numBids":  1,
                             "serial":  2,
                             "hasReport":  true,
                             "hasMap":  true
+                        },
+                        {
+                            "id":  52634,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "بدران · اراضي شمال عمان",
+                            "endDate":  "2026-10-12 15:00:00",
+                            "estimatedValue":  291680,
+                            "currentAmount":  146000,
+                            "numBids":  1,
+                            "serial":  2,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  50748,
+                            "category":  "شقة/ مكتب",
+                            "court":  "تنفيذ اربد",
+                            "place":  "اربد · اراضي اربد",
+                            "endDate":  "2026-10-12 15:00:00",
+                            "estimatedValue":  34514,
+                            "currentAmount":  17500,
+                            "numBids":  2,
+                            "serial":  3,
+                            "hasReport":  true,
+                            "hasMap":  false
                         },
                         {
                             "id":  53134,
@@ -104,15 +104,15 @@
                             "hasMap":  false
                         },
                         {
-                            "id":  51038,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ عمان / قسم جنوب عمان",
-                            "place":  "القويسمه · اراضي جنوب عمان",
+                            "id":  52764,
+                            "category":  "شقة/ مكتب",
+                            "court":  "تنفيذ الطفيلة",
+                            "place":  "الطفيلة · اراضي الطفيله",
                             "endDate":  "2026-10-12 15:00:00",
-                            "estimatedValue":  460000,
-                            "currentAmount":  230000,
+                            "estimatedValue":  15935,
+                            "currentAmount":  7968,
                             "numBids":  1,
-                            "serial":  4,
+                            "serial":  2,
                             "hasReport":  true,
                             "hasMap":  true
                         }
