@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-10-14T01:34:37Z",
-    "dataScrapedAt":  "2026-10-14 01:24:15",
+    "generatedAt":  "2026-10-14T06:22:36Z",
+    "dataScrapedAt":  "2026-10-14 06:21:51",
     "totals":  {
-                   "all":  5133,
-                   "active":  237
+                   "all":  5164,
+                   "active":  292
                },
     "endingIn24h":  53,
-    "endingInWeek":  228,
-    "reAnnounced":  111,
-    "withReport":  77,
-    "withMap":  66,
+    "endingInWeek":  264,
+    "reAnnounced":  116,
+    "withReport":  89,
+    "withMap":  77,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -18,13 +18,13 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  120,
+                           "active":  122,
                            "total":  1950
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  61,
-                           "total":  1104
+                           "active":  100,
+                           "total":  1125
                        },
                        {
                            "name":  "أُخرى",
@@ -33,24 +33,11 @@
                        },
                        {
                            "name":  "مركبة",
-                           "active":  37,
-                           "total":  1730
+                           "active":  51,
+                           "total":  1740
                        }
                    ],
     "closingSoon":  [
-                        {
-                            "id":  54253,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ عمان / قسم شرق عمان",
-                            "place":  "",
-                            "endDate":  "2026-10-14 14:00:00",
-                            "estimatedValue":  3500,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
                         {
                             "id":  45751,
                             "category":  "أُخرى",
@@ -61,6 +48,19 @@
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  7,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54253,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان / قسم شرق عمان",
+                            "place":  "",
+                            "endDate":  "2026-10-14 14:00:00",
+                            "estimatedValue":  3500,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
                             "hasReport":  false,
                             "hasMap":  false
                         },
