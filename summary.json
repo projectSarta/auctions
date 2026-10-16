@@ -1,14 +1,14 @@
 {
-    "generatedAt":  "2026-10-15T18:54:07Z",
-    "dataScrapedAt":  "2026-10-15 18:53:19",
+    "generatedAt":  "2026-10-16T00:38:32Z",
+    "dataScrapedAt":  "2026-10-16 00:35:12",
     "totals":  {
-                   "all":  5168,
-                   "active":  231
+                   "all":  5171,
+                   "active":  232
                },
-    "endingIn24h":  6,
-    "endingInWeek":  221,
+    "endingIn24h":  3,
+    "endingInWeek":  220,
     "reAnnounced":  85,
-    "withReport":  75,
+    "withReport":  76,
     "withMap":  62,
     "categories":  [
                        {
@@ -28,55 +28,16 @@
                        },
                        {
                            "name":  "أُخرى",
-                           "active":  12,
-                           "total":  321
+                           "active":  16,
+                           "total":  324
                        },
                        {
                            "name":  "مركبة",
-                           "active":  32,
+                           "active":  29,
                            "total":  1742
                        }
                    ],
     "closingSoon":  [
-                        {
-                            "id":  54382,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-10-15 21:00:00",
-                            "estimatedValue":  2700,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  54383,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-10-15 22:00:00",
-                            "estimatedValue":  9450,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  54414,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-10-15 23:00:00",
-                            "estimatedValue":  2600,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
                         {
                             "id":  50115,
                             "category":  "مركبة",
@@ -87,6 +48,19 @@
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  7,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  53873,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ معان",
+                            "place":  "موقع تل ابوالرعا · اراضي معان",
+                            "endDate":  "2026-10-16 15:00:00",
+                            "estimatedValue":  31728,
+                            "currentAmount":  16065,
+                            "numBids":  2,
+                            "serial":  1,
                             "hasReport":  false,
                             "hasMap":  false
                         },
@@ -104,14 +78,40 @@
                             "hasMap":  false
                         },
                         {
-                            "id":  53873,
+                            "id":  51337,
                             "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ معان",
-                            "place":  "موقع تل ابوالرعا · اراضي معان",
-                            "endDate":  "2026-10-16 15:00:00",
-                            "estimatedValue":  31728,
-                            "currentAmount":  16065,
-                            "numBids":  2,
+                            "court":  "تنفيذ مادبا",
+                            "place":  "الواحه · اراضي مادبا",
+                            "endDate":  "2026-10-17 15:00:00",
+                            "estimatedValue":  261815,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  3,
+                            "hasReport":  false,
+                            "hasMap":  true
+                        },
+                        {
+                            "id":  54019,
+                            "category":  "أُخرى",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-10-18 14:00:00",
+                            "estimatedValue":  23000,
+                            "currentAmount":  16200,
+                            "numBids":  8,
+                            "serial":  1,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54263,
+                            "category":  "أُخرى",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-10-18 14:00:00",
+                            "estimatedValue":  10300,
+                            "currentAmount":  0,
+                            "numBids":  0,
                             "serial":  1,
                             "hasReport":  false,
                             "hasMap":  false
