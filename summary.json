@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-10-16T00:38:32Z",
-    "dataScrapedAt":  "2026-10-16 00:35:12",
+    "generatedAt":  "2026-10-16T06:05:21Z",
+    "dataScrapedAt":  "2026-10-16 06:02:02",
     "totals":  {
                    "all":  5171,
-                   "active":  232
+                   "active":  238
                },
     "endingIn24h":  3,
-    "endingInWeek":  220,
-    "reAnnounced":  85,
-    "withReport":  76,
-    "withMap":  62,
+    "endingInWeek":  226,
+    "reAnnounced":  89,
+    "withReport":  79,
+    "withMap":  65,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -18,7 +18,7 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  115,
+                           "active":  121,
                            "total":  1952
                        },
                        {
