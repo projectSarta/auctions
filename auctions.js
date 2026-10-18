@@ -1,7 +1,7 @@
 window.AUCTION_DATA = {
-  "scrapedAt": "2026-10-18 00:15:29",
+  "scrapedAt": "2026-10-18 06:06:09",
   "source": "https://auctions.moj.gov.jo/index.aspx",
-  "totalScraped": 5215,
+  "totalScraped": 5233,
   "pageLimit": 0,
   "inProgress": true,
   "categories": [
@@ -13,7 +13,7 @@ window.AUCTION_DATA = {
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lvdTwiPaw7yNJ4we5qp0TYFE",
       "name": "أرض/ مجمع",
-      "totalCount": 1297
+      "totalCount": 1298
     },
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyDQHBnJFqmY65P9mbTZMRqc",
@@ -28,7 +28,7 @@ window.AUCTION_DATA = {
     {
       "token": "4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY",
       "name": "مركبة",
-      "totalCount": 314
+      "totalCount": 312
     }
   ],
   "auctions": [
@@ -5572,7 +5572,7 @@ window.AUCTION_DATA = {
       },
       "image": "images/47977.jpg",
       "caseId": 15173692,
-      "lastSeenInListingAt": "2026-10-18T00:15:29Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "aradiPlot": {
         "status": "no-plot",
         "village": 109,
@@ -38063,7 +38063,7 @@ window.AUCTION_DATA = {
       },
       "caseId": 14602276,
       "image": "images/49691.jpg",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4m3JDH99Ia9AClYHS8CVP3_UjR6DfRftcPevSjBE4_DA",
       "pdfPath": "reports/49691.pdf",
       "aradiPlot": {
@@ -68456,7 +68456,7 @@ window.AUCTION_DATA = {
       },
       "caseId": 10639875,
       "image": "images/50639.jpg",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "announcementSerial": 2,
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyGdCaQFJ19xZ6srYqyyXTL52Bxk_wGemphVu4hKI6iPrbH2A8SP-9RmgAFxJUqVwcuEYErMKD3O1QqujIVVFjqo"
     },
@@ -106007,7 +106007,7 @@ window.AUCTION_DATA = {
         "العدد": "20067",
         "تاريخ النشر": "22/01/2026"
       },
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "image": "images/48591.jpg",
       "aradiPlot": {
         "status": "ok",
@@ -120827,7 +120827,7 @@ window.AUCTION_DATA = {
       },
       "image": "images/39317.jpg",
       "caseId": 12902449,
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5tpQZAsagmuKv4EffTwgWuCBAQTExcRRIMHyQI4UB4qQ",
       "announcementSerial": 15,
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfbI69KPKhxL0S2nq60ZEp94e1Jln6H2eEu_JXLHcAljja-kpTP-wASqTn96Yg55L0mtRMz1_kwdMMzi2bdTTb5I"
@@ -194215,7 +194215,7 @@ window.AUCTION_DATA = {
       "image": "images/48759.png",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4DvhfRa_fsWYVPl_SJrn6VO_o8CFkxZ3ROm4d8lon11A",
       "pdfPath": "reports/48759.pdf",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu08VSyEeXffypmWsAijCVHT9RH_CvSmtzgfiGQXeC9GqJ4WwUd5eDnZbyzJbgIvHbvaT0ELlVAprbPVYJQMzkGoE"
     },
     {
@@ -205334,7 +205334,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "03/05/2026"
       },
       "caseId": 15247218,
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "announcementSerial": 4,
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu08VSyEeXffypmWsAijCVHT9RH_CvSmtzgfiGQXeC9GqJb-14PN_pp2Ls-FnMFwiwqc3T4NogqYmSacQ7ALnOcLQ"
     },
@@ -208523,7 +208523,7 @@ window.AUCTION_DATA = {
       "image": "images/27071.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6xf2ZAHjovQ22P1TRP6T7H3YF7vZSx9gF_do1pKqQB3Q",
       "pdfPath": "reports/27071.pdf",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "announcementSerial": 6,
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyGdCaQFJ19xZ6srYqyyXTL52Bxk_wGemphVu4hKI6iPrR96GtibAFOuIG_kI2YzU-CBv16NGy58_xSJse6YK768"
     },
@@ -294689,7 +294689,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الدستور",
       "newspaperIssue": "0",
       "publishedAt": "14/06/2026",
-      "endDate": "2026-08-11 11:10:00",
+      "endDate": "2026-10-20 12:10:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=51721",
       "details": {
@@ -294718,7 +294718,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "14/06/2026"
       },
       "firstSeenAt": "2026-06-30T06:22:34Z",
-      "lastSeenInListingAt": "2026-08-10T16:40:19Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "image": "images/51721.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da5e59UmyPBPxA9CbjS-wcVVGgV-jD3uUi_8CyGf0PRBew"
     },
@@ -314575,7 +314575,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "07/06/2026"
       },
       "firstSeenAt": "2026-07-02T20:30:22Z",
-      "lastSeenInListingAt": "2026-10-18T00:15:29Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "image": "images/47186.jpg",
       "aradiPlot": {
         "status": "ok",
@@ -321531,7 +321531,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "14/06/2026"
       },
       "firstSeenAt": "2026-07-07T07:50:20Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "image": "images/51908.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7s5EF9AI0No_YhDDvvIfaGem8dwv2I4dmhf-mfIJLczA",
       "aradiPlot": {
@@ -333333,7 +333333,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "30/06/2026"
       },
       "firstSeenAt": "2026-07-07T08:35:58Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "image": "images/52256.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4ww5ZIWy2JU5J0rCx5fwmrkBEUfanV7YtVGlJ2zdX4Ow",
       "announcementSerial": 2,
@@ -385802,7 +385802,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "30/06/2026"
       },
       "firstSeenAt": "2026-07-16T11:14:51Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "image": "images/52255.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da4z2Oqh4DL8I1-7Im3OMwUZtoCM17UYlpmPNJEFRCuxhQ",
       "aradiPlot": {
@@ -422426,7 +422426,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "28/06/2026"
       },
       "firstSeenAt": "2026-07-21T15:03:27Z",
-      "lastSeenInListingAt": "2026-10-18T00:15:29Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "image": "images/47826.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da555w20fpMrlHbES-olYNEhQaLDqHpJC610lAJy4IKxyw",
       "pdfPath": "reports/47826.pdf",
@@ -462496,7 +462496,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "09/07/2026"
       },
       "firstSeenAt": "2026-07-30T03:53:18Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "image": "images/52417.jpg",
       "aradiPlot": {
         "status": "ok",
@@ -513380,7 +513380,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "06/07/2026"
       },
       "firstSeenAt": "2026-08-02T16:56:10Z",
-      "lastSeenInListingAt": "2026-10-18T00:15:29Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "image": "images/20655.jpg",
       "aradiPlot": {
         "status": "ok",
@@ -532397,7 +532397,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "08/07/2026"
       },
       "firstSeenAt": "2026-08-07T00:45:36Z",
-      "lastSeenInListingAt": "2026-10-18T00:15:29Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "image": "images/36018.jpg",
       "aradiPlot": {
         "status": "ok",
@@ -538176,7 +538176,7 @@ window.AUCTION_DATA = {
       "newspaper": "جريدة الرأي",
       "newspaperIssue": "0",
       "publishedAt": "04/08/2026",
-      "endDate": "2026-08-11 13:35:00",
+      "endDate": "2026-10-20 13:40:00",
       "notes": "",
       "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=52974",
       "details": {
@@ -538205,7 +538205,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "04/08/2026"
       },
       "firstSeenAt": "2026-08-08T22:18:42Z",
-      "lastSeenInListingAt": "2026-08-18T04:27:48Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "image": "images/52974.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da7xPcjomtbgXYb_tNrd3nsOkM5TNWjEajJhjY7Q4QoQQA",
       "pdfPath": "reports/52974.pdf"
@@ -608379,7 +608379,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "03/08/2026"
       },
       "firstSeenAt": "2026-08-20T16:25:25Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "image": "images/53044.jpg",
       "aradiPlot": {
         "status": "ok",
@@ -625751,7 +625751,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "13/08/2026"
       },
       "firstSeenAt": "2026-08-27T14:56:34Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "image": "images/53294.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6OuVH-8T1PB4bGGuyC-Fc4SRMk4LQtnY6PAZ3unCX_eA",
       "pdfPath": "reports/53294.pdf",
@@ -626126,7 +626126,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "17/08/2026"
       },
       "firstSeenAt": "2026-08-27T14:56:34Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "image": "images/53241.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da6jxzEgyYascrvktWItrOgDpyyWgwUOKpLEpXbr67uyZA",
       "pdfPath": "reports/53241.pdf",
@@ -741417,7 +741417,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "27/09/2026"
       },
       "firstSeenAt": "2026-09-29T20:22:04Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "image": "images/54019.jpg",
       "reportUrl": "https://auctions.moj.gov.jo/Forms/Auctions/frmDownloadReports.aspx?token=RDtprbLeC5_c9LWZuxDhhH9bMTPrwBH2oA0Fhfh6da45bcoZCYAOAo5PivX1Zq5eJT0k_cmf-0yDqhfy4VRW9g",
       "pdfPath": "reports/54019.pdf",
@@ -783824,7 +783824,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "23/09/2026"
       },
       "firstSeenAt": "2026-10-05T09:33:09Z",
-      "lastSeenInListingAt": "2026-10-17T00:29:28Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 53983,
@@ -785214,7 +785214,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "01/10/2026"
       },
       "firstSeenAt": "2026-10-05T14:41:26Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfbI69KPKhxL0S2nq60ZEp94e1Jln6H2eEu_JXLHcAljjC9GiwjQdO9UYuuU5aWp6P0iRj6RFASFLS0j4yyt9eHU"
     },
     {
@@ -788129,7 +788129,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "17/09/2026"
       },
       "firstSeenAt": "2026-10-05T14:49:50Z",
-      "lastSeenInListingAt": "2026-10-18T00:15:29Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lveZFFt89GXWF7bMgIaG6aGMLdFgU0NcAkth5vVvoPpa4Jo70VK5A7i5ShT-fiU5VEH-hKLyonCH_CmZij4WzXjs"
     },
     {
@@ -788179,7 +788179,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "17/09/2026"
       },
       "firstSeenAt": "2026-10-05T14:49:50Z",
-      "lastSeenInListingAt": "2026-10-18T00:15:29Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 44646,
@@ -788228,7 +788228,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "17/09/2026"
       },
       "firstSeenAt": "2026-10-05T14:49:50Z",
-      "lastSeenInListingAt": "2026-10-18T00:15:29Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lveZFFt89GXWF7bMgIaG6aGMLdFgU0NcAkth5vVvoPpa4REK8Yu23-6att_qoPafzoy-8OoG6XxCMwNiWxzakypc"
     },
     {
@@ -788278,7 +788278,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "17/09/2026"
       },
       "firstSeenAt": "2026-10-05T14:49:50Z",
-      "lastSeenInListingAt": "2026-10-18T00:15:29Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lveZFFt89GXWF7bMgIaG6aGMLdFgU0NcAkth5vVvoPpa40Gp9dSowp_QbejYL31aLLclc1wnLMWaBHsib6hzTt4E"
     },
     {
@@ -795037,7 +795037,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "04/10/2026"
       },
       "firstSeenAt": "2026-10-07T01:33:06Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfbI69KPKhxL0S2nq60ZEp94e1Jln6H2eEu_JXLHcAljjeewEmP0fBpBV9yzlu2_SqruinZffPVJWqkGwzfj9jJk"
     },
     {
@@ -795090,7 +795090,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "06/10/2026"
       },
       "firstSeenAt": "2026-10-07T01:33:06Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 54256,
@@ -795142,7 +795142,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "06/10/2026"
       },
       "firstSeenAt": "2026-10-07T01:33:06Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 54255,
@@ -795336,7 +795336,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "06/10/2026"
       },
       "firstSeenAt": "2026-10-07T20:16:47Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu08VSyEeXffypmWsAijCVHT9RH_CvSmtzgfiGQXeC9GqJomWlU-ramdqhINGwQy4EL5nKXnHGbW3oTNrzZzwWnRY"
     },
     {
@@ -795643,7 +795643,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/10/2026"
       },
       "firstSeenAt": "2026-10-09T02:09:43Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu08VSyEeXffypmWsAijCVHT9RH_CvSmtzgfiGQXeC9GqJZj3pRs8G_TZaMOhm3gR5HprfqHwTTdYWb9VHw4rWXSM"
     },
     {
@@ -795687,7 +795687,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "06/10/2026"
       },
       "firstSeenAt": "2026-10-09T02:09:43Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu08VSyEeXffypmWsAijCVHT9RH_CvSmtzgfiGQXeC9GqJ7YS1ZdiYZCFox7_HnRYUPAjFB_N6whKAQkSEwOQ1taU"
     },
     {
@@ -795995,7 +795995,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "16/09/2026"
       },
       "firstSeenAt": "2026-10-09T02:43:44Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyGdCaQFJ19xZ6srYqyyXTL52Bxk_wGemphVu4hKI6iPrJnHMfXFzJhWSZHyD9lu-OKwxMNmjUfcq7dNj2al9E8g"
     },
     {
@@ -797584,7 +797584,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "04/10/2026"
       },
       "firstSeenAt": "2026-10-11T19:13:40Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu08VSyEeXffypmWsAijCVHT9RH_CvSmtzgfiGQXeC9GqJpUP80cHsEGwRxNxS2HdIDZbofmFQO2DpgsTPkP5VKOo"
     },
     {
@@ -797628,7 +797628,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "05/10/2026"
       },
       "firstSeenAt": "2026-10-11T19:13:40Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu08VSyEeXffypmWsAijCVHT9RH_CvSmtzgfiGQXeC9GqJjQ4wYaNsDXxEZF2JMclSGnsNiMdJZBmegrqz-ki0r6A"
     },
     {
@@ -797730,7 +797730,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "16/09/2026"
       },
       "firstSeenAt": "2026-10-11T19:21:50Z",
-      "lastSeenInListingAt": "2026-10-18T00:15:29Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vrrej7DZFIlrYUbJDNhy_E3Q3Hxei9O5hIhNPUTv2JN03pl_whWDUDInBYIvXX4lveZFFt89GXWF7bMgIaG6aGMLdFgU0NcAkth5vVvoPpa4Go-n04A5eBqV-Ec9_od5UDtmNsfcsB0_ZgxJmYWAjyY"
     },
     {
@@ -798979,7 +798979,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "08/10/2026"
       },
       "firstSeenAt": "2026-10-12T22:17:28Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfbI69KPKhxL0S2nq60ZEp94e1Jln6H2eEu_JXLHcAljjVyzxxm01dgksE5xUKHeWHOvSvtjer0G1g8gD3_5GBjg"
     },
     {
@@ -799032,7 +799032,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "30/09/2026"
       },
       "firstSeenAt": "2026-10-12T22:17:28Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfbI69KPKhxL0S2nq60ZEp94e1Jln6H2eEu_JXLHcAljjOpg1HRSnBEY1AKGNU46837FEQs5jcv1P9B-RTB4-gK8"
     },
     {
@@ -799085,7 +799085,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "30/09/2026"
       },
       "firstSeenAt": "2026-10-12T22:17:28Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfbI69KPKhxL0S2nq60ZEp94e1Jln6H2eEu_JXLHcAljj5hSCiDlOVwlgXyDPMaMYM4yDVukTtmzWJMuWXHiIxL8"
     },
     {
@@ -799138,7 +799138,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "04/10/2026"
       },
       "firstSeenAt": "2026-10-12T22:17:28Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfbI69KPKhxL0S2nq60ZEp94e1Jln6H2eEu_JXLHcAljjOKy_di6dRI76I9wxFXu5FguAGI-6PjSzNFvWV_iG0eI"
     },
     {
@@ -799191,7 +799191,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "12/10/2026"
       },
       "firstSeenAt": "2026-10-12T22:17:28Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 54237,
@@ -800216,7 +800216,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "17/09/2026"
       },
       "firstSeenAt": "2026-10-13T20:44:45Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vsKYzlwq1SjXjxrGSTzEzuhPMz15gnBp8tk-ZrR1_GDKuS7Rnt4Ksiv_YxV_tPdAyGdCaQFJ19xZ6srYqyyXTL52Bxk_wGemphVu4hKI6iPrC_5Z1fkiHZAmO2EgPNg3JJiS0JlBA6cHR7emGtkZ-2s"
     },
     {
@@ -801737,7 +801737,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "13/10/2026"
       },
       "firstSeenAt": "2026-10-14T06:09:59Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 54415,
@@ -801789,7 +801789,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "13/10/2026"
       },
       "firstSeenAt": "2026-10-14T06:09:59Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 54370,
@@ -801841,7 +801841,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "08/10/2026"
       },
       "firstSeenAt": "2026-10-14T06:09:59Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 54426,
@@ -801893,7 +801893,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "14/10/2026"
       },
       "firstSeenAt": "2026-10-14T06:09:59Z",
-      "lastSeenInListingAt": "2026-10-17T05:36:50Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 54376,
@@ -801945,7 +801945,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "12/10/2026"
       },
       "firstSeenAt": "2026-10-14T06:09:59Z",
-      "lastSeenInListingAt": "2026-10-17T05:36:50Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 54371,
@@ -801997,7 +801997,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "12/10/2026"
       },
       "firstSeenAt": "2026-10-14T06:09:59Z",
-      "lastSeenInListingAt": "2026-10-17T00:29:28Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 54368,
@@ -802049,7 +802049,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "12/10/2026"
       },
       "firstSeenAt": "2026-10-14T06:09:59Z",
-      "lastSeenInListingAt": "2026-10-17T00:29:28Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 54355,
@@ -802355,7 +802355,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "04/10/2026"
       },
       "firstSeenAt": "2026-10-15T18:43:32Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 54427,
@@ -802407,7 +802407,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "14/10/2026"
       },
       "firstSeenAt": "2026-10-15T18:43:32Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 54462,
@@ -802450,7 +802450,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "15/10/2026"
       },
       "firstSeenAt": "2026-10-16T00:25:10Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z",
       "detailUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vqXVLgjb3LY8SnFTK2wpaxkiXhEisonx_z_E16L3I26At60rx5Zia5Hjh8rsNDsu08VSyEeXffypmWsAijCVHT9RH_CvSmtzgfiGQXeC9GqJyhVV47iPo2gHzKDcz5AqaximIhmSMWwjLCCQgL113hk"
     },
     {
@@ -802590,7 +802590,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "14/10/2026"
       },
       "firstSeenAt": "2026-10-17T00:29:28Z",
-      "lastSeenInListingAt": "2026-10-17T05:36:50Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 54428,
@@ -802642,7 +802642,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "14/10/2026"
       },
       "firstSeenAt": "2026-10-17T00:29:28Z",
-      "lastSeenInListingAt": "2026-10-17T00:29:28Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 54446,
@@ -802694,7 +802694,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "24/09/2026"
       },
       "firstSeenAt": "2026-10-17T00:29:28Z",
-      "lastSeenInListingAt": "2026-10-17T00:29:28Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 53336,
@@ -802746,7 +802746,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "24/09/2026"
       },
       "firstSeenAt": "2026-10-17T00:29:28Z",
-      "lastSeenInListingAt": "2026-10-17T00:29:28Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 54452,
@@ -802798,7 +802798,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "24/09/2026"
       },
       "firstSeenAt": "2026-10-17T00:29:28Z",
-      "lastSeenInListingAt": "2026-10-17T00:29:28Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 54443,
@@ -804719,7 +804719,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "15/10/2026"
       },
       "firstSeenAt": "2026-10-18T00:02:50Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 54489,
@@ -804771,7 +804771,7 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "17/10/2026"
       },
       "firstSeenAt": "2026-10-18T00:02:50Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     },
     {
       "id": 54490,
@@ -804823,8 +804823,944 @@ window.AUCTION_DATA = {
         "تاريخ النشر": "17/10/2026"
       },
       "firstSeenAt": "2026-10-18T00:02:50Z",
-      "lastSeenInListingAt": "2026-10-18T00:02:50Z"
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
+    },
+    {
+      "id": 54466,
+      "caseId": 15463819,
+      "category": "مركبة",
+      "header": "رقم المزاد :(54466)/ 5-11-43731-2025-سجل عام مركبة - 2026/09/28 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-43731-2025-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementSerial": 1,
+      "announcementStart": "28/09/2026 00:00:00",
+      "announcementEnd": "20/10/2026 10:00:00",
+      "startingAmount": "5000",
+      "estimatedValue": "10000",
+      "currentAmount": "0",
+      "minIncrement": "50 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "0",
+      "publishedAt": "27/09/2026",
+      "endDate": "2026-10-20 10:00:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=54466",
+      "details": {
+        "نوع المركبة": "هونداي",
+        "سنة الصنع": "2020",
+        "اللون": "كحلي ميتالك",
+        "رقم الشاصي": "KMHC65LC4LU210303",
+        "رقم اللوحة": "48 - 17581",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "0",
+        "نوع الوقود": "هجينية (هايبرد)",
+        "ناقل الحركة": "اوتوماتيك",
+        "مكان الحجز": "ساحة حجز البتراوي (الزرقاء - بجانب ترخيص الزرقاء)",
+        "سعة المحرك": "1600",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-43731-2025-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "28/09/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "20/10/2026 10:00:00",
+        "القيمة الابتدائية للمزاد": "5000 دينار اردني",
+        "القيمة التقديرية": "10000 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "50 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "0",
+        "تاريخ النشر": "27/09/2026"
+      },
+      "firstSeenAt": "2026-10-18T05:54:18Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
+    },
+    {
+      "id": 54467,
+      "caseId": 15397342,
+      "category": "مركبة",
+      "header": "رقم المزاد :(54467)/ 5-11-38525-2025-سجل عام مركبة - 2026/10/12 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-38525-2025-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementSerial": 1,
+      "announcementStart": "12/10/2026 00:00:00",
+      "announcementEnd": "20/10/2026 10:10:00",
+      "startingAmount": "1400",
+      "estimatedValue": "2800",
+      "currentAmount": "0",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "0",
+      "publishedAt": "11/10/2026",
+      "endDate": "2026-10-20 10:10:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=54467",
+      "details": {
+        "نوع المركبة": "كيا",
+        "سنة الصنع": "2009",
+        "اللون": "اسود",
+        "رقم الشاصي": "KNAGE22739A260783",
+        "رقم اللوحة": "16 - 82705",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "G4KD8H006745",
+        "نوع الوقود": "بنزين",
+        "ناقل الحركة": "اوتوماتيك",
+        "مكان الحجز": "ساحة حجز البتراوي (الزرقاء - بجانب ترخيص الزرقاء)",
+        "سعة المحرك": "2000",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-38525-2025-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "12/10/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "20/10/2026 10:10:00",
+        "القيمة الابتدائية للمزاد": "1400 دينار اردني",
+        "القيمة التقديرية": "2800 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "0",
+        "تاريخ النشر": "11/10/2026"
+      },
+      "firstSeenAt": "2026-10-18T05:54:18Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
+    },
+    {
+      "id": 54468,
+      "caseId": 14060518,
+      "category": "مركبة",
+      "header": "رقم المزاد :(54468)/ 5-11-437-2014-سجل عام مركبة - 2026/09/23 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-437-2014-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementSerial": 1,
+      "announcementStart": "23/09/2026 00:00:00",
+      "announcementEnd": "20/10/2026 10:20:00",
+      "startingAmount": "850",
+      "estimatedValue": "1700",
+      "currentAmount": "0",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "0",
+      "publishedAt": "22/09/2026",
+      "endDate": "2026-10-20 10:20:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=54468",
+      "details": {
+        "نوع المركبة": "هوندا سيفك",
+        "سنة الصنع": "1996",
+        "اللون": "أزرق",
+        "رقم الشاصي": "1HGEJ716XTL070317",
+        "رقم اللوحة": "18 - 51677",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "K20A2708854",
+        "نوع الوقود": "بنزين",
+        "ناقل الحركة": "عادي",
+        "مكان الحجز": "ساحة حجز الموقر (عمان- الموقر- بجانب مستودعات الأمن العام)",
+        "سعة المحرك": "2000",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-437-2014-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "23/09/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "20/10/2026 10:20:00",
+        "القيمة الابتدائية للمزاد": "850 دينار اردني",
+        "القيمة التقديرية": "1700 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "0",
+        "تاريخ النشر": "22/09/2026"
+      },
+      "firstSeenAt": "2026-10-18T05:54:18Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
+    },
+    {
+      "id": 54469,
+      "caseId": 16049457,
+      "category": "مركبة",
+      "header": "رقم المزاد :(54469)/ 5-11-28801-2026-سجل عام مركبة - 2026/09/21 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-28801-2026-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementSerial": 1,
+      "announcementStart": "21/09/2026 00:00:00",
+      "announcementEnd": "20/10/2026 10:30:00",
+      "startingAmount": "2250",
+      "estimatedValue": "4500",
+      "currentAmount": "0",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "0",
+      "publishedAt": "20/09/2026",
+      "endDate": "2026-10-20 10:30:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=54469",
+      "details": {
+        "نوع المركبة": "هونداي",
+        "سنة الصنع": "2011",
+        "اللون": "ابيض",
+        "رقم الشاصي": "KMFWBX7HABU305677",
+        "رقم اللوحة": "39 - 11315",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "D4BHA053402",
+        "نوع الوقود": "ديزل",
+        "ناقل الحركة": "عادي",
+        "مكان الحجز": "ساحة حجز الفيحاء (مادبا - قرب مركز أمن مادبا الغربي)",
+        "سعة المحرك": "2500",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-28801-2026-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "21/09/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "20/10/2026 10:30:00",
+        "القيمة الابتدائية للمزاد": "2250 دينار اردني",
+        "القيمة التقديرية": "4500 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "0",
+        "تاريخ النشر": "20/09/2026"
+      },
+      "firstSeenAt": "2026-10-18T05:54:18Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
+    },
+    {
+      "id": 54470,
+      "caseId": 15696723,
+      "category": "مركبة",
+      "header": "رقم المزاد :(54470)/ 5-11-5386-2026-سجل عام مركبة - 2026/10/05 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-5386-2026-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementSerial": 1,
+      "announcementStart": "05/10/2026 00:00:00",
+      "announcementEnd": "20/10/2026 10:40:00",
+      "startingAmount": "6500",
+      "estimatedValue": "13000",
+      "currentAmount": "0",
+      "minIncrement": "50 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "0",
+      "publishedAt": "04/10/2026",
+      "endDate": "2026-10-20 10:40:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=54470",
+      "details": {
+        "نوع المركبة": "تسلا",
+        "سنة الصنع": "2021",
+        "اللون": "لؤلؤي",
+        "رقم الشاصي": "5YJ3E1EA2MF027519",
+        "رقم اللوحة": "42 - 85005",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "0",
+        "نوع الوقود": "كهرباء",
+        "ناقل الحركة": "اوتوماتيك",
+        "مكان الحجز": "ساحة حجز الموقر (عمان- الموقر- بجانب مستودعات الأمن العام)",
+        "سعة المحرك": "",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-5386-2026-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "05/10/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "20/10/2026 10:40:00",
+        "القيمة الابتدائية للمزاد": "6500 دينار اردني",
+        "القيمة التقديرية": "13000 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "50 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "0",
+        "تاريخ النشر": "04/10/2026"
+      },
+      "firstSeenAt": "2026-10-18T05:54:18Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
+    },
+    {
+      "id": 54471,
+      "caseId": 14493124,
+      "category": "مركبة",
+      "header": "رقم المزاد :(54471)/ 5-11-28293-2024-سجل عام مركبة - 2026/10/02 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-28293-2024-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementSerial": 1,
+      "announcementStart": "02/10/2026 00:00:00",
+      "announcementEnd": "20/10/2026 10:50:00",
+      "startingAmount": "550",
+      "estimatedValue": "1100",
+      "currentAmount": "550",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "1",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "0",
+      "publishedAt": "01/10/2026",
+      "endDate": "2026-10-20 10:50:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=54471",
+      "details": {
+        "نوع المركبة": "هوندا",
+        "سنة الصنع": "1998",
+        "اللون": "ابيض",
+        "رقم الشاصي": "JHMEK3650WS013496",
+        "رقم اللوحة": "10 - 45776",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "--",
+        "نوع الوقود": "بنزين",
+        "ناقل الحركة": "اوتوماتيك",
+        "مكان الحجز": "ساحة حجز الموقر (عمان- الموقر- بجانب مستودعات الأمن العام)",
+        "سعة المحرك": "1493",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-28293-2024-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "02/10/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "20/10/2026 10:50:00",
+        "القيمة الابتدائية للمزاد": "550 دينار اردني",
+        "القيمة التقديرية": "1100 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "0",
+        "تاريخ النشر": "01/10/2026"
+      },
+      "firstSeenAt": "2026-10-18T05:54:18Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
+    },
+    {
+      "id": 54472,
+      "caseId": 15193792,
+      "category": "مركبة",
+      "header": "رقم المزاد :(54472)/ 5-11-24044-2025-سجل عام مركبة - 2026/10/16 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-24044-2025-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementSerial": 1,
+      "announcementStart": "16/10/2026 00:00:00",
+      "announcementEnd": "20/10/2026 11:00:00",
+      "startingAmount": "700",
+      "estimatedValue": "1400",
+      "currentAmount": "0",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "0",
+      "publishedAt": "15/10/2026",
+      "endDate": "2026-10-20 11:00:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=54472",
+      "details": {
+        "نوع المركبة": "هونداي جريس",
+        "سنة الصنع": "2000",
+        "اللون": "اخضر",
+        "رقم الشاصي": "KMFFD37BPYU45853",
+        "رقم اللوحة": "38 - 93791",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "D4BBY892772",
+        "نوع الوقود": "ديزل",
+        "ناقل الحركة": "عادي",
+        "مكان الحجز": "ساحة حجز الشونة الشمالية (اربد - الشونة الشمالية)",
+        "سعة المحرك": "2607",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-24044-2025-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "16/10/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "20/10/2026 11:00:00",
+        "القيمة الابتدائية للمزاد": "700 دينار اردني",
+        "القيمة التقديرية": "1400 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "0",
+        "تاريخ النشر": "15/10/2026"
+      },
+      "firstSeenAt": "2026-10-18T05:54:18Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
+    },
+    {
+      "id": 54473,
+      "caseId": 16056772,
+      "category": "مركبة",
+      "header": "رقم المزاد :(54473)/ 5-11-29416-2026-سجل عام مركبة - 2026/09/22 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-29416-2026-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementSerial": 1,
+      "announcementStart": "22/09/2026 00:00:00",
+      "announcementEnd": "20/10/2026 11:50:00",
+      "startingAmount": "4000",
+      "estimatedValue": "8000",
+      "currentAmount": "0",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "0",
+      "publishedAt": "21/09/2026",
+      "endDate": "2026-10-20 11:50:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=54473",
+      "details": {
+        "نوع المركبة": "ميتسوبيشي",
+        "سنة الصنع": "2015",
+        "اللون": "ابيض",
+        "رقم الشاصي": "JL7B6E1P2FK020802",
+        "رقم اللوحة": "42 - 39244",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "4D33P27426",
+        "نوع الوقود": "ديزل",
+        "ناقل الحركة": "عادي",
+        "مكان الحجز": "ساحة حجز الشونة الشمالية (اربد - الشونة الشمالية)",
+        "سعة المحرك": "4214",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-29416-2026-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "22/09/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "20/10/2026 11:50:00",
+        "القيمة الابتدائية للمزاد": "4000 دينار اردني",
+        "القيمة التقديرية": "8000 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "0",
+        "تاريخ النشر": "21/09/2026"
+      },
+      "firstSeenAt": "2026-10-18T05:54:18Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
+    },
+    {
+      "id": 54475,
+      "caseId": 10859137,
+      "category": "مركبة",
+      "header": "رقم المزاد :(54475)/ 5-11-12083-2020-سجل عام مركبة - 2026/10/14 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-12083-2020-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementSerial": 1,
+      "announcementStart": "14/10/2026 00:00:00",
+      "announcementEnd": "20/10/2026 11:55:00",
+      "startingAmount": "600",
+      "estimatedValue": "1200",
+      "currentAmount": "0",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "0",
+      "publishedAt": "13/10/2026",
+      "endDate": "2026-10-20 11:55:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=54475",
+      "details": {
+        "نوع المركبة": "هواندي افانتي",
+        "سنة الصنع": "1995",
+        "اللون": "اخضر ميتاليك",
+        "رقم الشاصي": "AKMHJF31KPSU047398",
+        "رقم اللوحة": "16 - 32383",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "0",
+        "نوع الوقود": "بنزين",
+        "ناقل الحركة": "اوتوماتيك",
+        "مكان الحجز": "ساحة حجز البويضة ( اربد - البويضة)",
+        "سعة المحرك": "",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-12083-2020-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "14/10/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "20/10/2026 11:55:00",
+        "القيمة الابتدائية للمزاد": "600 دينار اردني",
+        "القيمة التقديرية": "1200 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "0",
+        "تاريخ النشر": "13/10/2026"
+      },
+      "firstSeenAt": "2026-10-18T05:54:18Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
+    },
+    {
+      "id": 54474,
+      "caseId": 16056772,
+      "category": "مركبة",
+      "header": "رقم المزاد :(54474)/ 5-11-29416-2026-سجل عام مركبة - 2026/09/22 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-29416-2026-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementSerial": 1,
+      "announcementStart": "22/09/2026 00:00:00",
+      "announcementEnd": "20/10/2026 12:00:00",
+      "startingAmount": "4000",
+      "estimatedValue": "8000",
+      "currentAmount": "0",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "0",
+      "publishedAt": "21/09/2026",
+      "endDate": "2026-10-20 12:00:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=54474",
+      "details": {
+        "نوع المركبة": "مستوبيشي",
+        "سنة الصنع": "2015",
+        "اللون": "ابيض",
+        "رقم الشاصي": "JL7BE1P9FK022062",
+        "رقم اللوحة": "42 - 39250",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "0",
+        "نوع الوقود": "ديزل",
+        "ناقل الحركة": "عادي",
+        "مكان الحجز": "ساحة حجز البتراوي (الزرقاء - بجانب ترخيص الزرقاء)",
+        "سعة المحرك": "4214",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-29416-2026-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "22/09/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "20/10/2026 12:00:00",
+        "القيمة الابتدائية للمزاد": "4000 دينار اردني",
+        "القيمة التقديرية": "8000 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "0",
+        "تاريخ النشر": "21/09/2026"
+      },
+      "firstSeenAt": "2026-10-18T05:54:18Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
+    },
+    {
+      "id": 54477,
+      "caseId": 15556880,
+      "category": "مركبة",
+      "header": "رقم المزاد :(54477)/ 5-11-49861-2025-سجل عام مركبة - 2026/09/28 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-49861-2025-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementSerial": 1,
+      "announcementStart": "28/09/2026 00:00:00",
+      "announcementEnd": "20/10/2026 12:30:00",
+      "startingAmount": "4500",
+      "estimatedValue": "9000",
+      "currentAmount": "0",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "0",
+      "publishedAt": "27/09/2026",
+      "endDate": "2026-10-20 12:30:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=54477",
+      "details": {
+        "نوع المركبة": "هونداي ايونيك",
+        "سنة الصنع": "2020",
+        "اللون": "ابيض",
+        "رقم الشاصي": "KMHC851CGLU170701",
+        "رقم اللوحة": "37 - 47897",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "---",
+        "نوع الوقود": "هجينية (هايبرد)",
+        "ناقل الحركة": "اوتوماتيك",
+        "مكان الحجز": "ساحة حجز البتراوي (الزرقاء - بجانب ترخيص الزرقاء)",
+        "سعة المحرك": "1600",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-49861-2025-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "28/09/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "20/10/2026 12:30:00",
+        "القيمة الابتدائية للمزاد": "4500 دينار اردني",
+        "القيمة التقديرية": "9000 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "0",
+        "تاريخ النشر": "27/09/2026"
+      },
+      "firstSeenAt": "2026-10-18T05:54:18Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
+    },
+    {
+      "id": 54478,
+      "caseId": 13453823,
+      "category": "مركبة",
+      "header": "رقم المزاد :(54478)/ 5-11-25212-2023-سجل عام مركبة - 2026/09/22 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-25212-2023-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementSerial": 1,
+      "announcementStart": "22/09/2026 00:00:00",
+      "announcementEnd": "20/10/2026 12:40:00",
+      "startingAmount": "4750",
+      "estimatedValue": "9500",
+      "currentAmount": "0",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "0",
+      "publishedAt": "21/09/2026",
+      "endDate": "2026-10-20 12:40:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=54478",
+      "details": {
+        "نوع المركبة": "تويوتا - كامري",
+        "سنة الصنع": "2020",
+        "اللون": "سيلفر ميتالك",
+        "رقم الشاصي": "JTNB29HK4L3059354",
+        "رقم اللوحة": "45 - 78823",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "A25A5330664",
+        "نوع الوقود": "هجينية (هايبرد)",
+        "ناقل الحركة": "اوتوماتيك",
+        "مكان الحجز": "ساحة حجز الشونة الشمالية (اربد - الشونة الشمالية)",
+        "سعة المحرك": "1500",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-25212-2023-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "22/09/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "20/10/2026 12:40:00",
+        "القيمة الابتدائية للمزاد": "4750 دينار اردني",
+        "القيمة التقديرية": "9500 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "0",
+        "تاريخ النشر": "21/09/2026"
+      },
+      "firstSeenAt": "2026-10-18T05:54:18Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
+    },
+    {
+      "id": 54479,
+      "caseId": 15195846,
+      "category": "مركبة",
+      "header": "رقم المزاد :(54479)/ 5-11-24242-2025-سجل عام مركبة - 2026/09/24 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-24242-2025-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementSerial": 1,
+      "announcementStart": "24/09/2026 00:00:00",
+      "announcementEnd": "20/10/2026 13:00:00",
+      "startingAmount": "300",
+      "estimatedValue": "600",
+      "currentAmount": "0",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "0",
+      "publishedAt": "23/09/2026",
+      "endDate": "2026-10-20 13:00:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=54479",
+      "details": {
+        "نوع المركبة": "فولكس فاجن",
+        "سنة الصنع": "1991",
+        "اللون": "احمر",
+        "رقم الشاصي": "WVWZZZ1GZW492530",
+        "رقم اللوحة": "15 - 52598",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "0",
+        "نوع الوقود": "بنزين",
+        "ناقل الحركة": "عادي",
+        "مكان الحجز": "ساحة حجز ماركا الثانية (عمان- ماركا - شمال درك المهام)",
+        "سعة المحرك": "1400",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-24242-2025-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "24/09/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "20/10/2026 13:00:00",
+        "القيمة الابتدائية للمزاد": "300 دينار اردني",
+        "القيمة التقديرية": "600 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "0",
+        "تاريخ النشر": "23/09/2026"
+      },
+      "firstSeenAt": "2026-10-18T05:54:18Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
+    },
+    {
+      "id": 54480,
+      "caseId": 15831765,
+      "category": "مركبة",
+      "header": "رقم المزاد :(54480)/ 5-11-14382-2026-سجل عام مركبة - 2026/09/30 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-14382-2026-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementSerial": 1,
+      "announcementStart": "30/09/2026 00:00:00",
+      "announcementEnd": "20/10/2026 13:20:00",
+      "startingAmount": "4750",
+      "estimatedValue": "9500",
+      "currentAmount": "0",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "0",
+      "publishedAt": "29/09/2026",
+      "endDate": "2026-10-20 13:20:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=54480",
+      "details": {
+        "نوع المركبة": "هونداي سوناتا",
+        "سنة الصنع": "2019",
+        "اللون": "لؤلؤي",
+        "رقم الشاصي": "KMHE34135KA090347",
+        "رقم اللوحة": "42 - 52690",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "0",
+        "نوع الوقود": "هجينية (هايبرد)",
+        "ناقل الحركة": "اوتوماتيك",
+        "مكان الحجز": "ساحة حجز المفرق (المفرق - بالقرب من الدوريات الخارجية)",
+        "سعة المحرك": "2000",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-14382-2026-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "30/09/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "20/10/2026 13:20:00",
+        "القيمة الابتدائية للمزاد": "4750 دينار اردني",
+        "القيمة التقديرية": "9500 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "0",
+        "تاريخ النشر": "29/09/2026"
+      },
+      "firstSeenAt": "2026-10-18T05:54:18Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
+    },
+    {
+      "id": 54481,
+      "caseId": 13791883,
+      "category": "مركبة",
+      "header": "رقم المزاد :(54481)/ 5-11-34676-2023-سجل عام مركبة - 2026/09/28 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-34676-2023-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementSerial": 1,
+      "announcementStart": "28/09/2026 00:00:00",
+      "announcementEnd": "20/10/2026 13:30:00",
+      "startingAmount": "900",
+      "estimatedValue": "1800",
+      "currentAmount": "0",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "0",
+      "publishedAt": "27/09/2026",
+      "endDate": "2026-10-20 13:30:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=54481",
+      "details": {
+        "نوع المركبة": "هونداي -ستاركس",
+        "سنة الصنع": "2012",
+        "اللون": "ابيض",
+        "رقم الشاصي": "KMJWA37HACU456250",
+        "رقم اللوحة": "56 - 28393",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "D4BH5136620",
+        "نوع الوقود": "ديزل",
+        "ناقل الحركة": "عادي",
+        "مكان الحجز": "ساحة حجز الشونة الشمالية (اربد - الشونة الشمالية)",
+        "سعة المحرك": "2500",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-34676-2023-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "28/09/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "20/10/2026 13:30:00",
+        "القيمة الابتدائية للمزاد": "900 دينار اردني",
+        "القيمة التقديرية": "1800 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "0",
+        "تاريخ النشر": "27/09/2026"
+      },
+      "firstSeenAt": "2026-10-18T05:54:18Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
+    },
+    {
+      "id": 54483,
+      "caseId": 15164638,
+      "category": "مركبة",
+      "header": "رقم المزاد :(54483)/ 5-11-22174-2025-سجل عام مركبة - 2026/09/28 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-22174-2025-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementSerial": 1,
+      "announcementStart": "28/09/2026 00:00:00",
+      "announcementEnd": "20/10/2026 13:40:00",
+      "startingAmount": "4250",
+      "estimatedValue": "8500",
+      "currentAmount": "4333.333",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "1",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "0",
+      "publishedAt": "27/09/2026",
+      "endDate": "2026-10-20 13:40:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=54483",
+      "details": {
+        "نوع المركبة": "GAC",
+        "سنة الصنع": "2022",
+        "اللون": "ابيض",
+        "رقم الشاصي": "LJ11KBAC3N11001386",
+        "رقم اللوحة": "46 - 23188",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "HFC4DAIIM4001090",
+        "نوع الوقود": "ديزل",
+        "ناقل الحركة": "عادي",
+        "مكان الحجز": "ساحة حجز ماركا الثانية (عمان- ماركا - شمال درك المهام)",
+        "سعة المحرك": "2800",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-22174-2025-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "28/09/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "20/10/2026 13:40:00",
+        "القيمة الابتدائية للمزاد": "4250 دينار اردني",
+        "القيمة التقديرية": "8500 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "0",
+        "تاريخ النشر": "27/09/2026"
+      },
+      "firstSeenAt": "2026-10-18T05:54:18Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
+    },
+    {
+      "id": 54484,
+      "caseId": 14918619,
+      "category": "مركبة",
+      "header": "رقم المزاد :(54484)/ 5-11-6104-2025-سجل عام مركبة - 2026/10/08 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-6104-2025-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementSerial": 1,
+      "announcementStart": "08/10/2026 00:00:00",
+      "announcementEnd": "20/10/2026 14:00:00",
+      "startingAmount": "1150",
+      "estimatedValue": "2300",
+      "currentAmount": "0",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "0",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "0",
+      "publishedAt": "07/10/2026",
+      "endDate": "2026-10-20 14:00:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=54484",
+      "details": {
+        "نوع المركبة": "شفر ليت",
+        "سنة الصنع": "2007",
+        "اللون": "اسود",
+        "رقم الشاصي": "1GNDT13S972892",
+        "رقم اللوحة": "36 - 96185",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "---",
+        "نوع الوقود": "بنزين",
+        "ناقل الحركة": "عادي",
+        "مكان الحجز": "ساحة حجز الموقر (عمان- الموقر- بجانب مستودعات الأمن العام)",
+        "سعة المحرك": "4200",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-6104-2025-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "08/10/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "20/10/2026 14:00:00",
+        "القيمة الابتدائية للمزاد": "1150 دينار اردني",
+        "القيمة التقديرية": "2300 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "0",
+        "تاريخ النشر": "07/10/2026"
+      },
+      "firstSeenAt": "2026-10-18T05:54:18Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
+    },
+    {
+      "id": 47472,
+      "caseId": 15281495,
+      "category": "مركبة",
+      "header": "رقم المزاد :(47472)/ 5-11-29891-2025-سجل عام مركبة - 2026/10/14 تنفيذ عمان",
+      "court": "تنفيذ عمان",
+      "caseNumber": "ا 5-11-29891-2025-سجل عام",
+      "status": "قيد التنفيذ",
+      "announcement": "اعلان بيع",
+      "announcementSerial": 2,
+      "announcementStart": "14/10/2026 00:00:00",
+      "announcementEnd": "20/10/2026 14:15:00",
+      "startingAmount": "2750",
+      "estimatedValue": "5500",
+      "currentAmount": "2750.004",
+      "minIncrement": "20 دينار اردني",
+      "numBids": "1",
+      "newspaper": "جريدة الرأي",
+      "newspaperIssue": "0",
+      "publishedAt": "13/10/2026",
+      "endDate": "2026-10-20 14:15:00",
+      "image": "",
+      "notes": "",
+      "sourceUrl": "https://auctions.moj.gov.jo/AuctionInfo.aspx?token=4qy8OuhsH9jUT7LUpUd0vn_-XxMMa1IhrkFy1e8Ztslbd-hxOc24UBmyQVaUjySJs4K069QQjSaTXksiqaACfd8N21LX0UJWmaqZZ4BPXgY&auction=47472",
+      "details": {
+        "نوع المركبة": "هونداي سوناتا",
+        "سنة الصنع": "2015",
+        "اللون": "أسود",
+        "رقم الشاصي": "KMHEC4A4FA125062",
+        "رقم اللوحة": "24 - 54174",
+        "صفة المركبة": "خصوصي",
+        "رقم المحرك": "0",
+        "نوع الوقود": "هجينية (هايبرد)",
+        "ناقل الحركة": "اوتوماتيك",
+        "مكان الحجز": "ساحة حجز ام العمد (البلقاء - ام العمد)",
+        "سعة المحرك": "",
+        "المحكمة / الدائرة": "تنفيذ عمان",
+        "رقم الدعوى": "ا 5-11-29891-2025-سجل عام",
+        "الإعلان": "اعلان بيع",
+        "تاريخ بداية الاعلان": "14/10/2026 00:00:00",
+        "تاريخ انتهاء الاعلان": "20/10/2026 14:15:00",
+        "القيمة الابتدائية للمزاد": "2750 دينار اردني",
+        "القيمة التقديرية": "5500 دينار اردني",
+        "الحد الأدنى لقيمة الزيادة": "20 دينار اردني",
+        "حالة المزاد": "قيد التنفيذ",
+        "الصحيفة": "جريدة الرأي",
+        "العدد": "0",
+        "تاريخ النشر": "13/10/2026"
+      },
+      "firstSeenAt": "2026-10-18T05:54:18Z",
+      "lastSeenInListingAt": "2026-10-18T05:54:18Z"
     }
   ],
-  "lastRunAt": "2026-10-18 00:26:29"
+  "lastRunAt": "2026-10-18 06:07:06"
 };
