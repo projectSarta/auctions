@@ -1,12 +1,12 @@
 {
-    "generatedAt":  "2026-10-17T21:58:31Z",
-    "dataScrapedAt":  "2026-10-17 21:52:20",
+    "generatedAt":  "2026-10-18T00:26:18Z",
+    "dataScrapedAt":  "2026-10-18 00:15:29",
     "totals":  {
-                   "all":  5212,
-                   "active":  325
+                   "all":  5215,
+                   "active":  328
                },
-    "endingIn24h":  84,
-    "endingInWeek":  265,
+    "endingIn24h":  87,
+    "endingInWeek":  268,
     "reAnnounced":  118,
     "withReport":  97,
     "withMap":  89,
@@ -33,11 +33,24 @@
                        },
                        {
                            "name":  "مركبة",
-                           "active":  68,
-                           "total":  1774
+                           "active":  71,
+                           "total":  1777
                        }
                    ],
     "closingSoon":  [
+                        {
+                            "id":  53294,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-10-18 14:00:00",
+                            "estimatedValue":  3200,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  0,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
                         {
                             "id":  54218,
                             "category":  "مركبة",
@@ -45,19 +58,6 @@
                             "place":  "",
                             "endDate":  "2026-10-18 14:00:00",
                             "estimatedValue":  5500,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  54263,
-                            "category":  "أُخرى",
-                            "court":  "تنفيذ عمان / قسم شمال عمان",
-                            "place":  "",
-                            "endDate":  "2026-10-18 14:00:00",
-                            "estimatedValue":  10300,
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  1,
@@ -78,15 +78,15 @@
                             "hasMap":  false
                         },
                         {
-                            "id":  53294,
-                            "category":  "مركبة",
+                            "id":  54019,
+                            "category":  "أُخرى",
                             "court":  "تنفيذ عمان / قسم شمال عمان",
                             "place":  "",
                             "endDate":  "2026-10-18 14:00:00",
-                            "estimatedValue":  3200,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  0,
+                            "estimatedValue":  23000,
+                            "currentAmount":  16200,
+                            "numBids":  8,
+                            "serial":  1,
                             "hasReport":  true,
                             "hasMap":  false
                         },
@@ -104,16 +104,16 @@
                             "hasMap":  false
                         },
                         {
-                            "id":  54019,
+                            "id":  54263,
                             "category":  "أُخرى",
                             "court":  "تنفيذ عمان / قسم شمال عمان",
                             "place":  "",
                             "endDate":  "2026-10-18 14:00:00",
-                            "estimatedValue":  23000,
-                            "currentAmount":  16200,
-                            "numBids":  8,
+                            "estimatedValue":  10300,
+                            "currentAmount":  0,
+                            "numBids":  0,
                             "serial":  1,
-                            "hasReport":  true,
+                            "hasReport":  false,
                             "hasMap":  false
                         }
                     ],
