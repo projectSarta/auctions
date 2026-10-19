@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-10-19T00:25:10Z",
-    "dataScrapedAt":  "2026-10-19 00:24:24",
+    "generatedAt":  "2026-10-19T07:14:43Z",
+    "dataScrapedAt":  "2026-10-19 07:14:39",
     "totals":  {
-                   "all":  5239,
-                   "active":  269
+                   "all":  5243,
+                   "active":  316
                },
     "endingIn24h":  22,
-    "endingInWeek":  250,
-    "reAnnounced":  82,
-    "withReport":  73,
-    "withMap":  70,
+    "endingInWeek":  258,
+    "reAnnounced":  115,
+    "withReport":  96,
+    "withMap":  94,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -18,8 +18,8 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  99,
-                           "total":  1953
+                           "active":  146,
+                           "total":  1957
                        },
                        {
                            "name":  "شقة/ مكتب",
@@ -78,17 +78,30 @@
                             "hasMap":  false
                         },
                         {
-                            "id":  54237,
+                            "id":  52621,
                             "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ عمان / قسم غرب عمان",
-                            "place":  "البصه · اراضي غرب عمان",
+                            "court":  "تنفيذ الرمثا",
+                            "place":  "الرمثا · اراضي الرمثا",
                             "endDate":  "2026-10-19 15:00:00",
-                            "estimatedValue":  55900,
-                            "currentAmount":  42000,
-                            "numBids":  19,
-                            "serial":  1,
-                            "hasReport":  false,
+                            "estimatedValue":  169880,
+                            "currentAmount":  120000,
+                            "numBids":  1,
+                            "serial":  2,
+                            "hasReport":  true,
                             "hasMap":  false
+                        },
+                        {
+                            "id":  49612,
+                            "category":  "شقة/ مكتب",
+                            "court":  "تنفيذ عمان / قسم غرب عمان",
+                            "place":  "وادي السير · اراضي غرب عمان",
+                            "endDate":  "2026-10-19 15:00:00",
+                            "estimatedValue":  104400,
+                            "currentAmount":  122111,
+                            "numBids":  10,
+                            "serial":  0,
+                            "hasReport":  false,
+                            "hasMap":  true
                         },
                         {
                             "id":  54370,
@@ -102,19 +115,6 @@
                             "serial":  1,
                             "hasReport":  false,
                             "hasMap":  false
-                        },
-                        {
-                            "id":  46032,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ اربد",
-                            "place":  "الصريح · اراضي اربد",
-                            "endDate":  "2026-10-19 15:00:00",
-                            "estimatedValue":  42830,
-                            "currentAmount":  30014,
-                            "numBids":  28,
-                            "serial":  8,
-                            "hasReport":  false,
-                            "hasMap":  true
                         }
                     ],
     "bargains":  [
@@ -130,6 +130,19 @@
                          "serial":  9,
                          "hasReport":  false,
                          "hasMap":  false
+                     },
+                     {
+                         "id":  32409,
+                         "category":  "أرض/ مجمع",
+                         "court":  "تنفيذ الزرقاء",
+                         "place":  "عطل الزرقاء والرصيفة · اراضي محافظة الزرقاء",
+                         "endDate":  "2026-10-28 15:00:00",
+                         "estimatedValue":  99559,
+                         "currentAmount":  59000,
+                         "numBids":  28,
+                         "serial":  8,
+                         "hasReport":  false,
+                         "hasMap":  true
                      },
                      {
                          "id":  46032,
@@ -182,19 +195,6 @@
                          "serial":  6,
                          "hasReport":  true,
                          "hasMap":  true
-                     },
-                     {
-                         "id":  45374,
-                         "category":  "أرض/ مجمع",
-                         "court":  "تنفيذ جرش",
-                         "place":  "المصطبه · اراضي جرش",
-                         "endDate":  "2026-10-25 15:00:00",
-                         "estimatedValue":  121230,
-                         "currentAmount":  79000,
-                         "numBids":  1,
-                         "serial":  6,
-                         "hasReport":  false,
-                         "hasMap":  false
                      }
                  ]
 }
