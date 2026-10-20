@@ -1,12 +1,12 @@
 {
-    "generatedAt":  "2026-10-19T20:29:52Z",
-    "dataScrapedAt":  "2026-10-19 20:29:06",
+    "generatedAt":  "2026-10-20T01:26:44Z",
+    "dataScrapedAt":  "2026-10-20 01:20:09",
     "totals":  {
-                   "all":  5256,
-                   "active":  315
+                   "all":  5257,
+                   "active":  312
                },
-    "endingIn24h":  106,
-    "endingInWeek":  259,
+    "endingIn24h":  102,
+    "endingInWeek":  255,
     "reAnnounced":  115,
     "withReport":  94,
     "withMap":  92,
@@ -28,68 +28,16 @@
                        },
                        {
                            "name":  "أُخرى",
-                           "active":  16,
-                           "total":  328
+                           "active":  17,
+                           "total":  329
                        },
                        {
                            "name":  "مركبة",
-                           "active":  81,
+                           "active":  77,
                            "total":  1808
                        }
                    ],
     "closingSoon":  [
-                        {
-                            "id":  54376,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-10-19 21:00:00",
-                            "estimatedValue":  250,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  54428,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-10-19 21:30:00",
-                            "estimatedValue":  200,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  54371,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-10-19 22:00:00",
-                            "estimatedValue":  400,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  54368,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-10-19 23:00:00",
-                            "estimatedValue":  250,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
                         {
                             "id":  54466,
                             "category":  "مركبة",
@@ -112,6 +60,58 @@
                             "estimatedValue":  2800,
                             "currentAmount":  0,
                             "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54468,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان",
+                            "place":  "",
+                            "endDate":  "2026-10-20 10:20:00",
+                            "estimatedValue":  1700,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54469,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان",
+                            "place":  "",
+                            "endDate":  "2026-10-20 10:30:00",
+                            "estimatedValue":  4500,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54470,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان",
+                            "place":  "",
+                            "endDate":  "2026-10-20 10:40:00",
+                            "estimatedValue":  13000,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54471,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان",
+                            "place":  "",
+                            "endDate":  "2026-10-20 10:50:00",
+                            "estimatedValue":  1100,
+                            "currentAmount":  550,
+                            "numBids":  1,
                             "serial":  1,
                             "hasReport":  false,
                             "hasMap":  false
