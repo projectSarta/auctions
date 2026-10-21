@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-10-20T19:05:33Z",
-    "dataScrapedAt":  "2026-10-20 18:52:10",
+    "generatedAt":  "2026-10-21T01:44:12Z",
+    "dataScrapedAt":  "2026-10-21 01:44:07",
     "totals":  {
-                   "all":  5263,
-                   "active":  221
+                   "all":  5271,
+                   "active":  303
                },
-    "endingIn24h":  62,
-    "endingInWeek":  182,
-    "reAnnounced":  93,
-    "withReport":  77,
-    "withMap":  78,
+    "endingIn24h":  63,
+    "endingInWeek":  186,
+    "reAnnounced":  149,
+    "withReport":  119,
+    "withMap":  117,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -18,8 +18,8 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  113,
-                           "total":  1958
+                           "active":  195,
+                           "total":  1966
                        },
                        {
                            "name":  "شقة/ مكتب",
@@ -125,9 +125,22 @@
                          "place":  "الكمشه · اراضي محافظة الزرقاء",
                          "endDate":  "2026-10-21 15:00:00",
                          "estimatedValue":  161280,
-                         "currentAmount":  81140,
-                         "numBids":  2,
-                         "serial":  12,
+                         "currentAmount":  89640,
+                         "numBids":  3,
+                         "serial":  13,
+                         "hasReport":  true,
+                         "hasMap":  true
+                     },
+                     {
+                         "id":  44569,
+                         "category":  "أرض/ مجمع",
+                         "court":  "تنفيذ مادبا",
+                         "place":  "مادبا · اراضي مادبا",
+                         "endDate":  "2026-11-01 15:00:00",
+                         "estimatedValue":  982312,
+                         "currentAmount":  572500,
+                         "numBids":  15,
+                         "serial":  9,
                          "hasReport":  true,
                          "hasMap":  true
                      },
@@ -158,6 +171,19 @@
                          "hasMap":  true
                      },
                      {
+                         "id":  47975,
+                         "category":  "أرض/ مجمع",
+                         "court":  "تنفيذ مادبا",
+                         "place":  "ماعين · اراضي مادبا",
+                         "endDate":  "2026-10-31 15:00:00",
+                         "estimatedValue":  136600,
+                         "currentAmount":  0,
+                         "numBids":  0,
+                         "serial":  7,
+                         "hasReport":  true,
+                         "hasMap":  true
+                     },
+                     {
                          "id":  26864,
                          "category":  "أرض/ مجمع",
                          "court":  "تنفيذ الزرقاء",
@@ -167,32 +193,6 @@
                          "currentAmount":  57542,
                          "numBids":  1,
                          "serial":  7,
-                         "hasReport":  true,
-                         "hasMap":  true
-                     },
-                     {
-                         "id":  50112,
-                         "category":  "مركبة",
-                         "court":  "تنفيذ الرصيفة",
-                         "place":  "",
-                         "endDate":  "2026-10-21 14:35:00",
-                         "estimatedValue":  400,
-                         "currentAmount":  0,
-                         "numBids":  0,
-                         "serial":  7,
-                         "hasReport":  false,
-                         "hasMap":  false
-                     },
-                     {
-                         "id":  24081,
-                         "category":  "أرض/ مجمع",
-                         "court":  "تنفيذ اربد",
-                         "place":  "البارحه · اراضي اربد",
-                         "endDate":  "2026-10-28 15:00:00",
-                         "estimatedValue":  179410,
-                         "currentAmount":  77600,
-                         "numBids":  26,
-                         "serial":  6,
                          "hasReport":  true,
                          "hasMap":  true
                      }
