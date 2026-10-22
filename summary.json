@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-10-21T19:30:06Z",
-    "dataScrapedAt":  "2026-10-21 19:21:51",
+    "generatedAt":  "2026-10-22T00:54:36Z",
+    "dataScrapedAt":  "2026-10-22 00:53:51",
     "totals":  {
-                   "all":  5282,
-                   "active":  254
+                   "all":  5283,
+                   "active":  256
                },
-    "endingIn24h":  47,
-    "endingInWeek":  164,
+    "endingIn24h":  49,
+    "endingInWeek":  166,
     "reAnnounced":  128,
     "withReport":  95,
-    "withMap":  97,
+    "withMap":  99,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -23,7 +23,7 @@
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  29,
+                           "active":  31,
                            "total":  1134
                        },
                        {
@@ -34,23 +34,10 @@
                        {
                            "name":  "مركبة",
                            "active":  29,
-                           "total":  1820
+                           "total":  1821
                        }
                    ],
     "closingSoon":  [
-                        {
-                            "id":  54515,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-10-21 22:05:44",
-                            "estimatedValue":  1400,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
                         {
                             "id":  54555,
                             "category":  "مركبة",
@@ -112,6 +99,19 @@
                             "estimatedValue":  1500,
                             "currentAmount":  786.866,
                             "numBids":  2,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54561,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان",
+                            "place":  "",
+                            "endDate":  "2026-10-22 11:00:00",
+                            "estimatedValue":  10500,
+                            "currentAmount":  0,
+                            "numBids":  0,
                             "serial":  1,
                             "hasReport":  false,
                             "hasMap":  false
