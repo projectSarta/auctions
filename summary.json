@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-10-22T07:10:30Z",
-    "dataScrapedAt":  "2026-10-22 07:10:24",
+    "generatedAt":  "2026-10-22T19:16:54Z",
+    "dataScrapedAt":  "2026-10-22 19:08:53",
     "totals":  {
-                   "all":  5283,
-                   "active":  260
+                   "all":  5287,
+                   "active":  221
                },
-    "endingIn24h":  50,
-    "endingInWeek":  170,
-    "reAnnounced":  150,
-    "withReport":  97,
-    "withMap":  102,
+    "endingIn24h":  3,
+    "endingInWeek":  158,
+    "reAnnounced":  127,
+    "withReport":  91,
+    "withMap":  88,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -18,12 +18,12 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  172,
-                           "total":  1966
+                           "active":  159,
+                           "total":  1967
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  34,
+                           "active":  18,
                            "total":  1134
                        },
                        {
@@ -33,83 +33,83 @@
                        },
                        {
                            "name":  "مركبة",
-                           "active":  30,
-                           "total":  1821
+                           "active":  20,
+                           "total":  1824
                        }
                    ],
     "closingSoon":  [
                         {
-                            "id":  54555,
+                            "id":  54509,
                             "category":  "مركبة",
-                            "court":  "تنفيذ عمان",
+                            "court":  "تنفيذ اربد",
                             "place":  "",
-                            "endDate":  "2026-10-22 10:00:00",
-                            "estimatedValue":  11500,
-                            "currentAmount":  12000,
-                            "numBids":  4,
+                            "endDate":  "2026-10-22 23:00:00",
+                            "estimatedValue":  60000,
+                            "currentAmount":  0,
+                            "numBids":  0,
                             "serial":  1,
                             "hasReport":  false,
                             "hasMap":  false
                         },
                         {
-                            "id":  54556,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ عمان",
+                            "id":  54504,
+                            "category":  "أُخرى",
+                            "court":  "تنفيذ اربد",
                             "place":  "",
-                            "endDate":  "2026-10-22 10:00:00",
-                            "estimatedValue":  10000,
-                            "currentAmount":  9000,
-                            "numBids":  1,
+                            "endDate":  "2026-10-22 23:00:00",
+                            "estimatedValue":  12630,
+                            "currentAmount":  0,
+                            "numBids":  0,
                             "serial":  1,
                             "hasReport":  false,
                             "hasMap":  false
                         },
                         {
-                            "id":  54557,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ عمان",
-                            "place":  "",
-                            "endDate":  "2026-10-22 10:20:00",
-                            "estimatedValue":  6500,
-                            "currentAmount":  7060,
-                            "numBids":  4,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  54558,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ عمان",
-                            "place":  "",
-                            "endDate":  "2026-10-22 10:30:00",
-                            "estimatedValue":  10500,
-                            "currentAmount":  9400,
+                            "id":  52674,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ الكرك",
+                            "place":  "الدامخي · اراضي الكرك",
+                            "endDate":  "2026-10-23 15:00:00",
+                            "estimatedValue":  6001,
+                            "currentAmount":  6000,
                             "numBids":  2,
-                            "serial":  1,
-                            "hasReport":  false,
+                            "serial":  3,
+                            "hasReport":  true,
+                            "hasMap":  true
+                        },
+                        {
+                            "id":  52050,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ معان",
+                            "place":  "",
+                            "endDate":  "2026-10-24 15:00:00",
+                            "estimatedValue":  1400,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  3,
+                            "hasReport":  true,
                             "hasMap":  false
                         },
                         {
-                            "id":  54559,
+                            "id":  53195,
                             "category":  "مركبة",
-                            "court":  "تنفيذ عمان",
+                            "court":  "تنفيذ معان",
                             "place":  "",
-                            "endDate":  "2026-10-22 10:50:00",
-                            "estimatedValue":  1500,
-                            "currentAmount":  786.866,
-                            "numBids":  2,
-                            "serial":  1,
-                            "hasReport":  false,
+                            "endDate":  "2026-10-24 15:00:00",
+                            "estimatedValue":  500,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  2,
+                            "hasReport":  true,
                             "hasMap":  false
                         },
                         {
-                            "id":  54561,
+                            "id":  54292,
                             "category":  "مركبة",
-                            "court":  "تنفيذ عمان",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
                             "place":  "",
-                            "endDate":  "2026-10-22 11:00:00",
-                            "estimatedValue":  10500,
+                            "endDate":  "2026-10-25 14:00:00",
+                            "estimatedValue":  800,
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  1,
@@ -151,9 +151,22 @@
                          "place":  "عطل الزرقاء والرصيفة · اراضي محافظة الزرقاء",
                          "endDate":  "2026-10-28 15:00:00",
                          "estimatedValue":  99559,
-                         "currentAmount":  59000,
-                         "numBids":  28,
+                         "currentAmount":  59200,
+                         "numBids":  29,
                          "serial":  8,
+                         "hasReport":  false,
+                         "hasMap":  true
+                     },
+                     {
+                         "id":  45020,
+                         "category":  "أرض/ مجمع",
+                         "court":  "تنفيذ عمان",
+                         "place":  "عمان · اراضي عمان",
+                         "endDate":  "2026-10-29 15:00:00",
+                         "estimatedValue":  642050,
+                         "currentAmount":  321025,
+                         "numBids":  1,
+                         "serial":  7,
                          "hasReport":  false,
                          "hasMap":  true
                      },
@@ -182,19 +195,6 @@
                          "serial":  7,
                          "hasReport":  true,
                          "hasMap":  true
-                     },
-                     {
-                         "id":  41630,
-                         "category":  "أرض/ مجمع",
-                         "court":  "تنفيذ عمان",
-                         "place":  "عمان · اراضي عمان",
-                         "endDate":  "2026-10-28 15:00:00",
-                         "estimatedValue":  1538396,
-                         "currentAmount":  989450,
-                         "numBids":  4,
-                         "serial":  6,
-                         "hasReport":  false,
-                         "hasMap":  false
                      }
                  ]
 }
