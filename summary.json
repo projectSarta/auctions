@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-10-25T22:12:53Z",
-    "dataScrapedAt":  "2026-10-25 22:03:44",
+    "generatedAt":  "2026-10-26T01:13:37Z",
+    "dataScrapedAt":  "2026-10-26 01:13:32",
     "totals":  {
-                   "all":  5434,
-                   "active":  456
+                   "all":  5502,
+                   "active":  609
                },
     "endingIn24h":  12,
-    "endingInWeek":  237,
-    "reAnnounced":  220,
-    "withReport":  179,
-    "withMap":  166,
+    "endingInWeek":  260,
+    "reAnnounced":  357,
+    "withReport":  230,
+    "withMap":  208,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -18,13 +18,13 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  298,
+                           "active":  303,
                            "total":  2044
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  92,
-                           "total":  1168
+                           "active":  225,
+                           "total":  1223
                        },
                        {
                            "name":  "أُخرى",
@@ -33,8 +33,8 @@
                        },
                        {
                            "name":  "مركبة",
-                           "active":  46,
-                           "total":  1860
+                           "active":  61,
+                           "total":  1873
                        }
                    ],
     "closingSoon":  [
@@ -91,6 +91,19 @@
                             "hasMap":  false
                         },
                         {
+                            "id":  42533,
+                            "category":  "شقة/ مكتب",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "تلاع العلي · اراضي شمال عمان",
+                            "endDate":  "2026-10-26 15:00:00",
+                            "estimatedValue":  80784,
+                            "currentAmount":  44000,
+                            "numBids":  1,
+                            "serial":  2,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
                             "id":  54377,
                             "category":  "مركبة",
                             "court":  "تنفيذ العقبة",
@@ -102,19 +115,6 @@
                             "serial":  1,
                             "hasReport":  false,
                             "hasMap":  false
-                        },
-                        {
-                            "id":  53227,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ الكرك",
-                            "place":  "الدامخي · اراضي الكرك",
-                            "endDate":  "2026-10-26 15:00:00",
-                            "estimatedValue":  5002,
-                            "currentAmount":  5001,
-                            "numBids":  2,
-                            "serial":  2,
-                            "hasReport":  true,
-                            "hasMap":  true
                         }
                     ],
     "bargains":  [
