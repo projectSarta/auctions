@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-10-26T01:13:37Z",
-    "dataScrapedAt":  "2026-10-26 01:13:32",
+    "generatedAt":  "2026-10-26T06:41:49Z",
+    "dataScrapedAt":  "2026-10-26 06:38:29",
     "totals":  {
-                   "all":  5502,
-                   "active":  609
+                   "all":  5507,
+                   "active":  618
                },
     "endingIn24h":  12,
-    "endingInWeek":  260,
-    "reAnnounced":  357,
-    "withReport":  230,
-    "withMap":  208,
+    "endingInWeek":  263,
+    "reAnnounced":  364,
+    "withReport":  232,
+    "withMap":  210,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -18,13 +18,13 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  303,
+                           "active":  305,
                            "total":  2044
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  225,
-                           "total":  1223
+                           "active":  232,
+                           "total":  1228
                        },
                        {
                            "name":  "أُخرى",
@@ -91,19 +91,6 @@
                             "hasMap":  false
                         },
                         {
-                            "id":  42533,
-                            "category":  "شقة/ مكتب",
-                            "court":  "تنفيذ عمان / قسم شمال عمان",
-                            "place":  "تلاع العلي · اراضي شمال عمان",
-                            "endDate":  "2026-10-26 15:00:00",
-                            "estimatedValue":  80784,
-                            "currentAmount":  44000,
-                            "numBids":  1,
-                            "serial":  2,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
                             "id":  54377,
                             "category":  "مركبة",
                             "court":  "تنفيذ العقبة",
@@ -112,6 +99,19 @@
                             "estimatedValue":  1500,
                             "currentAmount":  0,
                             "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54531,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ الزرقاء",
+                            "place":  "",
+                            "endDate":  "2026-10-26 15:00:00",
+                            "estimatedValue":  14000,
+                            "currentAmount":  10500,
+                            "numBids":  5,
                             "serial":  1,
                             "hasReport":  false,
                             "hasMap":  false
