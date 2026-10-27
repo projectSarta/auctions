@@ -1,12 +1,12 @@
 {
-    "generatedAt":  "2026-10-26T20:26:16Z",
-    "dataScrapedAt":  "2026-10-26 20:25:29",
+    "generatedAt":  "2026-10-27T01:41:25Z",
+    "dataScrapedAt":  "2026-10-27 01:40:39",
     "totals":  {
-                   "all":  5518,
-                   "active":  620
+                   "all":  5523,
+                   "active":  626
                },
-    "endingIn24h":  82,
-    "endingInWeek":  288,
+    "endingIn24h":  83,
+    "endingInWeek":  291,
     "reAnnounced":  360,
     "withReport":  230,
     "withMap":  207,
@@ -28,8 +28,8 @@
                        },
                        {
                            "name":  "أُخرى",
-                           "active":  18,
-                           "total":  334
+                           "active":  24,
+                           "total":  339
                        },
                        {
                            "name":  "مركبة",
