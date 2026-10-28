@@ -1,12 +1,12 @@
 {
-    "generatedAt":  "2026-10-27T20:06:19Z",
-    "dataScrapedAt":  "2026-10-27 19:55:25",
+    "generatedAt":  "2026-10-28T01:34:30Z",
+    "dataScrapedAt":  "2026-10-28 01:26:04",
     "totals":  {
                    "all":  5525,
-                   "active":  552
+                   "active":  550
                },
-    "endingIn24h":  64,
-    "endingInWeek":  247,
+    "endingIn24h":  63,
+    "endingInWeek":  245,
     "reAnnounced":  334,
     "withReport":  208,
     "withMap":  187,
@@ -18,7 +18,7 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  284,
+                           "active":  283,
                            "total":  2044
                        },
                        {
@@ -28,7 +28,7 @@
                        },
                        {
                            "name":  "أُخرى",
-                           "active":  26,
+                           "active":  25,
                            "total":  340
                        },
                        {
@@ -38,19 +38,6 @@
                        }
                    ],
     "closingSoon":  [
-                        {
-                            "id":  54726,
-                            "category":  "أُخرى",
-                            "court":  "تنفيذ الطفيلة",
-                            "place":  "",
-                            "endDate":  "2026-10-27 23:59:00",
-                            "estimatedValue":  1025,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
                         {
                             "id":  54295,
                             "category":  "أُخرى",
@@ -110,6 +97,19 @@
                             "place":  "",
                             "endDate":  "2026-10-28 14:20:00",
                             "estimatedValue":  8500,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54681,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان / قسم شرق عمان",
+                            "place":  "",
+                            "endDate":  "2026-10-28 14:25:00",
+                            "estimatedValue":  950,
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  1,
