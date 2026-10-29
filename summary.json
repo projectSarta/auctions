@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-10-28T20:52:48Z",
-    "dataScrapedAt":  "2026-10-28 20:52:43",
+    "generatedAt":  "2026-10-29T02:26:19Z",
+    "dataScrapedAt":  "2026-10-29 02:19:22",
     "totals":  {
                    "all":  5567,
-                   "active":  555
+                   "active":  556
                },
-    "endingIn24h":  54,
-    "endingInWeek":  257,
-    "reAnnounced":  327,
-    "withReport":  203,
-    "withMap":  177,
+    "endingIn24h":  57,
+    "endingInWeek":  258,
+    "reAnnounced":  328,
+    "withReport":  204,
+    "withMap":  178,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -18,7 +18,7 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  260,
+                           "active":  261,
                            "total":  2045
                        },
                        {
@@ -78,19 +78,6 @@
                             "hasMap":  false
                         },
                         {
-                            "id":  51498,
-                            "category":  "أُخرى",
-                            "court":  "تنفيذ جرش",
-                            "place":  "",
-                            "endDate":  "2026-10-29 15:00:00",
-                            "estimatedValue":  2016,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  0,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
                             "id":  51205,
                             "category":  "أرض/ مجمع",
                             "court":  "تنفيذ الزرقاء",
@@ -104,17 +91,30 @@
                             "hasMap":  true
                         },
                         {
-                            "id":  52605,
-                            "category":  "شقة/ مكتب",
-                            "court":  "تنفيذ عمان / قسم غرب عمان",
-                            "place":  "البصه · اراضي غرب عمان",
+                            "id":  49941,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ الجيزة",
+                            "place":  "ام العمد · اراضي جنوب عمان",
                             "endDate":  "2026-10-29 15:00:00",
-                            "estimatedValue":  54120,
-                            "currentAmount":  27060,
-                            "numBids":  1,
-                            "serial":  3,
+                            "estimatedValue":  53655,
+                            "currentAmount":  41028,
+                            "numBids":  34,
+                            "serial":  5,
                             "hasReport":  true,
                             "hasMap":  true
+                        },
+                        {
+                            "id":  51498,
+                            "category":  "أُخرى",
+                            "court":  "تنفيذ جرش",
+                            "place":  "",
+                            "endDate":  "2026-10-29 15:00:00",
+                            "estimatedValue":  2016,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  0,
+                            "hasReport":  false,
+                            "hasMap":  false
                         }
                     ],
     "bargains":  [
