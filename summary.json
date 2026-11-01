@@ -1,120 +1,120 @@
 {
-    "generatedAt":  "2026-11-01T01:24:43Z",
-    "dataScrapedAt":  "2026-11-01 01:19:24",
+    "generatedAt":  "2026-11-01T20:12:32Z",
+    "dataScrapedAt":  "2026-11-01 20:12:27",
     "totals":  {
-                   "all":  5578,
-                   "active":  374
+                   "all":  5596,
+                   "active":  384
                },
-    "endingIn24h":  80,
-    "endingInWeek":  226,
-    "reAnnounced":  211,
-    "withReport":  132,
-    "withMap":  108,
+    "endingIn24h":  29,
+    "endingInWeek":  265,
+    "reAnnounced":  214,
+    "withReport":  123,
+    "withMap":  96,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
-                           "active":  3,
+                           "active":  1,
                            "total":  29
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  90,
-                           "total":  2046
+                           "active":  120,
+                           "total":  2049
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  201,
+                           "active":  183,
                            "total":  1229
                        },
                        {
                            "name":  "أُخرى",
-                           "active":  23,
-                           "total":  344
+                           "active":  17,
+                           "total":  346
                        },
                        {
                            "name":  "مركبة",
-                           "active":  57,
-                           "total":  1930
+                           "active":  63,
+                           "total":  1943
                        }
                    ],
     "closingSoon":  [
                         {
-                            "id":  53224,
-                            "category":  "أُخرى",
-                            "court":  "تنفيذ عمان / قسم جنوب عمان",
+                            "id":  54745,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ اربد",
                             "place":  "",
-                            "endDate":  "2026-11-01 13:00:00",
-                            "estimatedValue":  137464,
-                            "currentAmount":  35000,
+                            "endDate":  "2026-11-01 21:00:00",
+                            "estimatedValue":  14000,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54688,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ اربد",
+                            "place":  "",
+                            "endDate":  "2026-11-01 23:03:45",
+                            "estimatedValue":  9000,
+                            "currentAmount":  6550,
+                            "numBids":  41,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  53618,
+                            "category":  "شقة/ مكتب",
+                            "court":  "تنفيذ اربد",
+                            "place":  "اربد · اراضي اربد",
+                            "endDate":  "2026-11-02 15:00:00",
+                            "estimatedValue":  65340,
+                            "currentAmount":  39204,
                             "numBids":  1,
                             "serial":  2,
                             "hasReport":  true,
                             "hasMap":  false
                         },
                         {
-                            "id":  54747,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ المزار الشمالي",
-                            "place":  "",
-                            "endDate":  "2026-11-01 13:00:00",
-                            "estimatedValue":  3200,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  51722,
-                            "category":  "أُخرى",
-                            "court":  "تنفيذ عمان / قسم شمال عمان",
-                            "place":  "",
-                            "endDate":  "2026-11-01 14:00:00",
-                            "estimatedValue":  26800,
-                            "currentAmount":  19001.5,
+                            "id":  53613,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ اربد",
+                            "place":  "اربد · اراضي اربد",
+                            "endDate":  "2026-11-02 15:00:00",
+                            "estimatedValue":  166470,
+                            "currentAmount":  124852,
                             "numBids":  1,
-                            "serial":  3,
-                            "hasReport":  true,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  53322,
-                            "category":  "أُخرى",
-                            "court":  "تنفيذ عمان / قسم شمال عمان",
-                            "place":  "",
-                            "endDate":  "2026-11-01 14:00:00",
-                            "estimatedValue":  7150,
-                            "currentAmount":  0,
-                            "numBids":  0,
                             "serial":  2,
                             "hasReport":  true,
-                            "hasMap":  false
+                            "hasMap":  true
                         },
                         {
-                            "id":  54733,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ عمان / قسم شمال عمان",
-                            "place":  "",
-                            "endDate":  "2026-11-01 14:00:00",
-                            "estimatedValue":  30000,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
+                            "id":  53778,
+                            "category":  "شقة/ مكتب",
+                            "court":  "تنفيذ الزرقاء",
+                            "place":  "البتراوي · اراضي محافظة الزرقاء",
+                            "endDate":  "2026-11-02 15:00:00",
+                            "estimatedValue":  21840,
+                            "currentAmount":  18500,
+                            "numBids":  1,
+                            "serial":  2,
+                            "hasReport":  true,
+                            "hasMap":  true
                         },
                         {
-                            "id":  54591,
-                            "category":  "أُخرى",
-                            "court":  "تنفيذ عمان / قسم شمال عمان",
-                            "place":  "",
-                            "endDate":  "2026-11-01 14:00:00",
-                            "estimatedValue":  658,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
+                            "id":  53780,
+                            "category":  "شقة/ مكتب",
+                            "court":  "تنفيذ الزرقاء",
+                            "place":  "البتراوي · اراضي محافظة الزرقاء",
+                            "endDate":  "2026-11-02 15:00:00",
+                            "estimatedValue":  21840,
+                            "currentAmount":  18500,
+                            "numBids":  1,
+                            "serial":  2,
+                            "hasReport":  true,
+                            "hasMap":  true
                         }
                     ],
     "bargains":  [
@@ -171,19 +171,6 @@
                          "hasMap":  false
                      },
                      {
-                         "id":  44569,
-                         "category":  "أرض/ مجمع",
-                         "court":  "تنفيذ مادبا",
-                         "place":  "مادبا · اراضي مادبا",
-                         "endDate":  "2026-11-01 15:00:00",
-                         "estimatedValue":  982312,
-                         "currentAmount":  573000,
-                         "numBids":  16,
-                         "serial":  9,
-                         "hasReport":  true,
-                         "hasMap":  true
-                     },
-                     {
                          "id":  49197,
                          "category":  "مركبة",
                          "court":  "تنفيذ الرصيفة",
@@ -195,6 +182,19 @@
                          "serial":  9,
                          "hasReport":  false,
                          "hasMap":  false
+                     },
+                     {
+                         "id":  26864,
+                         "category":  "أرض/ مجمع",
+                         "court":  "تنفيذ الزرقاء",
+                         "place":  "بيرين · اراضي محافظة الزرقاء",
+                         "endDate":  "2026-11-04 15:00:00",
+                         "estimatedValue":  115084,
+                         "currentAmount":  57742,
+                         "numBids":  2,
+                         "serial":  8,
+                         "hasReport":  true,
+                         "hasMap":  true
                      }
                  ]
 }
