@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-11-01T20:12:32Z",
-    "dataScrapedAt":  "2026-11-01 20:12:27",
+    "generatedAt":  "2026-11-02T01:42:16Z",
+    "dataScrapedAt":  "2026-11-02 01:41:30",
     "totals":  {
                    "all":  5596,
-                   "active":  384
+                   "active":  340
                },
-    "endingIn24h":  29,
-    "endingInWeek":  265,
-    "reAnnounced":  214,
-    "withReport":  123,
-    "withMap":  96,
+    "endingIn24h":  30,
+    "endingInWeek":  263,
+    "reAnnounced":  185,
+    "withReport":  112,
+    "withMap":  82,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -23,7 +23,7 @@
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  183,
+                           "active":  141,
                            "total":  1229
                        },
                        {
@@ -33,33 +33,72 @@
                        },
                        {
                            "name":  "مركبة",
-                           "active":  63,
+                           "active":  61,
                            "total":  1943
                        }
                    ],
     "closingSoon":  [
                         {
-                            "id":  54745,
-                            "category":  "مركبة",
+                            "id":  53613,
+                            "category":  "أرض/ مجمع",
                             "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-11-01 21:00:00",
-                            "estimatedValue":  14000,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
+                            "place":  "اربد · اراضي اربد",
+                            "endDate":  "2026-11-02 15:00:00",
+                            "estimatedValue":  166470,
+                            "currentAmount":  124852,
+                            "numBids":  1,
+                            "serial":  2,
+                            "hasReport":  true,
+                            "hasMap":  true
                         },
                         {
-                            "id":  54688,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
+                            "id":  51029,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ عمان / قسم غرب عمان",
+                            "place":  "وادي السير · اراضي غرب عمان",
+                            "endDate":  "2026-11-02 15:00:00",
+                            "estimatedValue":  341100,
+                            "currentAmount":  201000,
+                            "numBids":  2,
+                            "serial":  4,
+                            "hasReport":  true,
+                            "hasMap":  true
+                        },
+                        {
+                            "id":  53416,
+                            "category":  "شقة/ مكتب",
+                            "court":  "تنفيذ عجلون",
+                            "place":  "عين جنا · اراضي عجلون",
+                            "endDate":  "2026-11-02 15:00:00",
+                            "estimatedValue":  20000,
+                            "currentAmount":  12000,
+                            "numBids":  1,
+                            "serial":  2,
+                            "hasReport":  true,
+                            "hasMap":  true
+                        },
+                        {
+                            "id":  53779,
+                            "category":  "شقة/ مكتب",
+                            "court":  "تنفيذ الزرقاء",
+                            "place":  "البتراوي · اراضي محافظة الزرقاء",
+                            "endDate":  "2026-11-02 15:00:00",
+                            "estimatedValue":  19500,
+                            "currentAmount":  18500,
+                            "numBids":  1,
+                            "serial":  2,
+                            "hasReport":  true,
+                            "hasMap":  true
+                        },
+                        {
+                            "id":  54704,
+                            "category":  "أُخرى",
+                            "court":  "تنفيذ الزرقاء",
                             "place":  "",
-                            "endDate":  "2026-11-01 23:03:45",
-                            "estimatedValue":  9000,
-                            "currentAmount":  6550,
-                            "numBids":  41,
+                            "endDate":  "2026-11-02 15:00:00",
+                            "estimatedValue":  211,
+                            "currentAmount":  110,
+                            "numBids":  1,
                             "serial":  1,
                             "hasReport":  false,
                             "hasMap":  false
@@ -76,45 +115,6 @@
                             "serial":  2,
                             "hasReport":  true,
                             "hasMap":  false
-                        },
-                        {
-                            "id":  53613,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ اربد",
-                            "place":  "اربد · اراضي اربد",
-                            "endDate":  "2026-11-02 15:00:00",
-                            "estimatedValue":  166470,
-                            "currentAmount":  124852,
-                            "numBids":  1,
-                            "serial":  2,
-                            "hasReport":  true,
-                            "hasMap":  true
-                        },
-                        {
-                            "id":  53778,
-                            "category":  "شقة/ مكتب",
-                            "court":  "تنفيذ الزرقاء",
-                            "place":  "البتراوي · اراضي محافظة الزرقاء",
-                            "endDate":  "2026-11-02 15:00:00",
-                            "estimatedValue":  21840,
-                            "currentAmount":  18500,
-                            "numBids":  1,
-                            "serial":  2,
-                            "hasReport":  true,
-                            "hasMap":  true
-                        },
-                        {
-                            "id":  53780,
-                            "category":  "شقة/ مكتب",
-                            "court":  "تنفيذ الزرقاء",
-                            "place":  "البتراوي · اراضي محافظة الزرقاء",
-                            "endDate":  "2026-11-02 15:00:00",
-                            "estimatedValue":  21840,
-                            "currentAmount":  18500,
-                            "numBids":  1,
-                            "serial":  2,
-                            "hasReport":  true,
-                            "hasMap":  true
                         }
                     ],
     "bargains":  [
