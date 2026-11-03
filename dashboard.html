@@ -997,13 +997,20 @@
   const ACTIVE_SEEN_WINDOW_MS = 7 * 24 * 3600 * 1000;
 
   // Pre-compute dataset-wide totals (independent of any filter): active vs total per category.
-  // "active" = endDate in the future (or unknown). These numbers don't change as filters move.
+  // "active" MUST mean the same thing here as it does in the table's hideExpired
+  // predicate below, or the category chips contradict the lead figure sitting
+  // beside them in the same card. Both conditions, not just the end date: a row
+  // with a future endDate that has dropped out of the listing is re-announced or
+  // stale, and counting it active is the confusion the table already rejects.
+  // These numbers don't change as filters move.
   const _datasetNow = Date.now();
   const datasetTotalByCat = {};
   const datasetActiveByCat = {};
   auctions.forEach(r => {
     datasetTotalByCat[r.category] = (datasetTotalByCat[r.category] || 0) + 1;
-    if (r._endDateMs == null || r._endDateMs > _datasetNow) {
+    const endsLater = (r._endDateMs == null || r._endDateMs > _datasetNow);
+    const seenLately = (r._lastSeenMs === null || (_datasetNow - r._lastSeenMs < ACTIVE_SEEN_WINDOW_MS));
+    if (endsLater && seenLately) {
       datasetActiveByCat[r.category] = (datasetActiveByCat[r.category] || 0) + 1;
     }
   });
