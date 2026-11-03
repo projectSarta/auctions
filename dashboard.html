@@ -3,49 +3,58 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>لوحة المزادات - وزارة العدل الأردنية</title>
+<meta name="description" content="لوحة لتصفح المزادات العلنية المعلنة من وزارة العدل الأردنية: بحث وفرز حسب الفئة والمحافظة والقيمة وموعد الانتهاء.">
+  <title>لوحة المزادات - وزارة العدل الأردنية</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
 <style>
-  /* ──── Color system: trust (navy) + desire (gold) + urgency (wine red) ──── */
+/* Hallmark · shape: app screen · genre: modern-minimal · theme: brand · redesign: full
+ * paper: #FAF8F4 · accent: #1B3A57 · display: Iowan Old Style · body: Segoe UI
+ * nav: kept (the project's own top bar) · signature: the ranked status line · states: loading, empty, full
+ * axes: parchment/serif/navy · posture: table-led · contrast: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P3 H2 E3 S3 R3 V3 · weakest: H, eight equal tiles became three ranked zones */
+@import url("./tokens.css");
+@import url("./base.css");
+
+  /* Legacy names map onto the canonical tokens so one value has one source.
+     tokens.css is normative; nothing below restates a colour or a face. */
   :root {
-    --color-primary:        #1B3A57;   /* Court Navy   — banking trust + government authority */
-    --color-primary-deep:   #0E2438;   /* hero gradient end */
-    --color-primary-soft:   #EEF2F6;   /* navy tinted at 6% — table hover, modal th bg */
-    --color-gold:           #C9A961;   /* Treasury Gold — desire / value / opportunity */
-    --color-gold-deep:      #A88840;   /* hover/border for gold */
-    --color-gold-soft:      #FBF6E8;   /* gold tinted at 8% — pre-selected gold rows */
-    --color-red:            #B73E3E;   /* Hammer Red   — urgency / deadline / decision */
-    --color-red-deep:       #962E2E;   /* hover/border for red */
-    --color-red-soft:       #FBF2F2;   /* red tinted — row-new bg */
-    --color-bg:             #FAF8F4;   /* Parchment    — page bg */
-    --color-surface:        #FFFFFF;   /* Document     — cards, modals */
-    --color-border:         #E5DFD3;   /* Linen        — soft separators */
-    --color-success:        #3D7A6A;   /* Verdigris    — confirmations, live ON */
-    --color-success-soft:   #E6F0EC;   /* bid-flash up bg */
-    --color-info:           #4A6B85;
-    --text-primary:         #1A1F2E;   /* Ink          — headlines, key data */
-    --text-body:            #3D4859;   /* Slate        — paragraph text */
-    --text-muted:           #7B8499;   /* Stone        — labels, captions */
-    --text-tertiary:        #B8BEC9;   /* Mist         — placeholders, disabled */
-    --hero-gradient: linear-gradient(225deg, #1B3A57 0%, #0E2438 100%);
+    --color-primary:        var(--color-accent);
+    --color-primary-deep:   var(--color-accent-deep);
+    --color-primary-soft:   var(--color-paper-3);
+    --color-gold:           var(--color-seal);
+    --color-gold-deep:      var(--color-seal-deep);
+    --color-gold-soft:      var(--color-seal-soft);
+    --color-red:            var(--color-urgent);
+    --color-red-deep:       var(--color-urgent-deep);
+    --color-red-soft:       var(--color-urgent-soft);
+    --color-bg:             var(--color-paper);
+    --color-surface:        var(--color-paper-2);
+    --color-border:         var(--color-rule);
+    --color-success:        var(--color-ok);
+    --color-success-soft:   var(--color-ok-soft);
+    --color-info:           var(--color-info);
+    --text-primary:         var(--color-ink);
+    --text-body:            var(--color-ink-2);
+    --text-muted:           var(--color-muted);
+    --text-tertiary:        var(--color-mist);
+    --hero-gradient: linear-gradient(225deg, var(--color-accent) 0%, var(--color-accent-deep) 100%);
     /* Display serif + card shape — shared with the landing page (index.html)
        so the two surfaces read as one product. System stack, no webfont. */
-    --serif: 'Iowan Old Style', 'Palatino Linotype', Palatino, Cambria, Georgia, serif;
-    --radius-card: 14px;
+    --serif: var(--font-display);
     /* Bootstrap variable overrides — propagates the new palette to .btn-*, .bg-*, .text-*, badges, etc. */
-    --bs-primary: #1B3A57;
+    --bs-primary: var(--color-accent);
     --bs-primary-rgb: 27,58,87;
-    --bs-danger: #B73E3E;
+    --bs-danger: var(--color-urgent);
     --bs-danger-rgb: 183,62,62;
-    --bs-warning: #C9A961;
+    --bs-warning: var(--color-seal);
     --bs-warning-rgb: 201,169,97;
-    --bs-success: #3D7A6A;
+    --bs-success: var(--color-ok);
     --bs-success-rgb: 61,122,106;
-    --bs-info: #4A6B85;
+    --bs-info: var(--color-info);
     --bs-info-rgb: 74,107,133;
-    --bs-body-color: #1A1F2E;
-    --bs-body-bg: #FAF8F4;
-    --bs-border-color: #E5DFD3;
+    --bs-body-color: var(--color-ink);
+    --bs-body-bg: var(--color-paper);
+    --bs-border-color: var(--color-rule);
     /* ──── Motion system: timing + easing tokens ──── */
     --motion-fast:    120ms;   /* hover tint, focus ring */
     --motion-base:    220ms;   /* button press, checkbox, tooltip */
@@ -56,15 +65,15 @@
     --ease-in-quart:  cubic-bezier(0.5, 0, 0.75, 0);       /* accel — exits */
     --ease-out-expo:  cubic-bezier(0.16, 1, 0.3, 1);       /* premium entrances */
     --ease-standard:  cubic-bezier(0.4, 0, 0.2, 1);        /* Material-style safe default */
-    --ease-back-out:  cubic-bezier(0.34, 1.56, 0.64, 1);   /* subtle overshoot — selections only */
+    --ease-back-out:  cubic-bezier(0.16, 1, 0.3, 1);       /* was an overshoot; UI state changes use exponential ease-out */
   }
-  body { font-family: 'Segoe UI', Tahoma, 'Arabic UI Text', sans-serif; background: var(--color-bg); color: var(--text-body); }
+  body { font-family: var(--font-body); background: var(--color-bg); color: var(--text-body); }
   /* ── Header: same treatment as the landing hero — seal, gold eyebrow, serif
      wordmark, faint engraved hairlines, gold rule along the bottom edge. */
-  .navbar { position: relative; background: var(--hero-gradient); box-shadow: 0 2px 8px rgba(14,36,56,.15); }
+  .navbar { position: relative; background: var(--hero-gradient); box-shadow: var(--shadow-card); }
   .navbar::before {
     content: ""; position: absolute; inset: 0; pointer-events: none;
-    background-image: repeating-linear-gradient(115deg, rgba(201,169,97,.075) 0 1px, transparent 1px 13px);
+    background-image: repeating-linear-gradient(115deg, color-mix(in srgb, var(--color-seal) 8%, transparent) 0 1px, transparent 1px 13px);
   }
   .navbar::after {
     content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; pointer-events: none;
@@ -72,31 +81,24 @@
     opacity: .65;
   }
   .navbar > .container-fluid { position: relative; z-index: 1; }
-  .navbar-brand { display: flex; align-items: center; gap: 11px; padding: 0; margin: 0; }
+  .navbar-brand { display: flex; align-items: center; gap: var(--space-sm); padding: 0; margin: 0; }
   .navbar-brand .seal { width: 34px; height: 34px; flex: none; }
-  .navbar-brand .beyebrow { display: block; font-size: .66rem; letter-spacing: .16em; color: var(--color-gold); font-weight: 600; line-height: 1.5; }
-  .navbar-brand .btitle { display: block; font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: #fff; line-height: 1.2; }
+  .navbar-brand .btitle { display: block; font-family: var(--serif); font-size: var(--text-lg); font-weight: 600; color: var(--color-accent-ink); line-height: 1.2; }
   /* Gold CTA, matching the landing page's primary button. */
   #refreshBtn { background: var(--color-gold); border-color: var(--color-gold-deep); color: var(--color-primary-deep); font-weight: 600; }
-  #refreshBtn:hover { background: #D8BC7C; border-color: var(--color-gold-deep); color: var(--color-primary-deep); }
+  #refreshBtn:hover { background: color-mix(in srgb, var(--color-seal) 72%, var(--color-paper-2)); border-color: var(--color-gold-deep); color: var(--color-primary-deep); }
 
-  .stat-card { border: 1px solid var(--color-border); box-shadow: 0 2px 6px rgba(14,36,56,.06); border-radius: var(--radius-card); background: var(--color-surface); }
-  .stat-card .stat-label { font-size: .82rem; color: var(--text-muted); }
+  .stat-card { border: 1px solid var(--color-border); box-shadow: var(--shadow-card); border-radius: var(--radius-card); background: var(--color-surface); }
+  .stat-card .stat-label { font-size: .82rem; color: var(--text-muted); font-variant-numeric: tabular-nums; }
   .stat-card .stat-value {
     font-family: var(--serif); font-size: 2rem; font-weight: 600; line-height: 1.1;
     color: var(--color-primary); letter-spacing: -.02em; font-variant-numeric: tabular-nums;
   }
   /* Clickable stat card (filter chip disguised as a stat tile). */
-  .stat-card-filter { cursor: pointer; user-select: none; position: relative; }
-  .stat-card-filter:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
-  .stat-card-filter .stat-label::after { content: ' ⟶'; opacity: .35; font-size: .85em; }
-  .stat-card-filter.active { background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface)); box-shadow: 0 0 0 2px var(--color-primary) inset, 0 2px 6px rgba(0,0,0,.06); }
-  .stat-card-filter.active .stat-label { color: var(--color-primary); font-weight: 700; }
-  .stat-card-filter.active .stat-label::after { content: ' ✕'; opacity: .55; }
   .filters-card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
-    box-shadow: 0 2px 6px rgba(14,36,56,.05);
+    box-shadow: var(--shadow-card);
     border-radius: var(--radius-card);
     /* Own stacking context above the table wrapper (which has overflow-x: auto
        from Bootstrap's .table-responsive and can clip downward-opening
@@ -106,12 +108,13 @@
   }
   .filters-card .dropdown-menu.show { z-index: 1080; }
   table.dash th {
-    background: var(--color-primary); color: #fff; font-weight: 600; white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    background: var(--color-primary); color: var(--color-accent-ink); font-weight: 600; white-space: nowrap;
     vertical-align: middle; cursor: pointer; user-select: none;
     font-size: .84rem; letter-spacing: .02em;
     border-bottom: 2px solid var(--color-gold);
   }
-  table.dash th .sort-ind { opacity: .5; font-size: .75rem; }
+  table.dash th .sort-ind { opacity: .5; font-size: .75rem; font-variant-numeric: tabular-nums; }
   /* ── Per-column filters ────────────────────────────────────────────────
      The funnel sits inside the <th>; the popover is appended to <body> and
      positioned fixed, NOT nested in the cell — .table-responsive scrolls
@@ -119,38 +122,39 @@
      the filter-card dropdowns. */
   table.dash th { position: relative; }
   .col-filter-btn {
-    background: none; border: 0; padding: 0 4px; margin-inline-start: 4px;
-    color: rgba(255,255,255,.55); cursor: pointer; font-size: .8rem; line-height: 1;
+    background: none; border: 0; padding: 0 var(--space-2xs); margin-inline-start: 4px;
+    color: color-mix(in srgb, var(--color-accent-ink) 55%, transparent); cursor: pointer; font-size: .8rem; line-height: 1;
     border-radius: 4px; vertical-align: middle;
   }
-  .col-filter-btn:hover { color: #fff; background: rgba(255,255,255,.12); }
+  .col-filter-btn:hover { color: var(--color-accent-ink); background: color-mix(in srgb, var(--color-accent-ink) 12%, transparent); }
   .col-filter-btn:focus-visible { outline: 2px solid var(--color-gold); outline-offset: 1px; }
-  .col-filter-btn.is-active { color: var(--color-gold); background: rgba(201,169,97,.18); }
+  .col-filter-btn.is-active { color: var(--color-gold); background: color-mix(in srgb, var(--color-seal) 18%, transparent); }
   table.dash th.has-filter { box-shadow: inset 0 -3px 0 var(--color-gold); }
 
   .col-pop {
     position: fixed; z-index: 1090; width: 268px; max-width: 94vw;
     background: var(--color-surface); border: 1px solid var(--color-border);
-    border-radius: 10px; box-shadow: 0 12px 32px -10px rgba(14,36,56,.35);
-    padding: 10px; display: none;
+    border-radius: 10px; box-shadow: var(--shadow-float);
+    padding: var(--space-sm); display: none;
   }
   .col-pop.show { display: block; }
-  .col-pop .cp-title { font-size: .78rem; color: var(--text-muted); margin-bottom: 7px; font-weight: 600; }
+  .col-pop .cp-title { font-size: .78rem; color: var(--text-muted); margin-bottom: var(--space-xs); font-weight: 600; }
   .col-pop input[type="text"], .col-pop input[type="number"], .col-pop input[type="date"] {
+    font-variant-numeric: tabular-nums;
     width: 100%; font-size: .85rem; padding: .3rem .45rem;
-    border: 1px solid var(--color-border); border-radius: 6px; background: #fff; color: var(--text-primary);
+    border: 1px solid var(--color-border); border-radius: 6px; background: var(--color-accent-ink); color: var(--text-primary);
   }
-  .col-pop .cp-range { display: flex; gap: 6px; align-items: center; }
+  .col-pop .cp-range { display: flex; gap: var(--space-xs); align-items: center; }
   .col-pop .cp-range span { color: var(--text-muted); font-size: .78rem; }
-  .col-pop .cp-list { max-height: 220px; overflow-y: auto; margin-top: 7px; border-top: 1px solid var(--color-border); padding-top: 6px; }
-  .col-pop .cp-opt { display: flex; align-items: center; gap: 7px; padding: 3px 2px; font-size: .85rem; cursor: pointer; }
+  .col-pop .cp-list { max-height: 220px; overflow-y: auto; margin-top: var(--space-xs); border-top: 1px solid var(--color-border); padding-top: var(--space-xs); }
+  .col-pop .cp-opt { display: flex; align-items: center; gap: var(--space-xs); padding: var(--space-2xs) var(--space-3xs); font-size: .85rem; cursor: pointer; }
   .col-pop .cp-opt:hover { background: var(--color-primary-soft); border-radius: 4px; }
   .col-pop .cp-opt .cnt { margin-inline-start: auto; color: var(--text-tertiary); font-size: .75rem; }
-  .col-pop .cp-foot { display: flex; justify-content: space-between; align-items: center; margin-top: 9px; gap: 8px; }
+  .col-pop .cp-foot { display: flex; justify-content: space-between; align-items: center; margin-top: var(--space-xs); gap: var(--space-xs); }
   .col-pop .cp-foot button { font-size: .8rem; padding: .25rem .6rem; border-radius: 6px; cursor: pointer; }
   .col-pop .cp-clear { background: none; border: 0; color: var(--color-red); }
-  .col-pop .cp-apply { background: var(--color-primary); border: 1px solid var(--color-primary); color: #fff; font-weight: 600; }
-  .col-pop .cp-empty { color: var(--text-tertiary); font-size: .82rem; padding: 8px 2px; }
+  .col-pop .cp-apply { background: var(--color-primary); border: 1px solid var(--color-primary); color: var(--color-accent-ink); font-weight: 600; }
+  .col-pop .cp-empty { color: var(--text-tertiary); font-size: .82rem; padding: var(--space-xs) var(--space-3xs); }
   table.dash td { vertical-align: middle; color: var(--text-body); border-color: var(--color-border); }
   /* The table is the page's main surface — give it the same card shape as the
      stat and filter cards rather than letting it run edge-to-edge. */
@@ -161,13 +165,13 @@
   .table-responsive {
     border: 1px solid var(--color-border);
     border-radius: var(--radius-card);
-    box-shadow: 0 2px 6px rgba(14,36,56,.05);
+    box-shadow: var(--shadow-card);
     background: var(--color-surface);
   }
   table.dash tr.row-clickable { cursor: pointer; transition: background-color var(--motion-base) var(--ease-out-quart); }
   table.dash tr.row-clickable:hover { background: var(--color-primary-soft); }
   table.dash tr.row-clickable .thumb { transition: transform var(--motion-medium) var(--ease-out-quart); }
-  table.dash tr.row-clickable:hover .thumb { transform: scale(1.06); }
+  table.dash tr.row-clickable:hover .thumb {  }
   .badge-cat { font-size: .75rem; }
   .thumb { width: 56px; height: 42px; object-fit: cover; border-radius: 4px; display: inline-block; vertical-align: middle; margin-left: .35rem; background: var(--color-primary-soft); }
   .ending-soon { color: var(--color-red); font-weight: 700; }
@@ -178,11 +182,11 @@
      reads better for money. tabular-nums keeps the columns aligned. */
   .num { font-variant-numeric: tabular-nums; font-family: var(--serif); font-size: .98rem; }
   .source-link { font-size: .85rem; }
-  #emptyState { display: none; padding: 4rem 1rem; text-align: center; color: var(--text-muted); }
+  #emptyState { display: none; padding: var(--space-2xl) var(--space-md); text-align: center; color: var(--text-muted); }
   .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: .5rem; }
   .gallery a { display: block; aspect-ratio: 4/3; overflow: hidden; border-radius: 6px; background: var(--color-border); }
   .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .15s; }
-  .gallery img:hover { transform: scale(1.04); }
+  .gallery img:hover {  }
   .reports-list { display: flex; flex-direction: column; gap: .35rem; }
   .reports-list a { padding: .5rem .75rem; border: 1px solid var(--color-border); border-radius: 6px; text-decoration: none; background: var(--color-surface); color: var(--color-primary); }
   .reports-list a:hover { background: var(--color-primary-soft); }
@@ -198,7 +202,7 @@
   .fav-cell:hover .fav-star { transform: scale(1.2); }
   .fav-cell:active .fav-star { transform: scale(0.92); transition-duration: 80ms; }
   #favOnlyBtn.active { background: var(--color-gold) !important; border-color: var(--color-gold-deep) !important; color: var(--color-primary) !important; font-weight: 700; }
-  #endingTodayBtn.active { background: var(--color-red) !important; border-color: var(--color-red-deep) !important; color: #fff !important; font-weight: 700; }
+  #endingTodayBtn.active { background: var(--color-red) !important; border-color: var(--color-red-deep) !important; color: var(--color-accent-ink) !important; font-weight: 700; }
   /* Multi-select widget (hides the underlying <select>, shows a button-dropdown w/ checkboxes) */
   .ms-wrap { position: relative; }
   .ms-button { display: flex; align-items: center; }
@@ -207,13 +211,13 @@
   .ms-list { max-height: 240px; overflow-y: auto; }
   .ms-list .form-check { margin-bottom: 0; padding-block: .15rem; }
   .ms-list .form-check-label { cursor: pointer; }
-  .ms-empty { color: #94a3b8; font-size: .85rem; padding: .5rem; text-align: center; }
+  .ms-empty { color: var(--color-muted); font-size: .85rem; padding: .5rem; text-align: center; }
   /* "New" indicator — Hammer Red dot + subtle row tint for listings added in the last few days */
-  .new-dot { display: inline-block; width: .55rem; height: .55rem; background: var(--color-red); border-radius: 50%; margin-inline-end: .35rem; vertical-align: middle; box-shadow: 0 0 0 0 rgba(183,62,62,.6); animation: newPulse 1.8s infinite; }
-  @keyframes newPulse { 0% { box-shadow: 0 0 0 0 rgba(183,62,62,.55); } 70% { box-shadow: 0 0 0 .35rem rgba(183,62,62,0); } 100% { box-shadow: 0 0 0 0 rgba(183,62,62,0); } }
+  .new-dot { display: inline-block; width: .55rem; height: .55rem; background: var(--color-red); border-radius: 50%; margin-inline-end: .35rem; vertical-align: middle; box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-urgent) 60%, transparent); animation: newPulse 1.8s infinite; }
+  @keyframes newPulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-urgent) 55%, transparent); } 70% { box-shadow: 0 0 0 .35rem color-mix(in srgb, var(--color-urgent) 0%, transparent); } 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-urgent) 0%, transparent); } }
   tr.row-new { background: var(--color-red-soft); }
-  tr.row-new:hover { background: #F4E4E4 !important; }
-  #newOnlyBtn.active { background: var(--color-red) !important; border-color: var(--color-red-deep) !important; color:#fff !important; font-weight:700; }
+  tr.row-new:hover { background: color-mix(in srgb, var(--color-urgent) 12%, var(--color-paper-2)) !important; }
+  #newOnlyBtn.active { background: var(--color-red) !important; border-color: var(--color-red-deep) !important; color:var(--color-accent-ink) !important; font-weight:700; }
   /* Vehicle-type column visibility: toggled by adding/removing .hide-vehicle-col
      on the <table> (and on the filters container) so the rule applies to cells
      re-rendered later by apply() too. */
@@ -224,8 +228,8 @@
   @keyframes bidFlashDown { 0% { background: var(--color-red-soft);     transform: scale(1); } 20% { transform: scale(1.015); } 100% { background: transparent; transform: scale(1); } }
   .bid-flash-up   { animation: bidFlashUp   1.4s var(--ease-out-quart); }
   .bid-flash-down { animation: bidFlashDown 1.4s var(--ease-out-quart); }
-  #liveBtn.live-on { background: var(--color-success) !important; border-color: var(--color-success) !important; color:#fff !important; }
-  #liveBtn.live-on .live-dot { display:inline-block; width:.55rem; height:.55rem; background:#fff; border-radius:50%; margin-inline-end:.4rem; animation: livePulse 1.2s infinite; vertical-align:middle; }
+  #liveBtn.live-on { background: var(--color-success) !important; border-color: var(--color-success) !important; color:var(--color-accent-ink) !important; }
+  #liveBtn.live-on .live-dot { display:inline-block; width:.55rem; height:.55rem; background:var(--color-accent-ink); border-radius:50%; margin-inline-end:.4rem; animation: livePulse 1.2s infinite; vertical-align:middle; }
 
   /* ──── Motion layer: entrance + interaction polish ──── */
   @keyframes rise        { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
@@ -235,7 +239,7 @@
 
   /* Compound hover transitions */
   .stat-card    { transition: transform var(--motion-medium) var(--ease-out-quart), box-shadow var(--motion-medium) var(--ease-out-quart); }
-  .stat-card:hover { transform: translateY(-2px); box-shadow: 0 1px 2px rgba(14,36,56,0.06), 0 12px 28px -12px rgba(14,36,56,0.22); }
+  .stat-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lift); }
   .filters-card { transition: box-shadow var(--motion-medium) var(--ease-out-quart); }
 
   /* Bootstrap .btn polish: subtle lift on hover, press-back on active. Press is 80ms so it feels instant. */
@@ -294,6 +298,142 @@
     }
   }
   @keyframes livePulse { 0%,100% { opacity:1; } 50% { opacity:.3; } }
+
+  /* ── Status line ──────────────────────────────────────────────────────────
+     Replaces eight tiles of identical weight. Three zones, ranked by what a
+     visitor actually needs: how many lots are in front of them, what is about
+     to close, and which category they want. Every zone keeps its data-filter,
+     so the delegation on #statsRow is untouched. */
+  .statline {
+    display: flex; flex-wrap: wrap; align-items: stretch; gap: var(--space-md);
+    background: var(--color-surface); border: 1px solid var(--color-border);
+    border-radius: var(--radius-card); box-shadow: var(--shadow-card);
+    padding: var(--space-md); margin-bottom: var(--space-md);
+  }
+  .statline > * { min-width: 0; }
+  .statline button { font: inherit; border: 0; background: none; color: inherit; cursor: pointer; text-align: start; }
+  .statline button:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; border-radius: var(--radius-chip); }
+
+  /* Zone 1 — the lead figure. The one number set big. */
+  .statline-lead { display: flex; flex-direction: column; gap: var(--space-3xs); padding-inline-end: var(--space-lg); border-inline-end: 1px solid var(--color-border); }
+  .statline-lead .figure { font-family: var(--serif); font-size: var(--text-3xl); font-weight: 600; line-height: 1; color: var(--color-ink); font-variant-numeric: tabular-nums; }
+  .statline-lead .label { font-size: var(--text-sm); color: var(--color-muted); }
+  .statline-lead:hover .figure { color: var(--color-accent); }
+
+  /* Zone 2 — the deadlines. Hammer Red is the clock and nothing else. */
+  /* min-width: 0 on both the row and its cells: a flex item defaults to
+     min-width: auto, so the two cells refused to shrink below their content
+     and the second was pushed outside the card, where overflow-x: clip hid it
+     entirely rather than showing a scrollbar. */
+  .statline-clock { display: flex; gap: var(--space-xs); align-items: center; min-width: 0; padding-inline-end: var(--space-lg); border-inline-end: 1px solid var(--color-border); }
+  .clock-cell { display: flex; min-width: 0; flex-direction: column; gap: var(--space-3xs); padding: var(--space-2xs) var(--space-sm); border-radius: var(--radius-chip); min-height: var(--control-h); justify-content: center; transition: background var(--dur-micro) var(--ease-out); }
+  .clock-cell .figure { font-family: var(--serif); font-size: var(--text-xl); font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; }
+  .clock-cell .label { font-size: var(--text-xs); color: var(--color-muted); white-space: nowrap; }
+  .clock-cell.is-now .figure { color: var(--color-urgent); }
+  .clock-cell.is-soon .figure { color: var(--color-seal-deep); }
+  .clock-cell:hover { background: var(--color-paper); }
+  .clock-cell.active { background: var(--color-paper-3); box-shadow: inset 0 0 0 1px var(--color-accent); }
+  .clock-cell.active .label { color: var(--color-accent); }
+
+  /* Zone 3 — categories, demoted to chips. They still filter. */
+  .statline-cats { display: flex; flex-wrap: wrap; gap: var(--space-2xs); align-content: center; flex: 1; min-width: 0; }
+  .cat-chip { display: inline-flex; align-items: baseline; gap: var(--space-2xs); padding: var(--space-2xs) var(--space-sm); min-height: var(--control-h-sm); border-radius: var(--radius-pill); border: 1px solid var(--color-border); background: var(--color-paper); transition: border-color var(--dur-micro) var(--ease-out), background var(--dur-micro) var(--ease-out); }
+  .cat-chip .name { font-size: var(--text-sm); color: var(--color-ink-2); }
+  .cat-chip .n { font-family: var(--serif); font-size: var(--text-sm); font-weight: 600; color: var(--color-ink); font-variant-numeric: tabular-nums; }
+  .cat-chip .of { font-size: var(--text-xs); color: var(--color-muted); font-variant-numeric: tabular-nums; }
+  .cat-chip:hover { border-color: var(--color-accent); background: var(--color-paper-2); }
+  .cat-chip.active { background: var(--color-accent); border-color: var(--color-accent); }
+  .cat-chip.active .name, .cat-chip.active .n, .cat-chip.active .of { color: var(--color-accent-ink); }
+
+  /* A chip's phrase never breaks mid-way; the row wraps instead. */
+  .cat-chip { white-space: nowrap; }
+
+  @media (max-width: 60rem) {
+    .statline-lead, .statline-clock { border-inline-end: 0; padding-inline-end: 0; }
+    .statline { gap: var(--space-sm); }
+  }
+  @media (max-width: 40rem) {
+    /* Stack the three zones rather than letting them share a row: at this width
+       the categories were wrapping into a tall column beside a short one, which
+       left a dead gap the height of the whole card. */
+    /* In a column flex container the line's cross-size comes from the widest
+       item, so .statline-cats (flex-wrap: nowrap, for horizontal scrolling)
+       stretched every sibling to its full content width - 770px inside a
+       366px card. Capping each child at the container width stops that. */
+    .statline { flex-direction: column; align-items: stretch; }
+    .statline > * { max-width: 100%; min-width: 0; }
+    .statline-lead { flex-direction: row; align-items: baseline; gap: var(--space-xs); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--color-border); }
+    .statline-lead .figure { font-size: var(--text-2xl); }
+    /* grid with minmax(0,1fr) rather than flex: a flex item's automatic
+       minimum kept both cells at their content width, so the second was pushed
+       off the card and clipped. minmax(0,1fr) cannot do that. */
+    .statline-clock { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--color-border); }
+    .statline-clock .clock-cell { min-width: 0; }
+    .clock-cell .label { white-space: normal; }
+    .statline-cats { flex: 0 0 auto; overflow-x: auto; flex-wrap: nowrap; padding-bottom: var(--space-2xs); scrollbar-width: thin; }
+    .quickbar { gap: var(--space-3xs); }
+    .qt { padding: 0 var(--space-xs); font-size: var(--text-xs); }
+  }
+
+  /* ── Advanced filters, behind a disclosure ────────────────────────────────
+     Eleven selects used to sit permanently above the data. The common path
+     (search, the quick toggles) stays visible; the rest opens on demand and
+     reports how many are currently narrowing the set. */
+  .adv-filters > summary {
+    list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: var(--space-2xs);
+    min-height: var(--control-h); padding: var(--space-2xs) var(--space-sm);
+    border: 1px solid var(--color-border); border-radius: var(--radius-control);
+    background: var(--color-paper); color: var(--color-ink-2); font-size: var(--text-sm);
+    transition: border-color var(--dur-micro) var(--ease-out);
+  }
+  .adv-filters > summary::-webkit-details-marker { display: none; }
+  .adv-filters > summary:hover { border-color: var(--color-accent); }
+  .adv-filters > summary:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+  .adv-filters > summary .chev { transition: transform var(--dur-short) var(--ease-out); }
+  .adv-filters[open] > summary .chev { transform: rotate(180deg); }
+  .adv-filters .adv-count { font-family: var(--serif); font-variant-numeric: tabular-nums; font-weight: 600; color: var(--color-accent); }
+  .adv-filters .adv-count:empty { display: none; }
+  .adv-filters > .adv-body { padding-top: var(--space-sm); }
+
+  /* ── Loading state ────────────────────────────────────────────────────────
+     The dataset is tens of megabytes; the wait is real, so it gets a skeleton
+     in the shape of the table rather than an empty screen. */
+  tr.sk td { padding: var(--space-sm) var(--space-md); border-bottom: 1px solid var(--color-border); }
+  tr.sk td span { display: inline-block; height: 12px; margin-inline-end: var(--space-sm); border-radius: var(--radius-chip); vertical-align: middle; background: linear-gradient(90deg, var(--color-paper) 0%, var(--color-paper-3) 50%, var(--color-paper) 100%); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; }
+  tr.sk .sk-a { width: 14%; } tr.sk .sk-b { width: 30%; } tr.sk .sk-c { width: 18%; } tr.sk .sk-d { width: 10%; }
+  @keyframes shimmer { to { background-position: -200% 0; } }
+  @media (prefers-reduced-motion: reduce) { tr.sk td span { animation: none; background: var(--color-paper-3); } }
+
+  /* Eight states: the disabled one was missing everywhere. */
+  button:disabled, .btn:disabled, select:disabled, input:disabled {
+    opacity: .5; cursor: not-allowed; filter: grayscale(0.4);
+  }
+
+  /* Inline SVG icons replace the emoji the Floor forbids. They inherit
+     currentColor so each button's own state carries them. */
+  .ic { width: 1em; height: 1em; flex: none; display: inline-block; vertical-align: -0.125em; margin-inline-end: var(--space-2xs); }
+  table.dash th .ic { margin-inline-end: 0; color: var(--color-seal); }
+
+  /* ── Quick toggles ────────────────────────────────────────────────────────
+     One line of equals, not a ladder in a narrow column. The accent marks the
+     ones that are on; nothing here competes with it. */
+  .quickbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2xs); margin-top: var(--space-sm); }
+  .quickbar-sep { width: 1px; align-self: stretch; background: var(--color-border); margin-inline: var(--space-2xs); }
+  .qt {
+    display: inline-flex; align-items: center; gap: var(--space-2xs);
+    min-height: var(--control-h); padding: 0 var(--space-sm);
+    border: 1px solid var(--color-border); border-radius: var(--radius-control);
+    background: var(--color-paper-2); color: var(--color-ink-2);
+    font-size: var(--text-sm); cursor: pointer;
+    transition: border-color var(--dur-micro) var(--ease-out), background var(--dur-micro) var(--ease-out), color var(--dur-micro) var(--ease-out);
+  }
+  .qt .num { font-family: var(--serif); font-weight: 600; color: var(--color-ink); }
+  .qt:hover { border-color: var(--color-accent); }
+  .qt:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
+  .qt:active { background: var(--color-paper); }
+  .qt.is-on, .qt.active { background: var(--color-accent); border-color: var(--color-accent); color: var(--color-accent-ink); }
+  .qt.is-on .num, .qt.active .num { color: var(--color-accent-ink); }
+  .qt:disabled { opacity: .5; cursor: not-allowed; }
 </style>
 </head>
 <body>
@@ -311,22 +451,19 @@
         <line x1="17" y1="35" x2="31" y2="35" stroke="#C9A961" stroke-width="1.6" stroke-linecap="round"/>
         <circle cx="24" cy="17" r="2" fill="#C9A961"/>
       </svg>
-      <span>
-        <span class="beyebrow">وزارة العدل · المزادات الإلكترونية</span>
-        <span class="btitle">لوحة المزادات</span>
-      </span>
+      <span class="btitle">لوحة المزادات</span>
     </a>
     <div class="d-flex align-items-center gap-3">
       <span class="text-light small" id="metaInfo"></span>
       <button class="btn btn-sm btn-outline-light" id="liveBtn" type="button" title="تحديث المزاودات تلقائياً كل 25 ثانية">
-        <span id="liveBtnLabel">🔴 مباشر: متوقف</span>
+        <svg class="ic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="4" fill="currentColor"/></svg><span id="liveBtnLabel">مباشر: متوقف</span>
       </button>
       <button class="btn btn-sm btn-outline-light" id="teamLoginBtn" type="button" title="دخول الفريق (لمشاركة قائمة المفضلات)" style="display:none">
-        <span id="teamLoginLabel">🔐 دخول الفريق</span>
+        <svg class="ic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 7V5a3.5 3.5 0 0 1 7 0v2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="3" y="7" width="10" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span id="teamLoginLabel">دخول الفريق</span>
       </button>
       <button class="btn btn-sm btn-light" id="refreshBtn" title="إعادة جلب البيانات من الموقع">
         <span class="spinner ms-1"></span>
-        <span class="btn-label">🔄 تحديث البيانات</span>
+        <svg class="ic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13.5 8a5.5 5.5 0 1 1-1.6-3.9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M13.5 2v3h-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="btn-label">تحديث البيانات</span>
       </button>
     </div>
   </div>
@@ -335,7 +472,7 @@
 <div id="refreshToast" class="refresh-toast alert alert-info shadow-sm d-none" role="alert">
   <div class="d-flex justify-content-between align-items-start">
     <div>
-      <strong>جاري تحديث البيانات...</strong>
+      <strong>جاري تحديث البيانات…</strong>
       <pre id="refreshLog" class="mb-0 small text-muted" style="max-height: 160px; overflow-y: auto; white-space: pre-wrap; direction: ltr; text-align: left;"></pre>
     </div>
     <button type="button" class="btn-close" id="refreshToastClose"></button>
@@ -345,34 +482,44 @@
 <div class="container-fluid py-3">
 
   <!-- Stats row -->
-  <div class="row g-3 mb-3" id="statsRow"></div>
+  <div class="statline" id="statsRow"></div>
 
   <!-- Filters -->
   <div class="card filters-card mb-3">
     <div class="card-body">
       <div class="row g-2 align-items-end">
-        <div class="col-md-4">
+        <div class="col-md-6">
           <label class="form-label small mb-1">بحث</label>
-          <input type="text" class="form-control" id="searchInput" placeholder="بحث في كل الحقول... (رقم، اسم، مدينة، وغيرها)">
+          <input type="text" class="form-control" id="searchInput" placeholder="بحث في كل الحقول… (رقم، اسم، مدينة، وغيرها)">
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <label class="form-label small mb-1">الفئة</label>
           <select class="form-select" id="categoryFilter"><option value="">الكل</option></select>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-3">
           <label class="form-label small mb-1">المحكمة / الدائرة</label>
           <select class="form-select" id="courtFilter"><option value="">الكل</option></select>
         </div>
-        <div class="col-md-2 d-flex gap-1 flex-wrap">
-          <button class="btn btn-outline-success flex-grow-1 active" id="hideExpiredBtn" title="إخفاء المزادات المنتهية">⏱ نشط</button>
-          <button class="btn btn-outline-danger flex-grow-1" id="newOnlyBtn" title="إظهار المزادات الجديدة فقط (آخر 3 أيام)">🆕 <span id="newCount">0</span></button>
-          <button class="btn btn-outline-info flex-grow-1" id="endingTodayBtn" title="إظهار المزادات المنتهية اليوم فقط">⏳ <span id="endingTodayCount">0</span></button>
-          <button class="btn btn-outline-warning flex-grow-1" id="favOnlyBtn" title="إظهار المفضلة فقط">⭐ <span id="favCount">0</span></button>
-          <button class="btn btn-outline-secondary flex-grow-1" id="clearFilters">مسح</button>
-          <button class="btn btn-success flex-grow-1" id="exportCsv">CSV</button>
-        </div>
       </div>
-      <div class="row g-2 align-items-end mt-1">
+      <!-- The quick toggles get their own full-width line: once the emoji were
+           replaced with words, six of them no longer fit a 2-of-12 column. -->
+      <div class="quickbar">
+        <button type="button" class="qt" id="hideExpiredBtn" title="إخفاء المزادات المنتهية">نشط</button>
+        <button type="button" class="qt" id="newOnlyBtn" title="إظهار المزادات الجديدة فقط (آخر 3 أيام)">جديد <span id="newCount" class="num">0</span></button>
+        <button type="button" class="qt" id="endingTodayBtn" title="إظهار المزادات المنتهية اليوم فقط">تنتهي اليوم <span id="endingTodayCount" class="num">0</span></button>
+        <button type="button" class="qt" id="favOnlyBtn" title="إظهار المفضلة فقط">مفضلة <span id="favCount" class="num">0</span></button>
+        <span class="quickbar-sep" aria-hidden="true"></span>
+        <button type="button" class="qt" id="clearFilters">مسح الفلاتر</button>
+        <button type="button" class="qt" id="exportCsv">تصدير CSV</button>
+      </div>
+      <details class="adv-filters mt-2" id="advFilters">
+        <summary>
+          <svg class="chev" width="12" height="12" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M2.5 4.5L6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>فلاتر الموقع والنوع</span>
+          <span class="adv-count num" id="advCount"></span>
+        </summary>
+        <div class="adv-body">
+      <div class="row g-2 align-items-end">
         <div class="col-md">
           <label class="form-label small mb-1">المحافظة</label>
           <select class="form-select" id="govFilter"><option value="">الكل</option></select>
@@ -406,15 +553,17 @@
           <select class="form-select" id="estValueFilter">
             <option value="">الكل</option>
             <option value="0-5000">أقل من 5,000</option>
-            <option value="5000-10000">5,000 – 10,000</option>
-            <option value="10000-30000">10,000 – 30,000</option>
-            <option value="30000-50000">30,000 – 50,000</option>
-            <option value="50000-100000">50,000 – 100,000</option>
-            <option value="100000-250000">100,000 – 250,000</option>
+            <option value="5000-10000">5,000 إلى 10,000</option>
+            <option value="10000-30000">10,000 إلى 30,000</option>
+            <option value="30000-50000">30,000 إلى 50,000</option>
+            <option value="50000-100000">50,000 إلى 100,000</option>
+            <option value="100000-250000">100,000 إلى 250,000</option>
             <option value="250000-">أكثر من 250,000</option>
           </select>
         </div>
       </div>
+        </div>
+      </details>
     </div>
   </div>
 
@@ -432,7 +581,7 @@
     <table class="table table-hover dash mb-0" id="auctionTable">
       <thead>
         <tr>
-          <th data-sort="isFav" title="المفضلة">⭐<span class="sort-ind"></span></th>
+          <th data-sort="isFav" title="المفضلة"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.8l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.6l-3.8 2 .7-4.3-3.1-3 4.3-.6z" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg><span class="visually-hidden">المفضلة</span><span class="sort-ind"></span></th>
           <th data-sort="category">الفئة<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="category" title="تصفية">▼</button></th>
           <th data-sort="vehicleType" class="col-vehicle-type">نوع المركبة<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="vehicleType" title="تصفية">▼</button></th>
           <th data-sort="court">المحكمة<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="court" title="تصفية">▼</button></th>
@@ -448,7 +597,16 @@
           <th data-sort="numBids">المزاودات<span class="sort-ind"></span><button type="button" class="col-filter-btn" data-col="numBids" title="تصفية">▼</button></th>
         </tr>
       </thead>
-      <tbody id="auctionBody"></tbody>
+      <tbody id="auctionBody">
+          <tr class="sk" aria-hidden="true"><td colspan="14"><span class="sk-a"></span><span class="sk-b"></span><span class="sk-c"></span><span class="sk-d"></span></td></tr>
+          <tr class="sk" aria-hidden="true"><td colspan="14"><span class="sk-a"></span><span class="sk-b"></span><span class="sk-c"></span><span class="sk-d"></span></td></tr>
+          <tr class="sk" aria-hidden="true"><td colspan="14"><span class="sk-a"></span><span class="sk-b"></span><span class="sk-c"></span><span class="sk-d"></span></td></tr>
+          <tr class="sk" aria-hidden="true"><td colspan="14"><span class="sk-a"></span><span class="sk-b"></span><span class="sk-c"></span><span class="sk-d"></span></td></tr>
+          <tr class="sk" aria-hidden="true"><td colspan="14"><span class="sk-a"></span><span class="sk-b"></span><span class="sk-c"></span><span class="sk-d"></span></td></tr>
+          <tr class="sk" aria-hidden="true"><td colspan="14"><span class="sk-a"></span><span class="sk-b"></span><span class="sk-c"></span><span class="sk-d"></span></td></tr>
+          <tr class="sk" aria-hidden="true"><td colspan="14"><span class="sk-a"></span><span class="sk-b"></span><span class="sk-c"></span><span class="sk-d"></span></td></tr>
+          <tr class="sk" aria-hidden="true"><td colspan="14"><span class="sk-a"></span><span class="sk-b"></span><span class="sk-c"></span><span class="sk-d"></span></td></tr>
+      </tbody>
     </table>
     <div id="emptyState">لا توجد نتائج تطابق الفلاتر.</div>
   </div>
@@ -460,7 +618,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header bg-dark text-white">
-        <h6 class="modal-title mb-0" id="teamModalTitle">🔐 دخول الفريق</h6>
+        <h6 class="modal-title mb-0" id="teamModalTitle">دخول الفريق</h6>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
@@ -474,13 +632,13 @@
         </div>
         <div id="teamNoUsersPanel" class="d-none">
           <div class="alert alert-warning small mb-2 py-2">
-            لم تتم تهيئة أي مستخدم بعد. استخدم الأداة أدناه لإضافة مستخدم، ثم انسخ السطر إلى ملف <code>dashboard.html</code> داخل <code>TEAM_USERS = [ ... ]</code> وارفع التحديث.
+            لم تتم تهيئة أي مستخدم بعد. استخدم الأداة أدناه لإضافة مستخدم، ثم انسخ السطر إلى ملف <code>dashboard.html</code> داخل <code>TEAM_USERS = [ … ]</code> وارفع التحديث.
           </div>
         </div>
 
         <!-- Inline hash generator -->
         <details class="mt-3" id="teamSetupHelper">
-          <summary class="small text-primary" style="cursor:pointer">🔧 إنشاء تهيئة لمستخدم جديد</summary>
+          <summary class="small text-primary" style="cursor:pointer">إنشاء تهيئة لمستخدم جديد</summary>
           <div class="border rounded p-2 mt-2 small">
             <div class="row g-2">
               <div class="col-5"><input class="form-control form-control-sm" id="teamGenName" placeholder="الاسم (مثال: أحمد)"></div>
@@ -514,32 +672,32 @@
       <div class="modal-body" id="detailBody">
         <div id="detailFields"></div>
         <div id="detailMapWrap" class="my-3" style="display:none">
-          <h6 class="mb-2">🗺️ الموقع التقريبي</h6>
+          <h6 class="mb-2">الموقع التقريبي</h6>
           <div id="detailMap" style="height:280px;border-radius:8px;overflow:hidden"></div>
           <div class="small text-muted mt-1" id="detailMapNote"></div>
         </div>
         <hr>
-        <h6 class="mb-2">📷 الصور</h6>
+        <h6 class="mb-2">الصور</h6>
         <div id="detailGallery" class="mb-3"><div class="text-muted small">انقر "تحميل التفاصيل" لجلب الصور وتقرير الخبرة من الموقع الأصلي.</div></div>
-        <h6 class="mb-2">📄 تقرير الخبرة والمرفقات</h6>
+        <h6 class="mb-2">تقرير الخبرة والمرفقات</h6>
         <div id="detailSharedCase" class="alert alert-info small d-none mb-2 py-2"></div>
         <div id="detailReports" class="reports-list mb-2"></div>
       </div>
       <div class="modal-footer flex-wrap gap-1">
         <a class="btn btn-primary btn-sm" id="detailSourceLink" target="_blank" rel="noopener">↗ قائمة الفئة في الموقع</a>
-        <a class="btn btn-danger btn-sm" id="detailReportBtn" target="_blank" rel="noopener" style="display:none">📄 تقرير الخبرة</a>
+        <a class="btn btn-danger btn-sm" id="detailReportBtn" target="_blank" rel="noopener" style="display:none">تقرير الخبرة</a>
         <div class="btn-group" id="detailCalGroup" style="display:none">
-          <button type="button" class="btn btn-outline-warning btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">📅 إضافة إلى التقويم</button>
+          <button type="button" class="btn btn-outline-warning btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">إضافة إلى التقويم</button>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#" id="calIcsBtn">⤓ ملف ICS (Outlook / Apple)</a></li>
-            <li><a class="dropdown-item" href="#" id="calGoogleBtn" target="_blank" rel="noopener">🗓 Google Calendar</a></li>
-            <li><a class="dropdown-item" href="#" id="calOutlookBtn" target="_blank" rel="noopener">📧 Outlook.com</a></li>
+            <li><a class="dropdown-item" href="#" id="calGoogleBtn" target="_blank" rel="noopener">Google Calendar</a></li>
+            <li><a class="dropdown-item" href="#" id="calOutlookBtn" target="_blank" rel="noopener">Outlook.com</a></li>
           </ul>
         </div>
         <button class="btn btn-outline-primary btn-sm" id="loadDetailsBtn">⤓ صور + تقرير الخبرة</button>
-        <button class="btn btn-outline-dark btn-sm" id="shareBtn" title="مشاركة رابط هذا المزاد">🔗 مشاركة</button>
-        <button class="btn btn-outline-success btn-sm" id="dlsMapBtn" title="ينسخ بيانات القطعة ويفتح خرائط دائرة الأراضي">📍 دائرة الأراضي</button>
-        <a class="btn btn-outline-secondary btn-sm" id="gmapsBtn" target="_blank" rel="noopener">🌍 Google Maps</a>
+        <button class="btn btn-outline-dark btn-sm" id="shareBtn" title="مشاركة رابط هذا المزاد">مشاركة</button>
+        <button class="btn btn-outline-success btn-sm" id="dlsMapBtn" title="ينسخ بيانات القطعة ويفتح خرائط دائرة الأراضي">دائرة الأراضي</button>
+        <a class="btn btn-outline-secondary btn-sm" id="gmapsBtn" target="_blank" rel="noopener">Google Maps</a>
         <button class="btn btn-secondary btn-sm ms-auto" data-bs-dismiss="modal">إغلاق</button>
       </div>
     </div>
@@ -584,7 +742,7 @@
   //    Copy the 64-char hex string into the user's `passwordSha256` field.
   //    Passwords must be unique across users (we identify a user by their hash).
   //
-  // 3) Reload. The "🔐 دخول الفريق" button appears. Each user types their own
+  // 3) Reload. The "دخول الفريق" button appears. Each user types their own
   //    password — the dashboard figures out which name to display.
   //
   // Leave TEAM_USERS empty (or TEAM_BLOB_URL empty) to disable the feature
@@ -593,7 +751,7 @@
   const TEAM_USERS = [
     // Up to 5 entries. Display name + SHA-256 hex of password.
     // To generate a hash without DevTools: open the login modal in this page and
-    // expand "🔧 إنشاء تهيئة جديدة" — type a name + password and copy the line.
+    // expand "إنشاء تهيئة جديدة" — type a name + password and copy the line.
     { name: '3bweh', passwordSha256: '1a9e19ef1fb6ab0bd048577f009a0ddec1403a63d1da40c315605ded993b0c95' },
     { name: 'fees',  passwordSha256: 'd107e09b0629611f59a32ccf5ac82f25ecca11124dc7e75486ed9d63a09ace6e' },
     { name: 'Sarta', passwordSha256: '3c24a8ba561a7c7c63e3282483ebbf16607e55f9ed868093d3818a15f323fa13' },
@@ -822,7 +980,7 @@
   if (!refreshAvailable) {
     // Online: button does a cache-busting reload to fetch the latest published auctions.js.
     document.getElementById('refreshBtn').setAttribute('title', 'إعادة تحميل البيانات من GitHub Pages');
-    document.getElementById('refreshBtn').querySelector('.btn-label').textContent = '🔄 إعادة تحميل';
+    document.getElementById('refreshBtn').querySelector('.btn-label').textContent = 'إعادة تحميل';
   }
   // Backwards-compat alias used elsewhere in this file
   const servedByApi = liveDetailsAvailable;
@@ -859,47 +1017,51 @@
         else if (r._daysLeftMs < 7*86400000) endingWeek++;
       }
     });
-    const cards = [
-      { label: 'إجمالي المعروض (مفلتر)', value: total.toLocaleString('en-US'), filter: 'clearAll', hint: 'انقر لمسح كل الفلاتر' },
-      ...allCategoryNames.map(name => {
-        const active = datasetActiveByCat[name] || 0;
-        const totalInSet = datasetTotalByCat[name] || 0;
-        return {
-          label: name,
-          value: `${active.toLocaleString('en-US')} / ${totalInSet.toLocaleString('en-US')}`,
-          sub: 'نشط / المجموع',
-          color: 'var(--color-primary)',
-          filter: 'category:' + name,
-          hint: `انقر لعرض فئة "${name}" فقط`,
-        };
-      }),
-      { label: 'تنتهي خلال 24 ساعة', value: endingSoon.toLocaleString('en-US'), color: 'var(--color-red)',       filter: 'endsIn24h',  hint: 'انقر لعرض المزادات المنتهية خلال 24 ساعة فقط' },
-      { label: 'تنتهي خلال أسبوع',   value: endingWeek.toLocaleString('en-US'), color: 'var(--color-gold-deep)', filter: 'endsInWeek', hint: 'انقر لعرض المزادات المنتهية خلال أسبوع فقط' },
-    ];
     // Which categories are currently the *sole* selection in the category filter?
-    // (Used to highlight the matching category tile as active.)
     const catSelSole = (() => {
       const vals = [...document.getElementById('categoryFilter').selectedOptions].map(o => o.value).filter(v => v !== '');
       return vals.length === 1 ? vals[0] : null;
     })();
     const activeFilter24h  = document.body.classList.contains('filter-endsIn24h');
     const activeFilterWeek = document.body.classList.contains('filter-endsInWeek');
-    const isCardActive = (f) => {
-      if (!f) return false;
-      if (f === 'endsIn24h')  return activeFilter24h;
-      if (f === 'endsInWeek') return activeFilterWeek;
-      if (f.startsWith('category:')) return catSelSole && f === 'category:' + catSelSole;
-      return false; // clearAll is an action, not a persistent state
-    };
-    document.getElementById('statsRow').innerHTML = cards.map(c => {
-      const isFilter = !!c.filter;
-      const isActive = isCardActive(c.filter);
-      return `<div class="col-md col-6"><div class="card stat-card p-3 h-100${isFilter ? ' stat-card-filter' : ''}${isActive ? ' active' : ''}"${isFilter ? ` data-filter="${escapeHtml(c.filter)}" role="button" tabindex="0" title="${escapeHtml(c.hint || '')}"` : ''}>
-        <div class="stat-label">${escapeHtml(c.label)}</div>
-        <div class="stat-value" style="${c.color ? 'color:' + c.color : ''}">${c.value}</div>
-        ${c.sub ? `<div class="stat-sub small text-muted">${escapeHtml(c.sub)}</div>` : ''}
-      </div></div>`;
-    }).join('');
+    const nf = (x) => x.toLocaleString('en-US');
+
+    // Three ranked zones, not eight equal tiles. Every control still carries
+    // data-filter, so the delegation on #statsRow below is unchanged.
+    const lead = `<button type="button" class="statline-lead" data-filter="clearAll" title="انقر لمسح كل الفلاتر">
+        <span class="figure">${nf(total)}</span>
+        <span class="label">معروض الآن &middot; من ${nf(auctions.length)}</span>
+      </button>`;
+
+    const clock = `<div class="statline-clock">
+        <button type="button" class="clock-cell is-now${activeFilter24h ? ' active' : ''}" data-filter="endsIn24h" title="انقر لعرض المزادات المنتهية خلال 24 ساعة فقط">
+          <span class="figure">${nf(endingSoon)}</span><span class="label">تنتهي خلال 24 ساعة</span>
+        </button>
+        <button type="button" class="clock-cell is-soon${activeFilterWeek ? ' active' : ''}" data-filter="endsInWeek" title="انقر لعرض المزادات المنتهية خلال أسبوع فقط">
+          <span class="figure">${nf(endingWeek)}</span><span class="label">تنتهي خلال أسبوع</span>
+        </button>
+      </div>`;
+
+    const cats = `<div class="statline-cats">` + allCategoryNames.map(name => {
+      const active = datasetActiveByCat[name] || 0;
+      const totalInSet = datasetTotalByCat[name] || 0;
+      const on = catSelSole && catSelSole === name;
+      return `<button type="button" class="cat-chip${on ? ' active' : ''}" data-filter="category:${escapeHtml(name)}" title="انقر لعرض فئة &quot;${escapeHtml(name)}&quot; فقط">
+          <span class="name">${escapeHtml(name)}</span><span class="n">${nf(active)}</span><span class="of">من ${nf(totalInSet)}</span>
+        </button>`;
+    }).join('') + `</div>`;
+
+    document.getElementById('statsRow').innerHTML = lead + clock + cats;
+
+    // How many of the disclosure's selects are currently narrowing the set?
+    const advIds = ['govFilter','dirFilter','villageFilter','basinFilter','announcementFilter','vehicleTypeFilter','plotTypeFilter','estValueFilter'];
+    const advOn = advIds.reduce((acc, id) => {
+      const sel = document.getElementById(id);
+      if (!sel) return acc;
+      return acc + ([...sel.selectedOptions].some(o => o.value !== '') ? 1 : 0);
+    }, 0);
+    const advCountEl = document.getElementById('advCount');
+    if (advCountEl) advCountEl.textContent = advOn ? String(advOn) : '';
   };
 
   // ---- Filters init ----
@@ -1194,7 +1356,7 @@
     document.getElementById('emptyState').style.display = 'none';
     const html = rows.map(a => `
       <tr class="row-clickable${a._isNew ? ' row-new' : ''}" data-id="${a.id}">
-        <td class="fav-cell" data-fav-id="${a.id}">${a._isNew ? '<span class="new-dot" title="مزاد جديد"></span>' : ''}<span class="fav-star${isFav(a.id) ? ' is-fav' : ''}">${isFav(a.id) ? '★' : '☆'}</span></td>
+        <td class="fav-cell" data-fav-id="${a.id}">${a._isNew ? '<span class="new-dot" title="مزاد جديد"></span>' : ''}<span class="fav-star${isFav(a.id) ? ' is-fav' : ''}" role="img" aria-label="${isFav(a.id) ? 'في المفضلة' : 'غير مفضل'}"><svg class="ic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 1.8l1.9 3.9 4.3.6-3.1 3 .7 4.3L8 11.6l-3.8 2 .7-4.3-3.1-3 4.3-.6z" fill="${isFav(a.id) ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg></span></td>
         <td>
           <span class="badge bg-secondary badge-cat">${escapeHtml(a.category)}</span>
           ${a.image ? `<img src="${escapeHtml(a.image)}" class="thumb" loading="lazy" alt="">` : ''}
@@ -1237,7 +1399,7 @@
       toggleFav(id);
       const star = favCell.querySelector('.fav-star');
       star.classList.toggle('is-fav', isFav(id));
-      star.textContent = isFav(id) ? '★' : '☆';
+      star.textContent = isFav(id) ? '' : '';
       // If we're showing favorites-only, re-apply filter so the row appears/disappears
       if (document.getElementById('favOnlyBtn').classList.contains('active')) apply();
       return;
@@ -1265,7 +1427,7 @@
   //
   // MoJ DOES have a per-auction page — AuctionInfo.aspx?token=<perLotToken> —
   // it just never renders it as an <a href>. The green button on the listing is
-  // an ASP.NET postback whose response carries window.open('/AuctionInfo.aspx…').
+  // an ASP.NET postback whose response carries window.open('/AuctionInfo.aspx...').
   // The token is server-encrypted (we can't forge it) but deterministic, so
   // enrich_links.ps1 harvests it once per lot and caches it as a.detailUrl.
   //
@@ -1472,7 +1634,7 @@
       rowsHtml.push(`<tr><th>جولة الإعلان</th><td class="num">${a.announcementSerial}${serNote}</td></tr>`);
     }
     if (a._liveCancelled) {
-      rowsHtml.push(`<tr><th class="text-danger">⛔ ملغى (مباشر)</th><td class="text-danger">${escapeHtml(a._liveCancelReason || 'أُلغي هذا المزاد أثناء البث المباشر')}</td></tr>`);
+      rowsHtml.push(`<tr><th class="text-danger">ملغى (مباشر)</th><td class="text-danger">${escapeHtml(a._liveCancelReason || 'أُلغي هذا المزاد أثناء البث المباشر')}</td></tr>`);
     }
     const liveHist = (typeof liveBidHistory !== 'undefined') ? liveBidHistory.get(Number(a.id)) : null;
     if (liveHist && liveHist.length) {
@@ -1481,7 +1643,7 @@
         const hh = String(t.getHours()).padStart(2, '0'), mm = String(t.getMinutes()).padStart(2, '0');
         return `${fmtNum(b.amount)} <span class="text-muted">(${hh}:${mm})</span>`;
       }).join('<br>');
-      rowsHtml.push(`<tr><th>🔴 مزايدات مباشرة</th><td class="num">${items}</td></tr>`);
+      rowsHtml.push(`<tr><th>مزايدات مباشرة</th><td class="num">${items}</td></tr>`);
     }
     Object.entries(a.details || {}).forEach(([k, v]) => {
       rowsHtml.push(`<tr><th>${escapeHtml(k)}</th><td>${escapeHtml(v)}</td></tr>`);
@@ -1564,7 +1726,7 @@
     try {
       await navigator.clipboard.writeText(url);
       const old = btn.textContent;
-      btn.textContent = '✓ تم نسخ الرابط';
+      btn.textContent = 'تم نسخ الرابط';
       btn.classList.replace('btn-outline-dark', 'btn-success');
       setTimeout(() => { btn.textContent = old; btn.classList.replace('btn-success', 'btn-outline-dark'); }, 1800);
     } catch {
@@ -1803,7 +1965,7 @@
       _leafletMap.fitBounds(b.pad(0.5));
       const c = b.getCenter();
       const gmapExact = `https://www.google.com/maps/place/${c.lat},${c.lng}/@${c.lat},${c.lng},19z/data=!3m1!1e3`;
-      note.innerHTML = `🎯 الحدود الفعلية للقطعة من aradi.io (المساحة ${(props.area||0).toLocaleString('en-US',{maximumFractionDigits:0})} م²) · ` +
+      note.innerHTML = `الحدود الفعلية للقطعة من aradi.io (المساحة ${(props.area||0).toLocaleString('en-US',{maximumFractionDigits:0})} م²) · ` +
         `<a href="${gmapExact}" target="_blank" rel="noopener">Google Maps (satellite)</a>`;
       const gmapsBtn = document.getElementById('gmapsBtn');
       if (gmapsBtn) {
@@ -1854,7 +2016,7 @@
         _leafletMap.fitBounds(b.pad(0.5));
         const c = b.getCenter();
         const gmapExact = `https://www.google.com/maps/place/${c.lat},${c.lng}/@${c.lat},${c.lng},19z/data=!3m1!1e3`;
-        note.innerHTML = `🎯 الحدود الفعلية للقطعة (المساحة ${(props.area||0).toLocaleString('en-US',{maximumFractionDigits:0})} م²) · ` +
+        note.innerHTML = `الحدود الفعلية للقطعة (المساحة ${(props.area||0).toLocaleString('en-US',{maximumFractionDigits:0})} م²) · ` +
           `<a href="${gmapExact}" target="_blank" rel="noopener">Google Maps (satellite)</a>`;
         // Update the footer Google Maps button too so it lands on the exact parcel
         try { document.getElementById('gmapsBtn').href = gmapExact; } catch {}
@@ -1878,7 +2040,7 @@
     _leafletLayer = L.marker([hit.lat, hit.lon]).addTo(_leafletMap)
       .bindPopup(`<div dir="rtl" style="text-align:right">${escapeHtml(used)}</div>`).openPopup();
     const gmapVillage = `https://www.google.com/maps/place/${hit.lat},${hit.lon}/@${hit.lat},${hit.lon},15z`;
-    note.innerHTML = `📍 موقع تقريبي (مستوى القرية): ${escapeHtml(hit.name)} · ` +
+    note.innerHTML = `موقع تقريبي (مستوى القرية): ${escapeHtml(hit.name)} · ` +
       `<a href="${gmapVillage}" target="_blank" rel="noopener">Google Maps</a>`;
     try { document.getElementById('gmapsBtn').href = gmapVillage; } catch {}
     setTimeout(() => { try { _leafletMap.invalidateSize(); } catch {} }, 300);
@@ -1915,7 +2077,7 @@
     // 3) UI feedback (always show, even if clipboard failed — at least the tab opened)
     const orig = btn.textContent;
     btn.textContent = copied
-      ? '✓ تم النسخ — افتح وألصق في DLS'
+      ? 'تم النسخ — افتح وألصق في DLS'
       : '↗ افتح DLS وابحث يدوياً';
     setTimeout(() => { btn.textContent = orig; }, 3000);
   });
@@ -1940,7 +2102,7 @@
     document.getElementById('detailGallery').innerHTML = '<div class="skeleton"></div>';
     const sourceFallback = `
       <div class="alert alert-info small mb-0">
-        <div class="mb-2">⚠ المصدر يحجب طلبات الـ proxy. تم فتح الصفحة الأصلية في تبويب جديد للحصول على الصور وتقرير الخبرة.</div>
+        <div class="mb-2">المصدر يحجب طلبات الـ proxy. تم فتح الصفحة الأصلية في تبويب جديد للحصول على الصور وتقرير الخبرة.</div>
         <a class="btn btn-primary btn-sm" href="${escapeHtml(sourceHref)}" target="_blank" rel="noopener">↗ فتح الصفحة الأصلية مرة أخرى</a>
       </div>`;
     const fallback = () => {
@@ -2002,11 +2164,11 @@
       clearInterval(refreshPolling); refreshPolling = null;
       refreshBtn.classList.remove('is-running');
       if (j.status === 'done') {
-        refreshToast.querySelector('strong').textContent = '✓ تم التحديث بنجاح. جارِ إعادة تحميل البيانات...';
+        refreshToast.querySelector('strong').textContent = 'تم التحديث بنجاح. جارِ إعادة تحميل البيانات...';
         refreshToast.classList.remove('alert-info'); refreshToast.classList.add('alert-success');
         setTimeout(() => location.reload(), 1500);
       } else {
-        refreshToast.querySelector('strong').textContent = `✗ فشل التحديث (exit ${j.exitCode}).`;
+        refreshToast.querySelector('strong').textContent = `فشل التحديث (exit ${j.exitCode}).`;
         refreshToast.classList.remove('alert-info'); refreshToast.classList.add('alert-danger');
       }
     } catch (err) {
@@ -2192,7 +2354,7 @@
       });
       const values = Object.keys(counts).sort((x, y) => x.localeCompare(y, 'ar'));
       body =
-        `<input type="text" class="cp-search" placeholder="بحث…">
+        `<input type="text" class="cp-search" placeholder="بحث...">
          <div class="cp-list">` +
         (values.length ? values.map(v =>
           `<label class="cp-opt"><input type="checkbox" value="${escapeHtml(v)}"${chosen.has(v) ? ' checked' : ''}>` +
@@ -2200,7 +2362,7 @@
         ).join('') : '<div class="cp-empty">لا توجد قيم في هذا العمود</div>') +
         `</div>`;
     } else if (d.type === 'text') {
-      body = `<input type="text" class="cp-q" placeholder="يحتوي على…" value="${escapeHtml(s.q || '')}">`;
+      body = `<input type="text" class="cp-q" placeholder="يحتوي على..." value="${escapeHtml(s.q || '')}">`;
     } else if (d.type === 'range') {
       body = `<div class="cp-range">
                 <input type="number" class="cp-min" placeholder="من" value="${fmtNumIn(s.min)}">
@@ -2435,11 +2597,11 @@
     hideExpiredBtn.classList.toggle('active');
     const on = hideExpiredBtn.classList.contains('active');
     try { localStorage.setItem(HIDE_EXPIRED_KEY, on ? '1' : '0'); } catch {}
-    hideExpiredBtn.textContent = on ? '⏱ نشط' : '⏱ الكل';
+    hideExpiredBtn.textContent = on ? 'نشط' : 'الكل';
     apply();
   });
   // Initial label reflects state
-  hideExpiredBtn.textContent = hideExpiredBtn.classList.contains('active') ? '⏱ نشط' : '⏱ الكل';
+  hideExpiredBtn.textContent = hideExpiredBtn.classList.contains('active') ? 'نشط' : 'الكل';
 
   // CSV export
   document.getElementById('exportCsv').addEventListener('click', () => {
@@ -2496,30 +2658,30 @@
     teamNoUsersPanel.classList.add('d-none');
 
     if (user) {
-      teamLoginLabel.textContent = '✓ ' + user.name;
+      teamLoginLabel.textContent = '' + user.name;
       teamLoginBtn.classList.remove('btn-outline-light');
       teamLoginBtn.classList.add('btn-success');
-      teamModalTitle.textContent = '✓ ' + user.name;
+      teamModalTitle.textContent = '' + user.name;
       teamLoggedInPanel.classList.remove('d-none');
       teamLoggedInPanel.querySelector('p').innerHTML =
-        '✓ مسجَّل دخول كـ <strong>' + user.name + '</strong>. النجوم تُحفظ في القائمة المشتركة.';
+        'مسجَّل دخول كـ <strong>' + user.name + '</strong>. النجوم تُحفظ في القائمة المشتركة.';
       teamLoginSubmit.style.display = 'none';
       teamLogoutBtn.style.display   = '';
     } else if (!hasUsers) {
       // Blob configured but no users yet — show setup hint.
-      teamLoginLabel.textContent = '🔧 إعداد الفريق';
+      teamLoginLabel.textContent = 'إعداد الفريق';
       teamLoginBtn.classList.remove('btn-success');
       teamLoginBtn.classList.add('btn-outline-light');
-      teamModalTitle.textContent = '🔧 إعداد الفريق';
+      teamModalTitle.textContent = 'إعداد الفريق';
       teamNoUsersPanel.classList.remove('d-none');
       teamLoginSubmit.style.display = 'none';   // can't log in without users
       teamLogoutBtn.style.display   = 'none';
     } else {
       // Normal login state
-      teamLoginLabel.textContent = '🔐 دخول الفريق';
+      teamLoginLabel.textContent = 'دخول الفريق';
       teamLoginBtn.classList.remove('btn-success');
       teamLoginBtn.classList.add('btn-outline-light');
-      teamModalTitle.textContent = '🔐 دخول الفريق';
+      teamModalTitle.textContent = 'دخول الفريق';
       teamLoginPanel.classList.remove('d-none');
       teamLoginSubmit.style.display = '';
       teamLogoutBtn.style.display   = 'none';
@@ -2592,7 +2754,7 @@
     teamGenCopy.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(teamGenOut.value);
-        teamGenCopy.textContent = '✓ تم النسخ';
+        teamGenCopy.textContent = 'تم النسخ';
         setTimeout(() => { teamGenCopy.textContent = 'نسخ'; }, 1500);
       } catch {
         teamGenOut.select();
@@ -2736,7 +2898,7 @@
       if (liveCaptchaStreak >= 3) {
         setLiveOn(false);
         const lbl = document.getElementById('liveBtnLabel');
-        if (lbl) lbl.textContent = '⚠ مباشر معطّل (شغّل serve.ps1)';
+        if (lbl) lbl.textContent = 'مباشر معطّل (شغّل serve.ps1)';
       }
       return;
     }
@@ -2758,7 +2920,7 @@
       liveTimer = setInterval(pollLiveBids, LIVE_INTERVAL_MS);
     } else {
       liveBtn.classList.remove('live-on');
-      document.getElementById('liveBtnLabel').textContent = '🔴 مباشر: متوقف';
+      document.getElementById('liveBtnLabel').textContent = 'مباشر: متوقف';
       clearInterval(liveTimer);
       liveTimer = null;
     }

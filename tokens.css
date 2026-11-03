@@ -1,0 +1,62 @@
+:root {
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.75rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.2rem; --text-xl: 1.44rem; --text-2xl: 1.728rem; --text-3xl: 2.074rem;
+  --text-display-s: 1.44rem; --text-display: 1.728rem; --text-section: 1.2rem; --text-title: 1rem; --text-lead: 1rem;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms;
+  --color-error: oklch(52% 0.19 27); --color-success: oklch(50% 0.12 150);
+  --container: 1920px; --gutter: 24px; --gap-columns: 16px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+
+  /* Palette - locked by DESIGN.md ("The Court Record"). Hex is the normative
+     source there, so it stays hex here; restating it in oklch would make two
+     sources of truth for one value. */
+  --color-paper: #FAF8F4;        /* Parchment - the ground, never pure white */
+  --color-paper-2: #FFFFFF;      /* Surface - sits ON the ground; that is what makes a card exist */
+  --color-paper-3: #EEF2F6;      /* Court Navy Soft - selected and hovered rows */
+  --color-ink: #1A1F2E;
+  --color-ink-2: #3D4859;
+  --color-muted: #7B8499;
+  --color-mist: #B8BEC9;
+  --color-rule: #E5DFD3;         /* a warm tan, never a grey */
+
+  --color-accent: #1B3A57;       /* Court Navy - primary action, current selection, state. Nothing else. */
+  --color-accent-deep: #0E2438;
+  --color-accent-ink: #FFFFFF;
+  --color-focus: #1B3A57;
+
+  --color-seal: #C9A961;         /* Treasury Gold - provenance and status only, never a call to action */
+  --color-seal-deep: #A88840;
+  --color-seal-soft: #FBF6E8;
+  --color-urgent: #B73E3E;       /* Hammer Red - deadlines and newness ONLY */
+  --color-urgent-deep: #962E2E;
+  --color-urgent-soft: #FBF2F2;
+  --color-ok: #3D7A6A;
+  --color-ok-soft: #E6F0EC;
+  --color-info: #4A6B85;
+
+  /* Faces - system-local by design (DESIGN.md, "The No Webfont Rule"): Arabic
+     resolves to the platform face and first paint is immediate. */
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Cambria, Georgia, serif;
+  --font-body: "Segoe UI", Tahoma, "Arabic UI Text", system-ui, -apple-system, sans-serif;
+  --font-outlier: var(--font-display);
+
+  --radius-card: 14px;           /* the signature shape */
+  --radius-control: 8px;
+  --radius-chip: 6px;
+  --radius-pill: 999px;
+  --rule-hair: 1px;
+
+  /* Shadows are navy-tinted, never neutral black: black on parchment reads as dirt. */
+  --shadow-card: 0 2px 6px rgba(14, 36, 56, 0.06);
+  --shadow-lift: 0 1px 2px rgba(14, 36, 56, 0.06), 0 12px 28px -12px rgba(14, 36, 56, 0.22);
+  --shadow-float: 0 12px 32px -10px rgba(14, 36, 56, 0.35);
+
+  --tracking-display: -0.01em;
+  --display-weight: 600;
+
+  /* App-screen control sizing: 32-40px with a 44px hit target. */
+  --control-h: 36px;
+  --control-h-sm: 32px;
+  --hit: 44px;
+}
