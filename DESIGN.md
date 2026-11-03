@@ -96,8 +96,9 @@ tension here; the warmth is what makes the density bearable.
 Precision is the other half. Every number is tabular-lined and set in the serif,
 so columns of dinars align down the page and a price can be compared at a glance
 without reading it. The interface is dense on purpose: filters on every column,
-stat tiles that are themselves filters, and as many lots per screen as legibility
-allows. A visitor is here to compare lots and catch a deadline, not to browse.
+a status line whose every figure is also a filter, and as many lots per screen as
+legibility allows. A visitor is here to compare lots and catch a deadline, not to
+browse.
 
 **Key Characteristics:**
 - Parchment ground, never white — warmth is a system invariant
@@ -105,6 +106,23 @@ allows. A visitor is here to compare lots and catch a deadline, not to browse.
 - Gold is a seal, used sparingly; red means a deadline, never decoration
 - Flat at rest, lifting only on hover
 - Arabic RTL first, and the only language
+
+## Where The System Lives
+
+`tokens.css` is the machine-readable source for every colour, face, radius,
+shadow and spacing step in this document, imported first by `dashboard.html`;
+`base.css` carries the rules that are not negotiable (clipped horizontal
+overflow, focus rings, the reduced-motion fallback, tabular numerals). The
+dashboard's older `--color-*` names survive as aliases onto those tokens rather
+than as separate values, so there is one definition per colour.
+
+Hex is normative **here**: where this file and a stylesheet disagree, this file
+is right and the stylesheet is a bug. `tokens.css` restates the palette in hex
+for that reason — translating it into another colour space would create a second
+source of truth for one value.
+
+`index.html` (the landing page) has not been migrated and still declares its own
+`--navy` / `--gold`. Same values, separate declarations. See the last Don't.
 
 ## Colors
 
@@ -197,7 +215,7 @@ and would not improve the Arabic rendering, which is the only language here.
 
 A single-column page over a parchment ground, with content held in white cards
 on a 14px radius. The dashboard is table-led: a sticky-headed data table is the
-primary surface, with a stat-tile row above it and a filter card between.
+primary surface, with the status line above it and a filter card between.
 
 Spacing runs on a small, tight rhythm — 4 / 7 / 11 / 16 / 26px — which is what
 produces the density. Card padding sits at 11px, not the 16–24px a marketing
@@ -224,7 +242,9 @@ black — a black shadow on parchment goes grey and muddy.
 - **Resting** (`0 2px 6px rgba(14,36,56,.06)`): the near-invisible seat under
   cards, tiles and the table. Present so edges are not purely linear.
 - **Lifted** (`0 1px 2px rgba(14,36,56,.06), 0 12px 28px -12px rgba(14,36,56,.22)`):
-  hover on a card or stat tile, paired with `translateY(-2px)`.
+  hover on a card, paired with `translateY(-2px)`. The status line itself does
+  not lift — its controls answer with ground and border, so the card stays put
+  while a chip inside it responds.
 - **Floating** (`0 12px 32px -10px rgba(14,36,56,.35)`): popovers and the column
   filter panel, which are appended to `<body>` to escape the table's overflow
   clipping.
@@ -240,8 +260,9 @@ on `#FAF8F4` reads as dirt, not depth.
 
 Soft but not round. The system has one signature radius — **14px on cards**
 (`--radius-card`) — and a descending scale for smaller elements: 10px on
-popovers, 6px on controls, 4px on the smallest chips, and fully round (999px)
-on pills and the freshness indicator.
+popovers, 8px on controls (`--radius-control`), 6px on chips and skeleton bars
+(`--radius-chip`), 4px on thumbnails, and fully round (`--radius-pill`, 999px)
+on category chips and the freshness indicator.
 
 Borders are 1px in Rule tan on every container. The form language is rectangular
 and calm; nothing is clipped, skewed, or given a decorative silhouette.
@@ -254,13 +275,18 @@ element in the system and appears once per page, in the brand lockup.
 ## Components
 
 ### Buttons
-- **Shape:** Bootstrap's default radius (~6px) — *not* the 14px card token.
-- **Primary:** Court Navy ground, white text, via `--bs-primary` remapping.
+Two populations, and the difference is deliberate rather than accidental.
+
+- **Screen controls (`.qt`)** — the quick toggles on the dashboard. 8px radius
+  (`--radius-control`), `min-height: var(--control-h)` at 36px, Surface ground
+  and a 1px Rule border at rest; Court Navy ground and Surface ink when on.
+  Hover moves the border to Navy, `:active` drops to Parchment,
+  `:focus-visible` is a 2px Navy ring, `:disabled` is 50% with `not-allowed`.
+  Counts inside them are serif. These are ours.
+- **Modal and detail buttons** — still Bootstrap's shape with only the palette
+  remapped through `--bs-*`. Not yet restyled; see Do's and Don'ts.
 - **Status variants:** success (Seal Green), danger (Hammer Red), warning
-  (Treasury Gold), info (Info Slate), all remapped the same way.
-- **Known compromise:** buttons are not styled by this system at all. Bootstrap
-  supplies the shape, padding and states; only the palette is ours. See Do's and
-  Don'ts.
+  (Treasury Gold), info (Info Slate).
 
 ### Chips / Pills
 - **Style:** fully round (999px), Treasury Gold Soft ground, Treasury Gold Deep
@@ -277,10 +303,29 @@ element in the system and appears once per page, in the brand lockup.
   use `!important` and will silently override the radius token to 6px. Do not
   combine them with a card.
 
-### Stat Tiles
-Cards that are also controls: each tile filters the table when clicked. The
-value is set in the numeric serif; the label in small sans. They lift on hover
-like any card, which is the only affordance indicating they are clickable.
+### Status Line
+The dashboard's signature component, and the one place scale does the work.
+Replaced eight tiles of identical weight, which made every figure shout at the
+same volume and left `29 / 1` unexplained. Three ranked zones in one card:
+
+1. **The lead figure** — the filtered total in the display serif at
+   `--text-3xl`, with the full set named beneath it ("معروض الآن · من 5,602").
+   Clearing all filters.
+2. **The deadline pair** — ends-in-24h in Hammer Red, ends-in-a-week in
+   Treasury Gold, at `--text-xl`. The only place those two colours carry a
+   figure, and they carry it because the figure is a clock.
+3. **The categories** — demoted to pill chips: name, active count in the serif,
+   total in muted small. Navy ground when one is the sole selection.
+
+Every zone is a control carrying `data-filter`; the whole row is rebuilt on
+each apply and the page delegates clicks from the container, so the markup can
+change freely without touching a handler.
+
+Below 40rem the zones stack, the deadline pair becomes a
+`minmax(0, 1fr)` grid, and the chip row scrolls horizontally. Each child is
+capped at `max-width: 100%`: in a column flex container the line's cross-size
+comes from the widest item, so an un-wrapping chip row will otherwise stretch
+every sibling past the card and `overflow-x: clip` will hide it silently.
 
 ### Data Table
 The primary surface. Navy header, sticky on scroll, with a small filter chip in
@@ -291,9 +336,13 @@ preserved at every width.
   card needs `z-index: 5` to sit above it.
 
 ### Brand Lockup
-The gold scales mark at 42×42, followed by the wordmark in the display serif
-with a small-caps eyebrow line above it. Appears once, top-right (RTL leading
-edge).
+The gold scales mark, followed by the wordmark in the display serif. Appears
+once, top-right (RTL leading edge).
+
+**The eyebrow is gone.** This file used to prescribe a small-caps line above
+the wordmark. A tracked-capitals label is a tell, it was the only tracked type
+in the system, and it carried no information the wordmark did not. Removed
+2026-11-03; do not reinstate it.
 
 ## Do's and Don'ts
 
@@ -319,11 +368,17 @@ edge).
   utilities with a card — their `!important` silently overrides the radius token.
 - **Don't** set `overflow: hidden` on `.table-responsive`; it breaks horizontal
   scroll on mobile, where the table is read by scrolling across.
-- **Don't** treat the current button styling as the system's intent. Components
-  inherit Bootstrap's shape with only the palette remapped — this is recorded
-  drift, not a decision. New component work should restyle properly, starting
-  with the radius conflict between the 14px card token and Bootstrap's ~6px
-  controls.
-- **Don't** define the same token twice under different names. The landing page
-  calls it `--navy` and the dashboard calls it `--color-primary` for the same
-  `#1B3A57`; converge on one, do not add a third.
+- **Don't** treat Bootstrap's shape as the system's intent where it still shows.
+  The dashboard's own controls (`.qt`, the selects, the status line) are styled
+  from the tokens; the modal and detail buttons are not yet, and inherit
+  Bootstrap's radius with only the palette remapped. That is recorded drift, not
+  a decision — restyle them from `--radius-control` when they are next touched.
+- **Don't** define the same token twice under different names. `tokens.css` is
+  the one place a value is declared; the dashboard's `--color-primary` is an
+  alias onto `--color-accent`, not a second `#1B3A57`. The landing page still
+  declares its own `--navy`, which is the remaining instance and should be
+  migrated, not matched.
+- **Don't** let a child of a column flex container size the line. Its cross-size
+  comes from the widest item, so one `flex-wrap: nowrap` row will stretch every
+  sibling past the parent, and `overflow-x: clip` will then hide the overflow
+  without an error. Cap the children: `max-width: 100%; min-width: 0`.
