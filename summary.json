@@ -1,56 +1,43 @@
 {
-    "generatedAt":  "2026-11-05T21:59:42Z",
-    "dataScrapedAt":  "2026-11-05 21:16:14",
+    "generatedAt":  "2026-11-06T03:02:12Z",
+    "dataScrapedAt":  "2026-11-06 02:55:37",
     "totals":  {
-                   "all":  5838,
-                   "active":  692
+                   "all":  5841,
+                   "active":  698
                },
-    "endingIn24h":  2,
-    "endingInWeek":  303,
-    "reAnnounced":  427,
-    "withReport":  234,
+    "endingIn24h":  1,
+    "endingInWeek":  307,
+    "reAnnounced":  432,
+    "withReport":  235,
     "withMap":  215,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
-                           "active":  1,
+                           "active":  3,
                            "total":  29
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  414,
-                           "total":  2170
+                           "active":  416,
+                           "total":  2171
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  209,
+                           "active":  210,
                            "total":  1267
                        },
                        {
                            "name":  "أُخرى",
                            "active":  16,
-                           "total":  350
+                           "total":  351
                        },
                        {
                            "name":  "مركبة",
-                           "active":  52,
-                           "total":  2022
+                           "active":  53,
+                           "total":  2023
                        }
                    ],
     "closingSoon":  [
-                        {
-                            "id":  54742,
-                            "category":  "أُخرى",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-11-05 23:00:00",
-                            "estimatedValue":  220,
-                            "currentAmount":  120,
-                            "numBids":  1,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
                         {
                             "id":  52417,
                             "category":  "شقة/ مكتب",
@@ -65,19 +52,6 @@
                             "hasMap":  true
                         },
                         {
-                            "id":  49498,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ البادية الشمالية",
-                            "place":  "رحبة راكاد · اراضي البادية الشمالية",
-                            "endDate":  "2026-11-07 15:00:00",
-                            "estimatedValue":  48678,
-                            "currentAmount":  24500,
-                            "numBids":  1,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
                             "id":  49501,
                             "category":  "أرض/ مجمع",
                             "court":  "تنفيذ البادية الشمالية",
@@ -87,6 +61,19 @@
                             "currentAmount":  7500,
                             "numBids":  1,
                             "serial":  3,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  49498,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ البادية الشمالية",
+                            "place":  "رحبة راكاد · اراضي البادية الشمالية",
+                            "endDate":  "2026-11-07 15:00:00",
+                            "estimatedValue":  48678,
+                            "currentAmount":  24500,
+                            "numBids":  1,
+                            "serial":  1,
                             "hasReport":  false,
                             "hasMap":  false
                         },
@@ -110,6 +97,19 @@
                             "place":  "الدير · اراضي ذيبان",
                             "endDate":  "2026-11-07 15:00:00",
                             "estimatedValue":  5000,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54919,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-11-08 14:00:00",
+                            "estimatedValue":  16500,
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  1,
