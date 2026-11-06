@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-11-06T03:02:12Z",
-    "dataScrapedAt":  "2026-11-06 02:55:37",
+    "generatedAt":  "2026-11-06T20:53:45Z",
+    "dataScrapedAt":  "2026-11-06 20:52:59",
     "totals":  {
                    "all":  5841,
-                   "active":  698
+                   "active":  697
                },
-    "endingIn24h":  1,
-    "endingInWeek":  307,
-    "reAnnounced":  432,
-    "withReport":  235,
-    "withMap":  215,
+    "endingIn24h":  4,
+    "endingInWeek":  308,
+    "reAnnounced":  431,
+    "withReport":  234,
+    "withMap":  214,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -23,7 +23,7 @@
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  210,
+                           "active":  209,
                            "total":  1267
                        },
                        {
@@ -38,19 +38,6 @@
                        }
                    ],
     "closingSoon":  [
-                        {
-                            "id":  52417,
-                            "category":  "شقة/ مكتب",
-                            "court":  "تنفيذ عمان / قسم غرب عمان",
-                            "place":  "وادي السير · اراضي غرب عمان",
-                            "endDate":  "2026-11-06 15:00:00",
-                            "estimatedValue":  506250,
-                            "currentAmount":  379688,
-                            "numBids":  1,
-                            "serial":  4,
-                            "hasReport":  true,
-                            "hasMap":  true
-                        },
                         {
                             "id":  49501,
                             "category":  "أرض/ مجمع",
@@ -110,6 +97,19 @@
                             "place":  "",
                             "endDate":  "2026-11-08 14:00:00",
                             "estimatedValue":  16500,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54736,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-11-08 14:00:00",
+                            "estimatedValue":  1700,
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  1,
