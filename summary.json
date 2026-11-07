@@ -1,13 +1,13 @@
 {
-    "generatedAt":  "2026-11-07T02:04:44Z",
-    "dataScrapedAt":  "2026-11-07 02:03:58",
+    "generatedAt":  "2026-11-07T20:24:14Z",
+    "dataScrapedAt":  "2026-11-07 20:17:29",
     "totals":  {
-                   "all":  5842,
-                   "active":  698
+                   "all":  5849,
+                   "active":  701
                },
-    "endingIn24h":  4,
-    "endingInWeek":  309,
-    "reAnnounced":  431,
+    "endingIn24h":  112,
+    "endingInWeek":  318,
+    "reAnnounced":  432,
     "withReport":  234,
     "withMap":  214,
     "categories":  [
@@ -18,7 +18,7 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  416,
+                           "active":  412,
                            "total":  2171
                        },
                        {
@@ -33,72 +33,33 @@
                        },
                        {
                            "name":  "مركبة",
-                           "active":  54,
-                           "total":  2024
+                           "active":  61,
+                           "total":  2031
                        }
                    ],
     "closingSoon":  [
                         {
-                            "id":  49498,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ البادية الشمالية",
-                            "place":  "رحبة راكاد · اراضي البادية الشمالية",
-                            "endDate":  "2026-11-07 15:00:00",
-                            "estimatedValue":  48678,
-                            "currentAmount":  24500,
-                            "numBids":  1,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  41126,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ البادية الشمالية",
-                            "place":  "رحبة راكاد · اراضي البادية الشمالية",
-                            "endDate":  "2026-11-07 15:00:00",
-                            "estimatedValue":  26495,
-                            "currentAmount":  15200,
-                            "numBids":  2,
-                            "serial":  2,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  49501,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ البادية الشمالية",
-                            "place":  "رحبة راكاد · اراضي البادية الشمالية",
-                            "endDate":  "2026-11-07 15:00:00",
-                            "estimatedValue":  14771,
-                            "currentAmount":  7500,
-                            "numBids":  1,
-                            "serial":  3,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  54457,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ ذيبان",
-                            "place":  "الدير · اراضي ذيبان",
-                            "endDate":  "2026-11-07 15:00:00",
-                            "estimatedValue":  5000,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  54785,
-                            "category":  "أُخرى",
+                            "id":  54919,
+                            "category":  "مركبة",
                             "court":  "تنفيذ عمان / قسم شمال عمان",
                             "place":  "",
                             "endDate":  "2026-11-08 14:00:00",
-                            "estimatedValue":  844,
-                            "currentAmount":  0,
-                            "numBids":  0,
+                            "estimatedValue":  16500,
+                            "currentAmount":  12050,
+                            "numBids":  4,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54911,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-11-08 14:00:00",
+                            "estimatedValue":  5600,
+                            "currentAmount":  4100,
+                            "numBids":  31,
                             "serial":  1,
                             "hasReport":  false,
                             "hasMap":  false
@@ -110,9 +71,48 @@
                             "place":  "",
                             "endDate":  "2026-11-08 14:00:00",
                             "estimatedValue":  1700,
+                            "currentAmount":  860,
+                            "numBids":  1,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54785,
+                            "category":  "أُخرى",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-11-08 14:00:00",
+                            "estimatedValue":  844,
+                            "currentAmount":  422,
+                            "numBids":  1,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  53714,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-11-08 14:00:00",
+                            "estimatedValue":  1300,
                             "currentAmount":  0,
                             "numBids":  0,
-                            "serial":  1,
+                            "serial":  2,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  54218,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-11-08 14:05:00",
+                            "estimatedValue":  5500,
+                            "currentAmount":  2975,
+                            "numBids":  12,
+                            "serial":  2,
                             "hasReport":  false,
                             "hasMap":  false
                         }
