@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-11-08T19:29:24Z",
-    "dataScrapedAt":  "2026-11-08 19:16:59",
+    "generatedAt":  "2026-11-09T02:45:21Z",
+    "dataScrapedAt":  "2026-11-09 02:45:16",
     "totals":  {
                    "all":  5852,
                    "active":  596
                },
-    "endingIn24h":  24,
-    "endingInWeek":  250,
-    "reAnnounced":  360,
-    "withReport":  184,
-    "withMap":  172,
+    "endingIn24h":  21,
+    "endingInWeek":  249,
+    "reAnnounced":  362,
+    "withReport":  185,
+    "withMap":  174,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -18,12 +18,12 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  341,
+                           "active":  342,
                            "total":  2171
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  179,
+                           "active":  181,
                            "total":  1267
                        },
                        {
@@ -33,50 +33,11 @@
                        },
                        {
                            "name":  "مركبة",
-                           "active":  54,
+                           "active":  51,
                            "total":  2031
                        }
                    ],
     "closingSoon":  [
-                        {
-                            "id":  54899,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-11-08 21:00:00",
-                            "estimatedValue":  170,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  54835,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-11-08 22:00:00",
-                            "estimatedValue":  300,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  54587,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ اربد",
-                            "place":  "",
-                            "endDate":  "2026-11-08 23:00:00",
-                            "estimatedValue":  1600,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  2,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
                         {
                             "id":  54860,
                             "category":  "مركبة",
@@ -115,6 +76,45 @@
                             "serial":  1,
                             "hasReport":  false,
                             "hasMap":  false
+                        },
+                        {
+                            "id":  53963,
+                            "category":  "شقة/ مكتب",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "ياجوز · اراضي شمال عمان",
+                            "endDate":  "2026-11-09 15:00:00",
+                            "estimatedValue":  57000,
+                            "currentAmount":  38500,
+                            "numBids":  1,
+                            "serial":  2,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  51708,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ السلط",
+                            "place":  "جلعد · اراضي السلط",
+                            "endDate":  "2026-11-09 15:00:00",
+                            "estimatedValue":  159584,
+                            "currentAmount":  88322,
+                            "numBids":  3,
+                            "serial":  6,
+                            "hasReport":  true,
+                            "hasMap":  true
+                        },
+                        {
+                            "id":  24553,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ دير علا",
+                            "place":  "الطوال · اراضي دير علا",
+                            "endDate":  "2026-11-09 15:00:00",
+                            "estimatedValue":  11088,
+                            "currentAmount":  5544,
+                            "numBids":  1,
+                            "serial":  3,
+                            "hasReport":  true,
+                            "hasMap":  true
                         }
                     ],
     "bargains":  [
