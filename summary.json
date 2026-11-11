@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-11-10T21:19:40Z",
-    "dataScrapedAt":  "2026-11-10 21:08:59",
+    "generatedAt":  "2026-11-11T03:02:10Z",
+    "dataScrapedAt":  "2026-11-11 03:02:05",
     "totals":  {
-                   "all":  5881,
-                   "active":  205
+                   "all":  5883,
+                   "active":  263
                },
-    "endingIn24h":  79,
-    "endingInWeek":  183,
-    "reAnnounced":  120,
-    "withReport":  66,
-    "withMap":  60,
+    "endingIn24h":  78,
+    "endingInWeek":  214,
+    "reAnnounced":  171,
+    "withReport":  86,
+    "withMap":  78,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -18,18 +18,18 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  89,
+                           "active":  95,
                            "total":  2172
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  50,
+                           "active":  100,
                            "total":  1267
                        },
                        {
                            "name":  "أُخرى",
-                           "active":  19,
-                           "total":  354
+                           "active":  21,
+                           "total":  356
                        },
                        {
                            "name":  "مركبة",
