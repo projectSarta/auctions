@@ -1,0 +1,57 @@
+# robots.txt — لوحة المزادات
+#
+# IMPORTANT: this file is only honoured when served from the ORIGIN ROOT.
+# The site currently publishes to https://projectsarta.github.io/auctions/,
+# so this file serves at /auctions/robots.txt, which no crawler reads.
+# It takes effect when either:
+#   1. a custom domain is attached (CNAME in this repo), or
+#   2. a projectsarta.github.io repo is created to serve /robots.txt.
+# Until then the <meta name="robots"> tags in index.html and dashboard.html
+# are what actually applies. Keep the two in agreement.
+#
+# Stance: findable by people searching, not fodder for model training.
+# A reversible default, not a settled policy — PRODUCT.md records the access
+# model as undecided. Revisit when that decision is made.
+#
+# Structure note: a named User-agent group REPLACES the * group for that bot
+# rather than adding to it. So everything that should simply be allowed stays
+# unnamed and inherits * below; only the training opt-outs get their own group.
+
+# --- Everyone not named below --------------------------------------------
+# Covers search discovery (OAI-SearchBot, PerplexityBot, Claude-SearchBot,
+# Googlebot, Bingbot) and user-triggered retrieval (ChatGPT-User, Claude-User,
+# Perplexity-User). A person asked for the page; let them have it.
+User-agent: *
+Allow: /
+# Scratch and probe pages from development. Not part of the product.
+Disallow: /probe1.html
+Disallow: /probe2.html
+Disallow: /probe_idx.html
+Disallow: /probe_list.html
+Disallow: /probe_report.html
+Disallow: /test_detail.html
+Disallow: /test_listing.html
+Disallow: /sample_block.html
+Disallow: /info_sample.html
+Disallow: /index_clean.html
+
+# --- Model-training crawlers: disallowed ----------------------------------
+# This site re-presents a public government listing it does not own. Being
+# discoverable serves the people looking for an auction; being absorbed into
+# training data serves nobody here, and the underlying record belongs to MoJ.
+# Google-Extended controls Gemini training and grounding only — it does not
+# affect Google Search inclusion or ranking.
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: CCBot
+Disallow: /

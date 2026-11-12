@@ -3,8 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>لوحة المزادات — وزارة العدل الأردنية</title>
+<title>لوحة المزادات — متابعة غير رسمية لمزادات وزارة العدل الأردنية</title>
 <meta name="description" content="متابعة المزادات القضائية الإلكترونية في الأردن: المزادات النشطة، ما يغلق خلال 24 ساعة، والفرص المُعاد إعلانها.">
+<link rel="canonical" href="https://projectsarta.github.io/auctions/">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <style>
 :root {
   /* Palette — shared with dashboard.html */
@@ -263,6 +265,41 @@ footer a { color: var(--navy); font-weight: 600; }
   .cta-row .btn { width: 100%; justify-content: center; }
 }
 </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://projectsarta.github.io/auctions/#publisher",
+        "name": "لوحة المزادات",
+        "url": "https://projectsarta.github.io/auctions/",
+        "description": "مشروع مستقل يعيد عرض بيانات المزادات القضائية المنشورة علناً على موقع وزارة العدل الأردنية، ويحتفظ بأرشيف لا يوفّره المصدر.",
+        "disambiguatingDescription": "جهة مستقلة غير تابعة لوزارة العدل الأردنية ولا تمثّلها. المصدر الرسمي الوحيد للمزادات هو auctions.moj.gov.jo."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://projectsarta.github.io/auctions/#website",
+        "url": "https://projectsarta.github.io/auctions/",
+        "name": "لوحة المزادات",
+        "inLanguage": "ar-JO",
+        "publisher": { "@id": "https://projectsarta.github.io/auctions/#publisher" },
+        "isBasedOn": "https://auctions.moj.gov.jo/index.aspx",
+        "isAccessibleForFree": true
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://projectsarta.github.io/auctions/#webpage",
+        "url": "https://projectsarta.github.io/auctions/",
+        "name": "لوحة المزادات — متابعة غير رسمية لمزادات وزارة العدل الأردنية",
+        "description": "متابعة غير رسمية للمزادات القضائية في الأردن: المزادات النشطة، ما يغلق خلال 24 ساعة، والفرص المُعاد إعلانها.",
+        "inLanguage": "ar-JO",
+        "isPartOf": { "@id": "https://projectsarta.github.io/auctions/#website" },
+        "publisher": { "@id": "https://projectsarta.github.io/auctions/#publisher" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -306,25 +343,25 @@ footer a { color: var(--navy); font-weight: 600; }
   <div class="stats anim d3">
     <a class="stat" href="dashboard.html">
       <div class="label">معروض الآن</div>
-      <div class="value" id="sActive">—</div>
-      <div class="sub" id="sActiveSub">من إجمالي المؤرشف</div>
+      <div class="value" id="sActive">232</div>
+      <div class="sub" id="sActiveSub">من 5,892 مزاد مؤرشف</div>
       <div class="arrow">عرض الكل ←</div>
     </a>
     <a class="stat" href="dashboard.html#view=ending24">
       <div class="label">تنتهي خلال 24 ساعة</div>
-      <div class="value is-red" id="s24">—</div>
+      <div class="value is-red" id="s24">38</div>
       <div class="sub">آخر فرصة للمزايدة</div>
       <div class="arrow">تصفية ←</div>
     </a>
     <a class="stat" href="dashboard.html#view=week">
       <div class="label">تنتهي خلال أسبوع</div>
-      <div class="value" id="sWeek">—</div>
+      <div class="value" id="sWeek">210</div>
       <div class="sub">للتخطيط المسبق</div>
       <div class="arrow">تصفية ←</div>
     </a>
     <div class="stat">
       <div class="label">أُعيد إعلانها</div>
-      <div class="value is-gold" id="sReann">—</div>
+      <div class="value is-gold" id="sReann">161</div>
       <div class="sub">لم تُبَع في جولة سابقة</div>
     </div>
   </div>
@@ -355,11 +392,11 @@ footer a { color: var(--navy); font-weight: 600; }
     <div class="cover">
       <div class="cov">
         <div class="ic">📄</div>
-        <div><div class="n" id="cReport">—</div><div class="l">قطعة مع تقرير خبرة محفوظ</div></div>
+        <div><div class="n" id="cReport">86</div><div class="l">قطعة مع تقرير خبرة محفوظ</div></div>
       </div>
       <div class="cov">
         <div class="ic">🗺️</div>
-        <div><div class="n" id="cMap">—</div><div class="l">قطعة بحدود دقيقة على الخريطة</div></div>
+        <div><div class="n" id="cMap">82</div><div class="l">قطعة بحدود دقيقة على الخريطة</div></div>
       </div>
       <div class="cov">
         <div class="ic">🔔</div>

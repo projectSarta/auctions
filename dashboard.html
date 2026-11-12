@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="لوحة لتصفح المزادات العلنية المعلنة من وزارة العدل الأردنية: بحث وفرز حسب الفئة والمحافظة والقيمة وموعد الانتهاء.">
-  <title>لوحة المزادات - وزارة العدل الأردنية</title>
+<meta name="description" content="متابعة غير رسمية للمزادات العلنية المنشورة على موقع وزارة العدل الأردنية: بحث وفرز حسب الفئة والمحافظة والقيمة وموعد الانتهاء. المصدر الرسمي: auctions.moj.gov.jo — هذه اللوحة غير تابعة للوزارة.">
+  <title>لوحة المزادات — متابعة غير رسمية لمزادات وزارة العدل الأردنية</title>
+  <link rel="canonical" href="https://projectsarta.github.io/auctions/dashboard.html">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
 <style>
 /* Hallmark · shape: app screen · genre: modern-minimal · theme: brand · redesign: full
@@ -81,8 +83,12 @@
     opacity: .65;
   }
   .navbar > .container-fluid { position: relative; z-index: 1; }
-  .navbar-brand { display: flex; align-items: center; gap: var(--space-sm); padding: 0; margin: 0; }
+  /* The seal sits beside a two-line stack: the wordmark, then the
+     non-affiliation line. flex-wrap plus a full-basis .bsub puts the
+     second line under the title instead of alongside it. */
+  .navbar-brand { display: flex; flex-wrap: wrap; align-items: center; column-gap: var(--space-sm); row-gap: 0; padding: 0; margin: 0; }
   .navbar-brand .seal { width: 34px; height: 34px; flex: none; }
+  .navbar-brand .bsub { flex: 0 0 100%; font-size: var(--text-xs); color: var(--color-accent-ink); opacity: .72; line-height: 1.3; margin-top: var(--space-3xs); padding-inline-start: calc(34px + var(--space-sm)); }
   .navbar-brand .btitle { display: block; font-family: var(--serif); font-size: var(--text-lg); font-weight: 600; color: var(--color-accent-ink); line-height: 1.2; }
   /* Gold CTA, matching the landing page's primary button. */
   #refreshBtn { background: var(--color-gold); border-color: var(--color-gold-deep); color: var(--color-primary-deep); font-weight: 600; }
@@ -435,6 +441,41 @@
   .qt.is-on .num, .qt.active .num { color: var(--color-accent-ink); }
   .qt:disabled { opacity: .5; cursor: not-allowed; }
 </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://projectsarta.github.io/auctions/#publisher",
+        "name": "لوحة المزادات",
+        "url": "https://projectsarta.github.io/auctions/",
+        "description": "مشروع مستقل يعيد عرض بيانات المزادات القضائية المنشورة علناً على موقع وزارة العدل الأردنية، ويحتفظ بأرشيف لا يوفّره المصدر.",
+        "disambiguatingDescription": "جهة مستقلة غير تابعة لوزارة العدل الأردنية ولا تمثّلها. المصدر الرسمي الوحيد للمزادات هو auctions.moj.gov.jo."
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://projectsarta.github.io/auctions/#website",
+        "url": "https://projectsarta.github.io/auctions/",
+        "name": "لوحة المزادات",
+        "inLanguage": "ar-JO",
+        "publisher": { "@id": "https://projectsarta.github.io/auctions/#publisher" },
+        "isBasedOn": "https://auctions.moj.gov.jo/index.aspx",
+        "isAccessibleForFree": true
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://projectsarta.github.io/auctions/dashboard.html#webpage",
+        "url": "https://projectsarta.github.io/auctions/dashboard.html",
+        "name": "لوحة المزادات — متابعة غير رسمية لمزادات وزارة العدل الأردنية",
+        "description": "متابعة غير رسمية للمزادات العلنية المنشورة على موقع وزارة العدل الأردنية، مع بحث وفرز وأرشيف للمزادات المنتهية.",
+        "inLanguage": "ar-JO",
+        "isPartOf": { "@id": "https://projectsarta.github.io/auctions/#website" },
+        "publisher": { "@id": "https://projectsarta.github.io/auctions/#publisher" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -452,6 +493,7 @@
         <circle cx="24" cy="17" r="2" fill="#C9A961"/>
       </svg>
       <span class="btitle">لوحة المزادات</span>
+      <span class="bsub">متابعة غير رسمية · غير تابعة لوزارة العدل الأردنية</span>
     </a>
     <div class="d-flex align-items-center gap-3">
       <span class="text-light small" id="metaInfo"></span>

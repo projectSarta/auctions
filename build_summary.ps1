@@ -146,3 +146,58 @@ $size = [math]::Round((Get-Item $OutPath).Length / 1KB, 1)
 Write-Host ("summary.json written ({0} KB)" -f $size) -ForegroundColor Green
 Write-Host ("  total={0} active={1} in24h={2} inWeek={3} reAnnounced={4} report={5} map={6}" -f `
   $doc.totals.all, $doc.totals.active, $doc.endingIn24h, $doc.endingInWeek, $doc.reAnnounced, $doc.withReport, $doc.withMap)
+
+# ---------------------------------------------------------------------------
+# Bake the headline figures into index.html.
+#
+# The landing page fills these from summary.json at runtime, so a reader that
+# does not execute JavaScript sees a literal em dash for every number the
+# project exists to publish -- search crawlers and AI assistants among them.
+# The page's own JS still overwrites these on load, so the client stays
+# authoritative and nothing here can go stale between runs; this only gives a
+# non-rendering reader something true to extract.
+#
+# Idempotent by construction: each element's inner text is replaced whatever it
+# currently holds, so re-running works on an already-baked file.
+# ---------------------------------------------------------------------------
+$IndexPath = Join-Path $Root 'index.html'
+# Never bake a zero. MoJ lists ~2,300 lots at any time, so active=0 means the
+# dataset has aged past the 7-day lastSeenInListing window, not that there are
+# no auctions. Writing that into the page would publish a false claim and leave
+# it there until the next successful scrape; the em-dash placeholder is honest
+# about not knowing, and the page's JS still fills in live values on load.
+if ($doc.totals.active -le 0) {
+  Write-Host "  skipped baking index.html: active=0, so the data is stale rather than empty" -ForegroundColor Yellow
+} elseif (Test-Path $IndexPath) {
+  $html  = Get-Content $IndexPath -Raw -Encoding UTF8
+  $nf    = { param($n) '{0:N0}' -f [int]$n }
+  $bakes = [ordered]@{
+    'sActive'    = (& $nf $doc.totals.active)
+    'sActiveSub' = ('من ' + (& $nf $doc.totals.all) + ' مزاد مؤرشف')
+    's24'        = (& $nf $doc.endingIn24h)
+    'sWeek'      = (& $nf $doc.endingInWeek)
+    'sReann'     = (& $nf $doc.reAnnounced)
+    'cReport'    = (& $nf $doc.withReport)
+    'cMap'       = (& $nf $doc.withMap)
+  }
+
+  $hit  = 0
+  $miss = @()
+  foreach ($id in $bakes.Keys) {
+    $pattern = '(<[^>]*\sid="' + [regex]::Escape($id) + '"[^>]*>)[^<]*(</)'
+    if ([regex]::IsMatch($html, $pattern)) {
+      $hit++
+      $value = $bakes[$id] -replace '\$', '$$$$'
+      $html  = [regex]::Replace($html, $pattern, ('${1}' + $value + '${2}'))
+    } else {
+      $miss += $id
+    }
+  }
+
+  [System.IO.File]::WriteAllText($IndexPath, $html, [System.Text.UTF8Encoding]::new($false))
+  Write-Host ("  baked {0}/{1} figures into index.html" -f $hit, $bakes.Count) -ForegroundColor Green
+  # A miss means the markup changed and the landing page is now serving a
+  # placeholder again. Say so rather than failing silently.
+  if ($miss.Count) { Write-Host ("  WARNING: id(s) not found in index.html: {0}" -f ($miss -join ', ')) -ForegroundColor Yellow }
+}
+
