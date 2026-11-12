@@ -344,6 +344,20 @@ the wordmark. A tracked-capitals label is a tell, it was the only tracked type
 in the system, and it carried no information the wordmark did not. Removed
 2026-11-03; do not reinstate it.
 
+The landing page kept its own version of it until 2026-11-12: a gold line at
+`letter-spacing: .18em` reading "وزارة العدل · المزادات الإلكترونية", above the
+headline. It was tracked type, it was a middle-dot meta string, and it put the
+Ministry's name where a masthead goes on a site the Ministry does not publish.
+Both pages now carry the same lockup — the wordmark in the display serif, then
+one plain untracked line naming the source:
+
+> لوحة المزادات
+> متابعة غير رسمية لمزادات وزارة العدل الأردنية
+
+**The Ministry is named as the source, never as the publisher.** That holds in
+the title, the lockup, the meta description and the JSON-LD (`isBasedOn`, not
+`publisher`). It is an accuracy rule before it is a design one.
+
 ## Do's and Don'ts
 
 ### Do:
