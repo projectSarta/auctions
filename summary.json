@@ -1,9 +1,9 @@
 {
-    "generatedAt":  "2026-11-12T21:49:57Z",
-    "dataScrapedAt":  "2026-11-12 21:49:11",
+    "generatedAt":  "2026-11-13T03:45:46Z",
+    "dataScrapedAt":  "2026-11-13 03:45:41",
     "totals":  {
-                   "all":  5899,
-                   "active":  205
+                   "all":  5900,
+                   "active":  206
                },
     "endingIn24h":  2,
     "endingInWeek":  192,
@@ -28,8 +28,8 @@
                        },
                        {
                            "name":  "أُخرى",
-                           "active":  17,
-                           "total":  357
+                           "active":  18,
+                           "total":  358
                        },
                        {
                            "name":  "مركبة",
