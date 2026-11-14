@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-11-13T21:29:18Z",
-    "dataScrapedAt":  "2026-11-13 21:20:07",
+    "generatedAt":  "2026-11-14T02:51:41Z",
+    "dataScrapedAt":  "2026-11-14 02:44:20",
     "totals":  {
-                   "all":  5916,
-                   "active":  231
+                   "all":  5918,
+                   "active":  234
                },
     "endingIn24h":  6,
-    "endingInWeek":  218,
-    "reAnnounced":  143,
+    "endingInWeek":  219,
+    "reAnnounced":  144,
     "withReport":  77,
-    "withMap":  69,
+    "withMap":  70,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -23,13 +23,13 @@
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  80,
+                           "active":  81,
                            "total":  1267
                        },
                        {
                            "name":  "أُخرى",
-                           "active":  18,
-                           "total":  358
+                           "active":  20,
+                           "total":  360
                        },
                        {
                            "name":  "مركبة",
@@ -39,26 +39,13 @@
                    ],
     "closingSoon":  [
                         {
-                            "id":  45152,
+                            "id":  53187,
                             "category":  "شقة/ مكتب",
                             "court":  "تنفيذ معان",
                             "place":  "معان · اراضي معان",
                             "endDate":  "2026-11-14 15:00:00",
-                            "estimatedValue":  101068,
-                            "currentAmount":  52000,
-                            "numBids":  1,
-                            "serial":  4,
-                            "hasReport":  true,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  51025,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ بني كنانة",
-                            "place":  "كفرسوم · اراضي بني كنانة",
-                            "endDate":  "2026-11-14 15:00:00",
-                            "estimatedValue":  47330,
-                            "currentAmount":  23665,
+                            "estimatedValue":  174203,
+                            "currentAmount":  87200,
                             "numBids":  1,
                             "serial":  3,
                             "hasReport":  true,
@@ -76,19 +63,6 @@
                             "serial":  2,
                             "hasReport":  true,
                             "hasMap":  true
-                        },
-                        {
-                            "id":  53187,
-                            "category":  "شقة/ مكتب",
-                            "court":  "تنفيذ معان",
-                            "place":  "معان · اراضي معان",
-                            "endDate":  "2026-11-14 15:00:00",
-                            "estimatedValue":  174203,
-                            "currentAmount":  87200,
-                            "numBids":  1,
-                            "serial":  3,
-                            "hasReport":  true,
-                            "hasMap":  false
                         },
                         {
                             "id":  51690,
@@ -114,6 +88,32 @@
                             "numBids":  2,
                             "serial":  2,
                             "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  51025,
+                            "category":  "أرض/ مجمع",
+                            "court":  "تنفيذ بني كنانة",
+                            "place":  "كفرسوم · اراضي بني كنانة",
+                            "endDate":  "2026-11-14 15:00:00",
+                            "estimatedValue":  47330,
+                            "currentAmount":  23665,
+                            "numBids":  1,
+                            "serial":  3,
+                            "hasReport":  true,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  45152,
+                            "category":  "شقة/ مكتب",
+                            "court":  "تنفيذ معان",
+                            "place":  "معان · اراضي معان",
+                            "endDate":  "2026-11-14 15:00:00",
+                            "estimatedValue":  101068,
+                            "currentAmount":  52000,
+                            "numBids":  1,
+                            "serial":  4,
+                            "hasReport":  true,
                             "hasMap":  false
                         }
                     ],
