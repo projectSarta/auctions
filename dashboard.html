@@ -500,9 +500,6 @@
       <button class="btn btn-sm btn-outline-light" id="liveBtn" type="button" title="تحديث المزاودات تلقائياً كل 25 ثانية">
         <svg class="ic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="4" fill="currentColor"/></svg><span id="liveBtnLabel">مباشر: متوقف</span>
       </button>
-      <button class="btn btn-sm btn-outline-light" id="teamLoginBtn" type="button" title="دخول الفريق (لمشاركة قائمة المفضلات)" style="display:none">
-        <svg class="ic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 7V5a3.5 3.5 0 0 1 7 0v2" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="3" y="7" width="10" height="7" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span id="teamLoginLabel">دخول الفريق</span>
-      </button>
       <button class="btn btn-sm btn-light" id="refreshBtn" title="إعادة جلب البيانات من الموقع">
         <span class="spinner ms-1"></span>
         <svg class="ic" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M13.5 8a5.5 5.5 0 1 1-1.6-3.9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M13.5 2v3h-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="btn-label">تحديث البيانات</span>
@@ -655,54 +652,6 @@
 
 </div>
 
-<!-- Team login modal: shared-favorites password gate (Option C, multi-user) -->
-<div class="modal fade" id="teamLoginModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header bg-dark text-white">
-        <h6 class="modal-title mb-0" id="teamModalTitle">دخول الفريق</h6>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body">
-        <div id="teamLoginPanel">
-          <p class="text-muted small mb-2">أدخل كلمة السر الخاصة بك للوصول إلى قائمة المفضلات المشتركة. بعد الدخول، أي نجمة تختارها ستُرسل إلى القائمة فورًا.</p>
-          <input type="password" class="form-control form-control-sm" id="teamPwdInput" placeholder="كلمة السر">
-          <div class="form-text text-danger small d-none" id="teamLoginErr">كلمة سر غير صحيحة.</div>
-        </div>
-        <div id="teamLoggedInPanel" class="d-none">
-          <p class="text-success small mb-0"></p>
-        </div>
-        <div id="teamNoUsersPanel" class="d-none">
-          <div class="alert alert-warning small mb-2 py-2">
-            لم تتم تهيئة أي مستخدم بعد. استخدم الأداة أدناه لإضافة مستخدم، ثم انسخ السطر إلى ملف <code>dashboard.html</code> داخل <code>TEAM_USERS = [ … ]</code> وارفع التحديث.
-          </div>
-        </div>
-
-        <!-- Inline hash generator -->
-        <details class="mt-3" id="teamSetupHelper">
-          <summary class="small text-primary" style="cursor:pointer">إنشاء تهيئة لمستخدم جديد</summary>
-          <div class="border rounded p-2 mt-2 small">
-            <div class="row g-2">
-              <div class="col-5"><input class="form-control form-control-sm" id="teamGenName" placeholder="الاسم (مثال: أحمد)"></div>
-              <div class="col-5"><input class="form-control form-control-sm" id="teamGenPwd" type="text" placeholder="كلمة السر للمستخدم"></div>
-              <div class="col-2"><button class="btn btn-sm btn-outline-primary w-100" type="button" id="teamGenBtn">أنشئ</button></div>
-            </div>
-            <div class="mt-2 d-none" id="teamGenOutWrap">
-              <label class="form-label small mb-1 mt-1">انسخ هذا السطر وأضفه إلى <code>TEAM_USERS</code> في <code>dashboard.html</code>:</label>
-              <textarea class="form-control form-control-sm font-monospace" id="teamGenOut" rows="2" readonly style="direction:ltr"></textarea>
-              <button class="btn btn-sm btn-link p-0 mt-1" id="teamGenCopy">نسخ</button>
-            </div>
-          </div>
-        </details>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary btn-sm" id="teamLogoutBtn" data-bs-dismiss="modal" style="display:none">خروج</button>
-        <button class="btn btn-primary btn-sm" id="teamLoginSubmit">دخول</button>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- Detail modal -->
 <div class="modal fade" id="detailModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-scrollable">
@@ -757,120 +706,15 @@
     return;
   }
 
-  // ===== Team-shared favorites (Option C with named logins) =====
-  //
-  // 4–5 named users, each with their own password. All logged-in users
-  // share the same favorites list — it lives in one jsonblob.com blob.
-  // The navbar shows who's currently signed in.
-  //
-  // ────────────────────── SETUP (one-time, ~5 minutes) ─────────────────────────
-  // 1) Create the shared JSON blob (no signup; jsonblob.com is free):
-  //
-  //      curl.exe -X POST -H "Content-Type: application/json" `
-  //           -d '{"favorites":[]}' `
-  //           https://jsonblob.com/api/jsonBlob -i
-  //
-  //    Look at the response's `Location` header — it'll be like
-  //    https://jsonblob.com/api/jsonBlob/1234567890123456789
-  //    Paste into TEAM_BLOB_URL below.
-  //
-  // 2) For each user, generate a SHA-256 hash of their password. Easiest way:
-  //    open this page in a browser, hit F12 → Console, paste:
-  //
-  //      (async p => [...new Uint8Array(await crypto.subtle.digest('SHA-256',
-  //        new TextEncoder().encode(p)))].map(b=>b.toString(16).padStart(2,'0'))
-  //        .join(''))('the_password_for_this_user')
-  //
-  //    Copy the 64-char hex string into the user's `passwordSha256` field.
-  //    Passwords must be unique across users (we identify a user by their hash).
-  //
-  // 3) Reload. The "دخول الفريق" button appears. Each user types their own
-  //    password — the dashboard figures out which name to display.
-  //
-  // Leave TEAM_USERS empty (or TEAM_BLOB_URL empty) to disable the feature
-  // entirely (favorites stay local-only — today's default behavior).
-  // ─────────────────────────────────────────────────────────────────────────────
-  const TEAM_USERS = [
-    // Up to 5 entries. Display name + SHA-256 hex of password.
-    // To generate a hash without DevTools: open the login modal in this page and
-    // expand "إنشاء تهيئة جديدة" — type a name + password and copy the line.
-    { name: '3bweh', passwordSha256: '1a9e19ef1fb6ab0bd048577f009a0ddec1403a63d1da40c315605ded993b0c95' },
-    { name: 'fees',  passwordSha256: 'd107e09b0629611f59a32ccf5ac82f25ecca11124dc7e75486ed9d63a09ace6e' },
-    { name: 'Sarta', passwordSha256: '3c24a8ba561a7c7c63e3282483ebbf16607e55f9ed868093d3818a15f323fa13' },
-  ];
-  const TEAM_BLOB_URL = 'https://jsonblob.com/api/jsonBlob/019e1c8e-f473-7ab7-9e64-d496dfcdadd5';
-
   const FAV_KEY = 'mojAuctions.favorites';
   const FAV_ONLY_KEY = 'mojAuctions.favOnly';
-  const TEAM_SESSION_KEY = 'mojAuctions.teamSession';
-  const TEAM_USER_KEY    = 'mojAuctions.teamUser';
-  const TEAM_LOCAL_SNAPSHOT_KEY = 'mojAuctions.favoritesLocalSnapshot';
-
-  // Strip out empty/incomplete user entries so a half-filled config still works.
-  const _activeUsers = () => TEAM_USERS.filter(u => u && u.name && u.passwordSha256);
-  // "Available" = blob URL is set (login button should show).
-  // "Configured" = at least one user is set (login can actually succeed).
-  const isTeamAvailable  = () => Boolean(TEAM_BLOB_URL);
-  const isTeamConfigured = () => _activeUsers().length > 0 && isTeamAvailable();
-  const currentTeamUser  = () => {
-    if (!isTeamConfigured()) return null;
-    const h = sessionStorage.getItem(TEAM_SESSION_KEY);
-    if (!h) return null;
-    return _activeUsers().find(u => u.passwordSha256 === h) || null;
-  };
-  const isTeamLoggedIn = () => currentTeamUser() !== null;
-
   let favorites;
   try { favorites = new Set(JSON.parse(localStorage.getItem(FAV_KEY) || '[]')); }
   catch { favorites = new Set(); }
 
-  // SHA-256 hex helper
-  const sha256Hex = async (str) => {
-    const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-    return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2,'0')).join('');
-  };
-
-  // Push the current `favorites` Set to the shared blob (debounced).
-  // Only runs when the user is logged in to the team.
-  let _favPushTimer = null;
-  const schedulePushFavorites = () => {
-    const user = currentTeamUser();
-    if (!user) return;
-    clearTimeout(_favPushTimer);
-    _favPushTimer = setTimeout(async () => {
-      try {
-        await fetch(TEAM_BLOB_URL, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            favorites: [...favorites],
-            updatedAt: new Date().toISOString(),
-            updatedBy: user.name,
-          }),
-        });
-      } catch (e) { console.warn('team favorites push failed:', e); }
-    }, 700);
-  };
-
-  // Pull the shared list from the blob and replace local state.
-  const pullSharedFavorites = async () => {
-    if (!isTeamConfigured()) return;
-    try {
-      const r = await fetch(TEAM_BLOB_URL, { cache: 'no-store' });
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      const data = await r.json();
-      const ids = (Array.isArray(data.favorites) ? data.favorites : [])
-        .map(Number).filter(Number.isFinite);
-      favorites = new Set(ids);
-      try { localStorage.setItem(FAV_KEY, JSON.stringify([...favorites])); } catch {}
-      document.getElementById('favCount').textContent = favorites.size;
-    } catch (e) { console.warn('team favorites pull failed:', e); }
-  };
-
   const saveFavorites = () => {
     try { localStorage.setItem(FAV_KEY, JSON.stringify([...favorites])); } catch {}
     document.getElementById('favCount').textContent = favorites.size;
-    schedulePushFavorites();
   };
   const isFav = (id) => favorites.has(+id);
   const toggleFav = (id) => {
@@ -1447,8 +1291,13 @@
       const id = +favCell.getAttribute('data-fav-id');
       toggleFav(id);
       const star = favCell.querySelector('.fav-star');
-      star.classList.toggle('is-fav', isFav(id));
-      star.textContent = isFav(id) ? '' : '';
+      const on = isFav(id);
+      star.classList.toggle('is-fav', on);
+      // Never touch textContent here: the star is an inline <svg>, and writing
+      // text would delete it. Toggle the path fill and the label instead.
+      const path = star.querySelector('svg path');
+      if (path) path.setAttribute('fill', on ? 'currentColor' : 'none');
+      star.setAttribute('aria-label', on ? 'في المفضلة' : 'غير مفضل');
       // If we're showing favorites-only, re-apply filter so the row appears/disappears
       if (document.getElementById('favOnlyBtn').classList.contains('active')) apply();
       return;
@@ -2677,144 +2526,6 @@
     document.body.appendChild(a); a.click(); a.remove();
     URL.revokeObjectURL(url);
   });
-
-  // ===== Team-login UI wiring =====
-  const teamLoginBtn   = document.getElementById('teamLoginBtn');
-  const teamLoginLabel = document.getElementById('teamLoginLabel');
-  const teamModalEl    = document.getElementById('teamLoginModal');
-  const teamModal      = new bootstrap.Modal(teamModalEl);
-  const teamPwdInput   = document.getElementById('teamPwdInput');
-  const teamLoginErr   = document.getElementById('teamLoginErr');
-  const teamLoginPanel = document.getElementById('teamLoginPanel');
-  const teamLoggedInPanel = document.getElementById('teamLoggedInPanel');
-  const teamLoginSubmit = document.getElementById('teamLoginSubmit');
-  const teamLogoutBtn  = document.getElementById('teamLogoutBtn');
-
-  const teamNoUsersPanel = document.getElementById('teamNoUsersPanel');
-  const teamModalTitle   = document.getElementById('teamModalTitle');
-  const renderTeamUi = () => {
-    if (!isTeamAvailable()) {
-      teamLoginBtn.style.display = 'none';   // feature fully disabled (no blob URL)
-      return;
-    }
-    teamLoginBtn.style.display = '';
-    const user = currentTeamUser();
-    const hasUsers = _activeUsers().length > 0;
-
-    // Reset panels
-    teamLoginPanel.classList.add('d-none');
-    teamLoggedInPanel.classList.add('d-none');
-    teamNoUsersPanel.classList.add('d-none');
-
-    if (user) {
-      teamLoginLabel.textContent = '' + user.name;
-      teamLoginBtn.classList.remove('btn-outline-light');
-      teamLoginBtn.classList.add('btn-success');
-      teamModalTitle.textContent = '' + user.name;
-      teamLoggedInPanel.classList.remove('d-none');
-      teamLoggedInPanel.querySelector('p').innerHTML =
-        'مسجَّل دخول كـ <strong>' + user.name + '</strong>. النجوم تُحفظ في القائمة المشتركة.';
-      teamLoginSubmit.style.display = 'none';
-      teamLogoutBtn.style.display   = '';
-    } else if (!hasUsers) {
-      // Blob configured but no users yet — show setup hint.
-      teamLoginLabel.textContent = 'إعداد الفريق';
-      teamLoginBtn.classList.remove('btn-success');
-      teamLoginBtn.classList.add('btn-outline-light');
-      teamModalTitle.textContent = 'إعداد الفريق';
-      teamNoUsersPanel.classList.remove('d-none');
-      teamLoginSubmit.style.display = 'none';   // can't log in without users
-      teamLogoutBtn.style.display   = 'none';
-    } else {
-      // Normal login state
-      teamLoginLabel.textContent = 'دخول الفريق';
-      teamLoginBtn.classList.remove('btn-success');
-      teamLoginBtn.classList.add('btn-outline-light');
-      teamModalTitle.textContent = 'دخول الفريق';
-      teamLoginPanel.classList.remove('d-none');
-      teamLoginSubmit.style.display = '';
-      teamLogoutBtn.style.display   = 'none';
-    }
-  };
-
-  teamLoginBtn.addEventListener('click', () => {
-    teamPwdInput.value = '';
-    teamLoginErr.classList.add('d-none');
-    teamModal.show();
-    if (!isTeamLoggedIn()) setTimeout(() => teamPwdInput.focus(), 200);
-  });
-
-  const submitTeamLogin = async () => {
-    const pwd = teamPwdInput.value;
-    if (!pwd) return;
-    const hash = await sha256Hex(pwd);
-    const user = _activeUsers().find(u => u.passwordSha256 === hash);
-    if (!user) {
-      teamLoginErr.classList.remove('d-none');
-      teamPwdInput.select();
-      return;
-    }
-    // Successful login: snapshot the user's pre-login local favorites (so they
-    // can be restored on logout), then replace with the team's shared list.
-    try { localStorage.setItem(TEAM_LOCAL_SNAPSHOT_KEY, JSON.stringify([...favorites])); } catch {}
-    sessionStorage.setItem(TEAM_SESSION_KEY, hash);
-    sessionStorage.setItem(TEAM_USER_KEY, user.name);
-    await pullSharedFavorites();
-    renderTeamUi();
-    teamModal.hide();
-    apply();
-  };
-  teamLoginSubmit.addEventListener('click', submitTeamLogin);
-  teamPwdInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') submitTeamLogin(); });
-
-  teamLogoutBtn.addEventListener('click', () => {
-    sessionStorage.removeItem(TEAM_SESSION_KEY);
-    sessionStorage.removeItem(TEAM_USER_KEY);
-    // Restore the pre-login local favorites snapshot, if we have one
-    try {
-      const snap = JSON.parse(localStorage.getItem(TEAM_LOCAL_SNAPSHOT_KEY) || '[]');
-      favorites = new Set(snap.map(Number).filter(Number.isFinite));
-      localStorage.setItem(FAV_KEY, JSON.stringify([...favorites]));
-      document.getElementById('favCount').textContent = favorites.size;
-    } catch {}
-    renderTeamUi();
-    apply();
-  });
-
-  // Inline "generate a TEAM_USERS line" helper (so the admin doesn't need DevTools)
-  const teamGenName = document.getElementById('teamGenName');
-  const teamGenPwd  = document.getElementById('teamGenPwd');
-  const teamGenBtn  = document.getElementById('teamGenBtn');
-  const teamGenOut  = document.getElementById('teamGenOut');
-  const teamGenOutWrap = document.getElementById('teamGenOutWrap');
-  const teamGenCopy = document.getElementById('teamGenCopy');
-  if (teamGenBtn) {
-    teamGenBtn.addEventListener('click', async () => {
-      const n = (teamGenName.value || '').trim();
-      const p = teamGenPwd.value || '';
-      if (!n || !p) { teamGenName.focus(); return; }
-      const hash = await sha256Hex(p);
-      // Single-quote the name only if it doesn't contain a single quote
-      const safeName = n.includes("'") ? `"${n.replace(/"/g, '\\"')}"` : `'${n}'`;
-      teamGenOut.value = `  { name: ${safeName}, passwordSha256: '${hash}' },`;
-      teamGenOutWrap.classList.remove('d-none');
-      teamGenPwd.value = '';
-    });
-    teamGenCopy.addEventListener('click', async () => {
-      try {
-        await navigator.clipboard.writeText(teamGenOut.value);
-        teamGenCopy.textContent = 'تم النسخ';
-        setTimeout(() => { teamGenCopy.textContent = 'نسخ'; }, 1500);
-      } catch {
-        teamGenOut.select();
-        document.execCommand('copy');
-      }
-    });
-  }
-
-  renderTeamUi();
-  // If a session is already active (page reload), pull fresh data quietly.
-  if (isTeamLoggedIn()) pullSharedFavorites().then(() => apply());
 
   // ===== Live overlay from live_bids.json (SignalR tracker sidecar) =====
   // live_bids.ps1 subscribes to MoJ's SignalR biddingHub and pushes state to

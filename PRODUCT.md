@@ -12,12 +12,16 @@ Arabic-speaking people in Jordan following court-ordered public auctions
 (المزادات العلنية) published by the Ministry of Justice — land, apartments,
 vehicles, trademarks and other seized assets sold under the execution law.
 
-Today the site is gated by a three-person client-side login (`3bweh`, `fees`,
-`Sarta`) and the README still describes it as "for internal use". **That is
-superseded:** the confirmed intent is to open it to the public, so future work
-should assume a visitor who has never seen it before, not three people who
-already know the data. The shared-favourites star was built for the three-person
-case and predates that decision.
+The site is public. It once carried a three-person client-side login
+(`3bweh`, `fees`, `Sarta`) and the README described it as "for internal use";
+both are superseded. Assume a visitor who has never seen it before.
+
+**The team login and shared favourites were removed on 2026-11-15.** They never
+provided access control — every file was world-readable regardless — and they
+published three unsalted SHA-256 password hashes in public source from
+2026-05-12. Favourites are still there, stored per browser in `localStorage`.
+Do not reintroduce a client-side password: there is no server, so any gate
+written in the page is decoration, and its hashes are public by construction.
 
 Typical situation: checking before a deadline, often on a phone, reading
 right-to-left, deciding whether a specific lot is worth pursuing.
@@ -102,10 +106,10 @@ countdown to four minutes, so a stated end time is not a real end time.
 - **Operational rule: nothing may hit `auctions.moj.gov.jo` between 11:00 and
   17:00 Amman time**, from cron or locally. Close-time bid tracking in that
   window is manual only.
-- **Access model is explicitly undecided.** The current SHA-256 team gate
-  identifies who starred what; it is not access control, and the shared-store
-  URL sits in client-side code. A real registration model was started and
-  reverted. Do not design as though either outcome is settled.
+- **Access model is explicitly undecided.** A real registration model was
+  started and reverted; the client-side team gate that followed it was removed
+  on 2026-11-15 (see Users). Nothing gates the data today, and nothing can
+  without a server. Do not design as though either outcome is settled.
 
 ## Brand Commitments
 
