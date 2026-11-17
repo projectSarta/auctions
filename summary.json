@@ -1,14 +1,14 @@
 {
-    "generatedAt":  "2026-11-17T22:56:52Z",
-    "dataScrapedAt":  "2026-11-16 23:48:31",
+    "generatedAt":  "2026-11-17T23:53:29Z",
+    "dataScrapedAt":  "2026-11-17 23:37:03",
     "totals":  {
-                   "all":  6110,
-                   "active":  630
+                   "all":  6113,
+                   "active":  634
                },
-    "endingIn24h":  59,
-    "endingInWeek":  291,
-    "reAnnounced":  349,
-    "withReport":  154,
+    "endingIn24h":  63,
+    "endingInWeek":  295,
+    "reAnnounced":  350,
+    "withReport":  155,
     "withMap":  434,
     "categories":  [
                        {
@@ -23,18 +23,18 @@
                        },
                        {
                            "name":  "شقة/ مكتب",
-                           "active":  169,
+                           "active":  170,
                            "total":  1300
                        },
                        {
                            "name":  "أُخرى",
-                           "active":  22,
-                           "total":  364
+                           "active":  23,
+                           "total":  365
                        },
                        {
                            "name":  "مركبة",
-                           "active":  56,
-                           "total":  2144
+                           "active":  58,
+                           "total":  2146
                        }
                    ],
     "closingSoon":  [
@@ -78,38 +78,38 @@
                             "hasMap":  false
                         },
                         {
+                            "id":  55180,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان / قسم شرق عمان",
+                            "place":  "",
+                            "endDate":  "2026-11-18 14:00:00",
+                            "estimatedValue":  4000,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  55176,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان / قسم شرق عمان",
+                            "place":  "",
+                            "endDate":  "2026-11-18 14:05:00",
+                            "estimatedValue":  2200,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
                             "id":  55165,
                             "category":  "مركبة",
                             "court":  "تنفيذ عمان / قسم شرق عمان",
                             "place":  "",
                             "endDate":  "2026-11-18 14:10:00",
                             "estimatedValue":  8500,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  54979,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ عمان / قسم شرق عمان",
-                            "place":  "",
-                            "endDate":  "2026-11-18 14:20:00",
-                            "estimatedValue":  5500,
-                            "currentAmount":  0,
-                            "numBids":  0,
-                            "serial":  1,
-                            "hasReport":  false,
-                            "hasMap":  false
-                        },
-                        {
-                            "id":  55163,
-                            "category":  "مركبة",
-                            "court":  "تنفيذ عمان / قسم شرق عمان",
-                            "place":  "",
-                            "endDate":  "2026-11-18 14:25:00",
-                            "estimatedValue":  2000,
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  1,
