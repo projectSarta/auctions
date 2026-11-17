@@ -185,10 +185,23 @@ FetchStep 'Phase 4: enrich images (active)' {
 
 # Phase 5: aradi.io parcel polygons (fetched server-side, embedded so the
 # browser doesn't have to hit aradi's no-CORS /api/plot endpoint at all).
-# Last of the fetch phases because it is the only one that does not hit MoJ,
-# so it is the least affected by being starved.
-FetchStep 'Phase 5: enrich aradi polygons (active land rows)' {
-  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_aradi.ps1') -MaxItems 400 -DelayMs 250 -MaxMinutes $script:PhaseBudgetMin
+# NOT a FetchStep, deliberately. This phase talks to aradi.io, never to MoJ, so
+# none of FetchStep's three gates apply to it: the 11:00-17:00 Amman window
+# protects MoJ and not aradi, $script:MojBlocked says nothing about aradi's
+# availability, and Test-MojServing would hit MoJ for no reason before an
+# aradi-only job.
+#
+# It used to be a FetchStep, and that is why coverage stalled. Measured
+# 2026-11-17: 419 of 613 active land and apartment lots had never been offered
+# to aradi at all -- no aradiPlot field, not an error -- while aradi itself
+# answered every request put to it (zero error statuses anywhere in the
+# archive). Any night MoJ was blocking or the window budget was spent, this
+# phase was skipped even though it could have run fine.
+#
+# Its own fixed ceiling, independent of $script:PhaseBudgetMin, so a starved
+# MoJ night no longer starves the map.
+Step 'Phase 5: enrich aradi polygons (active land rows)' {
+  & powershell.exe -ExecutionPolicy Bypass -File (Join-Path $Root 'enrich_aradi.ps1') -MaxItems 600 -DelayMs 250 -MaxMinutes 20
 }
 
 # Phase 6: rebuild summary.json — the landing page (index.html) reads this
