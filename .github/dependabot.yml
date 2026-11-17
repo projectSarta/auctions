@@ -1,0 +1,31 @@
+# Keeps the SHA-pinned actions in .github/workflows/ from going stale.
+#
+# The workflows pin actions/checkout and actions/upload-artifact to commit
+# SHAs rather than to @v4, because a version tag can be moved by whoever
+# controls the action repository and every run would pick that up silently.
+# A SHA cannot be moved -- but it also never updates, so a security fix to
+# checkout would never reach us. Dependabot closes that gap: it bumps the SHA
+# and rewrites the trailing "# v4.4.0" comment, so the pin stays current and
+# stays readable.
+#
+# github-actions is the only ecosystem here. This repository has no
+# package.json, requirements.txt, Gemfile, go.mod, Cargo.toml, composer.json
+# or Dockerfile, so there is nothing else to track.
+#
+# Note on triggers: the workflows run on `schedule` and `workflow_dispatch`
+# only, never on `pull_request`, so a Dependabot PR cannot start a scrape.
+# These PRs need a human to merge them; unmerged, they are only a notice that
+# a newer version exists.
+
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+    # Both actions are first-party and rarely change. A low cap keeps a quiet
+    # repository from filling with PRs nobody is watching for.
+    open-pull-requests-limit: 3
+    commit-message:
+      prefix: "chore(ci)"
