@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The balance scale from the navbar lockup, redrawn to survive 16px.
+
+     The navbar mark (dashboard.html, .seal) is a hairline drawing: strokes of
+     0.6 to 1.6 units on a 48 viewBox, plus two concentric rings at 35% and 55%
+     opacity. At 34px that reads as an engraving. At 16px the same strokes land
+     at 0.2 to 0.5 device pixels and vanish, and the rings collapse into a
+     smudge. So this is not that file scaled down: the rings are gone and every
+     stroke is rebuilt at 2.4 units, which is about 1.2px at 16 and holds.
+
+     It also carries its own navy ground rather than sitting on transparency.
+     The navbar gives the gold a navy bar to sit on; a tab strip does not, and
+     Treasury Gold on white is about 2.1:1, which is invisible. On the navy the
+     same gold measures 5.2:1.
+
+     Colours are the locked palette (tokens.css, "The Court Record"): the ground
+     is the accent navy #1B3A57, the mark is the seal gold #C9A961. Hex is
+     literal here because an .svg loaded through rel="icon" is a separate
+     document and never sees the page's custom properties.
+
+     Deliberately not a crest, a shield or an emblem. The scale is the common
+     symbol of a public auction, not a seal of office, and this page is not the
+     Ministry, which is the same rule that governs the title and the JSON-LD.
+
+     (No "- -" sequences in this comment: XML forbids them, and an unparseable
+     favicon fails silently to a blank tab.) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"
+     role="img" aria-label="لوحة المزادات">
+  <title>لوحة المزادات</title>
+
+  <!-- Full-bleed rounded square: more usable area than a circle at 16px, and
+       the same silhouette an installed icon needs. -->
+  <rect width="32" height="32" rx="7" fill="#1B3A57"/>
+
+  <!-- The drawn mark spans y 8.4 to 25.6, so its own centre is 17.0 against a
+       canvas centre of 16. Left alone it sits a unit low and the navy reads
+       unevenly, heavier above the beam than below the foot. This lifts it. -->
+  <g transform="translate(0 -1)">
+    <g stroke="#C9A961" stroke-width="2.4" stroke-linecap="round" fill="none">
+      <!-- beam -->
+      <path d="M7 10.5 H25"/>
+      <!-- post -->
+      <path d="M16 10.5 V24.4"/>
+      <!-- foot -->
+      <path d="M11.6 24.4 H20.4"/>
+    </g>
+
+    <!-- Pans: filled, not outlined. An outlined triangle at 16px is three
+         sub-pixel lines; a filled one is a shape. Apex at the beam, widening
+         down, which is how a hanging pan reads. -->
+    <path d="M7 11.3 L3.2 17.6 H10.8 Z" fill="#C9A961"/>
+    <path d="M25 11.3 L21.2 17.6 H28.8 Z" fill="#C9A961"/>
+
+    <!-- Pivot. Sits on the beam and thickens the centre, which is what keeps
+         the two halves reading as one object rather than two hooks. -->
+    <circle cx="16" cy="10.5" r="2.1" fill="#C9A961"/>
+  </g>
+</svg>

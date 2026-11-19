@@ -7,6 +7,30 @@
   <title>لوحة المزادات — متابعة غير رسمية لمزادات وزارة العدل الأردنية</title>
   <link rel="canonical" href="https://projectsarta.github.io/auctions/dashboard.html">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+  <!-- Icons. RELATIVE hrefs: the site serves from /auctions/, not the origin
+       root, so a leading slash would resolve to a file that does not exist.
+       The .svg is the same balance scale as the navbar lockup below, redrawn
+       with mass so it survives 16px; see favicon.svg for why. -->
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <!-- Share card. og:image must be ABSOLUTE; crawlers do not resolve it
+       against the page. Static by design: WhatsApp, Telegram and X cache it
+       hard on first fetch, so a baked lot count would be stale within a night
+       and would churn a binary into git on every overnight run. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="لوحة المزادات">
+  <meta property="og:locale" content="ar_JO">
+  <meta property="og:url" content="https://projectsarta.github.io/auctions/dashboard.html">
+  <meta property="og:title" content="لوحة المزادات — متابعة غير رسمية لمزادات وزارة العدل الأردنية">
+  <meta property="og:description" content="بحث وفرز في المزادات العلنية المنشورة على موقع وزارة العدل الأردنية حسب الفئة والمحافظة والقيمة وموعد الانتهاء. المصدر الرسمي: auctions.moj.gov.jo">
+  <meta property="og:image" content="https://projectsarta.github.io/auctions/og-dashboard.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="لوحة المزادات — بحث وفرز حسب الفئة والمحافظة والقيمة وموعد الانتهاء. المصدر الرسمي auctions.moj.gov.jo">
+  <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
 <style>
 /* Hallmark · shape: app screen · genre: modern-minimal · theme: brand · redesign: full

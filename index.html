@@ -7,6 +7,34 @@
 <meta name="description" content="متابعة المزادات القضائية الإلكترونية في الأردن: المزادات النشطة، ما يغلق خلال 24 ساعة، والفرص المُعاد إعلانها.">
 <link rel="canonical" href="https://projectsarta.github.io/auctions/">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<!-- Icons. The hrefs are RELATIVE on purpose: the site serves from
+     /auctions/, not the origin root, so a leading slash would point at
+     projectsarta.github.io/favicon.svg, which does not exist. Same trap that
+     currently makes robots.txt inert.
+     .ico first with an explicit size, then the .svg that modern browsers
+     prefer, then the iOS touch icon, which is a filled square because iOS
+     renders transparent corners black and applies its own mask. -->
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<!-- Share card. og:image must be ABSOLUTE: crawlers do not resolve it against
+     the page. The card is static and carries no counts, because WhatsApp,
+     Telegram and X fetch it once and cache it hard, so a baked figure would be
+     stale within a night and never re-fetched. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="لوحة المزادات">
+<meta property="og:locale" content="ar_JO">
+<meta property="og:url" content="https://projectsarta.github.io/auctions/">
+<meta property="og:title" content="لوحة المزادات — متابعة غير رسمية لمزادات وزارة العدل الأردنية">
+<meta property="og:description" content="متابعة المزادات القضائية الإلكترونية في الأردن: المزادات النشطة، ما يغلق خلال 24 ساعة، والفرص المُعاد إعلانها.">
+<meta property="og:image" content="https://projectsarta.github.io/auctions/og-landing.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="لوحة المزادات — متابعة غير رسمية لمزادات وزارة العدل الأردنية. المصدر الرسمي auctions.moj.gov.jo">
+<meta name="twitter:card" content="summary_large_image">
+
 <style>
 :root {
   /* Palette — shared with dashboard.html */
