@@ -50,7 +50,9 @@ Step 'Phase D: commit + push' {
   $status = (& git status --porcelain 2>$null) -join "`n"
   if (-not $status) { Write-Host "nothing to commit"; return }
   $ts  = (Get-Date).ToString('yyyy-MM-dd HH:mm')
-  $msg = "Slow-retry enrichment after captcha cool-off ($ts)`n`nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+  # No Co-Authored-By trailer, same rule as overnight_run.ps1: commit messages
+  # in this project carry no attribution lines.
+  $msg = "Slow-retry enrichment after captcha cool-off ($ts)"
   try {
     & git commit -m $msg 2>&1 | Out-String | Write-Host
     & git push origin main 2>&1 | Out-String | Write-Host

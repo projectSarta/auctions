@@ -241,7 +241,11 @@ Step 'Phase 8: commit + push' {
   $status = (& git status --porcelain 2>$null) -join "`n"
   if (-not $status) { Write-Host "nothing to commit"; return }
   $ts  = (Get-Date).ToString('yyyy-MM-dd HH:mm')
-  $msg = "Overnight: enrich active images + reports + fresh scrape ($ts)`n`nCo-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>"
+  # No Co-Authored-By trailer. These commits are the scheduled job's own work,
+  # and the house rule is that commit messages carry no attribution lines.
+  # Do not re-add one: this runs nightly, so a trailer here reaches every
+  # commit the project makes.
+  $msg = "Overnight: enrich active images + reports + fresh scrape ($ts)"
   try {
     & git commit -m $msg 2>&1 | Out-String | Write-Host
     & git push origin main 2>&1 | Out-String | Write-Host
