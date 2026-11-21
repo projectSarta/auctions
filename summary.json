@@ -1,15 +1,15 @@
 {
-    "generatedAt":  "2026-11-20T22:22:39Z",
-    "dataScrapedAt":  "2026-11-20 22:03:05",
+    "generatedAt":  "2026-11-21T20:54:44Z",
+    "dataScrapedAt":  "2026-11-21 20:53:50",
     "totals":  {
-                   "all":  6125,
-                   "active":  523
+                   "all":  6129,
+                   "active":  514
                },
-    "endingIn24h":  18,
-    "endingInWeek":  258,
-    "reAnnounced":  291,
-    "withReport":  129,
-    "withMap":  367,
+    "endingIn24h":  94,
+    "endingInWeek":  249,
+    "reAnnounced":  279,
+    "withReport":  116,
+    "withMap":  354,
     "categories":  [
                        {
                            "name":  "شركة / علامة تجارية",
@@ -18,7 +18,7 @@
                        },
                        {
                            "name":  "أرض/ مجمع",
-                           "active":  324,
+                           "active":  310,
                            "total":  2273
                        },
                        {
@@ -28,8 +28,8 @@
                        },
                        {
                            "name":  "أُخرى",
-                           "active":  17,
-                           "total":  367
+                           "active":  22,
+                           "total":  371
                        },
                        {
                            "name":  "مركبة",
@@ -39,12 +39,12 @@
                    ],
     "closingSoon":  [
                         {
-                            "id":  54698,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ معان",
-                            "place":  "سطح معان · اراضي معان",
-                            "endDate":  "2026-11-21 15:00:00",
-                            "estimatedValue":  19524,
+                            "id":  55270,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان",
+                            "place":  "",
+                            "endDate":  "2026-11-22 11:30:00",
+                            "estimatedValue":  84000,
                             "currentAmount":  0,
                             "numBids":  0,
                             "serial":  1,
@@ -52,69 +52,69 @@
                             "hasMap":  false
                         },
                         {
-                            "id":  53603,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ معان",
-                            "place":  "موقع ام مجحرة · اراضي معان",
-                            "endDate":  "2026-11-21 15:00:00",
-                            "estimatedValue":  1901,
-                            "currentAmount":  1950,
-                            "numBids":  5,
-                            "serial":  3,
-                            "hasReport":  true,
-                            "hasMap":  true
+                            "id":  55047,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-11-22 14:00:00",
+                            "estimatedValue":  11000,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
                         },
                         {
-                            "id":  53658,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ معان",
-                            "place":  "موقع ام مجحرة · اراضي معان",
-                            "endDate":  "2026-11-21 15:00:00",
-                            "estimatedValue":  1901,
-                            "currentAmount":  1950,
-                            "numBids":  6,
-                            "serial":  3,
-                            "hasReport":  true,
-                            "hasMap":  true
+                            "id":  55214,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ اربد",
+                            "place":  "",
+                            "endDate":  "2026-11-22 14:00:00",
+                            "estimatedValue":  8000,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
                         },
                         {
-                            "id":  51696,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ الشونة الجنوبية",
-                            "place":  "غور الرامة · اراضي الشونة الجنوبية",
-                            "endDate":  "2026-11-21 15:00:00",
-                            "estimatedValue":  144016,
-                            "currentAmount":  72008,
-                            "numBids":  1,
-                            "serial":  6,
-                            "hasReport":  true,
-                            "hasMap":  true
+                            "id":  55118,
+                            "category":  "أُخرى",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-11-22 14:00:00",
+                            "estimatedValue":  17915,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
                         },
                         {
-                            "id":  49153,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ ذيبان",
-                            "place":  "العاليه · اراضي ذيبان",
-                            "endDate":  "2026-11-21 15:00:00",
-                            "estimatedValue":  15360,
-                            "currentAmount":  8000,
-                            "numBids":  1,
+                            "id":  55083,
+                            "category":  "أُخرى",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-11-22 14:00:00",
+                            "estimatedValue":  4140,
+                            "currentAmount":  0,
+                            "numBids":  0,
+                            "serial":  1,
+                            "hasReport":  false,
+                            "hasMap":  false
+                        },
+                        {
+                            "id":  49833,
+                            "category":  "مركبة",
+                            "court":  "تنفيذ عمان / قسم شمال عمان",
+                            "place":  "",
+                            "endDate":  "2026-11-22 14:00:00",
+                            "estimatedValue":  5200,
+                            "currentAmount":  3519.997,
+                            "numBids":  17,
                             "serial":  4,
-                            "hasReport":  true,
-                            "hasMap":  true
-                        },
-                        {
-                            "id":  49151,
-                            "category":  "أرض/ مجمع",
-                            "court":  "تنفيذ ذيبان",
-                            "place":  "العاليه · اراضي ذيبان",
-                            "endDate":  "2026-11-21 15:00:00",
-                            "estimatedValue":  1277,
-                            "currentAmount":  700,
-                            "numBids":  1,
-                            "serial":  4,
-                            "hasReport":  true,
-                            "hasMap":  true
+                            "hasReport":  false,
+                            "hasMap":  false
                         }
                     ],
     "bargains":  [
